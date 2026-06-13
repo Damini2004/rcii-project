@@ -7,6 +7,8 @@ import Solutions from '../pages/Solutions.jsx'
 import Blog from '../pages/Blog.jsx'
 import Contact from '../pages/Contact.jsx'
 import Researches from '../pages/researches/Researches.jsx'
+import PubSupport from '../pages/researches/PubSupport.jsx'
+import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
 
 function AppRoutes() {
   return (
@@ -18,6 +20,8 @@ function AppRoutes() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/researchers" element={<Researches />} />
+      <Route path="/publication-support" element={<PubSupport />} />
+      <Route path="/ipInnovation-support" element={<IpinnoSupport />} />
     </Routes>
   )
 }

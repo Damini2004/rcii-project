@@ -10,9 +10,11 @@ const navItems = [
     label: "Researchers",
     path: "/researchers",
     dropdown: [
-      { label: "Researchers", path: "/researchers" },
-      { label: "Author Services", path: "/author-services" },
+      // { label: "Researchers", path: "/researchers" },
+      // { label: "Author Services", path: "/author-services" },
       { label: "Publication Support", path: "/publication-support" },
+      { label: "Ip & Innovation Support", path: "/ipInnovation-support" },
+
       { label: "Research Profiles", path: "/research-profiles" },
       { label: "Patent Services", path: "/patent-services" },
       { label: "Grants & Funding", path: "/grants-funding" },
