@@ -29,7 +29,7 @@ const navItems = [
       { label: "Ranking Support", path: "/ranking-support" },
       { label: "Institutional Repository", path: "/institutional-repository" },
       { label: "Research Policy", path: "/research-policy" },
-      { label: "Consulting", path: "/consulting" },
+      { label: "Consulting", path: "/research-consulting" },
     ],
   },
 
