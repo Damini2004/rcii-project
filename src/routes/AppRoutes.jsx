@@ -6,6 +6,7 @@ import Services from '../pages/Services.jsx'
 import Solutions from '../pages/Solutions.jsx'
 import Blog from '../pages/Blog.jsx'
 import Contact from '../pages/Contact.jsx'
+import Researches from '../pages/researches/Researches.jsx'
 
 function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ function AppRoutes() {
       <Route path="/solutions" element={<Solutions />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/researchers" element={<Researches />} />
     </Routes>
   )
 }
