@@ -9,6 +9,7 @@ import Contact from '../pages/Contact.jsx'
 import Researches from '../pages/researches/Researches.jsx'
 import PubSupport from '../pages/researches/PubSupport.jsx'
 import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
+import AuthorServices from '../pages/researches/AuthorServices.jsx'
 
 function AppRoutes() {
   return (
@@ -21,7 +22,8 @@ function AppRoutes() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/researchers" element={<Researches />} />
       <Route path="/publication-support" element={<PubSupport />} />
-      <Route path="/ipInnovation-support" element={<IpinnoSupport />} />
+      <Route path="/ip-innovation-support" element={<IpinnoSupport />} />
+      <Route path='/author-services' element={<AuthorServices />} />
     </Routes>
   )
 }

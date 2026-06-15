@@ -4,21 +4,22 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "../assets/rc.png"; // use your RC logo image
 
 const navItems = [
-  { label: "Home", path: "/" },
+  // { label: "Home", path: "/" },
 
   {
     label: "Researchers",
     path: "/researchers",
     dropdown: [
       // { label: "Researchers", path: "/researchers" },
-      // { label: "Author Services", path: "/author-services" },
+      { label: "Author Services", path: "/author-services" },
       { label: "Publication Support", path: "/publication-support" },
-      { label: "Ip & Innovation Support", path: "/ipInnovation-support" },
+      { label: "Ip & Innovation Support", path: "/ip-innovation-support" },
+      { label: "Research Resources & Templates", path: "/reserach-resources-templates" },
 
-      { label: "Research Profiles", path: "/research-profiles" },
-      { label: "Patent Services", path: "/patent-services" },
-      { label: "Grants & Funding", path: "/grants-funding" },
-      { label: "Career Support", path: "/career-support" },
+      { label: "Research Profiling & Visibility", path: "/research-profiling-visibility" },
+    
+      { label: "Grant & Funding Support", path: "/grant-funding-support" },
+      { label: "Career & Growth Resources", path: "/career-growth-resources" },
     ],
   },
 
@@ -47,7 +48,21 @@ const navItems = [
     ],
   },
 
-  {
+  
+ 
+
+ {
+    label: "Innovation & Ip",
+    path: "/inovation",
+    dropdown: [
+      { label: "RAMS", path: "/rams" },
+      { label: "Journal Hosting", path: "/journal-hosting" },
+      { label: "DOI Platform", path: "/doi-platform" },
+      { label: "Conference System", path: "/conference-system" },
+      { label: "Research Profiles", path: "/research-profiles" },
+    ],
+  },
+ {
     label: "Technology",
     path: "/technology",
     dropdown: [
@@ -59,11 +74,12 @@ const navItems = [
     ],
   },
 
+
   {
-    label: "Company",
-    path: "/about",
+    label: "Resources",
+    path: "/resources",
     dropdown: [
-      { label: "About Us", path: "/about" },
+     
       { label: "Our Team", path: "/team" },
       { label: "Careers", path: "/careers" },
       { label: "Contact Us", path: "/contact" },
@@ -71,6 +87,8 @@ const navItems = [
       { label: "Terms & Conditions", path: "/terms-conditions" },
     ],
   },
+
+   { label: "About Us", path: "/about" },
 ];
 
 export default function Navbar() {
@@ -85,10 +103,10 @@ export default function Navbar() {
           : "bg-[#061A33] border-b border-[#0f1738]"
       }`}
     >
-      <nav className="w-full px-7">
+      <nav className="w-full px-6">
         <div className="flex items-center justify-between h-[70px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-1">
             <img
               src={logo}
               alt="Researcher Connect"
@@ -123,12 +141,12 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
                 <Link
                   to={item.path}
-                  className={`relative flex items-center gap-1 text-[13px] font-extrabold transition-colors duration-300 group-hover:text-[#4F46E5] ${
+                  className={`relative flex items-center gap-1 text-[13px] font-bold transition-colors duration-300 group-hover:text-[#4F46E5] ${
                     location.pathname === "/" ? "text-[#07073F]" : "text-white"
                   }`}
                 >
@@ -180,21 +198,47 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-       {mobileOpen && (
-  <div className="lg:hidden bg-white border-t border-gray-100 py-4">
+  {/* Mobile Sidebar Overlay */}
+<div
+  className={`fixed inset-0 z-[999] bg-black/40 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
+    mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"
+  }`}
+  onClick={() => setMobileOpen(false)}
+/>
+
+{/* Mobile Sidebar */}
+<aside
+  className={`fixed top-0 right-0 z-[1000] h-screen w-[82%] max-w-[330px] bg-white shadow-[-10px_0_30px_rgba(0,0,0,0.15)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
+    mobileOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+  <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+    <span className="text-[18px] font-extrabold text-[#07073F]">Menu</span>
+
+    <button
+      onClick={() => setMobileOpen(false)}
+      className="w-9 h-9 rounded-full bg-[#F1EDFF] text-[#4F46E5] flex items-center justify-center"
+    >
+      ✕
+    </button>
+  </div>
+
+  <div className="h-[calc(100vh-73px)] overflow-y-auto py-4">
     {navItems.map((item) => (
       <div key={item.label}>
         <Link
           to={item.path}
-          onClick={() => setMobileOpen(false)}
-          className="flex items-center justify-between px-4 py-3 text-sm font-bold text-[#07073F]"
+          onClick={() => {
+            if (!item.dropdown) setMobileOpen(false);
+          }}
+          className="flex items-center justify-between px-5 py-3 text-sm font-bold text-[#07073F] hover:bg-[#F8F7FF]"
         >
           {item.label}
           {item.dropdown && <ChevronDown size={16} />}
         </Link>
 
         {item.dropdown && (
-          <div className="pl-5">
+          <div className="pl-5 border-l border-[#EEF0FF] ml-5">
             {item.dropdown.map((sub) => (
               <Link
                 key={sub.label}
@@ -213,12 +257,12 @@ export default function Navbar() {
     <Link
       to="/contact"
       onClick={() => setMobileOpen(false)}
-      className="block mx-4 mt-3 text-center bg-[#4F46E5] text-white font-bold py-3 rounded-lg"
+      className="block mx-5 mt-5 text-center bg-[#4F46E5] text-white font-bold py-3 rounded-lg shadow-md"
     >
       Get in Touch
     </Link>
   </div>
-)}
+</aside>
       </nav>
     </header>
   );
