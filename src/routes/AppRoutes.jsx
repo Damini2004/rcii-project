@@ -13,6 +13,7 @@ import InstitutionalRepository from '../pages/Institutions/InstitutionalReposito
 import PubSupport from '../pages/researches/PubSupport.jsx'
 import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
 import AuthorServices from '../pages/researches/AuthorServices.jsx'
+import ResearchResourcesPage from '../pages/researches/ResearchResourcesTemplate.jsx'
 
 function AppRoutes() {
   return (
@@ -30,6 +31,9 @@ function AppRoutes() {
       <Route path="/publication-support" element={<PubSupport />} />
       <Route path="/ip-innovation-support" element={<IpinnoSupport />} />
       <Route path='/author-services' element={<AuthorServices />} />
+      <Route path='/reserach-resources-templates' element={<ResearchResourcesPage />} />
+
+      
     </Routes>
   )
 }
