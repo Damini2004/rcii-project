@@ -128,7 +128,7 @@ function PubSupport() {
         <span className="text-gray-500">Publication Support</span>
       </div>
 
-      <h1 className="text-[34px] sm:text-[42px] lg:text-[50px] leading-none font-bold text-[#07113F]">
+      <h1 className="text-[34px] sm:text-[40px] lg:text-[46px] leading-none font-bold text-[#07113F]">
         Publication <br />
         <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
           Support

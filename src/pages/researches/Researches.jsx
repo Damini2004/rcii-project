@@ -190,7 +190,7 @@ export default function ResearchersPage() {
 </div>
 
     <div className="max-w-[470px]">
-      <h1 className="lg:text-[50px] text-[30px] leading-none font-bold text-[#07113F]">
+      <h1 className="lg:text-[46px] text-[34px] sm:text-[40px] leading-none font-bold text-[#07113F]">
         For{" "}
         <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
           Researchers

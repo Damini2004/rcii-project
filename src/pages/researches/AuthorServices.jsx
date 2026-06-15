@@ -22,6 +22,10 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImg from "../../assets/bgauth.png";
+import auth1 from "../../assets/auth1.png"
+import auth2 from "../../assets/auth2.png"
+
+
 
 function AuthorServices() {
   const lifecycle = [
@@ -47,7 +51,7 @@ function AuthorServices() {
   const supportAreas = [
     ["Journals", ["Scopus Indexed", "Web of Science", "ESCI", "SCI/SCIE", "PubMed"], FileText],
     ["Books", ["Edited Books", "Monographs", "Book Chapters"], BookOpen],
-    ["Conferences", ["IEEE", "Springer Proceedings", "AIP", "ACM", "Elsevier Proceedings"], Trophy],
+    ["Conferences", ["IEEE",  "AIP", "ACM", "Springer Proceedings","Elsevier Proceedings"], Trophy],
   ];
 
   const requests = [
@@ -104,7 +108,7 @@ function AuthorServices() {
              <span className="text-gray-500">Author Services</span>
            </div>
      
-           <h1 className="text-[34px] sm:text-[42px] lg:text-[50px] leading-none font-bold text-[#07113F]">
+           <h1 className="text-[34px] sm:text-[40px] lg:text-[46px] leading-none font-bold text-[#07113F]">
               Author <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
                 Services
              </span>
@@ -256,184 +260,326 @@ function AuthorServices() {
 </section>
 
       {/* WHY + AREAS */}
-      <section className="py-3">
-        <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-sm p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-6 h-6 rounded-full bg-[#573BFF] text-white text-xs font-bold flex items-center justify-center">
-                  3
-                </span>
-                <h2 className="text-[16px] font-extrabold">Why Choose RCII</h2>
-              </div>
+    <section className="py-3 bg-[#FBFCFF]">
+  <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
-              <div className="grid sm:grid-cols-2 gap-5 items-center">
-                <div className="rounded-xl bg-[#F3F6FF] min-h-[180px] flex items-center justify-center">
-                  <Scale size={90} className="text-[#573BFF]" />
+      {/* WHY CHOOSE */}
+      <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-[0_8px_25px_rgba(26,32,80,0.05)] p-5">
+        <div className="flex items-center gap-3 mb-5">
+          <span className="w-7 h-7 rounded-full bg-[#573BFF] text-white text-[13px] font-bold flex items-center justify-center shadow-[0_6px_14px_rgba(87,59,255,0.25)]">
+            3
+          </span>
+          <h2 className="text-[18px] sm:text-[22px] font-bold text-[#07113F]">
+            Why Choose RCII
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-[52%_48%] gap-4 items-center">
+          <div className="group rounded-xl overflow-hidden min-h-[280px] flex items-center justify-center transition-all duration-500 hover:-translate-y-1">
+            <img
+              src={auth1}
+              alt="Ethical First"
+              className="w-full max-h-[220px] object-contain transition-all duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div>
+            <h3 className="text-[14px] sm:text-[16px] font-bold text-[#07113F] mb-4">
+              Ethical First Approach
+            </h3>
+
+            <ul className="space-y-4">
+              {[
+                "No acceptance guarantees",
+                "No editorial influence",
+                "No peer-review manipulation",
+                "No predatory journal recommendations",
+                "Full transparency",
+                "Researcher-centered services",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-[11.5px] sm:text-[12px] font-semibold leading-[17px] text-[#253150] transition-all duration-300 hover:translate-x-1"
+                >
+                  <CheckCircle2
+                    size={14}
+                    strokeWidth={3}
+                    className="text-[#0EA5B7] mt-[1px] shrink-0"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* PUBLICATION SUPPORT AREAS */}
+      <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-[0_8px_25px_rgba(26,32,80,0.05)] p-5">
+        <div className="flex items-center gap-3 mb-5">
+          <span className="w-7 h-7 rounded-full bg-[#573BFF] text-white text-[13px] font-bold flex items-center justify-center shadow-[0_6px_14px_rgba(87,59,255,0.25)]">
+            4
+          </span>
+          <h2 className="text-[18px] sm:text-[22px] font-bold text-[#07113F]">
+            Publication Support Areas
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {supportAreas.map(([title, items, Icon], index) => {
+            const iconStyle =
+              index === 1
+                ? "bg-[#EAF9FC] text-[#1498B8]"
+                : index === 2
+                ? "bg-[#F1EDFF] text-[#573BFF]"
+                : "bg-[#F1EDFF] text-[#573BFF]";
+
+            return (
+              <div
+                key={title}
+                className="group rounded-[14px] border border-[#E8ECF7] bg-white px-5 py-5 min-h-[230px] transition-all duration-500 hover:-translate-y-2 hover:border-[#C7D2FE] hover:shadow-[0_16px_34px_rgba(79,70,229,0.13)]"
+              >
+                <div
+                  className={`mx-auto w-[56px] h-[56px] rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 ${iconStyle}`}
+                >
+                  <Icon size={30} strokeWidth={2.2} />
                 </div>
 
-                <ul className="space-y-3">
-                  {[
-                    "Ethical First Approach",
-                    "No acceptance guarantees",
-                    "No artificial influence",
-                    "No peer-review manipulation",
-                    "No predatory journal recommendations",
-                    "Full transparency",
-                    "Researcher-centered services",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-[11.5px] font-semibold text-[#253150]">
-                      <CheckCircle2 size={13} className="text-[#0097A7]" />
-                      {item}
+                <h3 className="mt-3 text-center text-[15px] font-bold text-[#07113F]">
+                  {title}
+                </h3>
+
+                <ul className="mt-3 space-y-2">
+                  {items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2 text-[11.5px] sm:text-[12px] font-semibold leading-[16px] text-[#253150]"
+                    >
+                      <CheckCircle2
+                        size={13}
+                        strokeWidth={3}
+                        className="text-[#573BFF] mt-[1px] shrink-0"
+                      />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
-
-            <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-sm p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-6 h-6 rounded-full bg-[#573BFF] text-white text-xs font-bold flex items-center justify-center">
-                  4
-                </span>
-                <h2 className="text-[16px] font-extrabold">Publication Support Areas</h2>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {supportAreas.map(([title, items, Icon]) => (
-                  <div key={title} className="rounded-xl border border-[#E8ECF7] p-4 transition-all duration-500 hover:-translate-y-2 hover:shadow-md">
-                    <Icon size={28} className="text-[#573BFF] mb-3" />
-                    <h3 className="text-[13px] font-black">{title}</h3>
-                    <ul className="mt-3 space-y-2">
-                      {items.map((item) => (
-                        <li key={item} className="flex gap-2 text-[10.5px] font-semibold text-[#253150]">
-                          <CheckCircle2 size={11} className="text-[#573BFF] mt-[2px]" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
-      </section>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* REQUESTED SERVICES */}
-      <section className="py-3">
-        <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
-          <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-sm px-4 sm:px-6 py-5">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="w-6 h-6 rounded-full bg-[#573BFF] text-white text-xs font-bold flex items-center justify-center">
-                5
-              </span>
-              <h2 className="text-[16px] font-extrabold">Frequently Requested Services</h2>
-            </div>
+     <section className="py-3 bg-[#FBFCFF]">
+  <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
+    <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-[0_8px_25px_rgba(26,32,80,0.05)] px-4 sm:px-6 py-5">
+      
+      <div className="flex items-center gap-3 mb-5">
+        <span className="w-7 h-7 rounded-full bg-[#573BFF] text-white text-[13px] font-bold flex items-center justify-center shadow-[0_6px_14px_rgba(87,59,255,0.25)]">
+          5
+        </span>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {requests.map(([title, Icon]) => (
-                <div key={title} className="group text-center rounded-xl border border-[#E8ECF7] p-4 transition-all duration-500 hover:-translate-y-2 hover:shadow-md">
-                  <Icon size={28} className="mx-auto text-[#573BFF]" />
-                  <p className="mt-3 text-[11px] font-black leading-[15px] whitespace-pre-line">{title}</p>
-                </div>
-              ))}
+        <h2 className="text-[18px] sm:text-[22px] font-bold text-[#07113F]">
+          Frequently Requested Services
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+        {requests.map(([title, Icon], index) => {
+          const iconStyles = [
+            "bg-[#F1EDFF] text-[#573BFF]",
+            "bg-[#FFF0E7] text-[#FF7A22]",
+            "bg-[#EAF9FC] text-[#1498B8]",
+            "bg-[#F1EDFF] text-[#573BFF]",
+            "bg-[#EAF9FC] text-[#1498B8]",
+            "bg-[#F1EDFF] text-[#573BFF]",
+          ];
+
+          return (
+            <div
+              key={title}
+              className="group text-center bg-white rounded-[14px] border border-[#E8ECF7] px-4 py-5 min-h-[130px] flex flex-col items-center justify-center transition-all duration-500 hover:-translate-y-2 hover:border-[#C7D2FE] hover:shadow-[0_16px_34px_rgba(79,70,229,0.13)]"
+            >
+              <div
+                className={`w-[52px] h-[52px] rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_24px_rgba(79,70,229,0.15)] ${iconStyles[index]}`}
+              >
+                <Icon size={25} strokeWidth={2.2} />
+              </div>
+
+              <p className="mt-4 text-[13px] sm:text-[14px] font-bold leading-[18px] text-[#07113F] whitespace-pre-line">
+                {title}
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
+          );
+        })}
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* SUCCESS METRICS */}
-      <section className="py-3">
-        <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
-          <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-sm px-4 sm:px-6 py-5">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="w-6 h-6 rounded-full bg-[#573BFF] text-white text-xs font-bold flex items-center justify-center">
-                6
-              </span>
-              <h2 className="text-[16px] font-extrabold">Success Metrics</h2>
-            </div>
+     <section className="py-3 bg-[#FBFCFF]">
+  <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16">
+    <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-[0_8px_25px_rgba(26,32,80,0.05)] px-4 sm:px-6 py-5">
+      
+      <div className="flex items-center gap-3 mb-5">
+        <span className="w-7 h-7 rounded-full bg-[#573BFF] text-white text-[13px] font-bold flex items-center justify-center shadow-[0_6px_14px_rgba(87,59,255,0.25)]">
+          6
+        </span>
 
-            <div className="rounded-[14px] overflow-hidden bg-gradient-to-r from-[#573BFF] to-[#0097A7]">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-                {[
-                  ["10,000+", "Manuscripts Supported", Users],
-                  ["300+", "Journals Covered", BookOpen],
-                  ["25+", "Countries", Globe2],
-                  ["2,000+", "Publication Projects", Award],
-                ].map(([num, label, Icon]) => (
-                  <div key={label} className="group flex items-center justify-center gap-4 px-5 py-5 border-white/15 border-b lg:border-b-0 lg:border-r last:border-r-0 transition-all duration-500 hover:bg-white/10">
-                    <div className="w-[50px] h-[50px] rounded-full bg-white/15 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-all">
-                      <Icon size={24} className="text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-[20px] font-black text-white">{num}</h3>
-                      <p className="text-[11px] font-semibold text-white/90">{label}</p>
-                    </div>
-                  </div>
-                ))}
+        <h2 className="text-[18px] sm:text-[22px] font-bold text-[#07113F]">
+          Success Metrics
+        </h2>
+      </div>
+
+      <div className="rounded-[16px] overflow-hidden bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] shadow-[0_12px_28px_rgba(79,70,229,0.18)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["10,000+", "Researchers\nSupported", Users],
+            ["300+", "Journals\nCovered", BookOpen],
+            ["25+", "Countries", Globe2],
+            ["2,000+", "Publication\nProjects", Award],
+          ].map(([num, label, Icon], index) => (
+            <div
+              key={label}
+              className={`
+                group relative flex items-center justify-center gap-5 px-6 py-6
+                transition-all duration-500 cursor-pointer hover:bg-white/10
+                ${index !== 3 ? "lg:border-r lg:border-white/15" : ""}
+                ${index < 2 ? "sm:border-b lg:border-b-0 border-white/15" : ""}
+              `}
+            >
+              <div className="w-[56px] h-[56px] rounded-full bg-white text-[#573BFF] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_10px_25px_rgba(255,255,255,0.25)]">
+                <Icon size={30} strokeWidth={2.1} />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ETHICS */}
-      <section className="py-3">
-        <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
-          <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-sm px-4 sm:px-6 py-5">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="w-6 h-6 rounded-full bg-[#573BFF] text-white text-xs font-bold flex items-center justify-center">
-                7
-              </span>
-              <h2 className="text-[16px] font-extrabold">Publication Ethics</h2>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-              {ethics.map(([title, Icon]) => (
-                <div key={title} className="group text-center p-4 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:bg-[#F8F7FF]">
-                  <Icon size={30} className="mx-auto text-[#573BFF]" />
-                  <p className="mt-3 text-[11px] font-black leading-[15px] whitespace-pre-line">{title}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-3 pb-8">
-        <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
-          <div className="relative overflow-hidden rounded-[16px] bg-gradient-to-r from-[#F7F5FF] to-[#EAF9FC] border border-[#EEF0FF] px-5 sm:px-8 py-6">
-            <div className="grid lg:grid-cols-[1fr_auto] gap-5 items-center">
               <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-6 h-6 rounded-full bg-[#573BFF] text-white text-xs font-bold flex items-center justify-center">
-                    8
-                  </span>
-                  <h2 className="text-[20px] sm:text-[24px] font-black">
-                    Ready to Strengthen Your <br className="hidden sm:block" />
-                    Research Publication Journey?
-                  </h2>
-                </div>
-                <p className="text-[12px] font-semibold text-[#253150] max-w-[560px]">
-                  Our experts are here to support you at every step of the way with ethical,
-                  transparent, and professional guidance.
+                <h3 className="text-[18px] sm:text-[22px] font-bold leading-none text-white">
+                  {num}
+                </h3>
+
+                <p className="mt-2 text-[12px] sm:text-[13px] font-semibold leading-[16px] text-white/95 whitespace-pre-line">
+                  {label}
                 </p>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-              <div className="flex flex-wrap gap-4">
-                <button className="bg-[#573BFF] text-white text-[13px] font-bold px-6 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1">
-                  Talk to an Expert <ArrowRight size={15} />
-                </button>
-                <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[13px] font-bold px-6 py-3 rounded-lg transition-all duration-500 hover:-translate-y-1">
-                  Request Consultation
-                </button>
+    </div>
+  </div>
+</section>
+
+      {/* ETHICS */}
+     <section className="py-3 bg-[#FBFCFF]">
+  <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
+    <div className="bg-white rounded-[16px] border border-[#EEF0FF] shadow-[0_8px_25px_rgba(26,32,80,0.05)] px-4 sm:px-6 py-5">
+      
+      <div className="flex items-center gap-3 mb-5">
+        <span className="w-7 h-7 rounded-full bg-[#573BFF] text-white text-[13px] font-bold flex items-center justify-center shadow-[0_6px_14px_rgba(87,59,255,0.25)]">
+          7
+        </span>
+
+        <h2 className="text-[18px] sm:text-[22px] font-bold text-[#07113F]">
+          Publication Ethics
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-[34%_66%] gap-6 items-center">
+        
+        <div>
+          <h3 className="text-[15px] sm:text-[16px] font-bold text-[#573BFF] mb-3">
+            Our Commitment
+          </h3>
+
+          <p className="text-[12px] sm:text-[13px] font-semibold leading-[1.9] text-[#253150] max-w-[460px]">
+            Researcher Connect follows international publication ethics
+            principles and promotes responsible research dissemination.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+          {ethics.map(([title, Icon], index) => (
+            <div
+              key={title}
+              className={`group text-center px-4 py-2 transition-all duration-500 hover:-translate-y-2 cursor-pointer ${
+                index !== ethics.length - 1
+                  ? "lg:border-r lg:border-[#E8ECF7]"
+                  : ""
+              }`}
+            >
+              <div className="mx-auto w-[50px] h-[50px] rounded-full bg-[#F1EDFF] text-[#573BFF] flex items-center justify-center transition-all duration-500 group-hover:bg-[#573BFF] group-hover:text-white group-hover:scale-110 ">
+                <Icon size={26} strokeWidth={2.1} />
               </div>
+
+              <p className="mt-2 text-[13px] sm:text-[14px] font-bold leading-[18px] text-[#07113F] whitespace-pre-line">
+                {title}
+              </p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* CTA */}
+     <section className="py-3 pb-8 bg-[#FBFCFF]">
+  <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14">
+    <div className="group relative overflow-hidden rounded-[16px] border border-[#EEF0FF] shadow-[0_8px_25px_rgba(26,32,80,0.05)] min-h-[170px] px-5 sm:px-7 lg:px-8 py-6">
+      
+      <img
+        src={auth2}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover rounded-[16px] transition-all duration-700 group-hover:scale-105"
+      />
+
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-center">
+        
+        <div>
+          <div className="flex items-start gap-4">
+            <span className="w-7 h-7 rounded-full bg-[#573BFF] text-white text-[13px] font-bold flex items-center justify-center shadow-[0_6px_14px_rgba(87,59,255,0.25)] shrink-0 mt-1">
+              8
+            </span>
+
+            <div>
+              <h2 className="text-[18px] sm:text-[25px]  font-bold leading-tight text-[#07113F]">
+                Ready to Strengthen Your <br className="hidden sm:block" />
+                Research Publication Journey?
+              </h2>
+
+              <p className="sm:mt-4 mt-2 text-[12px] sm:text-[13px] font-semibold leading-[1.6] text-[#253150] max-w-[410px]">
+                Our experts are here to support you at every step of the way
+                with ethical, transparent, and professional guidance.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+
+        <div className="flex flex-wrap gap-4 lg:gap-8 lg:pr-12">
+          <button className="bg-[#573BFF] text-white text-[13px] sm:text-[14px] font-bold px-6 py-3 rounded-lg inline-flex items-center gap-3 shadow-md transition-all duration-500 hover:-translate-y-1 hover:bg-[#4338CA] hover:shadow-xl">
+            Talk to an Expert
+            <ArrowRight size={16} strokeWidth={3} />
+          </button>
+
+          <button className="bg-white/80 text-[#2563EB] border-2 border-[#69A9E8] text-[13px] sm:text-[14px] font-bold px-6 py-3 rounded-lg transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-lg">
+            Request Consultation
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   );
 }
