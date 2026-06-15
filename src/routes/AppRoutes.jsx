@@ -7,15 +7,12 @@ import Solutions from '../pages/Solutions.jsx'
 import Blog from '../pages/Blog.jsx'
 import Contact from '../pages/Contact.jsx'
 import Researches from '../pages/researches/Researches.jsx'
-<<<<<<< HEAD
 import ResearcherAnalytics from '../pages/Institutions/ResearchAnalytics.jsx'
 import ResearchConsulting from '../pages/Institutions/ResearchConsulting.jsx'
 import InstitutionalRepository from '../pages/Institutions/InstitutionalRepository.jsx'
-=======
 import PubSupport from '../pages/researches/PubSupport.jsx'
 import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
 import AuthorServices from '../pages/researches/AuthorServices.jsx'
->>>>>>> 40671ae187f58181e5bf2ac3fb8bb37dfbf71eb7
 
 function AppRoutes() {
   return (
@@ -27,15 +24,12 @@ function AppRoutes() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/researchers" element={<Researches />} />
-<<<<<<< HEAD
       <Route path="/research-analytics" element={<ResearcherAnalytics />} />
       <Route path="/research-consulting" element={<ResearchConsulting />} />
       <Route path="/institutional-repository" element={<InstitutionalRepository/>} />
-=======
       <Route path="/publication-support" element={<PubSupport />} />
       <Route path="/ip-innovation-support" element={<IpinnoSupport />} />
       <Route path='/author-services' element={<AuthorServices />} />
->>>>>>> 40671ae187f58181e5bf2ac3fb8bb37dfbf71eb7
     </Routes>
   )
 }
