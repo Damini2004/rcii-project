@@ -7,6 +7,8 @@ import {
 import { Link } from "react-router-dom";
 import heroBg from "../../assets/bgresearch.png";
 import bg from "../../assets/research2.png"
+import rct from "../../assets/rct.png"
+import auth2 from "../../assets/auth2.png"
 
 const categories = [
   ["Writing Resources", "Guides, templates, and tools for effective academic writing.", PenLine],
@@ -105,214 +107,288 @@ export default function ResearchResourcesPage() {
        </div>
      </section>
 
-   <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 xl:px-10 py-6 sm:py-8">
-      <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 py-7 sm:px-6 lg:px-8 xl:px-10 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
-        <div className="text-center">
-          <h2 className="text-[18px] sm:text-[21px] font-extrabold text-[#121832]">
-            Explore Our Resource Categories
-          </h2>
-          <div className="mx-auto mt-3 h-[3px] w-11 rounded-full bg-[#5b35ff]" />
-        </div>
+  <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-14 py-2 ">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#edf0fb] bg-white px-4 sm:px-6 lg:px-8 py-8 shadow-[0_8px_28px_rgba(79,70,229,0.07)]">
+    <div className="text-center">
+      <h2 className="text-[20px] sm:text-[26px] font-bold text-[#111832]">
+        Explore Our Resource Categories
+      </h2>
+      <div className="mx-auto mt-3 h-[3px] w-11 rounded-full bg-[#5b35ff]" />
+    </div>
 
-        <div className="mt-8 grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
-          {categories.map(({ title, desc, icon: Icon, color, bg }, index) => (
+    <div className="mt-8 grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
+      {categories.map(([title, desc, Icon], index) => {
+        const styles = [
+          ["bg-[#EEF3FF]", "text-[#2F6BFF]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EEF8F0]", "text-[#1F9A45]"],
+          ["bg-[#FFF1E8]", "text-[#F47A20]"],
+          ["bg-[#EEF4FF]", "text-[#2979FF]"],
+          ["bg-[#F3EDFF]", "text-[#6B35FF]"],
+          ["bg-[#EAF8FA]", "text-[#0099B8]"],
+          ["bg-[#FFF5E8]", "text-[#FF9700]"],
+        ];
+
+        return (
+          <div
+            key={title}
+            className={`group relative flex min-h-[205px] flex-col items-center px-4 py-2 text-center transition-all duration-300 hover:-translate-y-2 ${
+              index !== categories.length - 1
+                ? "xl:border-r xl:border-[#edf0fb]"
+                : ""
+            }`}
+          >
             <div
-              key={title}
-              className={`group relative flex min-h-[205px] flex-col items-center px-3 py-2 text-center transition-all duration-300 hover:-translate-y-2 ${
-                index !== categories.length - 1
-                  ? "xl:border-r xl:border-[#edf0fb]"
-                  : ""
-              }`}
+              className={`flex h-[66px] w-[66px] items-center justify-center rounded-full ${styles[index][0]} ${styles[index][1]} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_26px_rgba(91,53,255,0.16)]`}
             >
-              <div
-                className={`flex h-[74px] w-[74px] items-center justify-center rounded-full ${bg} ${color} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_24px_rgba(91,53,255,0.16)]`}
-              >
-                <Icon size={34} strokeWidth={2.1} />
-              </div>
-
-              <h3 className="mt-5 min-h-[36px] text-[14px] font-extrabold leading-[18px] text-[#131936]">
-                {title}
-              </h3>
-
-              <p className="mt-3 max-w-[135px] text-[12px] font-medium leading-[22px] text-[#374151]">
-                {desc}
-              </p>
+              <Icon size={34} strokeWidth={2.2} />
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+
+            <h3 className="mt-5 min-h-[38px] text-[13px] sm:text-[13.5px] font-bold leading-[18px] text-[#111832]">
+              {title}
+            </h3>
+
+            <p className="mt-3 max-w-[132px] text-[11px] sm:text-[11.5px] font-semibold leading-[21px] text-[#2f3650]">
+              {desc}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
 
       {/* POPULAR */}
-         <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 xl:px-10 pb-8">
-      <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 py-7 sm:px-6 lg:px-8 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
-        <div className="text-center">
-          <h2 className="text-[18px] sm:text-[21px] font-extrabold text-[#121832]">
-            Most Popular Resources
-          </h2>
-        </div>
+      <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-14 py-2 sm:pb-3">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+    <div className="text-center">
+      <h2 className="text-[20px] sm:text-[26px] font-bold text-[#10162f]">
+        Most Popular Resources
+      </h2>
+    </div>
 
-        <div className="mt-8 grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5">
-          {resources.map((item) => (
-            <div
-              key={item.title}
-              className="group flex min-h-[292px] flex-col items-center rounded-[10px] border border-[#e9ecfb] bg-white px-5 py-7 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#bdb4ff] hover:shadow-[0_18px_40px_rgba(91,53,255,0.14)]"
-            >
-              <div className="relative mb-6">
-                <div
-                  className={`relative flex h-[64px] w-[50px] items-center justify-center rounded-[4px] ${item.color} text-white shadow-[0_8px_18px_rgba(0,0,0,0.14)] transition duration-300 group-hover:scale-110`}
-                >
-                  <FileText size={25} strokeWidth={2.4} />
-                  <span className="absolute bottom-2 text-[10px] font-bold">
-                    {item.type}
-                  </span>
-                  <span className="absolute right-0 top-0 h-0 w-0 border-l-[14px] border-t-[14px] border-l-white/75 border-t-white/35" />
-                </div>
-              </div>
+    <div className="mt-6 grid grid-cols-1 min-[460px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5">
+      {resources.map(([title, type], index) => {
+        const fileColors = [
+          "bg-[#2F7BFF]",
+          "bg-[#F03333]",
+          "bg-[#16A267]",
+          "bg-[#6755F6]",
+          "bg-[#FF9638]",
+          "bg-[#2F7BFF]",
+        ];
 
-              <h3 className="min-h-[48px] text-[15px] font-extrabold leading-[20px] text-[#111827]">
-                {item.title}
-              </h3>
+        const descriptions = [
+          "Structured template to develop strong research proposals.",
+          "Step-by-step guide to conducting a high-quality literature review.",
+          "Checklist to evaluate and select the right journal for your research.",
+          "Format your manuscript as per journal requirements.",
+          "Professional cover letter template for journal submissions.",
+          "Template to draft clear and effective responses to reviewers.",
+        ];
 
-              <p className="mt-4 min-h-[72px] text-[13px] font-medium leading-[24px] text-[#334155]">
-                {item.desc}
-              </p>
-
-              <button className="mt-auto inline-flex items-center gap-2 text-[13px] font-extrabold text-[#5b35ff] transition-all duration-300 hover:gap-3 hover:text-[#4325d8]">
-                <Download size={15} strokeWidth={3} />
-                Download
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-6 flex justify-center">
-          <button className="rounded-[6px] border-2 border-[#8b7cff] px-8 py-3 text-[15px] font-extrabold text-[#5b35ff] transition-all duration-300 hover:-translate-y-1 hover:bg-[#5b35ff] hover:text-white hover:shadow-[0_12px_28px_rgba(91,53,255,0.25)]">
-            View All Resources <span className="ml-3">→</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-      {/* TOOLS */}
-      <section className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="rounded-2xl bg-white p-5 sm:p-7 shadow-sm border border-indigo-50">
-          <Title title="Tools We Offer" />
-
-          <div className="mt-7 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
-            {tools.map(([title, desc, Icon], i) => (
+        return (
+          <div
+            key={title}
+            className="group flex min-h-[292px] flex-col items-center rounded-[10px] border border-[#e8ebf7] bg-white px-5 py-7 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_18px_38px_rgba(91,53,255,0.14)]"
+          >
+            <div className="relative mb-6">
               <div
-                key={title}
-                className="rounded-xl border border-slate-100 bg-white p-4 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className={`relative flex h-[64px] w-[50px] items-center justify-center rounded-[5px] ${fileColors[index]} text-white shadow-[0_8px_18px_rgba(0,0,0,0.14)] transition-all duration-300 group-hover:scale-110`}
               >
-                <div
-                  className={`mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full ${
-                    i % 4 === 0
-                      ? "bg-green-50 text-green-600"
-                      : i % 4 === 1
-                      ? "bg-violet-50 text-violet-600"
-                      : i % 4 === 2
-                      ? "bg-blue-50 text-blue-600"
-                      : "bg-orange-50 text-orange-600"
-                  }`}
-                >
-                  <Icon size={22} />
-                </div>
-                <h3 className="text-xs font-bold">{title}</h3>
-                <p className="mt-2 text-[10px] leading-4 text-slate-500">
-                  {desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY */}
-      <section className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="grid gap-6 rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-indigo-50 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="text-lg font-extrabold">Why Use Our Resources?</h2>
-
-            <ul className="mt-5 space-y-3 text-sm text-slate-600">
-              {[
-                "Created by domain experts and research professionals",
-                "Save time and improve the quality of your research output",
-                "Stay aligned with global standards and best practices",
-                "Free and premium resources for every research need",
-                "Regularly updated to reflect the latest guidelines",
-              ].map((item) => (
-                <li key={item} className="flex gap-2">
-                  <CheckCircle className="mt-0.5 h-4 w-4 text-[#5b35ff]" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="relative min-h-[230px] rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 p-6">
-            <div className="mx-auto max-w-sm rounded-xl bg-white p-5 shadow-lg">
-              <div className="mb-4 h-3 w-24 rounded bg-indigo-100" />
-              <div className="space-y-3">
-                <div className="h-8 rounded bg-slate-100" />
-                <div className="h-8 rounded bg-slate-100" />
-                <div className="h-8 rounded bg-slate-100" />
+                <FileText size={25} strokeWidth={2.4} />
+                <span className="absolute bottom-2 text-[10px] font-bold">
+                  {type}
+                </span>
+                <span className="absolute right-0 top-0 h-0 w-0 border-l-[14px] border-t-[14px] border-l-white/80 border-t-white/40" />
               </div>
             </div>
-            <div className="absolute bottom-6 left-8 h-20 w-20 rounded-full bg-indigo-200/50" />
-            <div className="absolute right-8 top-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#6c4cff] text-white shadow-lg animate-bounce">
-              <Download />
-            </div>
+
+            <h3 className="min-h-[48px] text-[14px] font-bold leading-[21px] text-[#111832]">
+              {title}
+            </h3>
+
+            <p className="mt-4 min-h-[72px] text-[12px] font-semibold leading-[23px] text-[#2f3650]">
+              {descriptions[index]}
+            </p>
+
+            <button className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold text-[#5b35ff] transition-all duration-300 hover:gap-3 hover:text-[#4325d8]">
+              <Download size={14} strokeWidth={3} />
+              Download
+            </button>
           </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
 
-      {/* STATS */}
-      <section className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="grid gap-4 rounded-2xl bg-gradient-to-r from-[#512bff] via-[#385cff] to-[#00a8b5] p-5 text-white sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ["500+", "Resources Available", FileText],
-            ["50+", "Templates & Checklists", Folder],
-            ["10,000+", "Researchers Benefited", MessageCircle],
-            ["Regularly", "Updated Content", RefreshCcw],
-          ].map(([num, label, Icon]) => (
-            <div key={label} className="flex items-center justify-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20">
-                <Icon size={24} />
-              </div>
-              <div>
-                <div className="text-xl font-extrabold">{num}</div>
-                <div className="text-xs text-white/80">{label}</div>
-              </div>
+    <div className="mt-6 flex justify-center">
+      <button className="rounded-[6px] border-2 border-[#8b7cff] px-8 py-3 text-[14px] font-bold text-[#5b35ff] transition-all duration-300 hover:-translate-y-1 hover:bg-[#5b35ff] hover:text-white hover:shadow-[0_12px_28px_rgba(91,53,255,0.25)]">
+        View All Resources <span className="ml-3">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+      {/* TOOLS */}
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-14 pb-3">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-5 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+    <div className="text-center">
+      <h2 className="text-[20px] sm:text-[26px] font-bold text-[#10162f]">
+        Tools We Offer
+      </h2>
+      <div className="mx-auto mt-3 h-[3px] w-11 rounded-full bg-[#5b35ff]" />
+    </div>
+
+    <div className="mt-7 grid grid-cols-1 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+      {tools.map(([title, desc, Icon], i) => {
+        const styles = [
+          ["bg-[#EEF8F0]", "text-[#18A449]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EEF4FF]", "text-[#1E7BFF]"],
+          ["bg-[#EEF8F0]", "text-[#28A745]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#FFF3E6]", "text-[#FF8A00]"],
+        ];
+
+        return (
+          <div
+            key={title}
+            className="group flex min-h-[172px] flex-col items-center rounded-[10px] border border-[#e8ebf7] bg-white px-4 py-5 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_16px_34px_rgba(91,53,255,0.13)]"
+          >
+            <div
+              className={`mx-auto mb-4 flex h-[58px] w-[58px] items-center justify-center rounded-full ${styles[i][0]} ${styles[i][1]} transition-all duration-300 group-hover:scale-110`}
+            >
+              <Icon size={31} strokeWidth={2.2} />
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8 pb-10">
-        <div className="flex flex-col gap-5 rounded-2xl bg-[#f0edff] p-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="text-xl font-extrabold text-slate-900">
-              Need a Specific Resource?
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Can’t find what you’re looking for? Our experts can help you find
-              or create the right resource for your research.
+            <h3 className="min-h-[34px] text-[13px] font-bold leading-[17px] text-[#111832]">
+              {title}
+            </h3>
+
+            <p className="mt-3 max-w-[150px] text-[11px] font-semibold leading-[20px] text-[#2f3650]">
+              {desc}
             </p>
           </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
-          <div className="flex flex-wrap gap-3">
-            <button className="rounded-md bg-[#5b35ff] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-[#4828df]">
-              Talk to an Expert →
-            </button>
-            <button className="rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#5b35ff] transition hover:-translate-y-1 hover:shadow-md">
-              Request a Resource
-            </button>
+      {/* WHY */}
+    <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-14 pb-3">
+  <div className="mx-auto grid w-full max-w-[1420px] grid-cols-1 items-center gap-6 rounded-[14px] border border-[#eceeff] bg-white px-5 py-4 shadow-[0_8px_30px_rgba(79,70,229,0.06)] lg:grid-cols-[0.85fr_1.15fr] lg:px-12">
+    <div className="lg:pl-8">
+      <h2 className="text-[20px] -mt-12 sm:text-[26px] font-bold text-[#111832]">
+        Why Use Our Resources?
+      </h2>
+
+      <ul className="mt-5 space-y-3">
+        {[
+          "Created by domain experts and research professionals",
+          "Save time and improve the quality of your research output",
+          "Stay aligned with global standards and best practices",
+          "Free and premium resources for every research need",
+          "Regularly updated to reflect the latest guidelines",
+        ].map((item) => (
+          <li
+            key={item}
+            className="flex items-start gap-3 text-[11px] sm:text-[13px] font-semibold leading-[18px] text-[#1f2744]"
+          >
+            <CheckCircle
+              size={15}
+              className="mt-[1px] shrink-0 text-[#5b35ff]"
+              fill="#5b35ff"
+              stroke="white"
+              strokeWidth={3}
+            />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="overflow-hidden transition-all duration-300 hover:-translate-y-1 ">
+      <img
+        src={bg}
+        alt="Research resources"
+        className="h-auto w-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+      {/* STATS */}
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-14 pb-5">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[10px] bg-gradient-to-r from-[#563BFF] via-[#2566E8] to-[#009CA6] px-5 py-7 shadow-[0_12px_30px_rgba(37,102,232,0.18)]">
+    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+      {[
+        ["500+", "Resources Available", FileText],
+        ["50+", "Templates & Checklists", Folder],
+        ["10,000+", "Researchers Benefited", MessageCircle],
+        ["Regularly", "Updated Content", RefreshCcw],
+      ].map(([num, label, Icon], index) => (
+        <div
+          key={label}
+          className={`group flex items-center justify-center gap-4 px-4 transition-all duration-300 hover:-translate-y-1 ${
+            index !== 3 ? "lg:border-r lg:border-white/15" : ""
+          }`}
+        >
+          <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-white/90 text-[#563BFF] shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-all duration-300 group-hover:scale-110">
+            <Icon size={28} strokeWidth={2.2} />
+          </div>
+
+          <div>
+            <div className="text-[19px] font-bold leading-none text-white">
+              {num}
+            </div>
+            <div className="mt-1 text-[11px] font-semibold text-white/85">
+              {label}
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+      {/* CTA */}
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-14 pb-8">
+  <div
+    className="mx-auto flex w-full max-w-[1420px] flex-col items-center gap-5 rounded-[14px] border border-[#eceeff] bg-[#f0edff] bg-cover bg-center bg-no-repeat px-5 py-5 shadow-[0_8px_30px_rgba(79,70,229,0.06)] md:flex-row md:justify-between lg:px-12"
+    style={{ backgroundImage: `url(${auth2})` }}
+  >
+    <div className="flex flex-col items-center gap-5 text-center md:flex-row md:text-left">
+      <img
+        src={rct}
+        alt="Resource folder"
+        className="h-[99px] w-[130px] object-contain transition-all duration-300 hover:scale-105"
+      />
+
+      <div>
+        <h2 className="text-[22px] sm:text-[24px] font-bold leading-tight text-[#111832]">
+          Need a Specific Resource?
+        </h2>
+
+        <p className="mt-3 max-w-[470px] text-[12px] sm:text-[13px] font-semibold leading-[22px] text-[#2f3650]">
+          Can’t find what you’re looking for? Our experts can help you
+          find or create the right resource for your needs.
+        </p>
+      </div>
+    </div>
+
+    <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+      <button className="inline-flex items-center justify-center gap-3 rounded-[6px] bg-[#4A28F5] px-8 py-3 text-[14px] font-bold text-white shadow-[0_10px_24px_rgba(74,40,245,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#3f21dc]">
+        Talk to an Expert
+        <span>→</span>
+      </button>
+
+      <button className="rounded-[6px] border-2 border-[#8b7cff] bg-white/70 px-8 py-3 text-[14px] font-bold text-[#5b35ff] transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_10px_24px_rgba(91,53,255,0.16)]">
+        Request a Resource
+      </button>
+    </div>
+  </div>
+</section>
     </main>
   );
 }
@@ -320,7 +396,7 @@ export default function ResearchResourcesPage() {
 function Title({ title }) {
   return (
     <div className="text-center">
-      <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
+      <h2 className="text-lg sm:text-xl font-bold text-slate-900">
         {title}
       </h2>
       <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-[#5b35ff]" />

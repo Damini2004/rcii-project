@@ -14,6 +14,9 @@ import PubSupport from '../pages/researches/PubSupport.jsx'
 import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
 import AuthorServices from '../pages/researches/AuthorServices.jsx'
 import ResearchResourcesPage from '../pages/researches/ResearchResourcesTemplate.jsx'
+import ResearchProfileVisibility from '../pages/researches/ResearchProfileVisibility.jsx'
+import GrantFunding from '../pages/researches/GrantFunding.jsx'
+import CareerGrowthResources from '../pages/researches/CareerGrowthResources.jsx'
 
 function AppRoutes() {
   return (
@@ -32,6 +35,12 @@ function AppRoutes() {
       <Route path="/ip-innovation-support" element={<IpinnoSupport />} />
       <Route path='/author-services' element={<AuthorServices />} />
       <Route path='/reserach-resources-templates' element={<ResearchResourcesPage />} />
+      <Route path='/research-profiling-visibility' element={<ResearchProfileVisibility />} />
+      <Route path='/grant-funding-support' element={<GrantFunding />} />
+      <Route path='/career-growth-resources' element={<CareerGrowthResources />} />
+
+
+
 
       
     </Routes>
