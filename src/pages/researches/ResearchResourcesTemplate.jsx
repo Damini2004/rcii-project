@@ -115,7 +115,7 @@ export default function ResearchResourcesPage() {
         </div>
 
         <div className="mt-8 grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
-          {categories.map(({ title, desc, icon: Icon, color, bg }, index) => (
+          {categories.map(([title, desc, Icon], index) => (
             <div
               key={title}
               className={`group relative flex min-h-[205px] flex-col items-center px-3 py-2 text-center transition-all duration-300 hover:-translate-y-2 ${
@@ -124,9 +124,7 @@ export default function ResearchResourcesPage() {
                   : ""
               }`}
             >
-              <div
-                className={`flex h-[74px] w-[74px] items-center justify-center rounded-full ${bg} ${color} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_24px_rgba(91,53,255,0.16)]`}
-              >
+              <div className="flex h-[74px] w-[74px] items-center justify-center rounded-full bg-[#EEF2FF] text-[#5B35FF] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_24px_rgba(91,53,255,0.16)]">
                 <Icon size={34} strokeWidth={2.1} />
               </div>
 
@@ -154,30 +152,30 @@ export default function ResearchResourcesPage() {
         </div>
 
         <div className="mt-8 grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5">
-          {resources.map((item) => (
+         {resources.map(([title, type]) => (
             <div
-              key={item.title}
+              key={title}
               className="group flex min-h-[292px] flex-col items-center rounded-[10px] border border-[#e9ecfb] bg-white px-5 py-7 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#bdb4ff] hover:shadow-[0_18px_40px_rgba(91,53,255,0.14)]"
             >
               <div className="relative mb-6">
                 <div
-                  className={`relative flex h-[64px] w-[50px] items-center justify-center rounded-[4px] ${item.color} text-white shadow-[0_8px_18px_rgba(0,0,0,0.14)] transition duration-300 group-hover:scale-110`}
+                 className="relative flex h-[64px] w-[50px] items-center justify-center rounded-[4px] bg-[#5B35FF] text-white shadow-[0_8px_18px_rgba(0,0,0,0.14)] transition duration-300 group-hover:scale-110"
                 >
                   <FileText size={25} strokeWidth={2.4} />
                   <span className="absolute bottom-2 text-[10px] font-bold">
-                    {item.type}
+                    {type}
                   </span>
                   <span className="absolute right-0 top-0 h-0 w-0 border-l-[14px] border-t-[14px] border-l-white/75 border-t-white/35" />
                 </div>
               </div>
 
               <h3 className="min-h-[48px] text-[15px] font-extrabold leading-[20px] text-[#111827]">
-                {item.title}
+                {title}
               </h3>
 
-              <p className="mt-4 min-h-[72px] text-[13px] font-medium leading-[24px] text-[#334155]">
-                {item.desc}
-              </p>
+<p className="mt-4 min-h-[72px] text-[13px] font-medium leading-[24px] text-[#334155]">
+  Download ready-to-use research resource for academic work.
+</p>
 
               <button className="mt-auto inline-flex items-center gap-2 text-[13px] font-extrabold text-[#5b35ff] transition-all duration-300 hover:gap-3 hover:text-[#4325d8]">
                 <Download size={15} strokeWidth={3} />
