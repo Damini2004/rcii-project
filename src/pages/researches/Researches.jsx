@@ -165,7 +165,7 @@ export default function ResearchersPage() {
   <img
     src={heroImg}
     alt="Researchers"
-    className="absolute w-full h-[400px] object-cover object-center"
+    className="absolute w-full h-[450px] object-cover object-center"
   />
 
   {/* White Overlay for Left Content Area */}
