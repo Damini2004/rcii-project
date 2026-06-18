@@ -84,7 +84,7 @@ function ResearchProfileVisibility() {
         {/* Optional left readable overlay */}
         <div className="" />
       
-        <div className="relative z-20 max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14 h-full">
+        <div className="relative z-20 max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-10 h-full">
           <div className="max-w-[520px] pt-6 sm:pt-8 lg:pt-10 pb-8">
             <div className="flex flex-wrap items-center gap-3 text-[13px] sm:text-[14px] font-semibold sm:mb-8 mb-5">
               <Link to="/" className="text-[#6366F1] hover:text-[#4F46E5] transition">
@@ -137,11 +137,11 @@ function ResearchProfileVisibility() {
     
 
       {/* BUILD IDENTITY */}
-    <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 py-6">
+    <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-10 py-4">
   <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
     <SectionTitle title="Build Your Research Identity" />
 
-    <div className="mt-8 grid grid-cols-1 gap-y-8 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+    <div className="mt-8 grid grid-cols-1 gap-y-6 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
       {identitySteps.map(([title, desc, Icon], i) => {
         const styles = [
           ["bg-[#F2ECFF]", "text-[#5B35FF]"],
@@ -154,7 +154,7 @@ function ResearchProfileVisibility() {
         return (
           <div
             key={title}
-            className="group relative flex min-h-[170px] flex-col items-center px-4 text-center transition-all duration-300 hover:-translate-y-2"
+            className="group relative flex min-h-[160px] flex-col items-center px-4 text-center transition-all duration-300 hover:-translate-y-2"
           >
             {i !== identitySteps.length - 1 && (
               <div className="absolute left-[72%] top-[38px] hidden w-[90px] items-center xl:flex">
@@ -164,20 +164,20 @@ function ResearchProfileVisibility() {
             )}
 
             <div
-              className={`flex h-[74px] w-[74px] items-center justify-center rounded-full ${styles[i][0]} ${styles[i][1]} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_26px_rgba(91,53,255,0.16)]`}
+              className={`flex h-[64px] w-[64px] items-center justify-center rounded-full ${styles[i][0]} ${styles[i][1]} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_26px_rgba(91,53,255,0.16)]`}
             >
-              <Icon size={34} strokeWidth={2.2} />
+              <Icon size={32} strokeWidth={2.2} />
             </div>
 
             <h3
-              className={`mt-5 text-[20px] font-bold leading-none ${
+              className={`mt-5 text-[18px] font-bold leading-none ${
                 i % 2 === 0 ? "text-[#5B35FF]" : "text-[#0099B8]"
               }`}
             >
               {title}
             </h3>
 
-            <p className="mt-4 max-w-[175px] text-[13px] font-semibold leading-[22px] text-[#2f3650]">
+            <p className="mt-3 max-w-[175px] text-[13px] font-semibold leading-[22px] text-[#2f3650]">
               {desc}
             </p>
           </div>
@@ -188,16 +188,16 @@ function ResearchProfileVisibility() {
 </section>
 
       {/* SERVICES */}
-     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
-  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-10 pb-5">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-5 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
     <SectionTitle title="Our Research Profiling & Visibility Services" />
 
-    <div className="mt-7 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+    <div className="mt-5 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
       {services.map(([title, list, Icon], i) => {
         const styles = [
           ["bg-[#F2ECFF]", "text-[#5B35FF]"],
           ["bg-[#EEF8F0]", "text-[#8CC63F]"],
-          ["bg-white", "text-[#4285F4]"],
+          ["bg-[#F2ECFF]", "text-[#4285F4]"],
           ["bg-[#EEF4FF]", "text-[#5B35FF]"],
           ["bg-[#EAF8FA]", "text-[#0099B8]"],
           ["bg-[#F2ECFF]", "text-[#5B35FF]"],
@@ -206,26 +206,26 @@ function ResearchProfileVisibility() {
         return (
           <div
             key={title}
-            className="group flex min-h-[300px] flex-col rounded-[10px] border border-[#e8ebf7] bg-white px-5 py-6 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_16px_34px_rgba(91,53,255,0.13)]"
+            className="group flex min-h-[300px] flex-col rounded-[10px] border border-[#e8ebf7] bg-white px-5 py-3 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_16px_34px_rgba(91,53,255,0.13)]"
           >
             <div
-              className={`mx-auto flex h-[64px] w-[64px] items-center justify-center rounded-full ${styles[i][0]} ${styles[i][1]} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_10px_22px_rgba(91,53,255,0.12)]`}
+              className={`mx-auto flex h-[60px] w-[60px] items-center justify-center rounded-full ${styles[i][0]} ${styles[i][1]} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_10px_22px_rgba(91,53,255,0.12)]`}
             >
-              <Icon size={34} strokeWidth={2.2} />
+              <Icon size={30} strokeWidth={2.2} />
             </div>
 
-            <h3 className="mt-5 min-h-[48px] text-[15px] font-bold leading-[22px] text-[#111832]">
+            <h3 className="mt-3 min-h-[42px] text-[13px] font-bold leading-[22px] text-[#111832]">
               {title}
             </h3>
 
-            <ul className="mt-5 space-y-3 text-left">
+            <ul className="mt-3 space-y-1 text-left">
               {list.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 text-[12px] font-semibold leading-[18px] text-[#2f3650]"
+                  className="flex items-start gap-3 text-[11px] font-semibold leading-[18px] text-[#2f3650]"
                 >
                   <CheckCircle
-                    size={14}
+                    size={12}
                     className="mt-[2px] shrink-0 text-[#5B35FF]"
                     strokeWidth={3}
                   />
@@ -241,8 +241,8 @@ function ResearchProfileVisibility() {
 </section>
 
       {/* PLATFORMS */}
-     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
-  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-10 pb-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-4 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
     <SectionTitle title="Platforms We Optimize Your Presence On" />
 
     <div className="mt-6 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
@@ -256,11 +256,11 @@ function ResearchProfileVisibility() {
       ].map((item) => (
         <div
           key={item.name}
-          className="group flex h-[92px] items-center justify-center rounded-[10px] border border-[#e8ebf7] bg-white px-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#bdb4ff] hover:shadow-[0_14px_30px_rgba(91,53,255,0.12)]"
+          className="group flex h-[92px] items-center justify-center rounded-[10px] border border-[#e8ebf7] bg-white px-2 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#bdb4ff] hover:shadow-[0_14px_30px_rgba(91,53,255,0.12)]"
         >
           {item.multi ? (
             <div className="leading-none">
-              <div className="text-[27px] font-bold tracking-[-1px]">
+              <div className="text-[25px] font-bold tracking-[-1px]">
                 <span className="text-[#4285F4]">G</span>
                 <span className="text-[#DB4437]">o</span>
                 <span className="text-[#F4B400]">o</span>
@@ -279,7 +279,7 @@ function ResearchProfileVisibility() {
               SCIENCE
             </div>
           ) : (
-            <div className={`text-[28px] font-bold ${item.color}`}>
+            <div className={`text-[26px] font-bold ${item.color}`}>
               {item.name}
             </div>
           )}
@@ -290,7 +290,7 @@ function ResearchProfileVisibility() {
 </section>
 
       {/* WHY */}
-   <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
+   <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-10 pb-6">
   <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
     <SectionTitle title="Why Research Visibility Matters" />
 
@@ -318,13 +318,13 @@ function ResearchProfileVisibility() {
 </section>
 
       {/* IMPACT */}
-     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-10 pb-6">
   <div className="mx-auto w-full max-w-[1420px]">
-    <h2 className="mb-3 text-center text-[16px] font-bold text-[#10162f]">
+    <h2 className="mb-3 text-center text-[20px] sm:text-[24px] font-bold text-[#10162f]">
       Our Impact
     </h2>
 
-    <div className="rounded-[10px] bg-gradient-to-r from-[#563BFF] via-[#2566E8] to-[#009CA6] px-5 py-5 text-white shadow-[0_12px_30px_rgba(37,102,232,0.18)]">
+    <div className="rounded-[10px] bg-gradient-to-r from-[#563BFF] via-[#2566E8] to-[#009CA6] px-5 py-9 text-white shadow-[0_12px_30px_rgba(37,102,232,0.18)]">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
         {impact.map(([num, label, Icon], index) => (
           <div
@@ -353,12 +353,12 @@ function ResearchProfileVisibility() {
 </section>
 
       {/* COMMITMENT */}
-      <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
-  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-5 py-6 shadow-[0_8px_30px_rgba(79,70,229,0.06)] sm:px-6 lg:px-8">
+      <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-10 pb-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-5 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)] sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.7fr] lg:items-center">
       
       <div>
-        <h2 className="text-[17px] font-bold text-[#10162f]">
+        <h2 className="text-[20px] sm:text-[24px] font-bold text-[#10162f]">
           Our Commitment
         </h2>
 
@@ -394,29 +394,35 @@ function ResearchProfileVisibility() {
 </section>
 
       {/* CTA */}
-     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-10">
-  <div className="mx-auto flex w-full max-w-[1420px] flex-col items-center justify-between gap-5 rounded-[10px] bg-[#f0edff] bg-cover bg-center bg-no-repeat px-5 py-5 shadow-[0_8px_30px_rgba(79,70,229,0.06)] sm:px-7 md:flex-row lg:px-10">
-    
-    <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-      <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full bg-[#5138ff] text-white shadow-[0_10px_26px_rgba(81,56,255,0.28)] transition-all duration-300 hover:scale-110">
-        <Mail size={31} strokeWidth={2.2} />
+   <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-10 pb-10">
+  <div
+    className="mx-auto w-full max-w-[1420px] overflow-hidden rounded-[10px] border border-[#eceeff] bg-[#f0edff] bg-cover bg-center bg-no-repeat px-5 py-5 shadow-[0_8px_30px_rgba(79,70,229,0.06)] sm:px-7 lg:px-10"
+    style={{ backgroundImage: `url(${auth1})` }}
+  >
+    <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
+      
+      <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+        <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full bg-[#5138ff] text-white shadow-[0_10px_26px_rgba(81,56,255,0.28)] transition-all duration-300 hover:scale-110">
+          <Mail size={31} strokeWidth={2.2} />
+        </div>
+
+        <div>
+          <h2 className="text-[20px] font-extrabold leading-tight text-[#10162f] sm:text-[22px]">
+            Strengthen Your Research Presence Today
+          </h2>
+
+          <p className="mt-2 text-[11px] font-semibold leading-[18px] text-[#1f2744] sm:text-[12px]">
+            Let our experts optimize your profile and increase your global visibility.
+          </p>
+        </div>
       </div>
 
-      <div>
-        <h2 className="text-[20px] font-bold leading-tight text-[#10162f] sm:text-[22px]">
-          Strengthen Your Research Presence Today
-        </h2>
+      <button className="inline-flex h-[44px] items-center justify-center gap-3 rounded-[5px] bg-[#5138ff] px-7 text-[12px] font-extrabold text-white shadow-[0_10px_24px_rgba(81,56,255,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-[0_14px_30px_rgba(81,56,255,0.35)]">
+        Request Consultation
+        <ArrowRight size={14} />
+      </button>
 
-        <p className="mt-2 text-[11px] font-semibold leading-[18px] text-[#1f2744] sm:text-[12px]">
-          Let our experts optimize your profile and increase your global visibility.
-        </p>
-      </div>
     </div>
-
-    <button className="inline-flex h-[46px] items-center justify-center gap-3 rounded-[5px] bg-[#5138ff] px-7 text-[12px] font-bold text-white shadow-[0_10px_24px_rgba(81,56,255,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-[0_14px_30px_rgba(81,56,255,0.35)]">
-      Request Consultation
-      <ArrowRight size={14} />
-    </button>
   </div>
 </section>
     </main>
@@ -426,10 +432,10 @@ function ResearchProfileVisibility() {
 function SectionTitle({ title }) {
   return (
     <div className="text-center">
-      <h2 className="text-[17px] sm:text-[18px] font-bold text-[#10162f]">
+      <h2 className="text-[20px] sm:text-[24px] font-bold text-[#10162f]">
         {title}
       </h2>
-      <div className="mx-auto mt-3 h-[3px] w-11 rounded-full bg-[#5138ff]" />
+      <div className="mx-auto mt-3 h-[3px] w-12 rounded-full bg-[#5138ff]" />
     </div>
   );
 }
