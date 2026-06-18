@@ -19,7 +19,8 @@ import {
   Database,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "../../assets/bgresearch.png";
+import heroImg from "../../assets/bgprofile.png";
+import auth1 from "../../assets/auth2.png"
 
 function ResearchProfileVisibility() {
   const identitySteps = [
@@ -136,188 +137,288 @@ function ResearchProfileVisibility() {
     
 
       {/* BUILD IDENTITY */}
-      <section className="px-3 sm:px-5 lg:px-8 py-6">
-        <div className="mx-auto max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-5 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
-          <SectionTitle title="Build Your Research Identity" />
+    <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 py-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+    <SectionTitle title="Build Your Research Identity" />
 
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {identitySteps.map(([title, desc, Icon], i) => (
-              <div
-                key={title}
-                className="group relative flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="flex h-[66px] w-[66px] items-center justify-center rounded-full bg-[#f0edff] text-[#5138ff] transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
-                  <Icon size={28} />
-                </div>
-                <h3 className="mt-4 text-[13px] font-extrabold text-[#111832]">
-                  {title}
-                </h3>
-                <p className="mt-2 max-w-[150px] text-[11px] font-semibold leading-[19px] text-[#334155]">
-                  {desc}
-                </p>
+    <div className="mt-8 grid grid-cols-1 gap-y-8 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+      {identitySteps.map(([title, desc, Icon], i) => {
+        const styles = [
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EAF8FA]", "text-[#0099B8]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EAF8FA]", "text-[#0099B8]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+        ];
+
+        return (
+          <div
+            key={title}
+            className="group relative flex min-h-[170px] flex-col items-center px-4 text-center transition-all duration-300 hover:-translate-y-2"
+          >
+            {i !== identitySteps.length - 1 && (
+              <div className="absolute left-[72%] top-[38px] hidden w-[90px] items-center xl:flex">
+                <div className="h-[2px] flex-1 border-t-2 border-dotted border-[#cfd4ee]" />
+                <span className="ml-1 text-[#5B35FF]">›</span>
               </div>
-            ))}
+            )}
+
+            <div
+              className={`flex h-[74px] w-[74px] items-center justify-center rounded-full ${styles[i][0]} ${styles[i][1]} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_26px_rgba(91,53,255,0.16)]`}
+            >
+              <Icon size={34} strokeWidth={2.2} />
+            </div>
+
+            <h3
+              className={`mt-5 text-[20px] font-bold leading-none ${
+                i % 2 === 0 ? "text-[#5B35FF]" : "text-[#0099B8]"
+              }`}
+            >
+              {title}
+            </h3>
+
+            <p className="mt-4 max-w-[175px] text-[13px] font-semibold leading-[22px] text-[#2f3650]">
+              {desc}
+            </p>
           </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* SERVICES */}
-      <section className="px-3 sm:px-5 lg:px-8 pb-6">
-        <div className="mx-auto max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-5 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
-          <SectionTitle title="Our Research Profiling & Visibility Services" />
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+    <SectionTitle title="Our Research Profiling & Visibility Services" />
 
-          <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-            {services.map(([title, list, Icon], i) => (
-              <div
-                key={title}
-                className="group rounded-[10px] border border-[#e8ebf7] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_16px_34px_rgba(91,53,255,0.13)]"
-              >
-                <div className="mx-auto flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#f0edff] text-[#5138ff] transition-all duration-300 group-hover:scale-110">
-                  <Icon size={24} />
-                </div>
-                <h3 className="mt-4 min-h-[40px] text-[12px] font-extrabold leading-[17px]">
-                  {title}
-                </h3>
-                <ul className="mt-3 space-y-2 text-left">
-                  {list.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-2 text-[10px] font-semibold text-[#334155]"
-                    >
-                      <CheckCircle size={12} className="text-[#5138ff]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+    <div className="mt-7 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+      {services.map(([title, list, Icon], i) => {
+        const styles = [
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EEF8F0]", "text-[#8CC63F]"],
+          ["bg-white", "text-[#4285F4]"],
+          ["bg-[#EEF4FF]", "text-[#5B35FF]"],
+          ["bg-[#EAF8FA]", "text-[#0099B8]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+        ];
+
+        return (
+          <div
+            key={title}
+            className="group flex min-h-[300px] flex-col rounded-[10px] border border-[#e8ebf7] bg-white px-5 py-6 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_16px_34px_rgba(91,53,255,0.13)]"
+          >
+            <div
+              className={`mx-auto flex h-[64px] w-[64px] items-center justify-center rounded-full ${styles[i][0]} ${styles[i][1]} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_10px_22px_rgba(91,53,255,0.12)]`}
+            >
+              <Icon size={34} strokeWidth={2.2} />
+            </div>
+
+            <h3 className="mt-5 min-h-[48px] text-[15px] font-bold leading-[22px] text-[#111832]">
+              {title}
+            </h3>
+
+            <ul className="mt-5 space-y-3 text-left">
+              {list.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-[12px] font-semibold leading-[18px] text-[#2f3650]"
+                >
+                  <CheckCircle
+                    size={14}
+                    className="mt-[2px] shrink-0 text-[#5B35FF]"
+                    strokeWidth={3}
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* PLATFORMS */}
-      <section className="px-3 sm:px-5 lg:px-8 pb-6">
-        <div className="mx-auto max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-5 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
-          <SectionTitle title="Platforms We Optimize Your Presence On" />
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+    <SectionTitle title="Platforms We Optimize Your Presence On" />
 
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {platforms.map((item) => (
-              <div
-                key={item}
-                className="rounded-[8px] border border-[#e8ebf7] bg-white py-4 text-center text-[16px] font-extrabold text-[#334155] transition-all duration-300 hover:-translate-y-1 hover:border-[#8b7cff] hover:text-[#5138ff] hover:shadow-md"
-              >
-                {item}
+    <div className="mt-6 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
+      {[
+        { name: "Google", sub: "Scholar", color: "text-[#4285F4]", multi: true },
+        { name: "ORCID", sub: "", color: "text-[#8CC63F]" },
+        { name: "Scopus", sub: "", color: "text-[#F36C21]" },
+        { name: "WEB OF", sub: "SCIENCE", color: "text-[#4A4A4A]", small: true },
+        { name: "Publons", sub: "", color: "text-[#1B6DB3]" },
+        { name: "LinkedIn", sub: "", color: "text-[#0077B5]" },
+      ].map((item) => (
+        <div
+          key={item.name}
+          className="group flex h-[92px] items-center justify-center rounded-[10px] border border-[#e8ebf7] bg-white px-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#bdb4ff] hover:shadow-[0_14px_30px_rgba(91,53,255,0.12)]"
+        >
+          {item.multi ? (
+            <div className="leading-none">
+              <div className="text-[27px] font-bold tracking-[-1px]">
+                <span className="text-[#4285F4]">G</span>
+                <span className="text-[#DB4437]">o</span>
+                <span className="text-[#F4B400]">o</span>
+                <span className="text-[#4285F4]">g</span>
+                <span className="text-[#0F9D58]">l</span>
+                <span className="text-[#DB4437]">e</span>
               </div>
-            ))}
-          </div>
+              <div className="mt-1 text-[21px] font-semibold text-[#4285F4]">
+                Scholar
+              </div>
+            </div>
+          ) : item.small ? (
+            <div className="text-[20px] font-bold leading-[22px] text-[#4A4A4A]">
+              WEB OF
+              <br />
+              SCIENCE
+            </div>
+          ) : (
+            <div className={`text-[28px] font-bold ${item.color}`}>
+              {item.name}
+            </div>
+          )}
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* WHY */}
-      <section className="px-3 sm:px-5 lg:px-8 pb-6">
-        <div className="mx-auto max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-5 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
-          <SectionTitle title="Why Research Visibility Matters" />
+   <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+    <SectionTitle title="Why Research Visibility Matters" />
 
-          <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {visibility.map(([title, desc, Icon]) => (
-              <div
-                key={title}
-                className="group rounded-[10px] border border-[#e8ebf7] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
-              >
-                <div className="mx-auto flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#f0edff] text-[#5138ff] transition group-hover:scale-110">
-                  <Icon size={23} />
-                </div>
-                <h3 className="mt-4 text-[12px] font-extrabold text-[#5138ff]">
-                  {title}
-                </h3>
-                <p className="mt-2 text-[10px] font-semibold leading-[18px] text-[#334155]">
-                  {desc}
-                </p>
-              </div>
-            ))}
+    <div className="mt-7 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+      {visibility.map(([title, desc, Icon]) => (
+        <div
+          key={title}
+          className="group flex min-h-[132px] flex-col items-center rounded-[10px] border border-[#e8ebf7] bg-white px-4 py-5 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_14px_30px_rgba(91,53,255,0.13)]"
+        >
+          <div className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-[#F2ECFF] text-[#5B35FF] transition-all duration-300 group-hover:scale-110">
+            <Icon size={23} strokeWidth={2.3} />
           </div>
+
+          <h3 className="mt-4 text-[12px] font-bold leading-[16px] text-[#5B35FF]">
+            {title}
+          </h3>
+
+          <p className="mt-2 max-w-[155px] text-[10.5px] font-semibold leading-[17px] text-[#1f2744]">
+            {desc}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* IMPACT */}
-      <section className="px-3 sm:px-5 lg:px-8 pb-6">
-        <div className="mx-auto max-w-[1420px] rounded-[10px] bg-gradient-to-r from-[#563BFF] via-[#2566E8] to-[#009CA6] px-5 py-5 text-white shadow-[0_12px_30px_rgba(37,102,232,0.18)]">
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {impact.map(([num, label, Icon]) => (
-              <div
-                key={label}
-                className="group flex items-center justify-center gap-4 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-white/20 transition group-hover:scale-110">
-                  <Icon size={24} />
-                </div>
-                <div>
-                  <div className="text-[20px] font-extrabold">{num}</div>
-                  <div className="text-[11px] font-semibold text-white/85">
-                    {label}
-                  </div>
-                </div>
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
+  <div className="mx-auto w-full max-w-[1420px]">
+    <h2 className="mb-3 text-center text-[16px] font-bold text-[#10162f]">
+      Our Impact
+    </h2>
+
+    <div className="rounded-[10px] bg-gradient-to-r from-[#563BFF] via-[#2566E8] to-[#009CA6] px-5 py-5 text-white shadow-[0_12px_30px_rgba(37,102,232,0.18)]">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
+        {impact.map(([num, label, Icon], index) => (
+          <div
+            key={label}
+            className={`group flex items-center justify-center gap-4 px-4 transition-all duration-300 hover:-translate-y-1 ${
+              index !== impact.length - 1 ? "lg:border-r lg:border-white/15" : ""
+            }`}
+          >
+            <div className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full bg-white/15 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-white/25">
+              <Icon size={23} strokeWidth={2.2} />
+            </div>
+
+            <div>
+              <div className="text-[22px] font-bold leading-none">
+                {num}
               </div>
-            ))}
+              <div className="mt-1 text-[11px] font-semibold text-white/85">
+                {label}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* COMMITMENT */}
-      <section className="px-3 sm:px-5 lg:px-8 pb-6">
-        <div className="mx-auto max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-5 py-6 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.5fr] lg:items-center">
-            <div>
-              <h2 className="text-[18px] font-extrabold">
-                Our Commitment
-              </h2>
-              <p className="mt-3 text-[12px] font-semibold leading-[22px] text-[#334155]">
-                We follow ethical practices and platform guidelines to ensure
-                genuine, sustainable visibility for every researcher.
-              </p>
+      <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-5 py-6 shadow-[0_8px_30px_rgba(79,70,229,0.06)] sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.7fr] lg:items-center">
+      
+      <div>
+        <h2 className="text-[17px] font-bold text-[#10162f]">
+          Our Commitment
+        </h2>
+
+        <p className="mt-3 max-w-[520px] text-[11px] font-semibold leading-[20px] text-[#1f2744]">
+          We follow ethical practices and platform guidelines to ensure genuine,
+          sustainable visibility for every researcher.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-0">
+        {commitment.map(([title, Icon], index) => (
+          <div
+            key={title}
+            className={`group flex min-h-[88px] flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 ${
+              index !== commitment.length - 1
+                ? "lg:border-r lg:border-[#edf0fb]"
+                : ""
+            }`}
+          >
+            <div className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-[#F2ECFF] text-[#5B35FF] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_10px_22px_rgba(91,53,255,0.14)]">
+              <Icon size={22} strokeWidth={2.2} />
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
-              {commitment.map(([title, Icon]) => (
-                <div
-                  key={title}
-                  className="group text-center transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="mx-auto flex h-[42px] w-[42px] items-center justify-center rounded-full bg-[#f0edff] text-[#5138ff] transition group-hover:scale-110">
-                    <Icon size={21} />
-                  </div>
-                  <p className="mt-2 text-[10px] font-extrabold text-[#334155]">
-                    {title}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="mt-2 text-[10px] font-bold leading-[14px] text-[#111832]">
+              {title}
+            </p>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* CTA */}
-      <section className="px-3 sm:px-5 lg:px-8 pb-10">
-        <div className="mx-auto flex max-w-[1420px] flex-col items-center justify-between gap-5 rounded-[14px] bg-[#f0edff] px-6 py-6 md:flex-row">
-          <div className="flex items-center gap-4">
-            <div className="flex h-[66px] w-[66px] items-center justify-center rounded-full bg-[#5138ff] text-white">
-              <Mail size={30} />
-            </div>
-            <div>
-              <h2 className="text-[20px] sm:text-[24px] font-extrabold">
-                Strengthen Your Research Presence Today
-              </h2>
-              <p className="mt-2 text-[12px] font-semibold text-[#334155]">
-                Let our experts optimize your profile and increase your global visibility.
-              </p>
-            </div>
-          </div>
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-8 pb-10">
+  <div className="mx-auto flex w-full max-w-[1420px] flex-col items-center justify-between gap-5 rounded-[10px] bg-[#f0edff] bg-cover bg-center bg-no-repeat px-5 py-5 shadow-[0_8px_30px_rgba(79,70,229,0.06)] sm:px-7 md:flex-row lg:px-10">
+    
+    <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+      <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full bg-[#5138ff] text-white shadow-[0_10px_26px_rgba(81,56,255,0.28)] transition-all duration-300 hover:scale-110">
+        <Mail size={31} strokeWidth={2.2} />
+      </div>
 
-          <button className="rounded-[6px] bg-[#5138ff] px-7 py-3 text-[13px] font-extrabold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-lg">
-            Request Consultation <ArrowRight size={15} className="inline ml-2" />
-          </button>
-        </div>
-      </section>
+      <div>
+        <h2 className="text-[20px] font-bold leading-tight text-[#10162f] sm:text-[22px]">
+          Strengthen Your Research Presence Today
+        </h2>
+
+        <p className="mt-2 text-[11px] font-semibold leading-[18px] text-[#1f2744] sm:text-[12px]">
+          Let our experts optimize your profile and increase your global visibility.
+        </p>
+      </div>
+    </div>
+
+    <button className="inline-flex h-[46px] items-center justify-center gap-3 rounded-[5px] bg-[#5138ff] px-7 text-[12px] font-bold text-white shadow-[0_10px_24px_rgba(81,56,255,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-[0_14px_30px_rgba(81,56,255,0.35)]">
+      Request Consultation
+      <ArrowRight size={14} />
+    </button>
+  </div>
+</section>
     </main>
   );
 }
@@ -325,7 +426,7 @@ function ResearchProfileVisibility() {
 function SectionTitle({ title }) {
   return (
     <div className="text-center">
-      <h2 className="text-[17px] sm:text-[18px] font-extrabold text-[#10162f]">
+      <h2 className="text-[17px] sm:text-[18px] font-bold text-[#10162f]">
         {title}
       </h2>
       <div className="mx-auto mt-3 h-[3px] w-11 rounded-full bg-[#5138ff]" />
