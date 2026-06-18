@@ -24,9 +24,9 @@ import {
   ArrowRight,
   Award,
 } from "lucide-react";
-
-import heroImg from "../../assets/bgpub.png";
-import whyImg from "../../assets/bgauth.png";
+import { Link } from "react-router-dom";
+import heroImg from "../../assets/bggrant.png";
+import whyImg from "../../assets/grant2.png";
 
 const GrantFunding = () => {
   const lifecycle = [
@@ -86,176 +86,259 @@ const GrantFunding = () => {
   return (
     <main className="bg-[#f8f9ff] text-[#10162f] pt-[70px]">
       {/* HERO */}
-      <section className="w-full bg-white px-3 sm:px-5 lg:px-8 py-8">
-        <div className="mx-auto grid max-w-[1420px] grid-cols-1 items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <div className="mb-5 text-[11px] font-semibold text-[#7b74d9]">
-              Home <span className="mx-2">›</span> Researchers{" "}
-              <span className="mx-2">›</span> Grant & Funding Support
+
+ <section className="py-6 relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[515px] bg-white">
+        {/* Background image only after 768px */}
+        <div
+          className=" absolute inset-0 bg-cover  bg-no-repeat"
+          style={{
+            backgroundImage: `url(${heroImg})`,
+          }}
+        />
+      
+        {/* Mobile soft background */}
+        <div className=" absolute" />
+      
+        {/* Optional left readable overlay */}
+        <div className="" />
+      
+        <div className="relative z-20 max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-12 h-full">
+          <div className="max-w-[520px] pt-6 sm:pt-8 lg:pt-10 pb-8">
+            <div className="flex flex-wrap items-center gap-3 text-[13px] sm:text-[14px] font-semibold sm:mb-8 mb-5">
+              <Link to="/" className="text-[#6366F1] hover:text-[#4F46E5] transition">
+                Home
+              </Link>
+      
+              <span className="text-gray-400">›</span>
+      
+              <Link to="/researchers" className="text-[#6366F1] hover:text-[#4F46E5] transition">
+                Researchers
+              </Link>
+      
+              <span className="text-gray-400">›</span>
+      
+              <span className="text-gray-500">Grant & Funding Support</span>
             </div>
-
-            <h1 className="text-[34px] sm:text-[42px] lg:text-[48px] font-extrabold leading-[1.08] text-[#10162f]">
-              Grant & Funding <br />
-              <span className="text-[#5138ff]">Support</span>
+      
+            <h1 className="text-[34px] sm:text-[40px] lg:text-[46px] leading-none font-bold text-[#07113F]">
+            Grant & Funding <br />
+              <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
+                Support
+              </span>
             </h1>
-
-            <p className="mt-4 text-[14px] sm:text-[15px] font-extrabold text-[#5138ff]">
+      
+            <p className="text-[#665fe8] text-[15px] sm:text-[16px] font-bold mt-5 sm:mt-7">
               Empowering Your Research with the Right Funding
             </p>
-
-            <p className="mt-4 max-w-[520px] text-[13px] sm:text-[14px] font-medium leading-[26px] text-[#30384f]">
-              RCI empowers researchers to find, secure, and successfully manage
+      
+            <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:mt-5 mt-3 max-w-[420px]">
+            RCI empowers researchers to find, secure, and successfully manage
               research funding through expert guidance and end-to-end support.
             </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <button className="rounded-[6px] bg-[#5138ff] px-6 py-3 text-[13px] font-extrabold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-lg">
-                Talk to an Expert →
+      
+            <div className="flex flex-wrap gap-3 mt-5 sm:mt-7">
+              <button className="bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
+                Talk to an Expert
+                <ArrowRight size={18} />
               </button>
-              <button className="rounded-[6px] border border-[#8b7cff] bg-white px-6 py-3 text-[13px] font-extrabold text-[#5138ff] transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+      
+              <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 sm:px-6 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                 Explore All Services
               </button>
             </div>
           </div>
-
-          <img
-            src={heroImg}
-            alt="Grant Funding Support"
-            className="w-full object-contain"
-          />
         </div>
       </section>
 
-      {/* LIFECYCLE */}
-      <section className="w-full px-3 sm:px-5 lg:px-8 py-6">
-        <Card>
-          <SectionTitle title="Our Grant & Funding Support Lifecycle" />
+ 
 
-          <div className="mt-8 grid grid-cols-1 gap-5 min-[420px]:grid-cols-2 md:grid-cols-4 xl:grid-cols-7">
-            {lifecycle.map(([title, desc, Icon], index) => (
-              <div
-                key={title}
-                className="group relative flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="flex h-[62px] w-[62px] items-center justify-center rounded-full bg-[#f0edff] text-[#5138ff] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_26px_rgba(91,53,255,0.16)]">
-                  <Icon size={27} strokeWidth={2.2} />
-                </div>
-                <h3 className="mt-4 text-[13px] font-extrabold text-[#111832]">
-                  {title}
-                </h3>
-                <p className="mt-2 max-w-[145px] text-[11px] font-semibold leading-[19px] text-[#334155]">
-                  {desc}
-                </p>
+     {/* LIFECYCLE */}
+<section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-12 py-6">
+  <Card>
+    <SectionTitle title="Our Grant & Funding Support Lifecycle" />
 
-                {index !== lifecycle.length - 1 && (
-                  <span className="hidden xl:block absolute left-[82%] top-[30px] h-[1px] w-[45px] bg-[#cfd4ee]" />
-                )}
-              </div>
-            ))}
+    <div className="mt-8 grid grid-cols-1 gap-y-8 min-[430px]:grid-cols-2 md:grid-cols-4 xl:grid-cols-7">
+      {lifecycle.map(([title, desc, Icon], index) => (
+        <div
+          key={title}
+          className="group relative flex min-h-[150px] flex-col items-center px-3 text-center transition-all duration-300 hover:-translate-y-2"
+        >
+          {index !== lifecycle.length - 1 && (
+            <div className="absolute left-[72%] top-[31px] hidden w-[55px] items-center xl:flex">
+              <div className="h-[1px] flex-1 bg-[#cfd4ee]" />
+              <span className="ml-1 text-[#3b25c7]">›</span>
+            </div>
+          )}
+
+          <div className="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[#F2ECFF] text-[#5138ff] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_26px_rgba(91,53,255,0.16)]">
+            <Icon size={26} strokeWidth={2.3} />
           </div>
-        </Card>
-      </section>
 
-      {/* SERVICES */}
-      <section className="w-full px-3 sm:px-5 lg:px-8 pb-6">
-        <Card>
-          <SectionTitle title="Our Grant & Funding Services" />
+          <h3 className="mt-4 text-[12px] font-bold text-[#3b25c7]">
+            {title}
+          </h3>
 
-          <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-            {services.map(([title, list, Icon]) => (
-              <div
-                key={title}
-                className="group rounded-[10px] border border-[#e8ebf7] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_16px_34px_rgba(91,53,255,0.13)]"
-              >
-                <div className="mx-auto flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#f0edff] text-[#5138ff] transition-all duration-300 group-hover:scale-110">
-                  <Icon size={24} />
-                </div>
+          <p className="mt-2 max-w-[120px] text-[10px] font-semibold leading-[16px] text-[#1f2744]">
+            {desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Card>
+</section>
 
-                <h3 className="mt-4 min-h-[40px] text-[12px] font-extrabold leading-[17px] text-[#111832]">
-                  {title}
-                </h3>
+{/* SERVICES */}
+<section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-12 pb-6">
+  <Card>
+    <SectionTitle title="Our Grant & Funding Services" />
 
-                <ul className="mt-3 space-y-2 text-left">
-                  {list.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-2 text-[10px] font-semibold text-[#334155]"
-                    >
-                      <CheckCircle size={12} className="shrink-0 text-[#5138ff]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+    <div className="mt-7 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+      {services.map(([title, list, Icon], index) => {
+        const styles = [
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EAF8FA]", "text-[#0099B8]"],
+          ["bg-[#FFF1E8]", "text-[#F47A20]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EEF8F0]", "text-[#28A745]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+        ];
 
-                <button className="mt-4 text-[10px] font-extrabold text-[#5138ff]">
-                  Learn More →
-                </button>
-              </div>
-            ))}
-          </div>
-        </Card>
-      </section>
+        return (
+          <div
+            key={title}
+            className="group flex min-h-[292px] flex-col rounded-[10px] border border-[#e8ebf7] bg-white px-5 py-5 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_16px_34px_rgba(91,53,255,0.13)]"
+          >
+            <div
+              className={`mx-auto flex h-[58px] w-[58px] items-center justify-center rounded-full ${styles[index][0]} ${styles[index][1]} transition-all duration-300 group-hover:scale-110`}
+            >
+              <Icon size={28} strokeWidth={2.2} />
+            </div>
 
-      {/* SOURCES */}
-      <section className="w-full px-3 sm:px-5 lg:px-8 pb-6">
-        <Card>
-          <SectionTitle title="Funding Sources We Assist With" />
+            <h3 className="mt-4 min-h-[42px] text-[12px] font-bold leading-[17px] text-[#111832]">
+              {title}
+            </h3>
 
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {fundingSources.map(([title, Icon]) => (
-              <SmallBox key={title} title={title} Icon={Icon} />
-            ))}
-          </div>
-        </Card>
-      </section>
-
-      {/* RESEARCH AREAS */}
-      <section className="w-full px-3 sm:px-5 lg:px-8 pb-6">
-        <Card>
-          <SectionTitle title="Research Areas We Support" />
-
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
-            {researchAreas.map(([title, Icon]) => (
-              <SmallBox key={title} title={title} Icon={Icon} />
-            ))}
-          </div>
-        </Card>
-      </section>
-
-      {/* WHY */}
-      <section className="w-full px-3 sm:px-5 lg:px-8 pb-6">
-        <div className="mx-auto grid w-full max-w-[1420px] grid-cols-1 items-center gap-6 rounded-[14px] border border-[#eceeff] bg-white px-5 py-6 shadow-[0_8px_30px_rgba(79,70,229,0.06)] lg:grid-cols-2 lg:px-10">
-          <img
-            src={whyImg}
-            alt="Why researchers choose RCI"
-            className="w-full rounded-[12px] object-contain"
-          />
-
-          <div>
-            <h2 className="text-[18px] font-extrabold text-[#111832]">
-              Why Researchers Choose RCI
-            </h2>
-
-            <ul className="mt-5 space-y-3">
-              {whyPoints.map((item) => (
+            <ul className="mt-4 space-y-2.5 text-left">
+              {list.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 text-[12px] font-semibold leading-[19px] text-[#1f2744]"
+                  className="flex items-start gap-2 text-[10px] font-semibold leading-[15px] text-[#2f3650]"
                 >
                   <CheckCircle
-                    size={15}
-                    className="mt-[1px] shrink-0 text-[#00a6c8]"
-                    fill="#00a6c8"
-                    stroke="white"
+                    size={12}
+                    className="mt-[1px] shrink-0 text-[#5138ff]"
                     strokeWidth={3}
                   />
-                  {item}
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
+
+            <button className="mt-auto pt-4 text-left text-[10px] font-bold text-[#5138ff] transition-all duration-300 hover:translate-x-1">
+              Learn More →
+            </button>
           </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+  </Card>
+</section>
+
+    {/* SOURCES */}
+<section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-12 pb-6">
+  <Card>
+    <SectionTitle title="Funding Sources We Assist With" />
+
+    <div className="mt-6 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
+      {fundingSources.map(([title, Icon]) => (
+        <SmallBox key={title} title={title} Icon={Icon} />
+      ))}
+    </div>
+  </Card>
+</section>
+
+{/* RESEARCH AREAS */}
+<section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-12 pb-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 sm:px-6 lg:px-8 py-6 shadow-[0_8px_30px_rgba(79,70,229,0.06)]">
+    <SectionTitle title="Research Areas We Support" />
+
+    <div className="mt-6 grid grid-cols-1 gap-0 min-[430px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
+      {researchAreas.map(([title, Icon], index) => {
+        const styles = [
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EAF8FA]", "text-[#0099B8]"],
+          ["bg-[#EAF8FA]", "text-[#0099B8]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#EEF8F0]", "text-[#4CAF50]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+          ["bg-[#F2ECFF]", "text-[#5B35FF]"],
+        ];
+
+        return (
+          <div
+            key={title}
+            className={`group flex min-h-[120px] flex-col items-center justify-center px-3 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-[#fbfaff] ${
+              index !== researchAreas.length - 1
+                ? "xl:border-r xl:border-[#edf0fb]"
+                : ""
+            }`}
+          >
+            <div
+              className={`flex h-[54px] w-[54px] items-center justify-center rounded-full ${styles[index][0]} ${styles[index][1]} transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_10px_22px_rgba(91,53,255,0.12)]`}
+            >
+              <Icon size={25} strokeWidth={2.2} />
+            </div>
+
+            <h3 className="mt-3 max-w-[120px] text-[11px] font-extrabold leading-[15px] text-[#111832]">
+              {title}
+            </h3>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+      {/* WHY */}
+      <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-12 pb-6">
+  <div className="mx-auto grid w-full max-w-[1420px] grid-cols-1 items-center gap-6 rounded-[14px] border border-[#eceeff] bg-white px-5 py-6 shadow-[0_8px_30px_rgba(79,70,229,0.06)] lg:grid-cols-[1fr_1fr] lg:px-10">
+    
+    <div className="flex justify-center">
+      <img
+        src={whyImg}
+        alt="Why researchers choose RCI"
+        className="w-full max-w-[560px] rounded-[12px] object-contain transition-all duration-300 hover:scale-[1.03]"
+      />
+    </div>
+
+    <div className="lg:pl-4">
+      <h2 className="text-[20px] sm:text-[24px] font-bold text-[#111832]">
+        Why Researchers Choose RCII
+      </h2>
+
+      <div className="mt-2 h-[3px] w-11 rounded-full bg-[#00a6c8]" />
+
+      <ul className="mt-3 space-y-3">
+        {whyPoints.map((item) => (
+          <li
+            key={item}
+            className="group flex items-start gap-3 rounded-[6px] px-2 py-1 text-[14px] font-semibold leading-[19px] text-[#1f2744] transition-all duration-300 hover:translate-x-1 "
+          >
+            <CheckCircle
+              size={20}
+              className="mt-[1px] shrink-0 text-[#00a6c8] transition-all duration-300 group-hover:scale-125"
+              fill="#00a6c8"
+              stroke="white"
+              strokeWidth={3}
+            />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</section>
 
       {/* IMPACT */}
       <section className="w-full px-3 sm:px-5 lg:px-8 pb-6">
@@ -273,7 +356,7 @@ const GrantFunding = () => {
                 </div>
 
                 <div>
-                  <div className="text-[22px] font-extrabold leading-none text-white">
+                  <div className="text-[22px] font-bold leading-none text-white">
                     {num}
                   </div>
                   <div className="mt-1 text-[11px] font-semibold text-white/85">
@@ -295,7 +378,7 @@ const GrantFunding = () => {
             </div>
 
             <div>
-              <h2 className="text-[20px] sm:text-[24px] font-extrabold text-[#111832]">
+              <h2 className="text-[20px] sm:text-[24px] font-bold text-[#111832]">
                 Ready to Secure Your Next Grant?
               </h2>
               <p className="mt-2 text-[12px] font-semibold text-[#334155]">
@@ -305,11 +388,11 @@ const GrantFunding = () => {
           </div>
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <button className="rounded-[6px] bg-[#5138ff] px-7 py-3 text-[13px] font-extrabold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-lg">
+            <button className="rounded-[6px] bg-[#5138ff] px-7 py-3 text-[13px] font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-lg">
               Talk to an Expert →
             </button>
 
-            <button className="rounded-[6px] border border-[#8b7cff] bg-white px-7 py-3 text-[13px] font-extrabold text-[#5138ff] transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+            <button className="rounded-[6px] border border-[#8b7cff] bg-white px-7 py-3 text-[13px] font-bold text-[#5138ff] transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
               Request Consultation
             </button>
           </div>
@@ -330,7 +413,7 @@ function Card({ children }) {
 function SectionTitle({ title }) {
   return (
     <div className="text-center">
-      <h2 className="text-[17px] sm:text-[18px] font-extrabold text-[#10162f]">
+      <h2 className="text-[20px] sm:text-[24px] font-bold text-[#10162f]">
         {title}
       </h2>
       <div className="mx-auto mt-3 h-[3px] w-11 rounded-full bg-[#5138ff]" />
@@ -344,7 +427,7 @@ function SmallBox({ title, Icon }) {
       <div className="mx-auto flex h-[46px] w-[46px] items-center justify-center rounded-full bg-[#f0edff] text-[#5138ff] transition-all duration-300 group-hover:scale-110">
         <Icon size={22} />
       </div>
-      <h3 className="mt-3 text-[11px] font-extrabold leading-[16px] text-[#111832]">
+      <h3 className="mt-3 text-[11px] font-bold leading-[16px] text-[#111832]">
         {title}
       </h3>
     </div>
