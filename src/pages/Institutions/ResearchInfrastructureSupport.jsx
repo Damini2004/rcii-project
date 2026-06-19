@@ -70,11 +70,11 @@ export default function ResearchInfrastructureSupport() {
         <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14">
           <div className="grid lg:grid-cols-[1fr_280px] gap-8 items-center mt-16">
             <div className="max-w-[620px]">
-              <p className="text-[13px] text-[#3d25e6] mb-6 font-medium">
+              <Link to="/" className="text-[12px] text-[#3d25e6] mb-6 font-medium">
                 Home &nbsp;›&nbsp; Institutions &nbsp;›&nbsp; Research Infrastructure Support
-              </p>
+              </Link>
 
-              <h1 className="text-[34px] sm:text-[36px] lg:text-[42px] leading-[1.1] font-bold text-[#07113F]">
+              <h1 className="text-[34px] sm:text-[36px] lg:text-[42px] leading-[1.1] font-bold text-[#07113F] mt-4">
                 Research Infrastructure <br />
                 <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">Support</span>
               </h1>
@@ -88,11 +88,11 @@ export default function ResearchInfrastructureSupport() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mt-7">
-                <Link className="inline-flex justify-center items-center gap-3 bg-[#4424e9] text-white px-7 py-4 rounded-[6px] text-sm font-bold hover:bg-[#2d17b8] hover:-translate-y-1 transition-all duration-300">
+                <Link className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                   <Building2 size={18} /> Request Infrastructure Support
                 </Link>
 
-                <Link className="inline-flex justify-center items-center gap-3 border border-[#4424e9] text-[#4424e9] px-7 py-4 rounded-[6px] text-sm font-bold hover:bg-[#4424e9] hover:text-white hover:-translate-y-1 transition-all duration-300">
+                <Link className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                   Explore Our Solutions <ArrowRight size={18} />
                 </Link>
               </div>
@@ -103,29 +103,29 @@ export default function ResearchInfrastructureSupport() {
       </section>
 
       {/* SERVICES */}
-      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-10 -mt-8 relative z-10">
+      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 -mt-8 relative z-10">
         <div className="bg-white rounded-[16px] shadow-[0_18px_45px_rgba(27,36,86,0.12)] border border-[#edf0ff] overflow-hidden">
-          <h2 className="text-center pt-6 text-[22px] sm:text-[28px] font-extrabold">
+          <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold">
             Comprehensive Infrastructure Support
           </h2>
-          <div className="w-14 h-[3px] bg-[#4424e9] mx-auto mt-3" />
+          <div className="w-14 h-[3px] bg-[#4424e9] mx-auto mt-2" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6">
             {services.map(([Icon, title, desc], index) => (
               <div
                 key={title}
-                className="group relative text-center px-5 py-8 hover:bg-[#fbfbff] hover:-translate-y-1 transition-all duration-300"
+                className="group relative text-center px-5 py-4 hover:bg-[#fbfbff] hover:-translate-y-1 transition-all duration-300"
               >
                 {index !== 5 && (
                   <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[120px] w-px bg-[#dfe3f5]" />
                 )}
 
-                <div className="mx-auto w-[70px] h-[70px] rounded-full bg-[#eef3ff] flex items-center justify-center text-[#4424e9] group-hover:bg-[#4424e9] group-hover:text-white group-hover:scale-110 transition-all duration-300">
-                  <Icon size={32} />
+                <div className="mx-auto w-[60px] h-[60px] rounded-full bg-[#eef3ff] flex items-center justify-center text-[#4424e9] group-hover:bg-[#4424e9] group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                  <Icon size={28} />
                 </div>
 
-                <h3 className="mt-5 text-[15px] font-extrabold">{title}</h3>
-                <p className="mt-3 text-[12.5px] leading-6 text-[#1f2937]">
+                <h3 className="mt-4 text-[14px] font-bold">{title}</h3>
+                <p className="mt-2 text-[12.5px] leading-6 text-[#1f2937]">
                   {desc}
                 </p>
               </div>
@@ -135,33 +135,38 @@ export default function ResearchInfrastructureSupport() {
       </section>
 
       {/* AREAS */}
-      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-10 py-10">
-        <h2 className="text-center text-[22px] sm:text-[28px] font-extrabold mb-7">
+      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 py-10">
+        <h2 className="text-center text-[18px] sm:text-[22px] font-bold mb-7">
           Areas We Support
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 h-[270px]">
           {areas.map(([img, title, desc]) => (
             <div
               key={title}
               className="bg-white border border-[#e2e7fb] rounded-[10px] overflow-hidden shadow-[0_8px_24px_rgba(25,37,80,0.08)] hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
             >
               <img src={img} alt={title} className="w-full h-[140px] object-cover" />
-              <div className="p-5 text-center">
-                <h3 className="text-[#4424e9] font-extrabold text-[15px]">{title}</h3>
-                <p className="text-[12.5px] leading-6 mt-2">{desc}</p>
-              </div>
+              <div className="p-4 text-center flex flex-col h-[120px]">
+  <h3 className="text-[#4424e9] font-bold text-[14px] leading-5 min-h-[40px]">
+    {title}
+  </h3>
+
+  <p className="text-[12px] leading-6 mt-2">
+    {desc}
+  </p>
+</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* WHY PARTNER */}
-      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-10 pb-10">
-        <div className="bg-white border border-[#e2e7fb] rounded-[16px] shadow-[0_8px_26px_rgba(25,37,80,0.06)] p-6 lg:p-8">
+      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-10">
+        <div className="bg-white border border-[#e2e7fb] rounded-[16px] shadow-[0_8px_26px_rgba(25,37,80,0.06)] p-6 lg:p-6">
           <div className="grid lg:grid-cols-[.9fr_1.4fr] gap-8 items-center">
             <div>
-              <h2 className="text-[26px] sm:text-[30px] font-extrabold mb-5">
+              <h2 className="text-[18px] sm:text-[22px] font-bold mb-5">
                 Why Partner with RCII?
               </h2>
 
@@ -172,8 +177,8 @@ export default function ResearchInfrastructureSupport() {
                 "Timely execution and dedicated support",
                 "Focus on safety, sustainability, and scalability",
               ].map((item) => (
-                <p key={item} className="flex items-center gap-3 text-[14px] mb-4">
-                  <CheckCircle size={18} color={purple} /> {item}
+                <p key={item} className="flex items-center gap-3 text-[13px] mb-2">
+                  <CheckCircle size={14} color={purple} /> {item}
                 </p>
               ))}
             </div>
@@ -181,11 +186,11 @@ export default function ResearchInfrastructureSupport() {
             <div className="grid grid-cols-1 sm:grid-cols-5 gap-5">
               {process.map(([Icon, title, desc], index) => (
                 <div key={title} className="relative text-center">
-                  <div className="mx-auto w-[78px] h-[78px] rounded-full border-2 border-[#d8d1ff] bg-white flex items-center justify-center text-[#4424e9] shadow-sm hover:scale-110 transition">
-                    <Icon size={34} />
+                  <div className="mx-auto w-[68px] h-[68px] rounded-full border-2 border-[#d8d1ff] bg-white flex items-center justify-center text-[#4424e9] shadow-sm hover:scale-110 transition">
+                    <Icon size={28} />
                   </div>
-                  <h3 className="mt-4 text-[15px] font-extrabold">{title}</h3>
-                  <p className="text-[11.5px] leading-5 mt-2">{desc}</p>
+                  <h3 className="mt-4 text-[14px] font-bold">{title}</h3>
+                  <p className="text-[11.5px] leading-2 mt-2">{desc}</p>
                   {index !== 4 && (
                     <div className="hidden sm:block absolute top-[38px] -right-4 w-8 border-t-2 border-dashed border-[#8c8abf]" />
                   )}
@@ -197,8 +202,8 @@ export default function ResearchInfrastructureSupport() {
       </section>
 
       {/* STATS */}
-      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-10 pb-10">
-        <div className="bg-gradient-to-r from-[#4a22e8] to-[#08199c] rounded-[12px] px-5 sm:px-8 py-7 text-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-10">
+        <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] shadow-[0_12px_28px_rgba(79,70,229,0.18)] rounded-[12px] px-5 sm:px-4 py-6 text-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {[
             [Building2, "200+", "Institutions Served"],
             [FlaskConical, "1000+", "Labs Established"],
@@ -207,12 +212,12 @@ export default function ResearchInfrastructureSupport() {
             [Award, "98%", "Client Satisfaction"],
           ].map(([Icon, num, label]) => (
             <div key={label} className="flex items-center gap-5 justify-center lg:justify-start">
-              <div className="w-[64px] h-[64px] rounded-full bg-white/10 flex items-center justify-center">
-                <Icon size={32} />
+              <div className="w-[54px] h-[54px] rounded-full bg-white/10 flex items-center justify-center">
+                <Icon size={28} />
               </div>
               <div>
-                <h3 className="text-[30px] font-extrabold">{num}</h3>
-                <p className="text-[14px] font-semibold">{label}</p>
+                <h3 className="text-[20px] font-semibold">{num}</h3>
+                <p className="text-[14px] font-medium">{label}</p>
               </div>
             </div>
           ))}
@@ -220,8 +225,8 @@ export default function ResearchInfrastructureSupport() {
       </section>
 
       {/* SUCCESS STORIES */}
-      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-10 pb-10">
-        <h2 className="text-center text-[24px] font-extrabold mb-7">
+      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-10">
+        <h2 className="text-center text-18 lg:text-[22px] font-bold mb-7">
           Success Stories
         </h2>
 
@@ -231,10 +236,10 @@ export default function ResearchInfrastructureSupport() {
             ["Their end-to-end support in setting up our advanced materials characterization facility was exceptional.", "Dr. Rajesh Srinivasan", "Dean (Research), IIT Madras"],
             ["RCII's maintenance and training programs have improved equipment uptime and researcher productivity.", "Dr. Meera Iyer", "Head – Research & Development"],
           ].map(([text, name, role]) => (
-            <div key={name} className="bg-white border border-[#e2e7fb] rounded-[12px] p-7 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-              <Quote size={30} color={purple} />
-              <p className="text-[14px] leading-7 mt-4">{text}</p>
-              <h4 className="font-extrabold mt-5">{name}</h4>
+            <div key={name} className="bg-white border border-[#e2e7fb] rounded-[12px] p-6 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+              <Quote size={22} color={purple} />
+              <p className="text-[14px] leading-5 mt-4">{text}</p>
+              <h4 className="font-bold text-[14px] mt-5">{name}</h4>
               <p className="text-[13px] text-gray-600">{role}</p>
             </div>
           ))}
@@ -242,24 +247,24 @@ export default function ResearchInfrastructureSupport() {
       </section>
 
       {/* CTA */}
-      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-10 pb-10">
-        <div className="bg-gradient-to-r from-[#4a22e8] to-[#08199c] rounded-[14px] text-white px-6 sm:px-10 py-7 grid lg:grid-cols-[180px_1fr_auto_auto] gap-6 items-center">
-          <img src={risCta} alt="" className="w-[160px] hidden lg:block" />
+      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-10">
+        <div className="bg-gradient-to-r from-[#4a22e8] to-[#08199c] rounded-[14px] text-white px-6 sm:px-6 py-6 grid lg:grid-cols-[180px_1fr_auto_auto] gap-6 items-center">
+          <img src={risCta} alt="" className="w-full hidden lg:block" />
 
           <div>
-            <h2 className="text-[24px] font-extrabold">
+            <h2 className="text-[15px] font-semibold">
               Build World-Class Infrastructure for Breakthrough Research
             </h2>
-            <p className="mt-2 text-[14px] leading-6">
+            <p className="mt-2 text-[13px] text-medium leading-6">
               Let RCII be your partner in creating a robust research ecosystem that drives innovation and impact.
             </p>
           </div>
 
-          <Link className="inline-flex justify-center items-center gap-3 bg-white text-[#4424e9] px-8 py-4 rounded-[6px] text-sm font-bold hover:-translate-y-1 transition">
+          <Link className="inline-flex justify-center items-center gap-3 bg-white text-[#4424e9] px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:-translate-y-1 transition">
             Request Infrastructure Support <ArrowRight size={17} />
           </Link>
 
-          <Link className="inline-flex justify-center items-center gap-3 border border-white/60 text-white px-8 py-4 rounded-[6px] text-sm font-bold hover:bg-white hover:text-[#4424e9] transition">
+          <Link className="inline-flex justify-center items-center gap-3 border border-white/60 text-white px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:bg-white hover:text-[#4424e9] transition">
             Talk to an Expert
           </Link>
         </div>
