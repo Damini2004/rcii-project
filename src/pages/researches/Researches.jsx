@@ -197,7 +197,7 @@ export default function ResearchersPage() {
         </span>
       </h1>
 
-      <p className="text-[#665fe8] text-[16px] font-extrabold mt-5">
+      <p className="text-[#665fe8] text-[16px] font-bold mt-5">
         Empowering you at every step of your research journey
       </p>
 

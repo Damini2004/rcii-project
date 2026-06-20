@@ -407,7 +407,7 @@ function ResearchProfileVisibility() {
         </div>
 
         <div>
-          <h2 className="text-[20px] font-extrabold leading-tight text-[#10162f] sm:text-[22px]">
+          <h2 className="text-[20px] font-bold leading-tight text-[#10162f] sm:text-[22px]">
             Strengthen Your Research Presence Today
           </h2>
 
@@ -417,7 +417,7 @@ function ResearchProfileVisibility() {
         </div>
       </div>
 
-      <button className="inline-flex h-[44px] items-center justify-center gap-3 rounded-[5px] bg-[#5138ff] px-7 text-[12px] font-extrabold text-white shadow-[0_10px_24px_rgba(81,56,255,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-[0_14px_30px_rgba(81,56,255,0.35)]">
+      <button className="inline-flex h-[44px] items-center justify-center gap-3 rounded-[5px] bg-[#5138ff] px-7 text-[12px] font-bold text-white shadow-[0_10px_24px_rgba(81,56,255,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-[0_14px_30px_rgba(81,56,255,0.35)]">
         Request Consultation
         <ArrowRight size={14} />
       </button>

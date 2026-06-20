@@ -268,7 +268,7 @@ function PubSupport() {
                 ))}
               </ul>
 
-              <button className="mt-auto pt-5 text-[11px] font-extrabold text-[#5B4DFF] inline-flex items-center gap-2 transition-all duration-500 group-hover:gap-3 group-hover:text-[#2D23D3]">
+              <button className="mt-auto pt-5 text-[11px] font-bold text-[#5B4DFF] inline-flex items-center gap-2 transition-all duration-500 group-hover:gap-3 group-hover:text-[#2D23D3]">
                 Learn More <ArrowRight size={13} strokeWidth={3} />
               </button>
             </div>
