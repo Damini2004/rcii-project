@@ -26,6 +26,7 @@ import Resources from '../pages/resources/Resources.jsx'
 import Blogs from '../pages/resources/Blogs.jsx'
 import HowToGet from '../pages/resources/HowToGet.jsx'
 import InnovationIP from '../pages/Innovation/InnovationIP.jsx'
+import Publisher from '../pages/publisher/Publisher.jsx'
 
 function AppRoutes() {
   return (
@@ -56,7 +57,7 @@ function AppRoutes() {
        <Route path="/resources" element={<Resources />} />
        <Route path="/blogs" element={<Blogs />} />
        <Route path="/how-to-get-blog" element={<HowToGet />} />
-
+       <Route path="/publishers" element={<Publisher />} />
 
     </Routes>
   )
