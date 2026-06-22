@@ -486,10 +486,10 @@ export default function InstitutionalRepository() {
         </div>
       </section>
       {/* WHY AN INSTITUTIONAL REPOSITORY */}
-     <section className="relative z-20 bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 pb-4 mt-4 sm:-mt-14 lg:-mt-32">
+     <section className="relative z-20 bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 pb-4 mt-10 sm:-mt-14 lg:-mt-32">
         <div className="max-w-[1500px] mx-auto bg-white rounded-[18px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.06)] px-4 sm:px-8 lg:px-16 py-6">
           <div className="text-center mb-6">
-            <h2 className="text-[20px] sm:text-[22px] font-extrabold text-[#07113F]">
+            <h2 className="text-center text-[18px] sm:text-[22px] font-bold">
               Why an Institutional Repository?
             </h2>
           </div>
@@ -503,11 +503,11 @@ export default function InstitutionalRepository() {
             index !== WHY_CARDS.length - 1 ? "xl:border-r border-[#E8EBF8]" : ""
           }`}
               >
-                <div className="w-[72px] h-[72px] rounded-full bg-[#F3EEFF] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
-                  <Icon size={32} className="text-[#5B3DF5]" />
+                <div className="w-[62px] h-[62px] rounded-full bg-[#F3EEFF] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                  <Icon size={28} className="text-[#5B3DF5]" />
                 </div>
 
-                <h3 className="text-[14px] font-bold text-[#07113F] mb-3 leading-snug">
+                <h3 className="text-[13px] font-semibold text-[#07113F] mb-3 leading-snug">
                   {title}
                 </h3>
 
@@ -521,12 +521,12 @@ export default function InstitutionalRepository() {
       </section>
 
       {/* FEATURES + CONTENT */}
-      <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
+      <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-2">
         <div className="max-w-[1500px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {/* Powerful Features */}
             <div className="bg-white rounded-[18px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.06)] px-5 sm:px-8 py-7">
-              <h2 className="text-[20px] sm:text-[20px] font-bold text-[#07113F] text-center mb-8">
+              <h2 className="text-center text-[18px] sm:text-[22px] font-bold mb-8">
                 Powerful Features
               </h2>
 
@@ -600,7 +600,7 @@ export default function InstitutionalRepository() {
       <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
         <div className="max-w-[1500px] mx-auto">
           <div className="bg-[#F8F8FF] rounded-[18px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.05)] overflow-hidden">
-            <div className="grid lg:grid-cols-[380px_1fr] items-center gap-12 px-6 sm:px-8 lg:px-12 py-6">
+            <div className="grid lg:grid-cols-[380px_1fr] items-center gap-12 px-6 sm:px-8 lg:px-12 py-4">
               {/* LEFT IMAGE */}
               <div className="flex justify-center lg:justify-start">
                 <img
@@ -612,7 +612,7 @@ export default function InstitutionalRepository() {
 
               {/* RIGHT CONTENT */}
               <div>
-                <h2 className="text-[20px] sm:text-[20px] font-bold text-[#07113F] mb-4">
+                <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold mb-4">
                   Seamless Integration
                 </h2>
 
@@ -646,7 +646,7 @@ export default function InstitutionalRepository() {
       </section>
 
       {/* STATS + BOTTOM CTA */}
-      <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
+      <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-2">
         <div className="max-w-[1500px] mx-auto space-y-4">
           {/* STATS BAR */}
           <div className="bg-gradient-to-r from-[#4F23F7] via-[#245FEA] to-[#18229A] rounded-[12px] shadow-lg px-5 sm:px-8 py-5">
@@ -663,7 +663,7 @@ export default function InstitutionalRepository() {
                   </div>
 
                   <div>
-                    <h3 className="text-[20px] sm:text-[20px] font-semibold text-white leading-none">
+                    <h3 className="text-[18px] sm:text-[20px] font-semibold text-white leading-none">
                       {value}
                     </h3>
                     <p className="text-[11px] sm:text-[12px] font-medium text-white mt-1">

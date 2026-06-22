@@ -397,77 +397,60 @@ export default function ResearchConsulting() {
   return (
     <div className="font-sans bg-white text-gray-800 overflow-x-hidden">
       {/* ── MAIN CONTENT ── */}
-      <main className="w-full overflow-hidden">
-        <section className="relative w-full min-h-[430px] sm:min-h-[470px] lg:min-h-[500px] overflow-hidden bg-[#f5f4ff]">
-  <img
-    src={heroBg}
-    alt="Research Consulting"
-    className="absolute inset-0 w-full h-full object-cover object-center"
-  />
+      <main className="w-full overflow-hidden -mt-2">
+        <section
+          className="relative min-h-[520px] sm:min-h-[380px] lg:min-h-[440px] bg-cover bg-no-repeat flex items-center"
+          style={{
+            backgroundImage: `url(${heroBg})`,
+          }}
+        >
+          <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14 sm:py-14 lg:py-16">
+            <div className="max-w-[620px] mt-16">
+              <nav className="flex items-center gap-2 text-[12px] font-medium text-[#3d25e6] mb-6">
+                <Link to="/">Home</Link>
+                <ChevronRight size={12} />
+                <Link to="/institutions">Institutions</Link>
+                <ChevronRight size={12} />
+                <span className="text-[#07113F]">Research Consulting</span>
+              </nav>
 
-  <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-14 pt-8 sm:pt-10">
-            <nav className="flex items-center gap-2 text-[12px] font-semibold mb-9 mt-16">
-              <a
-                href="#"
-                className="text-[#4F46E5] hover:text-[#2563EB] transition"
-              >
-                Home
-              </a>
-              <ChevronRight size={12} className="text-gray-400" />
-              <a
-                href="#"
-                className="text-[#4F46E5] hover:text-[#2563EB] transition"
-              >
-                Institutions
-              </a>
-              <ChevronRight size={12} className="text-gray-400" />
-              <span className="text-[#1E293B]">Research Consulting</span>
-            </nav>
-
-            <div className="max-w-[500px]">
-              <h1 className="text-[34px] sm:text-[42px] lg:text-[50px] leading-tight lg:leading-none font-bold text-[#07113F]">
+              <h1 className="text-[34px] sm:text-[36px] lg:text-[42px] leading-[1.1] font-bold text-[#07113F]">
                 Research
                 <br />
-                <span className="block sm:inline bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
                   Consulting
                 </span>
               </h1>
 
-              <p className="text-[#665fe8] text-[14px] sm:text-[16px] font-bold mt-4 sm:mt-5">
+              <h2 className="text-[#665fe8] text-[14px] sm:text-[16px] font-bold mt-3 sm:mt-6 leading-6">
                 Strategic Guidance. Smarter Research. Greater Impact.
-              </p>
+              </h2>
 
-              <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:leading-[2] mt-3 sm:mt-5 max-w-[430px]">
+              <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:mt-5 mt-3 max-w-[430px]">
                 Partner with our experts to design research strategies, build
                 institutional capacity, and achieve excellence.
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-5">
-                <a
-                  href="#"
-                  className="bg-[#4F46E5] text-[13px] sm:text-[14px] text-white px-5 sm:px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3"
-                >
-                  <MessageSquare size={16} />
+              <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
+                <Link className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+                  <MessageSquare size={18} />
                   Talk to a Consultant
-                </a>
+                </Link>
 
-                <a
-                  href="#"
-                  className="border border-[#4F46E5] text-[#4F46E5] text-[13px] sm:text-[14px] px-5 sm:px-6 py-3 rounded-md font-semibold hover:bg-indigo-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex items-center justify-center gap-3"
-                >
+                <Link className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                   Explore All Services
-                  <ArrowRight size={16} />
-                </a>
+                  <ArrowRight size={18} />
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── OUR CONSULTING EXPERTISE ── */}
-        <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-14 py-4">
-          <div className="max-w-[1500px] mx-auto bg-white rounded-[14px] shadow-[0_8px_28px_rgba(15,23,42,0.08)] border border-[#EEF0FF] px-6 sm:px-4 lg:px-4 py-6">
-            <div className="text-center mb-6">
-              <h2 className="text-[20px] font-bold text-[#07113F]">
+        <section className="bg-[#F7F8FF] relative z-10 max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 -mt-8">
+          <div className=" bg-white rounded-[14px] shadow-[0_8px_28px_rgba(15,23,42,0.08)] border border-[#EEF0FF] px-6 sm:px-4 lg:px-4 py-6">
+            <div className="text-center mb-4">
+              <h2 className="text-center pt-4 text-[18px] sm:text-[22px] font-bold">
                 Our Consulting Expertise
               </h2>
               <div className="w-10 h-[3px] bg-[#4F46E5] rounded-full mx-auto mt-2" />
@@ -480,26 +463,26 @@ export default function ResearchConsulting() {
                 return (
                   <div
                     key={label}
-                    className={`group flex flex-col items-center text-center px-4 py-2 transition-all duration-300 hover:-translate-y-2
+                    className={`group flex flex-col items-center text-center px-2 py-2 transition-all duration-300 hover:-translate-y-2
       ${index !== EXPERTISE.length - 1 ? "lg:border-r border-[#E7EAF5]" : ""}`}
                   >
                     <div
-                      className={`w-[66px] h-[66px] rounded-full flex items-center justify-center mb-4
+                      className={`w-[60px] h-[60px] rounded-full flex items-center justify-center mb-4
         ${colors.bg}
         group-hover:scale-110 group-hover:shadow-[0_12px_24px_rgba(79,70,229,0.12)]
         transition-all duration-300`}
                     >
                       <Icon
-                        size={34}
+                        size={28}
                         className={`${colors.icon} transition-all duration-300`}
                       />
                     </div>
 
-                    <h3 className="text-[14px] font-bold text-[#07113F] mb-3">
+                    <h3 className="text-[13px] font-semibold text-[#07113F] mb-3">
                       {label}
                     </h3>
 
-                    <p className="text-[12px] leading-[1.9] text-[#1E293B] font-medium max-w-[160px]">
+                    <p className="text-[12px] leading-[1.6] text-[#1E293B] font-medium max-w-[160px]">
                       {desc}
                     </p>
                   </div>
@@ -510,11 +493,11 @@ export default function ResearchConsulting() {
         </section>
 
         {/* ── END-TO-END RESEARCH CONSULTING SERVICES ── */}
-        
-        <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-14 py-4">
-  <div className="max-w-[1500px] mx-auto">
+
+        <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
+          <div className="max-w-[1420px] mx-auto">
             <div className="text-center mb-4">
-              <h2 className="text-[20px] font-bold text-[#07113F]">
+              <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold">
                 End-to-End Research Consulting Services
               </h2>
             </div>
@@ -565,10 +548,10 @@ export default function ResearchConsulting() {
         </section>
 
         {/* ── CONSULTING PROCESS + STATS ── */}
-        <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-14 py-4">
-  <div className="max-w-[1500px] mx-auto">
+        <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
+          <div className="max-w-[1420px] mx-auto">
             <div className="text-center mb-6">
-              <h2 className="text-[20px] font-bold text-[#07113F]">
+              <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold mb-8">
                 Our Consulting Process
               </h2>
             </div>
@@ -624,11 +607,11 @@ export default function ResearchConsulting() {
                   key={label}
                   className="relative flex flex-col items-center text-center group"
                 >
-                  <div className="relative w-[92px] h-[92px] rounded-full border-2 border-[#C8C3FF] bg-[#F4F7FF] flex items-center justify-center mb-4 group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300">
-                    <span className="absolute -top-3 w-8 h-8 rounded-full bg-[#4F46E5] text-white text-[12px] font-extrabold flex items-center justify-center">
+                  <div className="relative w-[68px] h-[68px] rounded-full border-2 border-[#C8C3FF] bg-[#F4F7FF] flex items-center justify-center mb-4 group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300">
+                    <span className="absolute -top-4 w-7 h-7 rounded-full bg-[#4F46E5] text-white text-[12px] font-extrabold flex items-center justify-center">
                       {no}
                     </span>
-                    <Icon size={34} className={color} />
+                    <Icon size={28} className={color} />
                   </div>
 
                   {index !== arr.length - 1 && (
@@ -651,7 +634,7 @@ export default function ResearchConsulting() {
             </div>
 
             {/* Stats Strip */}
-            <div className="bg-gradient-to-r from-[#4F23F7] via-[#245FEA] to-[#0093A6] rounded-[14px] shadow-lg px-6 py-5">
+            <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] shadow-[0_12px_28px_rgba(79,70,229,0.18)] rounded-[14px] shadow-lg px-6 py-5">
               {/* Stats */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 lg:gap-y-0">
                 {[
@@ -681,15 +664,15 @@ export default function ResearchConsulting() {
                         : ""
                     }`}
                   >
-                    <div className="w-[58px] h-[58px] rounded-full bg-white/15 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/25 transition-all duration-300">
-                      <Icon size={30} />
+                    <div className="w-[56px] h-[56px] rounded-full bg-white/15 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/25 transition-all duration-300">
+                      <Icon size={28} />
                     </div>
 
                     <div>
-                      <h3 className="text-[26px] sm:text-[30px] font-bold leading-none">
+                      <h3 className="text-[16px] sm:text-[18px] font-semibold leading-none">
                         {value}
                       </h3>
-                      <p className="text-[13px] font-semibold text-white/95 mt-1">
+                      <p className="text-[13px] font-medium text-white/95 mt-1">
                         {label}
                       </p>
                     </div>
@@ -701,8 +684,8 @@ export default function ResearchConsulting() {
         </section>
 
         {/* ── IMPACT WE CREATE + CTA ── */}
-        <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-14 py-4">
-  <div className="max-w-[1500px] mx-auto">
+        <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
+          <div className="max-w-[1420px] mx-auto">
             <div className="text-center mb-5">
               <h2 className="text-[20px] font-bold text-[#07113F]">
                 Impact We Create

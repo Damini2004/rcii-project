@@ -643,65 +643,59 @@ export default function InstitutionsResearchAnalytics() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-[#0F172A] mt-[70px] overflow-x-hidden">
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-white min-h-[430px] sm:min-h-[480px] lg:min-h-[490px]">
-        <img
-          src={heroBg}
-          alt="Research Analytics"
-          className="absolute inset-0 w-full h-full object-cover object-[70%_center] sm:object-center"
-        />
+     {/* HERO */}
+<section
+  className="relative min-h-[520px] sm:min-h-[390px] lg:min-h-[420px] bg-cover bg-no-repeat flex items-center"
+  style={{
+    backgroundImage: `url(${heroBg})`,
+    backgroundPosition: "center right",
+  }}
+>
+  <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14 sm:py-14 lg:py-16">
+    <div className="max-w-[620px] ">
+      <div className="flex flex-wrap items-center gap-2 text-[12px] font-medium text-[#3d25e6] mb-6">
+        <Link to="/">Home</Link>
+        <span>›</span>
+        <Link to="/institutions">Institutions</Link>
+        <span>›</span>
+        <span className="text-[#07113F]">Research Analytics</span>
+      </div>
 
-        <div className="absolute inset-0 bg-white/45 sm:bg-white/20 lg:bg-transparent" />
+      <h1 className="text-[34px] sm:text-[36px] lg:text-[42px] leading-[1.1] font-bold text-[#07113F]">
+        Research
+        <br />
+        <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
+          Analytics
+        </span>
+      </h1>
 
-        <div className="relative z-20 max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-16 pt-6 sm:pt-8 pb-10 sm:pb-12">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] font-semibold mb-6 sm:mb-8">
-            <Link
-              to="/"
-              className="text-[#6366F1] hover:text-[#4F46E5] transition hover:translate-x-[2px]"
-            >
-              Home
-            </Link>
-            <span className="text-gray-400">›</span>
-            <span className="text-gray-500">Institutions</span>
-            <span className="text-gray-400">›</span>
-            <span className="text-gray-500">Research Analytics</span>
-          </div>
+      <p className="text-[#665fe8] text-[14px] sm:text-[16px] font-bold mt-3 sm:mt-6 leading-6">
+        Data-Driven Insights. Strategic Decisions. Greater Impact.
+      </p>
 
-          <div className="max-w-[470px]">
-            <h1 className="text-[34px] sm:text-[42px] lg:text-[50px] leading-tight lg:leading-none font-bold text-[#07113F]">
-              Research
-              <span className="block sm:inline bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent sm:ml-3">
-                Analytics
-              </span>
-            </h1>
+      <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:mt-5 mt-3 max-w-[430px]">
+        RCII delivers comprehensive research analytics solutions that
+        empower institutions to evaluate performance, benchmark progress,
+        and make informed research decisions.
+      </p>
 
-            <p className="text-[#665fe8] text-[14px] sm:text-[16px] font-bold mt-4 sm:mt-5">
-              Data-Driven Insights. Strategic Decisions. Greater Impact.
-            </p>
+      <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
+        <button className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+          <BarChart2 size={18} />
+          Request a Demo
+        </button>
 
-            <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:leading-[2] mt-3 sm:mt-5 max-w-[430px]">
-              RCII delivers comprehensive research analytics solutions that
-              empower institutions to evaluate performance, benchmark progress,
-              and make informed research decisions.
-            </p>
-
-            <div className="flex flex-col xs:flex-row sm:flex-row flex-wrap gap-3 sm:gap-4 mt-5 sm:mt-7">
-              <button className="bg-[#4F46E5] text-[13px] sm:text-[14px] text-white px-5 sm:px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
-                <BarChart2 size={17} />
-                Request a Demo
-              </button>
-
-              <button className="border border-[#4F46E5] text-[#4F46E5] text-[13px] sm:text-[14px] px-5 sm:px-6 py-3 rounded-md font-semibold hover:bg-indigo-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex items-center justify-center gap-3">
-                Explore All Services
-                <ArrowRight size={17} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+        <button className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+          Explore All Services
+          <ArrowRight size={18} />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* WHY SECTION */}
-      <section className="bg-white px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-10 relative z-30">
+      <section className="bg-white px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10 relative z-30">
         <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-10">
           <div className="bg-white rounded-xl shadow-[0_8px_30px_rgba(15,23,42,0.08)] border border-gray-100 px-4 sm:px-8 py-6">
             <div className="text-center mb-5">
@@ -758,9 +752,9 @@ export default function InstitutionsResearchAnalytics() {
                   className="group bg-white rounded-xl border border-[#E7EAF3] px-5 py-5 shadow-sm hover:shadow-xl hover:border-[#C7D2FE] hover:-translate-y-2 transition-all duration-300 flex flex-col min-h-[270px]"
                 >
                   <div
-                    className={`w-[70px] h-[70px] rounded-full flex items-center justify-center mx-auto mb-4 ${colors.bg} group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-[60px] h-[60px] rounded-full flex items-center justify-center mx-auto mb-4 ${colors.bg} group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <Icon className={`w-8 h-8 ${colors.icon}`} />
+                    <Icon className={`w-6 h-6 ${colors.icon}`} />
                   </div>
 
                   <h3 className="text-center text-[13.2px] font-semibold text-[#07113F] leading-snug mb-4 min-h-[40px]">
@@ -792,7 +786,7 @@ export default function InstitutionsResearchAnalytics() {
       {/* STATS STRIP */}
       <section className="bg-white px-4 sm:px-6 lg:px-8 py-6">
         <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-10">
-          <div className="bg-gradient-to-r from-[#563BFF] via-[#2466E8] to-[#009CA6] rounded-xl shadow-lg px-5 sm:px-10 py-6 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] rounded-xl shadow-lg px-5 sm:px-10 py-6 hover:shadow-xl transition-all duration-300">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-4 lg:gap-y-0">
               {STATS.map(({ value, label, icon: Icon }, index) => (
                 <div
@@ -803,12 +797,12 @@ export default function InstitutionsResearchAnalytics() {
                       : ""
                   }`}
                 >
-                  <div className="w-[52px] h-[52px] rounded-full bg-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-[#563BFF]" />
+                  <div className="w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-7 h-7 text-[#563BFF]" />
                   </div>
 
                   <div>
-                    <h3 className="text-white text-[20px] sm:text-[22px] font-semibold leading-none">
+                    <h3 className="text-white text-[18px] sm:text-[20px] font-semibold leading-none">
                       {value}
                     </h3>
                     <p className="text-white text-[13px] font-medium mt-1 leading-snug">
@@ -860,9 +854,9 @@ export default function InstitutionsResearchAnalytics() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="bg-white px-4 sm:px-6 lg:px-8 py-6">
+      <section className="bg-white px-4 sm:px-6 lg:px-8 py-4">
         <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-10">
-          <div className="bg-gradient-to-r from-[#563BFF] via-[#2F57E5] to-[#0B8FA7] rounded-[14px] overflow-hidden px-5 sm:px-6 lg:px-10 py-6 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] shadow-[0_12px_28px_rgba(79,70,229,0.18)] rounded-[14px] overflow-hidden px-5 sm:px-6 lg:px-10 py-6 hover:shadow-xl transition-all duration-300">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-5">
               <div className="hidden md:flex shrink-0">
                 <img

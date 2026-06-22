@@ -64,7 +64,7 @@ export default function ResearchInfrastructureSupport() {
     <div className="bg-white text-[#08132c] overflow-x-hidden">
       {/* HERO */}
       <section
-        className="relative min-h-[420px] bg-cover bg-center flex items-center"
+        className="relative min-h-[420px] bg-cover bg-no-repeat flex items-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14">
@@ -248,7 +248,7 @@ export default function ResearchInfrastructureSupport() {
 
       {/* CTA */}
       <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-10">
-        <div className="bg-gradient-to-r from-[#4a22e8] to-[#08199c] rounded-[14px] text-white px-6 sm:px-6 py-6 grid lg:grid-cols-[180px_1fr_auto_auto] gap-6 items-center">
+        <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] shadow-[0_12px_28px_rgba(79,70,229,0.18)] rounded-[14px] text-white px-6 sm:px-6 py-6 grid lg:grid-cols-[180px_1fr_auto_auto] gap-6 items-center">
           <img src={risCta} alt="" className="w-full hidden lg:block" />
 
           <div>

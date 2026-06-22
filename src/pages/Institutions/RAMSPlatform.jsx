@@ -667,7 +667,7 @@ export default function RAMSPlatform() {
         <img
           src={heroBg}
           alt="RAMS Platform"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full bg-cover bg-no-repeat"
         />
 
         <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 pt-8 sm:pt-10">
@@ -738,7 +738,7 @@ export default function RAMSPlatform() {
         <div className="max-w-[1500px] mx-auto bg-white rounded-[18px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.06)] px-5 sm:px-6 lg:px-8 py-6">
           {/* Heading */}
           <div className="text-center mb-7">
-            <h2 className="text-[20px] sm:text-[20px] font-bold text-[#07113F]">
+            <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold">
               Key Capabilities of RAMS Platform
             </h2>
 
@@ -786,7 +786,7 @@ export default function RAMSPlatform() {
       <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
         <div className="max-w-[1500px] mx-auto">
           <div className="text-center mb-6">
-            <h2 className="text-[20px] font-bold text-[#07113F]">
+            <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold">
               RAMS Platform Modules
             </h2>
             <div className="w-10 h-[3px] bg-[#5B3DF5] rounded-full mx-auto mt-2" />
@@ -846,7 +846,7 @@ export default function RAMSPlatform() {
 
             {/* RIGHT CONTENT */}
             <div className="order-1 lg:order-2 mb-8">
-              <h2 className="text-[22px] sm:text-[24px] font-bold text-[#07113F] mb-6">
+              <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold mb-6">
                 Benefits for Your Institution
               </h2>
 
@@ -879,7 +879,7 @@ export default function RAMSPlatform() {
       {/* STATS BAR */}
       <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
         <div className="max-w-[1500px] mx-auto">
-          <div className="bg-gradient-to-r from-[#563BFF] via-[#2466E8] to-[#009CA6] rounded-[12px] shadow-lg px-5 sm:px-8 py-8">
+          <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] rounded-[12px] shadow-lg px-5 sm:px-8 py-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 lg:gap-y-0">
               {STATS.map(({ icon: Icon, value, label }, index) => (
                 <div
@@ -912,11 +912,12 @@ export default function RAMSPlatform() {
       {/* RAMS CTA */}
       <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4 mb-4">
         <div className="max-w-[1500px] mx-auto">
+          
           <div className=" h-[160px] bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-8 lg:px-14 py-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-6">
               {/* Left Text */}
               <div className="text-center lg:text-left">
-                <h2 className="text-[18px] sm:text-[18px] font-bold text-[#07113F] mb-3">
+                <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold mb-3">
                   Transform Your Research Management
                 </h2>
                 <p className="text-[14px] sm:text-[14px] text-[#1E293B] font-medium leading-[1.9] max-w-[430px] mx-auto lg:mx-0">

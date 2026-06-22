@@ -34,6 +34,8 @@ const navItems = [
       { label: "Research Policy", path: "/research-policy" },
       { label: "Consulting", path: "/research-consulting" },
       { label: "Infrastructure Support", path: "/research-infrastructure-support" },
+      { label: "Funding & Grant Support", path: "/funding-grants-support" },
+      { label: "Research Data Management", path: "/research-data-Management" },
     ],
   },
 
