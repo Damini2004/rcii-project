@@ -20,15 +20,12 @@ import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
 import PubSupport from '../pages/researches/PubSupport.jsx'
 import ReseachResourcesTemplate from '../pages/researches/ResearchResourcesTemplate.jsx'
 import ResearchProfileVisibility from '../pages/researches/ResearchProfileVisibility.jsx'
-<<<<<<< HEAD
 import ResearchFundingGrantsSupport from '../pages/Institutions/ResearchFundingGrantsSupport.jsx'
 import ResearchDataManagement from '../pages/Institutions/ResearchDataManagement.jsx'
-=======
 import Resources from '../pages/resources/Resources.jsx'
 import Blogs from '../pages/resources/Blogs.jsx'
 import HowToGet from '../pages/resources/HowToGet.jsx'
 import InnovationIP from '../pages/Innovation/InnovationIP.jsx'
->>>>>>> 987d6bbd804e67da50e7e0d7abbba89e84cf31ca
 
 function AppRoutes() {
   return (
