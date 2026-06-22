@@ -94,40 +94,210 @@ function InnovationIP() {
            </section>
 
       <div className="mx-auto max-w-[1440px] px-4 py-7 sm:px-8 lg:px-14">
-        <SectionTitle title="Why Innovation & IP Matters" />
+       <SectionTitle title="Why Innovation & IP Matters" />
 
-        <div className="grid grid-cols-1 overflow-hidden rounded-[12px] border border-[#edf0fa] bg-white shadow-[0_8px_28px_rgba(30,40,90,0.06)] sm:grid-cols-2 lg:grid-cols-6">
-          <Why icon={Lightbulb} bg="#f0edff" color="#563BFF" title="Encourage Innovation" />
-          <Why icon={ShieldCheck} bg="#eaf8ef" color="#25a85c" title="Protect Your Ideas" />
-          <Why icon={BarChart3} bg="#eaf4ff" color="#2478e8" title="Maximize Value" />
-          <Why icon={Users} bg="#f0edff" color="#563BFF" title="Attract Collaborations" />
-          <Why icon={Globe2} bg="#eaf8ef" color="#25a85c" title="Global Recognition" />
-          <Why icon={Target} bg="#f0edff" color="#563BFF" title="Create Impact" />
-        </div>
+<div className="grid grid-cols-1 overflow-hidden bg-white sm:grid-cols-2 lg:grid-cols-6">
+  <Why
+    icon={Lightbulb}
+    bg="#f0edff"
+    color="#563BFF"
+    title="Encourage Innovation"
+    text="Foster a culture of creativity and innovation across academia and industry."
+  />
 
-        <SectionTitle title="Our Innovation & IP Services" className="mt-8" />
+  <Why
+    icon={ShieldCheck}
+    bg="#eaf8ef"
+    color="#25a85c"
+    title="Protect Your Ideas"
+    text="Secure your intellectual property and gain a competitive advantage."
+  />
 
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          <Service icon={Search} title="IP Awareness & Capacity Building" />
-          <Service icon={FileSearch} title="IP Landscaping & Prior Art Search" />
-          <Service icon={FileCheck2} title="Patent Filing & Prosecution" />
-          <Service icon={BadgeCheck} title="Trademarks, Copyrights & Design Protection" />
-          <Service icon={ClipboardCheck} title="Technology Transfer & Licensing Support" />
-          <Service icon={Handshake} title="Innovation Management & Strategy" />
-          <Service icon={Rocket} title="Startup & Incubation Support" />
-          <Service icon={Scale} title="IP Portfolio Audit & Analytics" />
-        </div>
+  <Why
+    icon={BarChart3}
+    bg="#eaf4ff"
+    color="#2478e8"
+    title="Maximize Value"
+    text="Commercialize IP to generate revenue and drive economic growth."
+  />
 
-        <SectionTitle title="Our Innovation to Impact Process" className="mt-8" />
+  <Why
+    icon={Users}
+    bg="#f0edff"
+    color="#563BFF"
+    title="Attract Collaborations"
+    text="Strengthen partnerships with industry and research ecosystems."
+  />
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
-          <Process icon={Lightbulb} step="1. Discover" text="Identify ideas and innovation potential" />
-          <Process icon={ClipboardCheck} step="2. Evaluate" text="Assess novelty, market potential and IP scope" />
-          <Process icon={FileCheck2} step="3. Protect" text="File and secure IP through appropriate channels" />
-          <Process icon={Settings} step="4. Develop" text="Prototype, validate and refine the innovation" />
-          <Process icon={Handshake} step="5. Commercialize" text="License, collaborate or launch to market" />
-          <Process icon={Target} step="6. Impact" text="Create value and drive societal impact" />
-        </div>
+  <Why
+    icon={Globe2}
+    bg="#eaf8ef"
+    color="#25a85c"
+    title="Global Recognition"
+    text="Build a strong IP portfolio and enhance global reputation."
+  />
+
+  <Why
+    icon={Target}
+    bg="#f0edff"
+    color="#563BFF"
+    title="Create Impact"
+    text="Translate ideas into real-world solutions for societal benefit."
+  />
+</div>
+
+      <SectionTitle title="Our Innovation & IP Services" className="mt-8" />
+
+<div className="grid gap-0 overflow-hidden rounded-[12px] border border-[#e3e7f4] bg-white shadow-[0_8px_28px_rgba(30,40,90,0.06)] sm:grid-cols-2 xl:grid-cols-4 auto-rows-fr">
+  <Service
+    icon={Search}
+    bg="#f0edff"
+    color="#563BFF"
+    title="IP Awareness & Capacity Building"
+    items={[
+      "IP workshops and training",
+      "Awareness programs for researchers and students",
+      "IP policy development",
+    ]}
+  />
+
+  <Service
+    icon={FileSearch}
+    bg="#eaf8ef"
+    color="#25a85c"
+    title="IP Landscaping & Prior Art Search"
+    items={[
+      "Technology scouting",
+      "Prior art and patentability search",
+      "Freedom to operate analysis",
+    ]}
+  />
+
+  <Service
+    icon={FileCheck2}
+    bg="#f0edff"
+    color="#563BFF"
+    title="Patent Filing & Prosecution"
+    items={[
+      "Drafting patent applications",
+      "Filing and prosecution support",
+      "Response to office actions",
+    ]}
+  />
+
+  <Service
+    icon={BadgeCheck}
+    bg="#eaf8ef"
+    color="#25a85c"
+    title="Trademarks, Copyrights & Design Protection"
+    items={[
+      "Trademark search and filing",
+      "Copyright registration",
+      "Industrial design protection",
+    ]}
+  />
+
+  <Service
+    icon={ClipboardCheck}
+    bg="#eaf8ef"
+    color="#25a85c"
+    title="Technology Transfer & Licensing Support"
+    items={[
+      "Technology valuation",
+      "Licensing strategy & agreements",
+      "Commercialization support",
+    ]}
+  />
+
+  <Service
+    icon={Handshake}
+    bg="#f0edff"
+    color="#563BFF"
+    title="Innovation Management & Strategy"
+    items={[
+      "Innovation strategy development",
+      "IP portfolio management",
+      "R&D and innovation consulting",
+    ]}
+  />
+
+  <Service
+    icon={Rocket}
+    bg="#eaf8ef"
+    color="#25a85c"
+    title="Startup & Incubation Support"
+    items={[
+      "IP strategy for startups",
+      "Business model & go-to-market",
+      "Investor and pitch support",
+    ]}
+  />
+
+  <Service
+    icon={Scale}
+    bg="#f0edff"
+    color="#563BFF"
+    title="IP Portfolio Audit & Analytics"
+    items={[
+      "IP portfolio assessment",
+      "Competitive benchmarking",
+      "Analytics and reporting",
+    ]}
+  />
+</div>
+
+      <SectionTitle title="Our Innovation to Impact Process" className="mt-8" />
+
+<div className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-6">
+  <Process
+    icon={Search}
+    bg="#f0edff"
+    color="#563BFF"
+    step="1. Discover"
+    text="Identify ideas and innovation potential"
+  />
+
+  <Process
+    icon={ClipboardCheck}
+    bg="#eaf8ef"
+    color="#25a85c"
+    step="2. Evaluate"
+    text="Assess novelty, market potential and IP scope"
+  />
+
+  <Process
+    icon={FileCheck2}
+    bg="#eaf4ff"
+    color="#2478e8"
+    step="3. Protect"
+    text="File and secure IP through appropriate channels"
+  />
+
+  <Process
+    icon={Settings}
+    bg="#fff0e7"
+    color="#ff6b19"
+    step="4. Develop"
+    text="Prototype, validate and refine the innovation"
+  />
+
+  <Process
+    icon={Handshake}
+    bg="#f0edff"
+    color="#563BFF"
+    step="5. Commercialize"
+    text="License, collaborate or launch to market"
+  />
+
+  <Process
+    icon={Target}
+    bg="#eaf8ef"
+    color="#25a85c"
+    step="6. Impact"
+    text="Create value and drive societal impact"
+    last
+  />
+</div>
 
        <section className="mt-8 overflow-hidden rounded-[12px] bg-[linear-gradient(90deg,#0B1464_0%,#1322A6_55%,#0B3CD6_100%)] px-5 py-5 text-white shadow-[0_14px_35px_rgba(10,20,90,0.22)]">
   <h2 className="mb-5 text-center text-[18px] font-bold">
@@ -247,43 +417,84 @@ function Why({ icon: Icon, bg, color, title }) {
   );
 }
 
-function Service({ icon: Icon, title }) {
+function Service({ icon: Icon, bg, color, title, items }) {
   return (
-    <div className="group rounded-[10px] border border-[#e8ebf7] bg-white p-5 shadow-[0_8px_24px_rgba(30,40,90,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_42px_rgba(30,40,90,0.12)]">
-      <div className="flex items-start gap-4">
-        <div className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#eaf8ef] transition-transform duration-300 group-hover:scale-110">
-          <Icon size={23} className="text-[#25a85c]" />
+    <div className="group h-full min-h-[170px] border-b border-r border-[#e3e7f4] bg-white px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:bg-[#fbfaff] hover:shadow-[0_14px_35px_rgba(30,40,90,0.10)]">
+      <div className="flex h-full items-start gap-5">
+        <div
+          className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-[14px] transition-all duration-300 group-hover:scale-110"
+          style={{ backgroundColor: bg }}
+        >
+          <Icon
+            size={24}
+            strokeWidth={2.1}
+            style={{ color }}
+            className="transition-transform duration-300 group-hover:scale-110"
+          />
         </div>
 
-        <div>
-          <h3 className="text-[14px] font-bold leading-tight text-[#071044]">
+        {/* RIGHT CONTENT */}
+        <div className="flex min-h-[180px] flex-1 flex-col">
+          <h3 className="text-[14px] font-bold leading-[1.25] text-[#071044]">
             {title}
           </h3>
 
-          <ul className="mt-3 list-disc space-y-1 pl-4 text-[11px] font-bold leading-[1.55] text-[#303b5d]">
-            <li>Expert consultation and filing support</li>
-            <li>Strategy development and documentation</li>
-            <li>End-to-end assistance</li>
+          <ul className="mt-3 space-y-1">
+            {items.map((item) => (
+              <li
+                key={item}
+                className="flex gap-2 text-[11px] font-semibold leading-[1.45] text-[#202b56]"
+              >
+                <span className="mt-[2px] text-[#321cff]">✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
 
-          <button className="group/btn mt-4 text-[11px] font-bold text-[#321cff]">
-            Learn More
-            <ArrowRight size={13} className="ml-1 inline transition group-hover/btn:translate-x-1" />
-          </button>
+          {/* PUSHES BUTTON TO BOTTOM */}
+          <div className="mt-auto pt-3">
+            <button className="group/btn inline-flex items-center gap-2 text-[12px] font-bold text-[#321cff] transition-all duration-300 hover:gap-3">
+              Learn More
+              <ArrowRight
+                size={14}
+                strokeWidth={2.5}
+                className="transition-transform duration-300 group-hover/btn:translate-x-1"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-function Process({ icon: Icon, step, text }) {
+function Process({ icon: Icon, bg, color, step, text, last = false }) {
   return (
-    <div className="group relative rounded-[10px] bg-white p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(30,40,90,0.08)]">
-      <div className="mx-auto flex h-[54px] w-[54px] items-center justify-center rounded-full bg-[#f0edff] transition-transform duration-300 group-hover:scale-110">
-        <Icon size={24} className="text-[#563BFF]" />
+    <div className="group relative text-center">
+      {!last && (
+        <div className="absolute left-[72%] top-[34px] hidden w-[58%] items-center lg:flex">
+          <div className="h-[2px] flex-1 border-t-2 border-dashed border-[#8a96d8]" />
+          <span className="-ml-1 text-[#8a96d8]">➜</span>
+        </div>
+      )}
+
+      <div
+        className="mx-auto flex h-[60px] w-[60px] items-center justify-center rounded-full transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110"
+        style={{ backgroundColor: bg }}
+      >
+        <Icon
+          size={30}
+          strokeWidth={2.2}
+          style={{ color }}
+          className="transition-transform duration-300 group-hover:scale-110"
+        />
       </div>
-      <h3 className="mt-3 text-[12px] font-bold text-[#071044]">{step}</h3>
-      <p className="mt-2 text-[10.5px] font-bold leading-[1.55] text-[#303b5d]">
+
+      <h3 className="mt-4 text-[13px] font-bold text-[#071044]">
+        {step}
+      </h3>
+
+      <p className="mx-auto mt-3 max-w-[150px] text-[11.5px] font-bold leading-[1.7] text-[#253056]">
         {text}
       </p>
     </div>
