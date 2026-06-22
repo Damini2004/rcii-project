@@ -166,7 +166,7 @@ export default function AccreditationRankingPage() {
       <section className="relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[515px] bg-white">
         {/* Background image */}
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-[center_top] sm:bg-[70%_center] lg:bg-center"
+          className="absolute inset-0 bg-cover bg-no-repeat "
           style={{
             backgroundImage: `url(${heroBg})`,
           }}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ChevronDown,
   ArrowRight,
@@ -663,39 +664,36 @@ export default function RAMSPlatform() {
   return (
     <div className="font-sans text-gray-800 bg-white min-h-screen">
       {/* HERO */}
-      <section className="mt-[70px] relative w-full min-h-[430px] sm:min-h-[500px] lg:min-h-[485px] overflow-hidden bg-[#F7F8FF]">
-        <img
-          src={heroBg}
-          alt="RAMS Platform"
-          className="absolute inset-0 w-full h-full bg-cover bg-no-repeat"
-        />
+      <section
+        className="relative min-h-[520px] sm:min-h-[390px] lg:min-h-[420px] bg-cover bg-no-repeat flex items-center"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundPosition: "center right",
+        }}
+      >
+        <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14 sm:py-14 lg:py-16">
+          <div className="max-w-[620px] mt-12">
+            <nav className="flex flex-wrap items-center gap-2 text-[12px] font-medium text-[#3d25e6] mb-6">
+              <Link to="/">Home</Link>
+              <span>›</span>
+              <Link to="/institutions">Institutions</Link>
+              <span>›</span>
+              <span className="text-[#07113F]">RAMS Platform</span>
+            </nav>
 
-        <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 pt-8 sm:pt-10">
-          <nav className="flex flex-wrap items-center gap-2 text-[12px] font-semibold mb-8">
-            <span className="text-[#4F46E5] hover:text-[#2563EB] cursor-pointer">
-              Home
-            </span>
-            <span className="text-gray-400">›</span>
-            <span className="text-[#4F46E5] hover:text-[#2563EB] cursor-pointer">
-              Institutions
-            </span>
-            <span className="text-gray-400">›</span>
-            <span className="text-[#1E293B]">RAMS Platform</span>
-          </nav>
-
-          <div className="max-w-[520px]">
-            <h1 className="text-[34px] sm:text-[42px] lg:text-[50px] leading-tight lg:leading-none font-bold text-[#07113F]">
+            <h1 className="text-[34px] sm:text-[36px] lg:text-[42px] leading-[1.1] font-bold text-[#07113F]">
               RAMS
-              <span className="block sm:inline bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent sm:ml-3">
+              <br />
+              <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
                 Platform
               </span>
             </h1>
 
-            <p className="text-[#665fe8] text-[14px] sm:text-[16px] font-bold mt-4 sm:mt-5">
+            <p className="text-[#665fe8] text-[14px] sm:text-[16px] font-bold mt-3 sm:mt-6 leading-6">
               Research Assessment &amp; Management System
             </p>
 
-            <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:leading-[2] mt-3 sm:mt-5 max-w-[430px]">
+            <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:mt-5 mt-3 max-w-[430px]">
               A comprehensive platform to manage, monitor, and maximize your
               institution's research ecosystem.
             </p>
@@ -718,13 +716,13 @@ export default function RAMSPlatform() {
               ))}
             </ul>
 
-            <div className="mt-7 flex flex-col sm:flex-row gap-4">
-              <button className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-sm">
+            <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
+              <button className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 <Monitor className="w-4 h-4" />
                 Request a Demo
               </button>
 
-              <button className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-sm bg-white/50">
+              <button className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Explore All Services
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -912,7 +910,6 @@ export default function RAMSPlatform() {
       {/* RAMS CTA */}
       <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4 mb-4">
         <div className="max-w-[1500px] mx-auto">
-          
           <div className=" h-[160px] bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-8 lg:px-14 py-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-6">
               {/* Left Text */}

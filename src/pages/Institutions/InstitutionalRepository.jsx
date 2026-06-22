@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Shield,
   Globe,
@@ -433,60 +434,53 @@ export default function InstitutionalRepository() {
   return (
     <div className="font-sans text-gray-800 bg-[#F7F8FF] min-h-screen overflow-x-hidden">
       {/* HERO */}
-      <section className="mt-[70px] relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[600px] overflow-hidden bg-[#F7F8FF]">
-  <img
-  src={heroBg}
-  alt="Institutional Repository"
-  className="absolute inset-0 w-full h-full object-cover object-center "
-/>
-        {/* className="absolute inset-0 w-full h-full object-contain object-center bg-[#F7F8FF]" */}
+      <section
+        className="relative min-h-[520px] sm:min-h-[380px] lg:min-h-[420px] bg-cover bg-no-repeat flex items-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      >
+        <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14 sm:py-14 lg:py-16">
+          <div className="max-w-[620px] mt-12">
+            <Link
+              to="/"
+              className="text-[12px] text-[#3d25e6] mb-6 font-medium inline-block"
+            >
+              Home &nbsp;›&nbsp; Institutions &nbsp;›&nbsp; Institutional
+              Repository
+            </Link>
 
-        <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 pt-8 sm:pt-10">
-          <nav className="flex flex-wrap items-center gap-2 text-[12px] font-semibold mb-8">
-            <span className="text-[#4F46E5] hover:text-[#2563EB] cursor-pointer">
-              Home
-            </span>
-            <span className="text-gray-400">›</span>
-            <span className="text-[#4F46E5] hover:text-[#2563EB] cursor-pointer">
-              Institutions
-            </span>
-            <span className="text-gray-400">›</span>
-            <span className="text-[#1E293B]">Institutional Repository</span>
-          </nav>
-
-          <div className="max-w-[520px]">
-            <h1 className="text-[34px] sm:text-[42px] lg:text-[50px] leading-tight lg:leading-none font-bold text-[#07113F]">
-              Institutional
-              <br />
-              <span className="block sm:inline bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">Repository</span>
+            <h1 className="text-[34px] sm:text-[36px] lg:text-[42px] leading-[1.1] font-bold text-[#07113F] mt-4">
+              Institutional <br />
+              <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
+                Repository
+              </span>
             </h1>
 
-            <p className="text-[#665fe8] text-[14px] sm:text-[16px] font-bold mt-4 sm:mt-5">
+            <h2 className="text-[#665fe8] text-[14px] sm:text-[16px] font-bold mt-3 sm:mt-6 leading-6">
               Preserve. Share. Showcase Your Research.
-            </p>
+            </h2>
 
-            <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:leading-[2] mt-3 sm:mt-5 max-w-[430px]">
+            <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:mt-5 mt-3 max-w-[430px]">
               A secure and scalable repository to collect, preserve, manage, and
-              showcase your institution's research output and intellectual
+              showcase your institution&apos;s research output and intellectual
               assets.
             </p>
 
-            <div className="mt-7 flex flex-col sm:flex-row gap-4">
-              <button className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-sm">
-                <Database className="w-4 h-4" />
+            <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
+              <Link className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+                <Database size={18} />
                 Request a Demo
-              </button>
+              </Link>
 
-              <button className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-sm bg-white/50">
+              <Link className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Explore All Services
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </div>
       </section>
       {/* WHY AN INSTITUTIONAL REPOSITORY */}
-     <section className="relative z-20 bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 pb-4 mt-10 sm:-mt-14 lg:-mt-32">
+      <section className="relative z-20 bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 pb-4 mt-10 sm:-mt-14 lg:-mt-0">
         <div className="max-w-[1500px] mx-auto bg-white rounded-[18px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.06)] px-4 sm:px-8 lg:px-16 py-6">
           <div className="text-center mb-6">
             <h2 className="text-center text-[18px] sm:text-[22px] font-bold">
@@ -655,8 +649,10 @@ export default function InstitutionalRepository() {
                 <div
                   key={label}
                   className={`group flex items-center justify-start sm:justify-center gap-4 text-white hover:-translate-y-1 transition-all duration-300 ${
-  index !== STATS.length - 1 ? "lg:border-r border-white/20" : ""
-}`}
+                    index !== STATS.length - 1
+                      ? "lg:border-r border-white/20"
+                      : ""
+                  }`}
                 >
                   <div className="w-[48px] h-[48px] rounded-full bg-white/15 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/25 transition-all duration-300">
                     <Icon className="w-6 h-6 text-white" />
@@ -679,12 +675,12 @@ export default function InstitutionalRepository() {
           <div className="bg-gradient-to-r from-[#4F23F7] via-[#245FEA] to-[#0093A6] rounded-[12px] shadow-lg px-5 sm:px-8 lg:px-14 py-5 overflow-hidden">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6 min-h-[100px]">
               <div className="flex justify-center shrink-0">
-  <img
-    src={ctaImg}
-    alt="Digital Knowledge Hub"
-    className="w-[130px] sm:w-[150px] lg:w-[170px] h-auto object-contain hover:scale-105 transition-transform duration-300"
-  />
-</div>
+                <img
+                  src={ctaImg}
+                  alt="Digital Knowledge Hub"
+                  className="w-[130px] sm:w-[150px] lg:w-[170px] h-auto object-contain hover:scale-105 transition-transform duration-300"
+                />
+              </div>
 
               <div className="flex-1 text-center lg:text-left">
                 <h2 className="text-[18px] sm:text-[20px] font-semibold text-white mb-2">
