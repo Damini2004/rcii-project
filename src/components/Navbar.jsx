@@ -52,33 +52,7 @@ const navItems = [
   },
 
   
- 
-
- {
-    label: "Innovation & Ip",
-    path: "/inovation",
-    dropdown: [
-      { label: "RAMS", path: "/rams" },
-      { label: "Journal Hosting", path: "/journal-hosting" },
-      { label: "DOI Platform", path: "/doi-platform" },
-      { label: "Conference System", path: "/conference-system" },
-      { label: "Research Profiles", path: "/research-profiles" },
-    ],
-  },
- {
-    label: "Technology",
-    path: "/technology",
-    dropdown: [
-      { label: "RAMS", path: "/rams" },
-      { label: "Journal Hosting", path: "/journal-hosting" },
-      { label: "DOI Platform", path: "/doi-platform" },
-      { label: "Conference System", path: "/conference-system" },
-      { label: "Research Profiles", path: "/research-profiles" },
-    ],
-  },
-
-
-  {
+   {
     label: "Resources",
     path: "/resources",
     dropdown: [
@@ -87,6 +61,32 @@ const navItems = [
       
     ],
   },
+
+ {
+    label: "Innovation & Ip",
+    path: "/inovation",
+    // dropdown: [
+    //   { label: "RAMS", path: "/rams" },
+    //   { label: "Journal Hosting", path: "/journal-hosting" },
+    //   { label: "DOI Platform", path: "/doi-platform" },
+    //   { label: "Conference System", path: "/conference-system" },
+    //   { label: "Research Profiles", path: "/research-profiles" },
+    // ],
+  },
+//  {
+//     label: "Technology",
+//     path: "/technology",
+//     dropdown: [
+//       { label: "RAMS", path: "/rams" },
+//       { label: "Journal Hosting", path: "/journal-hosting" },
+//       { label: "DOI Platform", path: "/doi-platform" },
+//       { label: "Conference System", path: "/conference-system" },
+//       { label: "Research Profiles", path: "/research-profiles" },
+//     ],
+//   },
+
+
+
 
    { label: "About Us", path: "/about" },
 ];
@@ -141,7 +141,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
                 <Link
