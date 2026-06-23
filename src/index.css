@@ -11,7 +11,21 @@
     @apply text-gray-800 bg-white;
   }
 }
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 
+.animate-float {
+  animation: float 2.5s ease-in-out infinite;
+}
 @layer components {
   .gradient-text {
     @apply bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent;
