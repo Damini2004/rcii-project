@@ -409,36 +409,46 @@ function IpinnoSupport() {
 
       {/* RIGHT CTA */}
   {/* RIGHT CTA */}
-<div className="relative overflow-hidden rounded-[18px] border border-[#EEF0FF] shadow-[0_8px_25px_rgba(26,32,80,0.06)] " >
-  
+<div className="relative overflow-hidden rounded-[18px] w-full min-h-[280px] sm:min-h-[290px] lg:min-h-[260px]">
+
+  {/* Background Image */}
   <img
     src={computer1}
     alt=""
-    className="absolute inset-0 w-full min-h-[270px] object-cover"
+    className="absolute inset-0 w-full h-full object-cover object-center scale-105"
   />
 
-  <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-8 lg:px-10 py-7">
-    
-    <h2 className="text-[22px] sm:text-[26px] font-bold leading-[1.2] text-white max-w-[480px]">
+  {/* Dark Overlay (IMPORTANT for all screens) */}
+  <div />
+
+  {/* Content */}
+  <div className="relative z-10 flex flex-col justify-center h-full px-4 sm:px-6 lg:px-10 py-6 sm:py-7">
+
+    <h2 className="text-[18px] sm:text-[22px] lg:text-[26px] font-bold leading-[1.2] text-white max-w-[480px]">
       Have an Innovation to Protect
       <br />
       or Commercialize?
     </h2>
 
-    <p className="mt-4 text-[13px] sm:text-[15px] font-semibold leading-[1.8] text-white/95 max-w-[500px]">
+    <p className="mt-3 sm:mt-4 text-[12px] sm:text-[14px] lg:text-[15px] font-medium leading-[1.6] text-white/95 max-w-[500px]">
       Our experts are here to help you navigate the IP landscape
       and turn your ideas into impact.
     </p>
 
-    <div className="mt-7 flex flex-wrap gap-4">
-      <button className="bg-white text-[#573BFF] text-[13px] sm:text-[14px] font-bold px-6 sm:px-8 py-3 rounded-lg inline-flex items-center gap-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <div className="mt-5 sm:mt-7 flex flex-wrap gap-3 sm:gap-4">
+
+      <button className="bg-white text-[#573BFF] text-[12px] sm:text-[14px] font-bold px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg
+      inline-flex items-center gap-2 shadow-md transition-all duration-300
+      hover:-translate-y-1 hover:shadow-xl active:scale-[0.98]">
         Talk to an Expert
         <ArrowRight size={16} />
       </button>
 
-      <button className="bg-transparent border border-white/40 text-white text-[13px] sm:text-[14px] font-bold px-6 sm:px-8 py-3 rounded-lg transition-all duration-300 hover:bg-white/10">
+      <button className="bg-transparent border border-white/40 text-white text-[12px] sm:text-[14px] font-bold px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg
+      transition-all duration-300 hover:bg-white/10 active:scale-[0.98]">
         Request Consultation
       </button>
+
     </div>
 
   </div>
