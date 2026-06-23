@@ -17,22 +17,7 @@ const columns = [
     
     ],
   },
-  // {
-  //   label: "Researchers",
-  //   path: "/researchers",
-  //   dropdown: [
-  //     // { label: "Researchers", path: "/researchers" },
-  //     { label: "Author Services", path: "/author-services" },
-  //     { label: "Publication Support", path: "/publication-support" },
-  //     { label: "Ip & Innovation Support", path: "/ip-innovation-support" },
-  //     { label: "Research Resources & Templates", path: "/reserach-resources-templates" },
 
-  //     { label: "Research Profiling & Visibility", path: "/research-profiling-visibility" },
-    
-  //     { label: "Grant & Funding Support", path: "/grant-funding-support" },
-  //     { label: "Career & Growth Resources", path: "/career-growth-resources" },
-  //   ],
-  // },
 
   {
     title: "For Institutions",
@@ -75,75 +60,71 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#071B33] text-white">
-      <div className="mx-auto max-w-[1420px] sm:px-8 px-4 py-3 pt-4">
-        <div className="grid gap-6 lg:grid-cols-6">
-          <div>
-            <img src={logo} alt="Researcher Connect" className="h-[54px] w-auto" />
+<footer className="bg-[#071B33] text-white w-full">
+  <div className="mx-auto max-w-[1420px] px-6 sm:px-6 lg:px-8 py-6">
+    
+    {/* GRID */}
+    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 
-            <p className="mt-2 max-w-[230px] text-[11px] font-medium leading-[1.45] text-white/80">
-              Empowering researchers, institutions and publishers with ethical
-              solutions and advanced technology for a better research future.
-            </p>
+      {/* LOGO SECTION */}
+      <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
+        <img src={logo} alt="Researcher Connect" className="h-[50px] w-auto" />
 
-            <div className="mt-3 flex gap-2">
-              {[Linkedin, X, Youtube, Facebook].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="flex h-6 w-6 items-center justify-center rounded-full border border-white/35 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:text-[#071B33]"
-                >
-                  <Icon size={13} />
-                </a>
-              ))}
-            </div>
-          </div>
+        <p className="mt-2 text-[11px] font-medium leading-[1.5] text-white/80 max-w-[260px]">
+          Empowering researchers, institutions and publishers with ethical
+          solutions and advanced technology for a better research future.
+        </p>
 
-        {columns.map((col) => (
-  <div key={col.title}>
-    <h3 className="mb-2 text-[13px] font-bold text-white">
-      {col.title}
-    </h3>
-
-    <ul className="">
-      {col.links.map((item) => (
-        <li key={item.name}>
-          <Link
-            to={item.path}
-            className="text-[11px] font-medium text-white/75 transition-all duration-300 hover:translate-x-1 hover:text-[#4251d1] hover:pl-1"
-          >
-            {item.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-))}
-
-          <div>
-            <h3 className="mb-2 text-[13px] font-bold text-white">
-              Get in Touch
-            </h3>
-
-            <div className="space-y-3">
-              <ContactItem icon={Phone} text="+91 123 456 7890" />
-              <ContactItem icon={Mail} text="info@rcii.in" />
-              <ContactItem icon={MapPin} text="India | Global" />
-            </div>
-          </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[Linkedin, X, Youtube, Facebook].map((Icon, i) => (
+            <a
+              key={i}
+              href="#"
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-white/35 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:text-[#071B33]"
+            >
+              <Icon size={13} />
+            </a>
+          ))}
         </div>
-
-        {/* <div className="mt-3 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-2 md:flex-row">
-          <p className="text-[10px] text-white/70">
-            © 2024 Researcher Connect Innovation and Impact Private Limited. All Rights Reserved.
-          </p>
-
-          <p className="flex items-center gap-1 text-[10px] text-white/70">
-            Made with <Heart size={11} fill="#ef4444" className="text-red-500" /> for the Global Research Community
-          </p>
-        </div> */}
       </div>
-    </footer>
+
+      {/* DYNAMIC COLUMNS */}
+      {columns.map((col) => (
+        <div key={col.title} className="min-w-0">
+          <h3 className="mb-2 text-[13px] font-bold text-white">
+            {col.title}
+          </h3>
+
+          <ul className="space-y-1">
+            {col.links.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className="block text-[11px] font-medium text-white/75 transition-all duration-300 hover:translate-x-1 hover:text-[#4251d1]"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      {/* CONTACT */}
+      <div className="min-w-0">
+        <h3 className="mb-2 text-[13px] font-bold text-white">
+          Get in Touch
+        </h3>
+
+        <div className="space-y-3">
+          <ContactItem icon={Phone} text="+91 123 456 7890" />
+          <ContactItem icon={Mail} text="info@rcii.in" />
+          <ContactItem icon={MapPin} text="India | Global" />
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
   );
 }
 
