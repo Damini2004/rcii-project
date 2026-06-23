@@ -1,199 +1,141 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Linkedin,
-  X,
-  Youtube,
-  Facebook,
-  Phone,
-  Mail,
-  MapPin,
-  Heart,
-} from "lucide-react";
+import { Linkedin, X, Youtube, Facebook, Phone, Mail, MapPin, Heart } from "lucide-react";
 import logo from "../assets/rc.png";
 
 const columns = [
   {
     title: "For Researchers",
     links: [
-      "Author Services",
-      "Publication Support",
-      "Research Profiles",
-      "Patent Services",
-      "Grants & Funding",
-      "Career Support",
+      { name: "Author Services", path: "/author-services" },
+      { name: "Publication Support", path: "/publication-support" },
+      { name: "Research Profiles", path: "/research-profile" },
+      { name: "Grants & Funding", path: "/funding-grants-support" },
+      { name: "Career Resources", path: "/career-resources" },
+      { name: "Research Resources", path: "/research-resources" },
     ],
   },
+
   {
     title: "For Institutions",
     links: [
-      "RAMS Platform",
-      "Research Analytics",
-      "Ranking Support",
-      "Institutional Repository",
-      "Research Policy",
-      "Consulting",
+      { name: "RAMS Platform", path: "/rams-platform" },
+      { name: "Research Analytics", path: "/research-analytics" },
+      { name: "Ranking Support", path: "/ranking-support" },
+      { name: "Institutional Repository", path: "/institutional-repository" },
+     
+      { name: "Consulting", path: "/research-consulting" },
+      { name: "Infrastructure Support", path: "/research-infrastructure-support" },
+      { name: "Funding & Grant Support", path: "/funding-grants-support" },
+      { name: "Research Data Management", path: "/research-data-management" },
     ],
   },
+
   {
     title: "For Publishers",
     links: [
-      "Journal Hosting",
-      "Editorial Systems",
-      "DOI Solutions",
-      "Indexing Services",
-      "Publishing Consultancy",
+      { name: "Editorial Support", path: "/editorial-support" },
+      { name: "Indexing Support", path: "/indexing-support" },
+      { name: "Technological Solutions", path: "/technological-solutions" },
+      { name: "Marketing Strategy", path: "/marketing-strategic" },
+      { name: "Journal Solutions", path: "/journal-solution" },
     ],
   },
-  {
-    title: "Technology",
-    links: [
-      "RAMS",
-      "Journal Hosting",
-      "DOI Platform",
-      "Conference System",
-      "Research Profiles",
-    ],
-  },
+
   {
     title: "Company",
     links: [
-      "About Us",
-      "Our Team",
-      "Careers",
-      "Contact Us",
-      "Privacy Policy",
-      "Terms & Conditions",
+      { name: "About Us", path: "/about" },
+      { name: "Our Team", path: "/our-team" },
+      { name: "Careers", path: "/careers" },
+      { name: "Contact Us", path: "/contact" },
+      { name: "Privacy Policy", path: "/privacy-policy" },
+      { name: "Terms & Conditions", path: "/terms-and-conditions" },
     ],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#061A33] text-white">
-      <div className="max-w-[1320px] mx-auto px-4 pt-8 pb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.45fr_repeat(5,1fr)_1.15fr] gap-6">
-          {/* Brand */}
-          <div className="pr-6 lg:border-r border-white/10">
-            <div className="flex items-center gap-3 mb-5">
-              <img
-                src={logo}
-                alt="Researcher Connect"
-                className="h-[52px] w-auto"
-              />
+    <footer className="bg-[#071B33] text-white">
+      <div className="mx-auto max-w-[1420px] sm:px-8 px-4 py-3 pt-4">
+        <div className="grid gap-6 lg:grid-cols-6">
+          <div>
+            <img src={logo} alt="Researcher Connect" className="h-[54px] w-auto" />
 
-              <div className="leading-[1.7]">
-                <h2 className="text-[9px] font-extrabold uppercase tracking-wide">
-                  Researcher Connect
-                </h2>
-                <p className="text-[7.5px] font-semibold uppercase">
-                  Innovation and Impact
-                </p>
-                <p className="text-[7px] font-bold uppercase tracking-[1.8px]">
-                  Private Limited
-                </p>
-              </div>
-            </div>
-
-            <p className="text-[12px] leading-[1.8] text-white/80 max-w-[230px]">
+            <p className="mt-2 max-w-[230px] text-[11px] font-medium leading-[1.45] text-white/80">
               Empowering researchers, institutions and publishers with ethical
               solutions and advanced technology for a better research future.
             </p>
 
-            <div className="flex items-center gap-3 mt-5">
-              <a
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10"
-                href="#"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10"
-                href="#"
-              >
-                <X size={18} />
-              </a>
-              <a
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10"
-                href="#"
-              >
-                <Youtube size={18} />
-              </a>
-              <a
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10"
-                href="#"
-              >
-                <Facebook size={18} />
-              </a>
+            <div className="mt-3 flex gap-2">
+              {[Linkedin, X, Youtube, Facebook].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="flex h-6 w-6 items-center justify-center rounded-full border border-white/35 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:text-[#071B33]"
+                >
+                  <Icon size={13} />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Link Columns */}
-          {columns.map((col) => (
-            <div key={col.title} className="lg:border-r border-white/10 pr-5">
-              <h3 className="text-[13px] font-semibold mb-5">{col.title}</h3>
-              <ul className="space-y-2">
-                {col.links.map((item) => (
-                  <li key={item}>
-                    <Link
-                      to="/"
-                      className="text-[12px] text-white/75 hover:text-[#8B5CF6] transition"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        {columns.map((col) => (
+  <div key={col.title}>
+    <h3 className="mb-2 text-[13px] font-bold text-white">
+      {col.title}
+    </h3>
 
-          {/* Contact */}
+    <ul className="">
+      {col.links.map((item) => (
+        <li key={item.name}>
+          <Link
+            to={item.path}
+            className="text-[11px] font-medium text-white/75 transition-all duration-300 hover:translate-x-1 hover:text-[#4251d1] hover:pl-1"
+          >
+            {item.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+))}
+
           <div>
-            <h3 className="text-[13px] font-semibold mb-6">Get in Touch</h3>
+            <h3 className="mb-2 text-[13px] font-bold text-white">
+              Get in Touch
+            </h3>
 
-            <div className="space-y-5">
-              <a
-                href="tel:+911234567890"
-                className="flex items-center gap-3 text-white/80 text-[12px]"
-              >
-                <span className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center">
-                  <Phone size={17} />
-                </span>
-                +91 123 456 7890
-              </a>
-
-              <a
-                href="mailto:info@rcilin"
-                className="flex items-center gap-3 text-white/80 text-[12px]"
-              >
-                <span className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center">
-                  <Mail size={17} />
-                </span>
-                info@rcilin
-              </a>
-
-              <div className="flex items-center gap-3 text-white/80 text-[12px]">
-                <span className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center">
-                  <MapPin size={17} />
-                </span>
-                India | Global
-              </div>
+            <div className="space-y-3">
+              <ContactItem icon={Phone} text="+91 123 456 7890" />
+              <ContactItem icon={Mail} text="info@rcii.in" />
+              <ContactItem icon={MapPin} text="India | Global" />
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-white/10 mt-5 pt-4 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[12px] text-white/75">
-            © 2024 Researcher Connect Innovation and Impact Private Limited. All
-            Rights Reserved.
+        {/* <div className="mt-3 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-2 md:flex-row">
+          <p className="text-[10px] text-white/70">
+            © 2024 Researcher Connect Innovation and Impact Private Limited. All Rights Reserved.
           </p>
 
-          <p className="text-[12px] text-white/75 flex items-center gap-1">
-            Made with for the Global Research Community
+          <p className="flex items-center gap-1 text-[10px] text-white/70">
+            Made with <Heart size={11} fill="#ef4444" className="text-red-500" /> for the Global Research Community
           </p>
-        </div>
+        </div> */}
       </div>
     </footer>
+  );
+}
+
+function ContactItem({ icon: Icon, text }) {
+  return (
+    <div className="group flex items-center gap-2 text-[11px] font-medium text-white/75 transition-all duration-300 hover:text-white">
+      <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/35 transition-all duration-300 group-hover:bg-white group-hover:text-[#071B33]">
+        <Icon size={13} />
+      </span>
+      {text}
+    </div>
   );
 }
