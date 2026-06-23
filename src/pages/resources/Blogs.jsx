@@ -180,13 +180,13 @@ function Blogs() {
           <section>
             <div className="mb-5 flex items-center justify-between">
               <h2 className="text-[20px] font-bold">Latest Blog Posts</h2>
-              <button className="group text-[12px] font-bold text-[#321cff]">
+              <Link to="/how-to-get-blog" className="group text-[12px] font-bold text-[#321cff]">
                 View All Blogs
                 <ArrowRight
                   size={14}
                   className="ml-2 inline transition group-hover:translate-x-1"
                 />
-              </button>
+              </Link>
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -196,18 +196,19 @@ function Blogs() {
             </div>
 
             <div className="mt-6 flex justify-center">
+              <Link to="/how-to-get-blog">
               <button className="group h-[38px] rounded-[6px] border border-[#563BFF] px-8 text-[12px] font-bold text-[#321cff] transition-all duration-300 hover:-translate-y-1 hover:bg-[#4436c0] hover:text-white">
                 Load More Blogs
                 <ArrowRight
                   size={14}
                   className="ml-2 inline transition group-hover:translate-x-1"
                 />
-              </button>
+              </button></Link>
             </div>
           </section>
 
           {/* SIDEBAR */}
-          <aside className="space-y-5">
+          <aside className="space-y-1">
             <SideBox title="Popular Posts">
               {[
                 "Choosing the Right Journal: A Researcher’s Checklist",
@@ -257,9 +258,9 @@ function Blogs() {
                 ))}
               </div>
 
-              <button className="mt-4 text-[11px] font-bold text-[#321cff]">
+              {/* <button className="mt-4 text-[11px] font-bold text-[#321cff]">
                 Explore All Topics <ArrowRight size={13} className="inline" />
-              </button>
+              </button> */}
             </SideBox>
 
             <SideBox title="Subscribe to Updates">
@@ -440,13 +441,13 @@ function BlogCard({ img, tag, title, date, author, role }) {
           </div>
         </div>
 
-        <button className="group/btn mt-4 text-[11px] font-bold text-[#321cff]">
+        {/* <button className="group/btn mt-4 text-[11px] font-bold text-[#321cff]">
           Read More
           <ArrowRight
             size={13}
             className="ml-1 inline transition group-hover/btn:translate-x-1"
           />
-        </button>
+        </button> */}
       </div>
     </article>
   );

@@ -130,11 +130,11 @@ export default function ResearchFundingGrantsSupport() {
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
-              <Link className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+              <Link to="/contact" className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 <Landmark size={18} /> Request Funding Support
               </Link>
 
-              <Link className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+              <Link to="/contact" className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Explore Services <ArrowRight size={18} />
               </Link>
             </div>
@@ -431,11 +431,11 @@ export default function ResearchFundingGrantsSupport() {
             </p>
           </div>
 
-          <Link className="w-full sm:w-auto inline-flex justify-center items-center gap-3 bg-white text-[#4424e9] px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:-translate-y-1 transition">
+          <Link to="/contact" className="w-full sm:w-auto inline-flex justify-center items-center gap-3 bg-white text-[#4424e9] px-6 py-3 rounded-[6px] text-[12px] font-semibold hover:-translate-y-1 transition">
             Request Funding Support <ArrowRight size={17} />
           </Link>
 
-          <Link className="w-full sm:w-auto inline-flex justify-center items-center gap-3 border border-white/60 text-white px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:bg-white hover:text-[#4424e9] transition">
+          <Link  to="/contact" className="w-full sm:w-auto inline-flex justify-center items-center gap-3 border border-white/60 text-white px-6 py-2.5 rounded-[6px] text-[12px] font-semibold hover:bg-white hover:text-[#4424e9] transition">
             <User size={17} /> Talk to an Expert
           </Link>
         </div>

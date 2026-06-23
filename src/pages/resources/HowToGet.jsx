@@ -236,16 +236,16 @@ function HowToGet() {
   </div>
 </div>
 
-            <div className="mt-4 rounded-[8px] bg-[#f2efff] p-5">
+            {/* <div className="mt-4 rounded-[8px] bg-[#f2efff] p-5">
               <p className="text-[14px] font-bold leading-[1.8] text-[#071044]">
                 “Great research deserves to be seen. With the right approach,
                 persistence, and continuous improvement, you can successfully
                 publish in high-impact journals and make a lasting impact in your
                 field.”
               </p>
-            </div>
+            </div> */}
 
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-4 border-y border-[#edf0fa] py-4">
+            {/* <div className="mt-3 flex flex-wrap items-center justify-between gap-4 border-y border-[#edf0fa] py-4">
               <div className="flex items-center gap-3 text-[12px] font-bold">
                 <span>Was this article helpful?</span>
                 <button className="rounded-[6px] border border-[#e1e5f2] px-3 py-2 hover:border-[#321cff] hover:text-[#321cff]">
@@ -263,7 +263,7 @@ function HowToGet() {
                 <SocialSmall icon={Facebook} bg="#1877f2" />
                 <SocialSmall icon={LinkIcon} bg="#f0edff" color="#321cff" />
               </div>
-            </div>
+            </div> */}
 
             <div className="mt-1 flex gap-4 rounded-[10px] bg-[#fbfcff] p-3">
               <img
@@ -307,10 +307,10 @@ function HowToGet() {
                 </div>
               </div>
 
-              <button className="group mt-5 h-[38px] rounded-[6px] border border-[#563BFF] px-5 text-[12px] font-bold text-[#321cff] transition-all hover:bg-[#33279c] hover:text-white">
+              {/* <button className="group mt-5 h-[38px] rounded-[6px] border border-[#563BFF] px-5 text-[12px] font-bold text-[#321cff] transition-all hover:bg-[#33279c] hover:text-white">
                 View All Posts
                 <ArrowRight size={14} className="ml-2 inline" />
-              </button>
+              </button> */}
             </SideBox>
 
             <SideBox title="Table of Contents">
@@ -358,9 +358,9 @@ function HowToGet() {
                 </div>
               ))}
 
-              <button className="mt-2 text-[12px] font-bold text-[#321cff]">
+              {/* <button className="mt-2 text-[12px] font-bold text-[#321cff]">
                 View All Articles <ArrowRight size={13} className="inline" />
-              </button>
+              </button> */}
             </SideBox>
 
             <SideBox title="Popular Topics">
@@ -384,9 +384,9 @@ function HowToGet() {
                 ))}
               </div>
 
-              <button className="mt-6 text-[12px] font-bold text-[#302f3e]">
+              {/* <button className="mt-6 text-[12px] font-bold text-[#302f3e]">
                 Explore All Topics <ArrowRight size={13} className="inline" />
-              </button>
+              </button> */}
             </SideBox>
 
             <div className="rounded-[12px] bg-[#07135f] p-7 text-white shadow-[0_14px_35px_rgba(10,20,90,0.22)]">

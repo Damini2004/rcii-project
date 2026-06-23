@@ -377,13 +377,13 @@ export default function About() {
               })}
             </div>
 
-            <button className="group mx-auto mt-6 flex h-[40px] items-center gap-3 rounded-[5px] border border-[#08A7C2] px-7 text-[13px] font-bold text-[#08A7C2] transition-all duration-300 hover:-translate-y-1 hover:bg-[#08A7C2] hover:text-white">
+            {/* <button className="group mx-auto mt-6 flex h-[40px] items-center gap-3 rounded-[5px] border border-[#08A7C2] px-7 text-[13px] font-bold text-[#08A7C2] transition-all duration-300 hover:-translate-y-1 hover:bg-[#08A7C2] hover:text-white">
               Meet Our Team
               <ArrowRight
                 size={15}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </button>
+            </button> */}
           </div>
 
           {/* RIGHT */}
@@ -435,14 +435,14 @@ export default function About() {
             </p>
           </div>
         </div>
-
+ <Link to="/contact">
         <button className="group flex h-[48px] min-w-[170px] items-center justify-center gap-3 rounded-[6px] bg-[#563BFF] px-7 text-[13px] font-bold text-white shadow-[0_10px_24px_rgba(86,59,255,0.24)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#432BDE]">
           Get in Touch
           <ArrowRight
             size={15}
             className="transition-transform duration-300 group-hover:translate-x-1"
           />
-        </button>
+        </button></Link>
       </div>
     </section>
     </main>

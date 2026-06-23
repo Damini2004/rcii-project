@@ -159,11 +159,11 @@ export default function IndexingSupport() {
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
-              <Link className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+              <Link to="/contact" className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 Explore Our Services <ArrowRight size={18} />
               </Link>
 
-              <Link className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+              <Link to="/contact" className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Request a Consultation <ArrowRight size={18} />
               </Link>
             </div>
@@ -236,9 +236,9 @@ export default function IndexingSupport() {
                     </p>
                   ))}
 
-                  <Link className="inline-flex items-center gap-2 text-[#4424e9] text-[12px] font-bold mt-4 hover:translate-x-1 transition">
+                  {/* <Link className="inline-flex items-center gap-2 text-[#4424e9] text-[12px] font-bold mt-4 hover:translate-x-1 transition">
                     Learn More <ArrowRight size={15} />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

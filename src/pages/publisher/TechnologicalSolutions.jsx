@@ -86,11 +86,11 @@ export default function TechnologicalSolutions() {
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-6">
-              <Link className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+              <Link to="/contact" className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 Explore Our Solutions <ArrowRight size={18} />
               </Link>
 
-              <Link className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+              <Link to="/contact" className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Schedule a Demo <ArrowRight size={18} />
               </Link>
             </div>
@@ -277,11 +277,11 @@ export default function TechnologicalSolutions() {
             </div>
 
             <div className="text-center md:text-left">
-              <h2 className="text-[20px] sm:text-[22px] lg:text-[24px] font-bold leading-tight">
+              <h2 className="text-[20px] sm:text-[20px] lg:text-[20px] font-bold leading-tight">
                 Let’s Build the Future of Publishing Together
               </h2>
 
-              <p className="mt-3 text-[13px] sm:text-[14px] leading-6 text-white/95 max-w-[720px] mx-auto md:mx-0">
+              <p className="mt-3 text-[13px] sm:text-[13px] leading-6 text-white/95 max-w-[720px] mx-auto md:mx-0">
                 Partner with RCI to implement innovative technological solutions that drive efficiency, quality, and impact.
               </p>
 
@@ -290,18 +290,18 @@ export default function TechnologicalSolutions() {
                   Schedule a Demo <ArrowRight size={17} />
                 </Link>
 
-                <Link className="inline-flex w-full sm:w-auto items-center justify-center gap-3 border border-white/60 text-white px-5 py-3 rounded-[6px] text-[12px] font-bold hover:bg-white hover:text-[#4424e9] hover:-translate-y-1 transition-all duration-300">
+                <Link to="/contact" className="inline-flex w-full sm:w-auto items-center justify-center gap-3 border border-white/60 text-white px-5 py-3 rounded-[6px] text-[12px] font-bold hover:bg-white hover:text-[#4424e9] hover:-translate-y-1 transition-all duration-300">
                   <Headphones size={17} /> Talk to Our Expert
                 </Link>
               </div>
             </div>
 
             <div className="hidden xl:flex gap-3 justify-end">
-              <Link className="inline-flex items-center justify-center gap-3 bg-white text-[#4424e9] px-5 py-3 rounded-[6px] text-[12px] font-bold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-3 bg-white text-[#4424e9] px-5 py-3 rounded-[6px] text-[12px] font-bold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                 Schedule a Demo <ArrowRight size={17} />
               </Link>
 
-              <Link className="inline-flex items-center justify-center gap-3 border border-white/60 text-white px-5 py-3 rounded-[6px] text-[12px] font-bold hover:bg-white hover:text-[#4424e9] hover:-translate-y-1 transition-all duration-300">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-3 border border-white/60 text-white px-5 py-3 rounded-[6px] text-[12px] font-bold hover:bg-white hover:text-[#4424e9] hover:-translate-y-1 transition-all duration-300">
                 <Headphones size={17} /> Talk to Our Expert
               </Link>
             </div>

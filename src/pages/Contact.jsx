@@ -306,14 +306,14 @@ export default function Contact() {
       </details>
     ))}
 
-    <button className="group mt-5 inline-flex items-center gap-3 text-[13px] font-bold text-[#321cff] transition-all duration-300 hover:gap-4">
+    {/* <button className="group mt-5 inline-flex items-center gap-3 text-[13px] font-bold text-[#321cff] transition-all duration-300 hover:gap-4">
       View All FAQs
       <ArrowRight
         size={15}
         strokeWidth={2.5}
         className="transition-transform duration-300 group-hover:translate-x-1"
       />
-    </button>
+    </button> */}
   </Box>
 
   {/* FOLLOW */}
@@ -398,7 +398,7 @@ export default function Contact() {
     </div>
 
     {/* BUTTON */}
-    <button
+    {/* <button
       className="
       mr-32
       group
@@ -424,7 +424,7 @@ export default function Contact() {
           className="transition-transform duration-300 group-hover:translate-x-1"
         />
       </span>
-    </button>
+    </button> */}
   </div>
 </section>
       </section>
@@ -489,7 +489,7 @@ function SectionTitle({ title }) {
 
 const ConnectCard = ({ icon: Icon, bg, color, title, text, action }) => {
   return (
-    <div className="group relative h-full min-h-[180px] rounded-[12px] border border-[#e8ebf7] bg-white p-6 shadow-[0_10px_30px_rgba(28,38,90,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(28,38,90,0.14)]">
+    <div className="group relative h-full min-h-[150px] rounded-[12px] border border-[#e8ebf7] bg-white p-6 shadow-[0_10px_30px_rgba(28,38,90,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(28,38,90,0.14)]">
       {/* <span className="absolute right-8 top-6 text-[18px] font-bold text-[#dcdff0] transition-all duration-300 group-hover:text-[#563BFF]">
         ↯
       </span> */}
@@ -520,7 +520,7 @@ const ConnectCard = ({ icon: Icon, bg, color, title, text, action }) => {
         </div>
 
         {/* Always Bottom */}
-        <button
+        {/* <button
           type="button"
           className="mt-auto pt-5 ml-16 inline-flex items-center gap-3 text-[13px] font-bold text-[#321cff] transition-all duration-300 hover:gap-4 hover:text-[#230fbf]"
         >
@@ -530,7 +530,7 @@ const ConnectCard = ({ icon: Icon, bg, color, title, text, action }) => {
             strokeWidth={2.4}
             className="transition-transform duration-300 hover:translate-x-1"
           />
-        </button>
+        </button> */}
       </div>
     </div>
   );
@@ -584,14 +584,14 @@ function OfficeCard({ img, title, lines }) {
           ))}
         </div>
 
-        <button className="group/btn mt-7 inline-flex items-center gap-3 text-[12.5px] font-bold text-[#321cff] transition-all duration-300 hover:gap-4">
+        {/* <button className="group/btn mt-7 inline-flex items-center gap-3 text-[12.5px] font-bold text-[#321cff] transition-all duration-300 hover:gap-4">
           View on Map
           <MapPin
             size={15}
             strokeWidth={2.4}
             className="transition-transform duration-300 group-hover/btn:-translate-y-1"
           />
-        </button>
+        </button> */}
       </div>
     </div>
   );

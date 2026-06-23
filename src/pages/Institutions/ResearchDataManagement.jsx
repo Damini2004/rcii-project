@@ -7,9 +7,9 @@ import {
   Settings,
   Share2,
   Archive,
-  Search,
-  FileText,
-  Monitor,
+ 
+ 
+ 
   Box,
   CheckCircle,
   Quote,
@@ -19,9 +19,19 @@ import {
   Briefcase,
   Building2,
   Globe2,
-  Cpu,
+ 
   Wrench,
   GraduationCap,
+   Search,
+  FileText,
+ 
+  Monitor,
+ 
+  
+  Image,
+  Video,
+  Cpu,
+  Code
 } from "lucide-react";
 
 import heroBg from "../../assets/DataBG.png";
@@ -122,11 +132,11 @@ export default function ResearchDataManagement() {
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-6">
-              <Link className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 <Database size={18} /> Request Data Management Support
               </Link>
 
-              <Link className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Explore Our Solutions <ArrowRight size={18} />
               </Link>
             </div>
@@ -271,54 +281,135 @@ export default function ResearchDataManagement() {
       </section>
 
       {/* APPROACH + SUPPORTED TYPES */}
-      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-8">
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-4 lg:gap-2">
-          <div className="bg-white border border-[#e8ebfb] rounded-[16px] p-6">
-            <h2 className="text-center text-[18px] sm:text-[22px] font-bold mb-8">
-              Our Data Management Approach
-            </h2>
+     <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-10">
+  <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-stretch">
 
-            <div className="grid grid-cols-1 min-[480px]:grid-cols-2 sm:grid-cols-5 gap-5 sm:gap-2">
-              {approach.map(([Icon, title, desc], index) => (
-                <div key={title} className="relative text-center">
-                  <div className="mx-auto w-[60px] h-[60px] rounded-full bg-[#eeeaff] flex items-center justify-center text-[#4424e9] hover:bg-[#4424e9] hover:text-white hover:scale-110 transition-all duration-300">
-                    <Icon size={28} />
-                  </div>
-                  <h3 className="mt-2 font-semibold text-[14px]">{title}</h3>
-                  <p className="mt-2 text-[11px] leading-5">{desc}</p>
-                  {index !== 4 && (
-                    <div className="hidden sm:block absolute top-[30px] -right-5 w-10 border-t-2 border-dashed border-[#8c8abf]" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+    {/* LEFT CARD */}
+    <div className="lg:col-span-3 bg-white border border-[#e8ebfb] rounded-[18px] p-6 sm:p-8 shadow-sm">
 
-          <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] shadow-[0_12px_28px_rgba(79,70,229,0.18)] rounded-[16px] px-6 py-4 text-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_20%,#ffffff_1px,transparent_1px)] [background-size:22px_22px]" />
-            <div className="relative z-10">
-              <h2 className="text-[22px] font-bold mb-5">
-                Supported Data Types
-              </h2>
-              {[
-                "Structured Data",
-                "Unstructured Data",
-                "Research Documents",
-                "Multimedia & Imaging",
-                "Sensor & Instrument Data",
-                "Software & Code",
-              ].map((item) => (
-                <p
-                  key={item}
-                  className="flex items-center gap-3 text-[13px] mb-4 leading-[1.1]"
-                >
-                  <FileText size={17} /> {item}
-                </p>
-              ))}
+      {/* TITLE */}
+      <h2 className="text-center text-[18px] sm:text-[22px] font-bold mb-10 text-[#0B1B3F]">
+        Our Data Management Approach
+      </h2>
+
+      {/* STEPS */}
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 sm:gap-2 relative">
+
+        {[
+          {
+            icon: Search,
+            title: "1. Assess",
+            desc: "Understand your data landscape and needs",
+            color: "#4F46E5",
+            bg: "#EEF2FF",
+          },
+          {
+            icon: FileText,
+            title: "2. Plan",
+            desc: "Create a tailored data management plan",
+            color: "#16A34A",
+            bg: "#ECFDF5",
+          },
+          {
+            icon: Settings,
+            title: "3. Implement",
+            desc: "Deploy tools and workflows",
+            color: "#F97316",
+            bg: "#FFF7ED",
+          },
+          {
+            icon: Monitor,
+            title: "4. Monitor",
+            desc: "Track usage, quality and compliance",
+            color: "#2563EB",
+            bg: "#EFF6FF",
+          },
+          {
+            icon: Archive,
+            title: "5. Preserve",
+            desc: "Archive and preserve for long term",
+            color: "#10B981",
+            bg: "#ECFDF5",
+          },
+        ].map((item, index) => {
+          const Icon = item.icon;
+
+          return (
+            <div
+              key={item.title}
+              className="relative text-center group"
+            >
+              {/* ICON */}
+              <div
+                className="mx-auto w-[60px] h-[60px] rounded-full flex items-center justify-center
+                transition-all duration-300 group-hover:scale-110 shadow-sm"
+                style={{ backgroundColor: item.bg, color: item.color }}
+              >
+                <Icon size={26} />
+              </div>
+
+              {/* TITLE */}
+              <h3 className="mt-3 font-semibold text-[13px] text-[#0B1B3F]">
+                {item.title}
+              </h3>
+
+              {/* DESC */}
+              <p className="mt-1 text-[11px] text-gray-500 leading-[1.4]">
+                {item.desc}
+              </p>
+
+              {/* CONNECTOR LINE (desktop only) */}
+              {index !== 4 && (
+                <div className="hidden sm:block absolute top-[30px] left-[80%] w-[60px] border-t border-dashed border-[#CBD5E1]" />
+              )}
             </div>
-          </div>
+          );
+        })}
+      </div>
+    </div>
+
+    {/* RIGHT CARD */}
+    <div className="lg:col-span-2 relative overflow-hidden rounded-[18px] bg-gradient-to-br from-[#3230d3] via-[#3B5BFF] to-[#06B6D4] text-white shadow-lg">
+
+      {/* DOT BACKGROUND */}
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_20%,#ffffff_1px,transparent_1px)] [background-size:18px_18px]" />
+
+      <div className="relative z-10 p-6 sm:p-8">
+
+        <h2 className="text-[20px] sm:text-[24px] font-bold mb-6">
+          Supported Data Types
+        </h2>
+
+        <div className="space-y-4">
+
+          {[
+            { icon: Database, text: "Structured Data" },
+            { icon: FileText, text: "Unstructured Data" },
+            { icon: Image, text: "Research Documents" },
+            { icon: Video, text: "Multimedia & Imaging" },
+            { icon: Cpu, text: "Sensor & Instrument Data" },
+            { icon: Code, text: "Software & Code" },
+          ].map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={item.text}
+                className="flex items-center gap-3 text-[13px] font-medium
+                transition-all duration-300 hover:translate-x-1 hover:text-white/90"
+              >
+                <Icon size={18} className="text-white/90" />
+                {item.text}
+              </div>
+            );
+          })}
+
         </div>
-      </section>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* RESOURCE CENTER */}
       <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-8">
@@ -419,7 +510,7 @@ export default function ResearchDataManagement() {
 
       {/* CTA */}
       <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-10">
-        <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] shadow-[0_12px_28px_rgba(79,70,229,0.18)] rounded-[14px] text-white px-5 sm:px-6 py-6 grid grid-cols-1 lg:grid-cols-[180px_1fr_auto_auto] gap-5 lg:gap-6 items-center">
+        <div className="bg-gradient-to-r from-[#573BFF] via-[#3D5BFF] to-[#0797A8] shadow-[0_12px_28px_rgba(79,70,229,0.18)] rounded-[14px] text-white px-5 sm:px-6 py-4 grid grid-cols-1 lg:grid-cols-[180px_1fr_auto_auto] gap-5 lg:gap-6 items-center">
           <img src={ctaImg} alt="" className="w-full hidden lg:block" />
 
           <div>
@@ -432,11 +523,11 @@ export default function ResearchDataManagement() {
             </p>
           </div>
 
-          <Link className="w-auto inline-flex justify-center items-center gap-3 bg-white text-[#4424e9] px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:-translate-y-1 transition">
+          {/* <Link className="w-auto inline-flex justify-center items-center gap-3 bg-white text-[#4424e9] px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:-translate-y-1 transition">
             Request Data Management Support <ArrowRight size={17} />
-          </Link>
+          </Link> */}
 
-          <Link className="w-auto inline-flex justify-center items-center gap-3 border border-white/60 text-white px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:bg-white hover:text-[#4424e9] transition">
+          <Link to="/contact" className="w-auto inline-flex justify-center items-center gap-3 border border-white/60 text-white px-6 py-3 rounded-[6px] text-[12px] font-semibold hover:bg-white hover:text-[#4424e9] transition">
             <User size={17} /> Talk to an Expert
           </Link>
         </div>

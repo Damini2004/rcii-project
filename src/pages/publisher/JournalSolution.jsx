@@ -175,11 +175,11 @@ export default function JournalSolutions() {
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-6">
-              <Link className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 Explore Our Services <ArrowRight size={18} />
               </Link>
 
-              <Link className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Schedule a Consultation <ArrowRight size={18} />
               </Link>
             </div>
@@ -242,9 +242,9 @@ export default function JournalSolutions() {
                   </p>
                 ))}
 
-                <Link className="inline-flex items-center gap-2 text-[#4424e9] text-[12px] font-bold mt-2 hover:translate-x-1 transition">
+                {/* <Link className="inline-flex items-center gap-2 text-[#4424e9] text-[12px] font-bold mt-2 hover:translate-x-1 transition">
                   Learn More <ArrowRight size={14} />
-                </Link>
+                </Link> */}
               </div>
 
               <div className="flex-1 text-center sm:text-left">
@@ -412,10 +412,10 @@ export default function JournalSolutions() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full">
-              <Link className="inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-white text-[#4424e9] px-5 py-3 rounded-[6px] text-[12px] font-bold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+              <Link to="/contact" className="inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-white text-[#4424e9] px-5 py-3 rounded-[6px] text-[12px] font-bold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                 Schedule a Consultation <ArrowRight size={17} />
               </Link>
-              <Link className="inline-flex w-full sm:w-auto items-center justify-center gap-3 border border-white/60 text-white px-5 py-3 rounded-[6px] text-[12px] font-bold hover:bg-white hover:text-[#4424e9] hover:-translate-y-1 transition-all duration-300">
+              <Link to="/contact" className="inline-flex w-full sm:w-auto items-center justify-center gap-3 border border-white/60 text-white px-5 py-3 rounded-[6px] text-[12px] font-bold hover:bg-white hover:text-[#4424e9] hover:-translate-y-1 transition-all duration-300">
                 <Headphones size={17} /> Talk to Our Expert
               </Link>
             </div>

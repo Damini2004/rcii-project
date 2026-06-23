@@ -79,15 +79,16 @@ function InnovationIP() {
                  </p>
            
                  <div className="flex flex-wrap gap-3 mt-5 sm:mt-9">
+                   <Link to="/contact">
                    <button className="bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
                      Explore Our Services
                      <ArrowRight size={18} />
-                   </button>
-           
+                   </button></Link>
+            <Link to="/contact">
                    <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 sm:px-5 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                     Schedule a Consultation
                      <ArrowRight size={18} />
-                   </button>
+                   </button></Link>
                  </div>
                </div>
              </div>
@@ -372,15 +373,16 @@ function InnovationIP() {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
+               <Link to="/contact">
               <button className="group h-[40px] rounded-[6px] bg-white px-4 text-[12px] font-bold text-[#321cff] transition-all duration-300 hover:-translate-y-1">
                 Schedule a Consultation
                 <ArrowRight size={14} className="ml-2 inline transition group-hover:translate-x-1" />
-              </button>
-
+              </button></Link>
+<Link to="/contact">
               <button className="h-[40px] rounded-[6px] border border-white/40 px-4 text-[12px] font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10">
                 <Headphones size={15} className="mr-2 inline" />
                 Talk to Our Expert
-              </button>
+              </button></Link>
             </div>
           </div>
         </section>
@@ -435,7 +437,7 @@ function Service({ icon: Icon, bg, color, title, items }) {
 
         {/* RIGHT CONTENT */}
         <div className="flex min-h-[180px] flex-1 flex-col">
-          <h3 className="text-[14px] font-bold leading-[1.25] text-[#071044]">
+          <h3 className="text-[15px] font-bold leading-[1.25] text-[#071044]">
             {title}
           </h3>
 
@@ -443,7 +445,7 @@ function Service({ icon: Icon, bg, color, title, items }) {
             {items.map((item) => (
               <li
                 key={item}
-                className="flex gap-2 text-[11px] font-semibold leading-[1.45] text-[#202b56]"
+                className="flex gap-2 text-[12px] font-semibold leading-[1.45] text-[#202b56]"
               >
                 <span className="mt-[2px] text-[#321cff]">✓</span>
                 <span>{item}</span>
@@ -452,7 +454,7 @@ function Service({ icon: Icon, bg, color, title, items }) {
           </ul>
 
           {/* PUSHES BUTTON TO BOTTOM */}
-          <div className="mt-auto pt-3">
+          {/* <div className="mt-auto pt-3">
             <button className="group/btn inline-flex items-center gap-2 text-[12px] font-bold text-[#321cff] transition-all duration-300 hover:gap-3">
               Learn More
               <ArrowRight
@@ -461,7 +463,7 @@ function Service({ icon: Icon, bg, color, title, items }) {
                 className="transition-transform duration-300 group-hover/btn:translate-x-1"
               />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
