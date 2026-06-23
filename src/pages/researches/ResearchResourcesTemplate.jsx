@@ -94,14 +94,17 @@ export default function ResearchResourcesPage() {
            </p>
      
            <div className="flex flex-wrap gap-3 mt-5 sm:mt-9">
+            <Link to="/contact">
              <button className="bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
                Talk to an Expert
                <ArrowRight size={18} />
              </button>
-     
+             </Link>
+     <Link to="/contact">
              <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 sm:px-5 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                Explore All Services
              </button>
+             </Link>
            </div>
          </div>
        </div>
@@ -191,7 +194,7 @@ export default function ResearchResourcesPage() {
         return (
           <div
             key={title}
-            className="group flex min-h-[292px] flex-col items-center rounded-[10px] border border-[#e8ebf7] bg-white px-5 py-7 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_18px_38px_rgba(91,53,255,0.14)]"
+            className="group flex min-h-[272px] flex-col items-center rounded-[10px] border border-[#e8ebf7] bg-white px-5 py-7 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_18px_38px_rgba(91,53,255,0.14)]"
           >
             <div className="relative mb-6">
               <div
@@ -213,19 +216,21 @@ export default function ResearchResourcesPage() {
               {descriptions[index]}
             </p>
 
-            <button className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold text-[#5b35ff] transition-all duration-300 hover:gap-3 hover:text-[#4325d8]">
+            {/* <button className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold text-[#5b35ff] transition-all duration-300 hover:gap-3 hover:text-[#4325d8]">
               <Download size={14} strokeWidth={3} />
               Download
-            </button>
+            </button> */}
           </div>
         );
       })}
     </div>
 
     <div className="mt-6 flex justify-center">
+      <Link to="/resources">
       <button className="rounded-[6px] border-2 border-[#8b7cff] px-8 py-3 text-[14px] font-bold text-[#5b35ff] transition-all duration-300 hover:-translate-y-1 hover:bg-[#5b35ff] hover:text-white hover:shadow-[0_12px_28px_rgba(91,53,255,0.25)]">
         View All Resources <span className="ml-3">→</span>
       </button>
+      </Link>
     </div>
   </div>
 </section>
@@ -378,14 +383,17 @@ export default function ResearchResourcesPage() {
     </div>
 
     <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+      <Link to="/contact">
       <button className="inline-flex items-center justify-center gap-3 rounded-[6px] bg-[#4A28F5] px-8 py-3 text-[14px] font-bold text-white shadow-[0_10px_24px_rgba(74,40,245,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#3f21dc]">
         Talk to an Expert
         <span>→</span>
       </button>
-
-      <button className="rounded-[6px] border-2 border-[#8b7cff] bg-white/70 px-8 py-3 text-[14px] font-bold text-[#5b35ff] transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_10px_24px_rgba(91,53,255,0.16)]">
+      </Link>
+<Link to="/contact">
+      <button className="rounded-[6px] border-2 border-[#8b7cff] bg-white/70 px-8 py-2.5 text-[14px] font-bold text-[#5b35ff] transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_10px_24px_rgba(91,53,255,0.16)]">
         Request a Resource
       </button>
+      </Link>
     </div>
   </div>
 </section>

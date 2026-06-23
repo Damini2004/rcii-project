@@ -207,10 +207,12 @@ export default function ResearchersPage() {
         and protect your innovations.
       </p>
 
+      <Link to="/contact">
       <button className="sm:mt-6 mt-3 bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
         Explore Services
         <ArrowRight size={18} />
-      </button>
+        </button>
+      </Link>
     </div>
   </div>
 
@@ -351,13 +353,13 @@ ${
               ))}
             </ul>
 
-            <button
+            {/* <button
               className="mt-4 inline-flex items-center gap-4 text-[14px] font-bold text-[#573BFF]
               transition-all duration-500 group-hover:gap-5 group-hover:text-[#4338CA]"
             >
               Learn More
               <ArrowRight size={17} strokeWidth={2.8} />
-            </button>
+            </button> */}
           </div>
         );
       })}
@@ -434,7 +436,7 @@ ${
               {card.text}
             </p>
 
-            <button
+            {/* <button
               className="
               mt-5
               inline-flex
@@ -453,7 +455,7 @@ ${
                 size={15}
                 className="transition-transform duration-500 group-hover:translate-x-1"
               />
-            </button>
+            </button> */}
           </div>
         </div>
       ))}
@@ -506,7 +508,7 @@ ${
         </div>
       </div>
 
-      <button
+      <Link to="/contact"
         className="
         w-full sm:w-auto justify-center
         bg-[#573BFF] text-white
@@ -520,7 +522,7 @@ ${
       >
         Connect With Us
         <ArrowRight size={17} />
-      </button>
+      </Link>
     </div>
   </div>
 </section>

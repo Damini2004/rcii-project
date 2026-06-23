@@ -126,14 +126,17 @@ function AuthorServices() {
            </p>
      
            <div className="flex flex-wrap gap-3 mt-5 sm:mt-9">
+             <Link to="/contact">
              <button className="bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
                Talk to an Expert
                <ArrowRight size={18} />
              </button>
-     
+             </Link>
+     <Link to="/contact">
              <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 sm:px-5 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                Explore All Services
              </button>
+             </Link>
            </div>
          </div>
        </div>
@@ -566,14 +569,17 @@ function AuthorServices() {
         </div>
 
         <div className="flex flex-wrap gap-4 lg:gap-8 lg:pr-12">
+           <Link to="/contact">
           <button className="bg-[#573BFF] text-white text-[13px] sm:text-[14px] font-bold px-6 py-3 rounded-lg inline-flex items-center gap-3 shadow-md transition-all duration-500 hover:-translate-y-1 hover:bg-[#4338CA] hover:shadow-xl">
             Talk to an Expert
             <ArrowRight size={16} strokeWidth={3} />
           </button>
-
+          </Link>
+ <Link to="/contact">
           <button className="bg-white/80 text-[#2563EB] border-2 border-[#69A9E8] text-[13px] sm:text-[14px] font-bold px-6 py-3 rounded-lg transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-lg">
             Request Consultation
           </button>
+          </Link>
         </div>
 
       </div>

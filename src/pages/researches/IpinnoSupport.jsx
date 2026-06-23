@@ -123,14 +123,17 @@ function IpinnoSupport() {
             </p>
       
             <div className="flex flex-wrap gap-3 mt-5 sm:mt-7">
+               <Link to="/contact">
               <button className="bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
                 Talk to an Expert
                 <ArrowRight size={18} />
               </button>
-      
+              </Link>
+       <Link to="/contact">
               <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 sm:px-6 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                 Explore All Services
               </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -216,7 +219,7 @@ function IpinnoSupport() {
             {services.map(([title, items, Icon]) => (
               <div
                 key={title}
-                className="group bg-white rounded-xl border border-[#E8ECF7] p-4 min-h-[285px] flex flex-col transition-all duration-500 hover:-translate-y-2 hover:border-[#C7D2FE] hover:shadow-[0_18px_38px_rgba(79,70,229,0.15)]"
+                className="group bg-white rounded-xl border border-[#E8ECF7] p-4 min-h-[245px] flex flex-col transition-all duration-500 hover:-translate-y-2 hover:border-[#C7D2FE] hover:shadow-[0_18px_38px_rgba(79,70,229,0.15)]"
               >
                 <div className="mx-auto w-[52px] h-[52px] rounded-full bg-[#F1EDFF] text-[#573BFF] flex items-center justify-center transition-all duration-500 group-hover:bg-[#3e28bb] group-hover:text-white group-hover:scale-110">
                   <Icon size={26} />
@@ -235,9 +238,9 @@ function IpinnoSupport() {
                   ))}
                 </ul>
 
-                <button className="mt-auto pt-5 text-[11px] font-black text-[#573BFF] inline-flex items-center gap-2 transition-all duration-500 group-hover:gap-3">
+                {/* <button className="mt-auto pt-5 text-[11px] font-black text-[#573BFF] inline-flex items-center gap-2 transition-all duration-500 group-hover:gap-3">
                   Learn More <ArrowRight size={13} />
-                </button>
+                </button> */}
               </div>
             ))}
           </div>
@@ -436,18 +439,20 @@ function IpinnoSupport() {
     </p>
 
     <div className="mt-5 sm:mt-7 flex flex-wrap gap-3 sm:gap-4">
-
+<Link to="/contact">
       <button className="bg-white text-[#573BFF] text-[12px] sm:text-[14px] font-bold px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg
       inline-flex items-center gap-2 shadow-md transition-all duration-300
       hover:-translate-y-1 hover:shadow-xl active:scale-[0.98]">
         Talk to an Expert
         <ArrowRight size={16} />
       </button>
-
+      </Link> 
+<Link to="/contact">
       <button className="bg-transparent border border-white/40 text-white text-[12px] sm:text-[14px] font-bold px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg
       transition-all duration-300 hover:bg-white/10 active:scale-[0.98]">
         Request Consultation
       </button>
+      </Link> 
 
     </div>
 
