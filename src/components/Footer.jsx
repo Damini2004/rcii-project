@@ -9,12 +9,30 @@ const columns = [
     links: [
       { name: "Author Services", path: "/author-services" },
       { name: "Publication Support", path: "/publication-support" },
-      { name: "Research Profiles", path: "/research-profile" },
-      { name: "Grants & Funding", path: "/funding-grants-support" },
-      { name: "Career Resources", path: "/career-resources" },
-      { name: "Research Resources", path: "/research-resources" },
+      { name: "Ip & Innovation Support", path: "/ip-innovation-support" },
+      { name: "Research Resources & Templates", path: "/reserach-resources-templates" },
+     { name: "Research Profiling & Visibility", path: "/research-profiling-visibility" },
+  { name: "Grant & Funding Support", path: "/grant-funding-support" },
+      { name: "Career & Growth Resources", path: "/career-growth-resources" },
+    
     ],
   },
+  // {
+  //   label: "Researchers",
+  //   path: "/researchers",
+  //   dropdown: [
+  //     // { label: "Researchers", path: "/researchers" },
+  //     { label: "Author Services", path: "/author-services" },
+  //     { label: "Publication Support", path: "/publication-support" },
+  //     { label: "Ip & Innovation Support", path: "/ip-innovation-support" },
+  //     { label: "Research Resources & Templates", path: "/reserach-resources-templates" },
+
+  //     { label: "Research Profiling & Visibility", path: "/research-profiling-visibility" },
+    
+  //     { label: "Grant & Funding Support", path: "/grant-funding-support" },
+  //     { label: "Career & Growth Resources", path: "/career-growth-resources" },
+  //   ],
+  // },
 
   {
     title: "For Institutions",

@@ -104,7 +104,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-white text-slate-900 mt-16">
+    <div className="bg-white text-slate-900 mt-4">
       {/* HERO */}
       <section
         className="
