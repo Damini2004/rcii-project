@@ -440,13 +440,29 @@ export default function InstitutionalRepository() {
       >
         <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14 sm:py-14 lg:py-16">
           <div className="max-w-[620px] mt-12">
-            <Link
-              to="/"
-              className="text-[12px] text-[#3d25e6] mb-6 font-medium inline-block"
-            >
-              Home &nbsp;›&nbsp; Institutions &nbsp;›&nbsp; Institutional
-              Repository
-            </Link>
+            <div className="flex flex-wrap items-center gap-3 text-[12px] sm:text-[12px] font-semibold sm:mb-6 mb-5">
+                            <Link
+                              to="/"
+                              className="text-[#6366F1] hover:text-[#4F46E5] transition"
+                            >
+                              Home
+                            </Link>
+            
+                            <span className="text-gray-400">›</span>
+            
+                            <Link
+                              to="/institutions"
+                              className="text-[#6366F1] hover:text-[#4F46E5] transition"
+                            >
+                              Institutions
+                            </Link>
+            
+                            <span className="text-gray-400">›</span>
+            
+                            <span className="text-gray-500">
+                              Institutions Repository
+                            </span>
+                          </div>
 
             <h1 className="text-[34px] sm:text-[36px] lg:text-[42px] leading-[1.1] font-bold text-[#07113F] mt-4">
               Institutional <br />

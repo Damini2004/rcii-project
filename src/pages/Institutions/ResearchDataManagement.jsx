@@ -82,10 +82,27 @@ export default function ResearchDataManagement() {
       >
         <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14 sm:py-14 lg:py-16 mt-12">
           <div className="max-w-[610px]">
-            <p className="text-[12px] text-[#3d25e6] mb-6 font-medium">
-              Home &nbsp;›&nbsp; Institutions &nbsp;›&nbsp; Research Data
-              Management
-            </p>
+            <div className="flex flex-wrap items-center gap-3 text-[12px] sm:text-[12px] font-semibold sm:mb-6 mb-5">
+              <Link
+                to="/"
+                className="text-[#6366F1] hover:text-[#4F46E5] transition"
+              >
+                Home
+              </Link>
+
+              <span className="text-gray-400">›</span>
+
+              <Link
+                to="/institutions"
+                className="text-[#6366F1] hover:text-[#4F46E5] transition"
+              >
+                Institutions
+              </Link>
+
+              <span className="text-gray-400">›</span>
+
+              <span className="text-gray-500">Research Consulting</span>
+            </div>
 
             <h1 className="text-[34px] sm:text-[38px] lg:text-[46px] leading-[1.08] font-bold text-[#07113F]">
               Research Data <br />
@@ -230,7 +247,7 @@ export default function ResearchDataManagement() {
               Data Security & Compliance
             </h2>
 
-           <div className="relative z-10 ml-auto max-w-full sm:max-w-[58%] lg:max-w-[100%] xl:max-w-[58%]">
+            <div className="relative z-10 ml-auto max-w-full sm:max-w-[58%] lg:max-w-[100%] xl:max-w-[58%]">
               {[
                 "Role-based Access Control",
                 "Encryption in Transit and at Rest",
