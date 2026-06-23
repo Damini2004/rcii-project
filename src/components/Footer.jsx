@@ -25,7 +25,7 @@ const columns = [
       { name: "RAMS Platform", path: "/rams-platform" },
       { name: "Research Analytics", path: "/research-analytics" },
       { name: "Ranking Support", path: "/ranking-support" },
-      { name: "Institutional Repository", path: "/institutional-repository" },
+      
      
       { name: "Consulting", path: "/research-consulting" },
       { name: "Infrastructure Support", path: "/research-infrastructure-support" },
