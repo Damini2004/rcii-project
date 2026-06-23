@@ -25,10 +25,13 @@ import {
   BookOpen,
   Award,
   Headphones,
+  FileText,
+  Presentation,
 } from "lucide-react";
-import heroimg from "../../assets/bgMarketing.png"
-import bar from "../../assets/marketing.png"
+import heroimg from "../../assets/bgMarketing.png";
+import bar from "../../assets/marketing.png";
 import { Link } from "react-router-dom";
+import bar2 from "../../assets/blog6.png";
 
 function MarketingStrategic() {
   const benefits = [
@@ -51,24 +54,24 @@ function MarketingStrategic() {
     { icon: PieChart, title: "Performance Analytics", list: ["Campaign performance tracking", "ROI & conversion analysis", "Actionable insights & reports"], color: "#563BFF", bg: "#F0EDFF" },
   ];
 
-  const process = [
-    { icon: ClipboardCheck, title: "1. Discover", text: "Understand your goals, audience and market.", color: "#563BFF", bg: "#F0EDFF" },
-    { icon: ClipboardCheck, title: "2. Strategize", text: "Build a customized marketing strategy and plan.", color: "#16A34A", bg: "#EAF8EF" },
-    { icon: Rocket, title: "3. Execute", text: "Implement multi-channel campaigns and initiatives.", color: "#2563EB", bg: "#EAF4FF" },
-    { icon: LineChart, title: "4. Optimize", text: "Monitor performance and optimize for better results.", color: "#F97316", bg: "#FFF1E8" },
-    { icon: Trophy, title: "5. Achieve", text: "Measure impact and achieve sustainable growth.", color: "#EC4899", bg: "#FFEAF3" },
-  ];
+ const process = [
+  { icon: ClipboardCheck, title: "1. Discover", text: "Understand your goals, audience and market.", color: "#563BFF", bg: "#F0EDFF" },
+  { icon: ClipboardCheck, title: "2. Strategize", text: "Build a customized marketing strategy and plan.", color: "#16A34A", bg: "#EAF8EF" },
+  { icon: Rocket, title: "3. Execute", text: "Implement multi-channel campaigns and initiatives.", color: "#2563EB", bg: "#EAF4FF" },
+  { icon: LineChart, title: "4. Optimize", text: "Monitor performance and optimize for better results.", color: "#F97316", bg: "#FFF1E8" },
+  { icon: Trophy, title: "5. Achieve", text: "Measure impact and achieve sustainable growth.", color: "#EC4899", bg: "#FFEAF3" },
+];
 
-  const channels = [
-    { icon: Globe, title: "Website & SEO" },
-    { icon: Linkedin, title: "Social Media" },
-    { icon: Mail, title: "Email Campaigns" },
-    { icon: Megaphone, title: "Paid Advertising" },
-    { icon: PenTool, title: "Content Marketing" },
-    { icon: Monitor, title: "Webinars & Events" },
-    { icon: Users, title: "Communities & Forums" },
-    { icon: Star, title: "Influencer Outreach" },
-  ];
+const channels = [
+  { icon: Globe, title: "Website & SEO" },
+  { icon: Linkedin, title: "Social Media" },
+  { icon: Mail, title: "Email Campaigns" },
+  { icon: Megaphone, title: "Paid Advertising" },
+  { icon: FileText, title: "Content Marketing" },
+  { icon: Presentation, title: "Webinars & Events" },
+  { icon: Users, title: "Communities & Forums" },
+  { icon: Star, title: "Influencer Outreach" },
+];
 
   const impact = [
     { icon: BookOpen, value: "850+", label: "Journals Supported" },
@@ -79,11 +82,35 @@ function MarketingStrategic() {
     { icon: LineChart, value: "25%", label: "Higher Readership" },
   ];
 
+  const testimonials = [
+  {
+    name: "Dr. Emily Carter",
+    role: "Editor-in-Chief",
+    journal: "International Journal of Nanoscience",
+    text: "RCI’s marketing strategies have significantly increased our journal’s visibility and submission rates.",
+    img: "/images/user1.jpg",
+  },
+  {
+    name: "Dr. Rajesh Sharma",
+    role: "Publisher",
+    journal: "Global Health Research Journal",
+    text: "Their team is proactive, creative, and truly understands the needs of academic publishers.",
+    img: "/images/user2.jpg",
+  },
+  {
+    name: "Dr. Maria Lopez",
+    role: "Managing Editor",
+    journal: "Journal of Environmental Studies",
+    text: "Excellent support in digital marketing and outreach. Highly professional and results-driven team.",
+    img: "/images/user3.jpg",
+  },
+];
+
   return (
     <main className="bg-[#F6F8FF]  text-[#071044] pt-[70px] ">
      
         {/* HERO */}
-          <section className="relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[460px] bg-white">
+          <section className="relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[450px] bg-white">
                {/* Background image only after 768px */}
                <div
                  className=" absolute inset-0 bg-cover  bg-no-repeat"
@@ -166,44 +193,50 @@ function MarketingStrategic() {
 </SectionCard>
 
         {/* PROCESS */}
-        <SectionCard title="Our Proven Marketing Process">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {process.map((item, index) => (
-              <div key={item.title} className="relative">
-                <IconInfoCard {...item} />
-                {index !== process.length - 1 && (
-                  <div className="absolute right-[-18px] top-[38px] hidden w-8 border-t-2 border-dashed border-[#A8B1D9] lg:block" />
-                )}
-              </div>
-            ))}
-          </div>
-        </SectionCard>
+       <SectionCard title="Our Proven Marketing Process">
+  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+    {process.map((item, index) => (
+      <ProcessCard key={item.title} {...item} index={index} total={process.length} />
+    ))}
+  </div>
+</SectionCard>
 
         {/* CHANNELS */}
-        <SectionCard title="Our Marketing Channels">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
-            {channels.map(({ icon: Icon, title }) => (
-              <div
-                key={title}
-                className="group rounded-[10px] border border-[#e8ebf7] bg-white p-3 text-center transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(30,40,90,0.12)]"
-              >
-                <Icon size={24} className="mx-auto text-[#321CFF] transition-transform duration-500 group-hover:scale-110" />
-                <p className="mt-2 text-[11px] font-bold text-[#071044]">{title}</p>
-              </div>
-            ))}
-          </div>
-        </SectionCard>
+      <SectionCard title="Our Marketing Channels">
+  <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 overflow-hidden rounded-[12px] border border-[#edf0fa]">
+    {channels.map(({ icon: Icon, title }, index) => (
+      <div
+        key={title}
+        className={`group flex flex-col items-center justify-center bg-white px-3 py-5 text-center transition-all duration-500 hover:bg-[#fbfcff] hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(30,40,90,0.12)]
+        ${index !== channels.length - 1 ? "border-r border-[#edf0fa]" : ""}
+        border-b lg:border-b-0 border-[#edf0fa]`}
+      >
+        <div className="flex h-[42px] w-[42px] items-center justify-center">
+          <Icon
+            size={28}
+            strokeWidth={1.9}
+            className="text-[#321CFF] transition-all duration-500 group-hover:scale-110"
+          />
+        </div>
+
+        <p className="mt-3 text-[10px] sm:text-[11px] font-bold leading-tight text-[#071044]">
+          {title}
+        </p>
+      </div>
+    ))}
+  </div>
+</SectionCard>
 
         {/* IMPACT */}
-        <section className="rounded-[14px] max-w-[1180px] mt-6 mx-auto px-4 sm:px-6 lg:px-14 bg-[linear-gradient(90deg,#321CFF,#0036B8)] p-4 text-white shadow-[0_14px_34px_rgba(30,40,120,0.24)] ">
-          <h2 className="mb-4 text-center text-[16px] font-bold">Our Impact in Numbers</h2>
+        <section className="rounded-[14px] max-w-[1180px] mt-6 mx-auto px-4 sm:px-6 lg:px-14 bg-[linear-gradient(90deg,#0036B8,#321CFF)] p-4 text-white shadow-[0_14px_34px_rgba(30,40,120,0.24)] ">
+          <h2 className="mb-4 text-center sm:text-[22px] text-[20px] font-bold">Our Impact in Numbers</h2>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             {impact.map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex items-center gap-3 rounded-[10px] p-2 transition-all duration-500 hover:-translate-y-1 hover:bg-white/10">
                 <Icon size={26} className="text-white/90" />
                 <div>
-                  <h3 className="text-[22px] font-bold">{value}</h3>
-                  <p className="text-[10px] font-semibold text-white/80">{label}</p>
+                  <h3 className="text-[18px] font-bold">{value}</h3>
+                  <p className="text-[11px] font-semibold text-white/80">{label}</p>
                 </div>
               </div>
             ))}
@@ -211,57 +244,67 @@ function MarketingStrategic() {
         </section>
 
         {/* TESTIMONIALS */}
-        <SectionCard title="What Our Partners Say">
-          <div className="grid gap-4 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-[12px] border border-[#e8ebf7] bg-white p-5 text-center shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_14px_32px_rgba(30,40,90,0.12)]">
-                <Quote size={24} className="mb-2 text-[#321CFF]" />
-                <div className="mb-2 flex justify-center gap-1 text-[#FBBF24]">
-                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={14} fill="#FBBF24" />)}
-                </div>
-                <p className="text-[11px] font-semibold leading-[1.7] text-[#303B5D]">
-                  RCI’s marketing strategies have significantly increased our journal’s visibility and submission rates.
-                </p>
-                <div className="mt-4 flex items-center justify-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-[#EAF4FF]" />
-                  <div className="text-left">
-                    <h4 className="text-[12px] font-bold">Dr. Emily Carter</h4>
-                    <p className="text-[10px] font-semibold text-[#5A6482]">International Journal of Nanoscience</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </SectionCard>
+       <SectionCard title="What Our Partners Say">
+  <div className="grid gap-4 md:grid-cols-3">
+    {testimonials.map((item) => (
+      <TestimonialCard key={item.name} {...item} />
+    ))}
+  </div>
+
+  {/* <div className="mt-3 flex justify-center gap-1.5">
+    <span className="h-2 w-2 rounded-full bg-[#321CFF]" />
+    <span className="h-2 w-2 rounded-full bg-[#D9DDF5]" />
+    <span className="h-2 w-2 rounded-full bg-[#D9DDF5]" />
+  </div> */}
+</SectionCard>
 
         {/* CTA */}
-        <section className="overflow-hidden rounded-[14px] bg-[linear-gradient(90deg,#321CFF,#0036B8)] p-4 text-white shadow-[0_16px_38px_rgba(10,20,90,0.25)] sm:p-5">
-          <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
-            <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-              <img
-                src="/images/marketing-cta.png"
-                alt="Marketing CTA"
-                className="h-[90px] w-[180px] rounded-[10px] object-cover transition-all duration-500 hover:scale-[1.03]"
-              />
-              <div>
-                <h2 className="text-[20px] font-bold">Let’s Build Your Journal’s Global Presence</h2>
-                <p className="mt-2 max-w-[580px] text-[12px] font-semibold leading-[1.6] text-white/85">
-                  Partner with RCI to create and execute a winning marketing strategy tailored to your goals.
-                </p>
-              </div>
-            </div>
+ <div className="max-w-[1180px] mx-auto mt-4 pb-6">
+  <section className="overflow-hidden rounded-[14px] bg-[linear-gradient(90deg,#143CCB_0%,#3D1CFF_100%)] px-4 py-5 shadow-[0_16px_38px_rgba(10,20,90,0.25)]">
+    <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
+      
+      {/* Left Side */}
+      <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+        <img
+          src={bar}
+          alt="Marketing Growth"
+          className="h-[72px] w-[130px] shrink-0 object-contain transition-all duration-500 hover:scale-[1.05]"
+        />
 
-            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <button className="h-[42px] rounded-[6px] bg-white px-6 text-[11px] font-bold text-[#321CFF] transition-all duration-500 hover:-translate-y-1">
-                Request a Consultation <ArrowRight size={14} className="ml-2 inline" />
-              </button>
-              <button className="h-[42px] rounded-[6px] border border-white/40 px-6 text-[11px] font-bold text-white transition-all duration-500 hover:-translate-y-1 hover:bg-white/10">
-                <Headphones size={14} className="mr-2 inline" />
-                Talk to Our Expert
-              </button>
-            </div>
-          </div>
-        </section>
+        <div>
+          <h2 className="text-[18px] sm:text-[20px] font-bold leading-tight text-white">
+            Let's Build Your Journal's Global Presence
+          </h2>
+
+          <p className="mt-1 max-w-[430px] text-[11px] font-medium leading-[1.55] text-white/85">
+            Partner with RCI to create and execute a winning
+            marketing strategy tailored to your goals.
+          </p>
+        </div>
+      </div>
+
+      {/* Right Buttons */}
+      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+        <button className="group flex h-[40px] min-w-[190px] items-center justify-center whitespace-nowrap rounded-[5px] bg-white px-5 text-[11px] font-bold text-[#321CFF] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(255,255,255,0.22)]">
+          Request a Consultation
+          <ArrowRight
+            size={14}
+            className="ml-2 transition-transform duration-500 group-hover:translate-x-1"
+          />
+        </button>
+
+        <button className="group flex h-[40px] min-w-[170px] items-center justify-center whitespace-nowrap rounded-[5px] border border-white/30 bg-white/5 px-5 text-[11px] font-bold text-white transition-all duration-500 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_12px_24px_rgba(0,0,0,0.18)]">
+          <Headphones
+            size={14}
+            className="mr-2 transition-transform duration-500 group-hover:scale-110"
+          />
+          Talk to Our Expert
+        </button>
+      </div>
+
+    </div>
+  </section>
+</div>
       
     </main>
   );
@@ -270,7 +313,7 @@ function MarketingStrategic() {
 function SectionCard({ title, children }) {
   return (
     <section className="mt-4 max-w-[1180px] mx-auto overflow-hidden rounded-[14px] border border-[#e8ebf7] bg-white shadow-[0_10px_32px_rgba(30,40,90,0.06)]">
-      <h2 className="relative pt-4 pb-5 text-center text-[15px] sm:text-[16px] font-extrabold text-[#071044]">
+      <h2 className="relative pt-4 pb-5 text-center text-[20px] sm:text-[24px] font-bold text-[#071044]">
         {title}
         <span className="absolute left-1/2 bottom-3 h-[3px] w-[36px] -translate-x-1/2 rounded-full bg-[#321CFF]" />
       </h2>
@@ -290,11 +333,11 @@ function IconInfoCard({ icon: Icon, title, text, color, bg }) {
         <Icon size={22} strokeWidth={2.3} style={{ color }} />
       </div>
 
-      <h3 className="mt-4 text-[11px] sm:text-[12px] font-extrabold leading-tight text-[#071044]">
+      <h3 className="mt-4 text-[11px] sm:text-[12px] font-bold leading-tight text-[#071044]">
         {title}
       </h3>
 
-      <p className="mt-2 text-[10px] sm:text-[10.5px] font-semibold leading-[1.65] text-[#303B5D]">
+      <p className="mt-2 text-[10px] sm:text-[11px] font-semibold leading-[1.65] text-[#303B5D]">
         {text}
       </p>
     </div>
@@ -313,7 +356,7 @@ function ServiceCard({ icon: Icon, title, list, color, bg }) {
         </div>
 
         <div>
-          <h3 className="text-[12px] font-extrabold leading-tight text-[#071044]">
+          <h3 className="text-[13px] font-bold leading-tight text-[#071044]">
             {title}
           </h3>
 
@@ -321,16 +364,81 @@ function ServiceCard({ icon: Icon, title, list, color, bg }) {
             {list.map((item) => (
               <li
                 key={item}
-                className="text-[10px] sm:text-[10.5px] font-semibold leading-[1.45] text-[#303B5D]"
+                className="text-[10px] sm:text-[11px] font-semibold leading-[1.45] text-[#303B5D]"
               >
                 ✓ {item}
               </li>
             ))}
           </ul>
 
-          <button className="mt-2 text-[10px] font-extrabold text-[#321CFF] transition-all duration-300 group-hover:translate-x-1">
+          <button className="mt-2 text-[11px] font-bold text-[#321CFF] transition-all duration-300 group-hover:translate-x-1">
             Learn More →
           </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProcessCard({ icon: Icon, title, text, color, bg, index, total }) {
+  return (
+    <div className="group relative px-3 py-3 text-center transition-all duration-500 hover:-translate-y-1">
+      {index !== total - 1 && (
+        <div className="absolute left-[62%] top-[38px] hidden w-[72%] border-t-2 border-dashed border-[#9aa7da] lg:block" />
+      )}
+
+      <div
+        className="relative z-10 mx-auto flex h-[60px] w-[60px] items-center justify-center rounded-full transition-all duration-500 group-hover:scale-110"
+        style={{ backgroundColor: bg }}
+      >
+        <Icon size={30} strokeWidth={2.3} style={{ color }} />
+      </div>
+
+      <h3 className="mt-3 text-[13px] font-bold text-[#071044]">
+        {title}
+      </h3>
+
+      <p className="mx-auto mt-2 max-w-[155px] text-[11px] font-semibold leading-[1.55] text-[#303B5D]">
+        {text}
+      </p>
+    </div>
+  );
+}
+
+function TestimonialCard({ text, name, role, journal, img }) {
+  return (
+    <div className="group rounded-[12px] border border-[#e8ebf7] bg-white px-5 py-4 shadow-[0_8px_24px_rgba(30,40,90,0.06)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_14px_32px_rgba(30,40,90,0.12)]">
+      <div className="flex items-start justify-between">
+        <Quote size={22} className="text-[#321CFF]" fill="#321CFF" />
+
+        <div className="flex gap-0.5 text-[#FBBF24]">
+          {[1, 2, 3, 4, 5].map((s) => (
+            <Star key={s} size={13} fill="#FBBF24" strokeWidth={1.8} />
+          ))}
+        </div>
+      </div>
+
+      <p className="mt-3 text-center text-[10.5px] font-semibold leading-[1.65] text-[#303B5D]">
+        {text}
+      </p>
+
+      <div className="mt-4 flex items-center justify-center gap-3">
+        <img
+          src={bar2}
+          alt={name}
+          className="h-[42px] w-[42px] rounded-full object-cover"
+        />
+
+        <div className="text-left">
+          <h4 className="text-[12px] font-bold leading-tight text-[#071044]">
+            {name}
+          </h4>
+          <p className="mt-0.5 text-[10px] font-bold text-[#321CFF]">
+            {role}
+          </p>
+          <p className="text-[9.5px] font-semibold text-[#5A6482]">
+            {journal}
+          </p>
         </div>
       </div>
     </div>

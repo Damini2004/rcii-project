@@ -49,6 +49,12 @@ const navItems = [
       { label: "Indexing Support", path: "/indexing-support" },
       // { label: "Publishing Consultancy", path: "/publishing-consultancy" },
       { label: "Technological Solutions", path: "/technological-solutions" },
+       { label: "Marketing Strategy", path: "/marketing-strategic" },
+      { label: "Journal Hosting", path: "/journal-hosting" },
+      { label: "Editorial Systems", path: "/editorial-systems" },
+      { label: "DOI Solutions", path: "/doi-solutions" },
+      { label: "Indexing Services", path: "/indexing-services" },
+      { label: "Publishing Consultancy", path: "/publishing-consultancy" },
        { label: "Marketing Strategic", path: "/marketing-strategic" },
       { label: "Journal Solution", path: "/journal-solution" },
       // { label: "Editorial Systems", path: "/editorial-systems" },
@@ -64,7 +70,7 @@ const navItems = [
     path: "/resources",
     dropdown: [
       { label: "Blog", path: "/blogs" },
-      { label: "How to Get Your Research Published in High-Impact Journals Research & Publishing", path: "/how-to-get-blog" },
+      { label: "Blog Details", path: "/how-to-get-blog" },
       
     ],
   },
@@ -206,8 +212,9 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
   {/* Mobile Sidebar Overlay */}
+{/* Mobile Menu Overlay */}
 <div
-  className={`fixed inset-0 z-[999] bg-black/40 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
+  className={`fixed inset-0 z-[999] bg-black/50 backdrop-blur-[3px] transition-all duration-300 lg:hidden ${
     mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"
   }`}
   onClick={() => setMobileOpen(false)}
@@ -215,59 +222,88 @@ export default function Navbar() {
 
 {/* Mobile Sidebar */}
 <aside
-  className={`fixed top-0 right-0 z-[1000] h-screen w-[82%] max-w-[330px] bg-white shadow-[-10px_0_30px_rgba(0,0,0,0.15)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
-    mobileOpen ? "translate-x-0" : "translate-x-full"
-  }`}
+  className={`fixed top-0 right-0 z-[1000] h-screen w-[85%] max-w-[340px] bg-white shadow-2xl 
+  transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden
+  ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
 >
-  <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-    <span className="text-[18px] font-bold text-[#07073F]">Menu</span>
+  {/* Header */}
+  <div className="flex items-center justify-between px-5 py-4 border-b bg-gradient-to-r from-indigo-50 to-white">
+    <span className="text-[17px] font-bold text-[#07073F] tracking-wide">
+      Menu
+    </span>
 
     <button
       onClick={() => setMobileOpen(false)}
-      className="w-9 h-9 rounded-full bg-[#F1EDFF] text-[#4F46E5] flex items-center justify-center"
+      className="w-9 h-9 rounded-full bg-[#EEF0FF] text-[#4F46E5] flex items-center justify-center 
+      hover:bg-[#4F46E5] hover:text-white transition-all duration-300 hover:rotate-90"
     >
       ✕
     </button>
   </div>
 
-  <div className="h-[calc(100vh-73px)] overflow-y-auto py-4">
+  {/* Menu Items */}
+  <div className="h-[calc(100vh-70px)] overflow-y-auto py-4 px-2">
+
     {navItems.map((item) => (
-      <div key={item.label}>
+      <div key={item.label} className="mb-1">
+
+        {/* Main Item */}
         <Link
           to={item.path}
           onClick={() => {
             if (!item.dropdown) setMobileOpen(false);
           }}
-          className="flex items-center justify-between px-5 py-3 text-sm font-bold text-[#07073F] hover:bg-[#F8F7FF]"
+          className="flex items-center justify-between px-4 py-3 rounded-lg
+          text-[13px] font-semibold text-[#07073F]
+          hover:bg-[#F3F4FF] hover:text-[#4F46E5]
+          transition-all duration-300 active:scale-[0.98]"
         >
           {item.label}
-          {item.dropdown && <ChevronDown size={16} />}
+
+          {item.dropdown && (
+            <ChevronDown
+              size={16}
+              className="transition-transform duration-300 group-hover:rotate-180"
+            />
+          )}
         </Link>
 
+        {/* Dropdown */}
         {item.dropdown && (
-          <div className="pl-5 border-l border-[#EEF0FF] ml-5">
+          <div className="ml-3 pl-3 border-l border-[#E8EAF6] space-y-1">
+
             {item.dropdown.map((sub) => (
               <Link
                 key={sub.label}
                 to={sub.path}
                 onClick={() => setMobileOpen(false)}
-                className="block px-4 py-2 text-xs font-semibold text-gray-600 hover:text-[#4F46E5]"
+                className="block px-3 py-2 text-[12px] font-medium text-gray-600
+                rounded-md transition-all duration-300
+                hover:text-[#4F46E5] hover:bg-[#F6F7FF] hover:pl-4"
               >
                 {sub.label}
               </Link>
             ))}
+
           </div>
         )}
       </div>
     ))}
 
-    <Link
-      to="/contact"
-      onClick={() => setMobileOpen(false)}
-      className="block mx-5 mt-5 text-center bg-[#4F46E5] text-white font-bold py-3 rounded-lg shadow-md"
-    >
-      Get in Touch
-    </Link>
+    {/* CTA Button */}
+    <div className="px-3 mt-6">
+      <Link
+        to="/contact"
+        onClick={() => setMobileOpen(false)}
+        className="block text-center bg-gradient-to-r from-[#4F46E5] to-[#4338CA]
+        text-white font-bold py-3 rounded-xl shadow-md
+        hover:shadow-xl hover:scale-[1.02]
+        transition-all duration-300"
+      >
+        Get in Touch
+      </Link>
+    </div>
+
   </div>
 </aside>
       </nav>

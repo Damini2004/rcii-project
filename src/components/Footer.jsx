@@ -1,199 +1,140 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Linkedin,
-  X,
-  Youtube,
-  Facebook,
-  Phone,
-  Mail,
-  MapPin,
-  Heart,
-} from "lucide-react";
+import { Linkedin, X, Youtube, Facebook, Phone, Mail, MapPin, Heart } from "lucide-react";
 import logo from "../assets/rc.png";
 
 const columns = [
   {
     title: "For Researchers",
     links: [
-      "Author Services",
-      "Publication Support",
-      "Research Profiles",
-      "Patent Services",
-      "Grants & Funding",
-      "Career Support",
+      { name: "Author Services", path: "/author-services" },
+      { name: "Publication Support", path: "/publication-support" },
+      { name: "Ip & Innovation Support", path: "/ip-innovation-support" },
+      { name: "Research Resources & Templates", path: "/reserach-resources-templates" },
+     { name: "Research Profiling & Visibility", path: "/research-profiling-visibility" },
+  { name: "Grant & Funding Support", path: "/grant-funding-support" },
+      { name: "Career & Growth Resources", path: "/career-growth-resources" },
+    
     ],
   },
+
+
   {
     title: "For Institutions",
     links: [
-      "RAMS Platform",
-      "Research Analytics",
-      "Ranking Support",
-      "Institutional Repository",
-      "Research Policy",
-      "Consulting",
+      { name: "RAMS Platform", path: "/rams-platform" },
+      { name: "Research Analytics", path: "/research-analytics" },
+      { name: "Ranking Support", path: "/ranking-support" },
+      
+     
+      { name: "Consulting", path: "/research-consulting" },
+      { name: "Infrastructure Support", path: "/research-infrastructure-support" },
+      { name: "Funding & Grant Support", path: "/funding-grants-support" },
+      { name: "Research Data Management", path: "/research-data-management" },
     ],
   },
+
   {
     title: "For Publishers",
     links: [
-      "Journal Hosting",
-      "Editorial Systems",
-      "DOI Solutions",
-      "Indexing Services",
-      "Publishing Consultancy",
+      { name: "Editorial Support", path: "/editorial-support" },
+      { name: "Indexing Support", path: "/indexing-support" },
+      { name: "Technological Solutions", path: "/technological-solutions" },
+      { name: "Marketing Strategy", path: "/marketing-strategic" },
+      { name: "Journal Solutions", path: "/journal-solution" },
     ],
   },
-  {
-    title: "Technology",
-    links: [
-      "RAMS",
-      "Journal Hosting",
-      "DOI Platform",
-      "Conference System",
-      "Research Profiles",
-    ],
-  },
+
   {
     title: "Company",
     links: [
-      "About Us",
-      "Our Team",
-      "Careers",
-      "Contact Us",
-      "Privacy Policy",
-      "Terms & Conditions",
+      { name: "About Us", path: "/about" },
+      { name: "Our Team", path: "/our-team" },
+      { name: "Careers", path: "/careers" },
+      { name: "Contact Us", path: "/contact" },
+      { name: "Privacy Policy", path: "/privacy-policy" },
+      { name: "Terms & Conditions", path: "/terms-and-conditions" },
     ],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#061A33] text-white">
-      <div className="max-w-[1320px] mx-auto px-4 pt-8 pb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.45fr_repeat(5,1fr)_1.15fr] gap-6">
-          {/* Brand */}
-          <div className="pr-6 lg:border-r border-white/10">
-            <div className="flex items-center gap-3 mb-5">
-              <img
-                src={logo}
-                alt="Researcher Connect"
-                className="h-[52px] w-auto"
-              />
+<footer className="bg-[#071B33] text-white w-full">
+  <div className="mx-auto max-w-[1420px] px-6 sm:px-6 lg:px-8 py-6">
+    
+    {/* GRID */}
+    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 
-              <div className="leading-[1.7]">
-                <h2 className="text-[9px] font-extrabold uppercase tracking-wide">
-                  Researcher Connect
-                </h2>
-                <p className="text-[7.5px] font-semibold uppercase">
-                  Innovation and Impact
-                </p>
-                <p className="text-[7px] font-bold uppercase tracking-[1.8px]">
-                  Private Limited
-                </p>
-              </div>
-            </div>
+      {/* LOGO SECTION */}
+      <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
+        <img src={logo} alt="Researcher Connect" className="h-[50px] w-auto" />
 
-            <p className="text-[12px] leading-[1.8] text-white/80 max-w-[230px]">
-              Empowering researchers, institutions and publishers with ethical
-              solutions and advanced technology for a better research future.
-            </p>
+        <p className="mt-2 text-[11px] font-medium leading-[1.5] text-white/80 max-w-[260px]">
+          Empowering researchers, institutions and publishers with ethical
+          solutions and advanced technology for a better research future.
+        </p>
 
-            <div className="flex items-center gap-3 mt-5">
-              <a
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10"
-                href="#"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10"
-                href="#"
-              >
-                <X size={18} />
-              </a>
-              <a
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10"
-                href="#"
-              >
-                <Youtube size={18} />
-              </a>
-              <a
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10"
-                href="#"
-              >
-                <Facebook size={18} />
-              </a>
-            </div>
-          </div>
-
-          {/* Link Columns */}
-          {columns.map((col) => (
-            <div key={col.title} className="lg:border-r border-white/10 pr-5">
-              <h3 className="text-[13px] font-semibold mb-5">{col.title}</h3>
-              <ul className="space-y-2">
-                {col.links.map((item) => (
-                  <li key={item}>
-                    <Link
-                      to="/"
-                      className="text-[12px] text-white/75 hover:text-[#8B5CF6] transition"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[Linkedin, X, Youtube, Facebook].map((Icon, i) => (
+            <a
+              key={i}
+              href="#"
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-white/35 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:text-[#071B33]"
+            >
+              <Icon size={13} />
+            </a>
           ))}
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-[13px] font-semibold mb-6">Get in Touch</h3>
-
-            <div className="space-y-5">
-              <a
-                href="tel:+911234567890"
-                className="flex items-center gap-3 text-white/80 text-[12px]"
-              >
-                <span className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center">
-                  <Phone size={17} />
-                </span>
-                +91 123 456 7890
-              </a>
-
-              <a
-                href="mailto:info@rcilin"
-                className="flex items-center gap-3 text-white/80 text-[12px]"
-              >
-                <span className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center">
-                  <Mail size={17} />
-                </span>
-                info@rcilin
-              </a>
-
-              <div className="flex items-center gap-3 text-white/80 text-[12px]">
-                <span className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center">
-                  <MapPin size={17} />
-                </span>
-                India | Global
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom */}
-        <div className="border-t border-white/10 mt-5 pt-4 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[12px] text-white/75">
-            © 2024 Researcher Connect Innovation and Impact Private Limited. All
-            Rights Reserved.
-          </p>
-
-          <p className="text-[12px] text-white/75 flex items-center gap-1">
-            Made with for the Global Research Community
-          </p>
         </div>
       </div>
-    </footer>
+
+      {/* DYNAMIC COLUMNS */}
+      {columns.map((col) => (
+        <div key={col.title} className="min-w-0">
+          <h3 className="mb-2 text-[13px] font-bold text-white">
+            {col.title}
+          </h3>
+
+          <ul className="space-y-1">
+            {col.links.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className="block text-[11px] font-medium text-white/75 transition-all duration-300 hover:translate-x-1 hover:text-[#4251d1]"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      {/* CONTACT */}
+      <div className="min-w-0">
+        <h3 className="mb-2 text-[13px] font-bold text-white">
+          Get in Touch
+        </h3>
+
+        <div className="space-y-3">
+          <ContactItem icon={Phone} text="+91 123 456 7890" />
+          <ContactItem icon={Mail} text="info@rcii.in" />
+          <ContactItem icon={MapPin} text="India | Global" />
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  );
+}
+
+function ContactItem({ icon: Icon, text }) {
+  return (
+    <div className="group flex items-center gap-2 text-[11px] font-medium text-white/75 transition-all duration-300 hover:text-white">
+      <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/35 transition-all duration-300 group-hover:bg-white group-hover:text-[#071B33]">
+        <Icon size={13} />
+      </span>
+      {text}
+    </div>
   );
 }
