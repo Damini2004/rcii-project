@@ -70,15 +70,16 @@ function Publisher() {
            </p>
      
            <div className="flex flex-wrap gap-3 mt-5 sm:mt-9">
+             <Link to="/contact">
              <button className="bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
-               Partner with RCI
+               Partner with RCII
                <ArrowRight size={18} />
-             </button>
-     
+             </button></Link>
+      <Link to="/contact">
              <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 sm:px-5 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                Explore Publisher Solutions
                <ArrowRight size={18} />
-             </button>
+             </button></Link>
            </div>
          </div>
        </div>
@@ -215,19 +216,19 @@ function Publisher() {
       </div>
     </div>
 
-   <div className="flex shrink-0 flex-row items-center gap-3">
-  <button className="group flex h-[42px] min-w-[165px] items-center justify-center whitespace-nowrap rounded-[6px] bg-white px-5 text-[11px] font-bold text-[#321CFF] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(255,255,255,0.22)]">
+   <div className="flex shrink-0 flex-row items-center gap-3"> <Link to="/contact">
+  <button className="group flex h-[42px] min-w-[165px] items-center justify-center whitespace-nowrap rounded-[6px] bg-white px-5 text-[12px] font-bold text-[#321CFF] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(255,255,255,0.22)]">
     Become a Partner
     <ArrowRight
       size={14}
       className="ml-2 transition-transform duration-500 group-hover:translate-x-1"
     />
   </button>
-
-  <button className="flex h-[42px] min-w-[165px] items-center justify-center whitespace-nowrap rounded-[6px] border border-white/40 bg-[#061B63]/15 px-5 text-[11px] font-bold text-white transition-all duration-500 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_12px_24px_rgba(0,0,0,0.18)]">
+</Link> <Link to="/contact">
+  <button className="flex h-[42px] min-w-[165px] items-center justify-center whitespace-nowrap rounded-[6px] border border-white/40 bg-[#061B63]/15 px-5 text-[12px] font-bold text-white transition-all duration-500 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_12px_24px_rgba(0,0,0,0.18)]">
     <Headphones size={14} className="mr-2 shrink-0" />
     Talk to Our Team
-  </button>
+  </button></Link>
 </div>
   </div>
 </section>

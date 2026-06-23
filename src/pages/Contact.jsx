@@ -280,7 +280,7 @@ export default function Contact() {
     <TitleLine title="Frequently Asked Questions" center />
 
     {[
-      "What services does RCI offer?",
+      "What services does RCII offer?",
       "Who can benefit from RCI’s services?",
       "How can I get started with RCI?",
       "Do you offer customized solutions?",

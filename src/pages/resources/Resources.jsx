@@ -204,15 +204,16 @@ const Resources = () => {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
+               <Link to="/contact">
               <button className="group h-[48px] rounded-[6px] bg-white px-6 text-[13px] font-bold text-[#321cff] transition-all duration-300 hover:-translate-y-1">
                 Request a Resource
                 <ArrowRight size={16} className="ml-2 inline transition group-hover:translate-x-1" />
               </button>
-
+</Link> <Link to="/contact">
               <button className="h-[48px] rounded-[6px] border border-white/40 px-6 text-[13px] font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10">
                 <Headphones size={16} className="mr-2 inline" />
                 Talk to Our Expert
-              </button>
+              </button></Link>
             </div>
           </div>
         </section>
@@ -240,9 +241,9 @@ function Category({ icon: Icon, bg, color, title }) {
       <p className="mt-3 text-[11px] font-bold leading-[1.7] text-[#3d4665]">
         Access curated resources designed for researchers and institutions.
       </p>
-      <button className="mt-4 text-[11px] font-bold text-[#321cff]">
+      {/* <button className="mt-4 text-[11px] font-bold text-[#321cff]">
         Explore <ArrowRight size={13} className="inline" />
-      </button>
+      </button> */}
     </div>
   );
 }
@@ -259,9 +260,9 @@ function ResourceCard({ img, tag, title, action, download, play }) {
       </div>
       <div className="p-4">
         <h3 className="min-h-[54px] text-[12px] font-bold leading-[1.55]">{title}</h3>
-        <button className="mt-3 text-[11px] font-bold text-[#321cff]">
+        {/* <button className="mt-3 text-[11px] font-bold text-[#321cff]">
           {action} {download ? <Download size={13} className="inline" /> : <ArrowRight size={13} className="inline" />}
-        </button>
+        </button> */}
       </div>
     </div>
   );
@@ -278,9 +279,9 @@ function Tool({ icon: Icon, bg, color, title }) {
         <p className="mt-2 text-[11px] font-bold leading-[1.6] text-[#3d4665]">
           Quick access tool for researchers.
         </p>
-        <button className="mt-3 text-[11px] font-bold text-[#321cff]">
+        {/* <button className="mt-3 text-[11px] font-bold text-[#321cff]">
           Use Tool <ArrowRight size={13} className="inline" />
-        </button>
+        </button> */}
       </div>
     </div>
   );
