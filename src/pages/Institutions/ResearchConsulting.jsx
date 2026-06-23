@@ -686,14 +686,52 @@ export default function ResearchConsulting() {
         {/* ── IMPACT WE CREATE + CTA ── */}
         <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
           <div className="max-w-[1420px] mx-auto">
-            <div className="text-center mb-5">
-              <h2 className="text-[20px] font-bold text-[#07113F]">
-                Impact We Create
-              </h2>
+            {/* CTA Banner */}
+            <div className="bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-7 lg:px-10 py-6">
+              <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] xl:grid-cols-[320px_1fr_auto] items-center gap-6 lg:gap-8">
+                {/* IMAGE */}
+                <div className="hidden md:flex shrink-0 justify-center">
+                  <img
+                    src={ctaConsulting}
+                    alt="Research Excellence"
+                    className="w-[180px] lg:w-[220px] xl:w-[320px] object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* TEXT */}
+                <div className="text-center md:text-left min-w-0">
+                  <h2 className="text-[14px] sm:text-[16px] font-bold text-[#07113F] mb-3">
+                    Let's Build Research Excellence Together
+                  </h2>
+
+                  <p className="text-[12px] text-[#07113F] font-medium leading-[1.8] max-w-[560px] mx-auto md:mx-0">
+                    Book a free consultation with our experts and take the first
+                    step towards transformational growth.
+                  </p>
+                </div>
+
+                {/* BUTTONS */}
+                <div className="flex flex-col sm:flex-row xl:flex-row gap-4 w-full md:col-span-2 xl:col-span-1 xl:w-auto justify-center xl:justify-end">
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] text-white text-[13px] font-semibold px-6 sm:px-8 py-3.5 rounded-md hover:-translate-y-1 hover:shadow-xl hover:bg-[#4338CA] transition-all duration-300 w-full sm:w-auto whitespace-nowrap"
+                  >
+                    <Calendar size={16} />
+                    Book a Free Consultation
+                  </a>
+
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-[#4F46E5] text-[#4F46E5] text-[13px] font-semibold px-6 sm:px-8 py-3.5 rounded-md hover:-translate-y-1 hover:bg-white hover:shadow-lg transition-all duration-300 w-full sm:w-auto whitespace-nowrap"
+                  >
+                    <Download size={16} />
+                    Download Brochure
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Impact Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
               {[
                 {
                   badge: "✓",
@@ -730,10 +768,10 @@ export default function ResearchConsulting() {
               ].map(({ badge, title, stat, desc, img, bg }) => (
                 <div
                   key={title}
-                  className="group bg-white rounded-[12px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.08)] p-4 flex items-center justify-between gap-4 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                  className="group bg-white rounded-[12px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.08)] p-4 flex flex-col md:flex-row lg:flex-row items-center md:items-start lg:items-start justify-between gap-4 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="flex-1">
-                    <div className="flex items-start gap-2 mb-4">
+                  <div className="flex-1 text-center md:text-left">
+                    <div className="flex items-start justify-center md:justify-start gap-1 mb-4">
                       <span
                         className={`w-6 h-6 rounded-full ${bg} text-white text-[12px] flex items-center justify-center shrink-0`}
                       >
@@ -757,38 +795,37 @@ export default function ResearchConsulting() {
                   <img
                     src={img}
                     alt={title}
-                    className="w-[120px] h-[120px] object-cover rounded-[10px] group-hover:scale-105 transition-transform duration-300"
+                    className="w-[90px] sm:w-[95px] md:w-[100px] lg:w-[120px] h-[90px] sm:h-[95px] md:h-[100px] lg:h-[120px] object-cover rounded-[10px] group-hover:scale-105 transition-transform duration-300 shrink-0"
                   />
                 </div>
               ))}
             </div>
 
-            {/* CTA Banner */}
-            <div className="bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-7 lg:px-10 py-2">
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-6 h-[150px]">
-                <div className="hidden md:block shrink-0">
+            <div className="bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-7 lg:px-10 py-6">
+              <div className="flex flex-col md:flex-row lg:flex-row items-center justify-between gap-6 md:gap-6 lg:gap-8">
+                <div className="hidden md:flex shrink-0 justify-center">
                   <img
                     src={ctaConsulting}
                     alt="Research Excellence"
-                    className="w-[250px] lg:w-[320px] object-contain hover:scale-105 transition-transform duration-300"
+                    className="w-[150px] md:w-[180px] lg:w-[320px] object-contain hover:scale-105 transition-transform duration-300"
                   />
                 </div>
 
-                <div className="flex-1 text-center lg:text-left">
-                  <h2 className="text-[14px] sm:text-[16px] font-bold text-[#07113F] mb-4">
+                <div className="flex-1 text-center md:text-left min-w-0">
+                  <h2 className="text-[14px] sm:text-[16px] font-bold text-[#07113F] mb-3">
                     Let's Build Research Excellence Together
                   </h2>
 
-                  <p className="text-[12px] sm:text-[12px] text-[#07113F] font-medium leading-[1.8] max-w-[560px] mx-auto lg:mx-0">
+                  <p className="text-[12px] text-[#07113F] font-medium leading-[1.8] max-w-[560px] mx-auto md:mx-0">
                     Book a free consultation with our experts and take the first
                     step towards transformational growth.
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto shrink-0">
+                <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-4 w-full md:w-auto justify-center md:justify-end shrink-0">
                   <a
                     href="#"
-                    className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] text-white text-[13px] font-semibold px-8 py-3.5 rounded-md hover:-translate-y-1 hover:shadow-xl hover:bg-[#4338CA] transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] text-white text-[13px] font-semibold px-6 sm:px-8 md:px-5 lg:px-8 py-3.5 rounded-md hover:-translate-y-1 hover:shadow-xl hover:bg-[#4338CA] transition-all duration-300 w-full sm:w-auto whitespace-nowrap"
                   >
                     <Calendar size={16} />
                     Book a Free Consultation
@@ -796,7 +833,7 @@ export default function ResearchConsulting() {
 
                   <a
                     href="#"
-                    className="inline-flex items-center justify-center gap-2 border-2 border-[#4F46E5] text-[#4F46E5] text-[13px] font-semibold px-8 py-3.5 rounded-md hover:-translate-y-1 hover:bg-white hover:shadow-lg transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-[#4F46E5] text-[#4F46E5] text-[13px] font-semibold px-6 sm:px-8 md:px-5 lg:px-8 py-3.5 rounded-md hover:-translate-y-1 hover:bg-white hover:shadow-lg transition-all duration-300 w-full sm:w-auto whitespace-nowrap"
                   >
                     <Download size={16} />
                     Download Brochure

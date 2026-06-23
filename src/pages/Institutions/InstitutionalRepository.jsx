@@ -480,7 +480,7 @@ export default function InstitutionalRepository() {
         </div>
       </section>
       {/* WHY AN INSTITUTIONAL REPOSITORY */}
-      <section className="relative z-20 bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 pb-4 mt-10 sm:-mt-14 lg:-mt-0">
+      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 -mt-6 relative z-10">
         <div className="max-w-[1500px] mx-auto bg-white rounded-[18px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.06)] px-4 sm:px-8 lg:px-16 py-6">
           <div className="text-center mb-6">
             <h2 className="text-center text-[18px] sm:text-[22px] font-bold">
@@ -606,7 +606,7 @@ export default function InstitutionalRepository() {
 
               {/* RIGHT CONTENT */}
               <div>
-                <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold mb-4">
+                <h2 className="text-center pt-4 text-[18px] sm:text-[22px] font-bold mb-4">
                   Seamless Integration
                 </h2>
 
@@ -624,10 +624,10 @@ export default function InstitutionalRepository() {
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3 group">
                       <div className="w-5 h-5 rounded-full bg-[#5B3DF5] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <CheckCircle size={12} className="text-white" />
+                        <CheckCircle size={10} className="text-white" />
                       </div>
 
-                      <span className="text-[14px] font-medium text-[#07113F]">
+                      <span className="text-[13px] font-medium text-[#07113F]">
                         {item}
                       </span>
                     </div>

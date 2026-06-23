@@ -537,41 +537,58 @@ transition-all duration-300`}
       {/* CTA */}
       <section className="max-w-[1440px] mx-auto px-6 lg:px-16 py-4 pb-8">
         <div className="relative overflow-hidden rounded-[14px] bg-gradient-to-r from-[#4421F3] via-[#1B47D8] to-[#0087A8] shadow-[0_15px_40px_rgba(25,55,180,0.25)]">
-          <div className="flex flex-col xl:flex-row items-center justify-between gap-6 px-5 sm:px-8 lg:px-10 py-5 lg:py-3">
+          <div className="flex flex-col xl:flex-row items-center justify-between gap-6 px-4 sm:px-6 lg:px-10 py-5 lg:py-3">
+  
             {/* LEFT */}
-            <div className="flex items-center gap-5 w-full lg:w-auto">
-              <div className="hidden sm:flex shrink-0">
-                <img
-                  src={trophyImg}
-                  alt="Achievement Trophy"
-                  className="w-[150px] h-[120px] object-contain"
-                />
-              </div>
+<div className="flex items-center gap-5 w-full lg:w-auto">
 
-              <div>
-                <h2 className="text-[18px] sm:text-[19px] font-bold text-white mb-2">
-                  Let's Achieve Global Excellence Together
-                </h2>
+  {/* IMAGE → ONLY desktop + tablet (md & lg) */}
+  <div className=" md:flex lg:flex shrink-0">
+    <img
+      src={trophyImg}
+      alt="Achievement Trophy"
+      className="w-[150px] h-[120px] object-contain"
+    />
+  </div>
 
-                <p className="mt-2 text-white/95 text-[13px] font-medium">
-                  Partner with RCII to reach higher in rankings and
-                  accreditations.
-                </p>
-              </div>
-            </div>
+  {/* TEXT → ONLY mobile */}
+  <div className="block md:hidden lg:hidden text-center w-full">
+    <h2 className="text-[18px] font-bold text-white mb-2">
+      Let's Achieve Global Excellence Together
+    </h2>
+
+    <p className="text-white/95 text-[13px] font-medium">
+      Partner with RCII to reach higher in rankings and accreditations.
+    </p>
+  </div>
+
+  {/* TEXT → tablet + desktop */}
+  <div className="hidden md:block text-white">
+    <h2 className="text-[18px] sm:text-[19px] font-bold mb-2">
+      Let's Achieve Global Excellence Together
+    </h2>
+
+    <p className="text-white/95 text-[13px] font-medium">
+      Partner with RCII to reach higher in rankings and accreditations.
+    </p>
+  </div>
+
+</div>
 
             {/* RIGHT */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-              <button className="h-[48px] w-full sm:w-[260px] bg-white text-[#4B22FF] rounded-[6px] font-semibold text-[14px] flex items-center justify-center gap-3 hover:-translate-y-1 transition-all duration-300">
-                Request a Consultation
-                <ArrowRight size={18} />
-              </button>
+          <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+  
+  <button className="h-[48px] w-full sm:w-[260px] bg-white text-[#4B22FF] rounded-[6px] font-semibold text-[14px] flex items-center justify-center gap-3 hover:-translate-y-1 transition-all duration-300">
+    Request a Consultation
+    <ArrowRight size={18} />
+  </button>
 
-              <button className="h-[48px] w-full sm:w-[260px] border border-white/70 text-white rounded-[6px] font-semibold text-[14px] flex items-center justify-center gap-3 hover:bg-white hover:text-[#123AD8] transition-all duration-300">
-                <Phone size={18} />
-                Talk to an Expert
-              </button>
-            </div>
+  <button className="h-[48px] w-full sm:w-[260px] border border-white/70 text-white rounded-[6px] font-semibold text-[14px] flex items-center justify-center gap-3 hover:bg-white hover:text-[#123AD8] transition-all duration-300">
+    <Phone size={18} />
+    Talk to an Expert
+  </button>
+
+</div>
           </div>
         </div>
       </section>

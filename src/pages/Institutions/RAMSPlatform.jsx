@@ -668,7 +668,6 @@ export default function RAMSPlatform() {
         className="relative min-h-[520px] sm:min-h-[390px] lg:min-h-[420px] bg-cover bg-no-repeat flex items-center"
         style={{
           backgroundImage: `url(${heroBg})`,
-          backgroundPosition: "center right",
         }}
       >
         <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14 sm:py-14 lg:py-16">
@@ -732,7 +731,7 @@ export default function RAMSPlatform() {
       </section>
 
       {/* KEY CAPABILITIES */}
-      <section className="relative bg-[#F7F8FF] z-20 px-4 sm:px-8 lg:px-16 py-4 mt-4 sm:-mt-8 lg:-mt-8">
+      <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 -mt-8 relative z-10">
         <div className="max-w-[1500px] mx-auto bg-white rounded-[18px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.06)] px-5 sm:px-6 lg:px-8 py-6">
           {/* Heading */}
           <div className="text-center mb-7">
@@ -829,7 +828,7 @@ export default function RAMSPlatform() {
 
       {/* BENEFITS FOR YOUR INSTITUTION */}
       <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4">
-        <div className="h-[300px] max-w-[1500px] mx-auto bg-white rounded-[16px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.05)] overflow-hidden">
+        <div className=" h-350 lg:h-[300px] max-w-[1500px] mx-auto bg-white rounded-[16px] border border-[#EEF0FF] shadow-[0_8px_28px_rgba(15,23,42,0.05)] overflow-hidden">
           <div className="grid lg:grid-cols-[1.05fr_1fr] items-center gap-6 px-5 sm:px-4 lg:px-6 py-2">
             {/* LEFT IMAGE */}
             <div className="order-2 lg:order-1">
@@ -843,8 +842,8 @@ export default function RAMSPlatform() {
             </div>
 
             {/* RIGHT CONTENT */}
-            <div className="order-1 lg:order-2 mb-8">
-              <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold mb-6">
+            <div className="order-1 lg:order-2 mb-4">
+              <h2 className="text-center pt-4 text-[18px] sm:text-[22px] font-bold mb-6">
                 Benefits for Your Institution
               </h2>
 
@@ -859,7 +858,7 @@ export default function RAMSPlatform() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 text-[14px] font-medium text-[#1E293B]"
+                    className="flex items-start gap-3 text-[13px] font-medium text-[#1E293B]"
                   >
                     <div className="w-5 h-5 rounded-full bg-[#5B3DF5] flex items-center justify-center shrink-0 mt-[1px]">
                       <CheckCircle className="w-3 h-3 text-white" />
@@ -908,46 +907,51 @@ export default function RAMSPlatform() {
       </section>
 
       {/* RAMS CTA */}
-      <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-4 mb-4">
-        <div className="max-w-[1500px] mx-auto">
-          <div className=" h-[160px] bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-8 lg:px-14 py-6">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-6">
-              {/* Left Text */}
-              <div className="text-center lg:text-left">
-                <h2 className="text-center pt-6 text-[18px] sm:text-[22px] font-bold mb-3">
-                  Transform Your Research Management
-                </h2>
-                <p className="text-[14px] sm:text-[14px] text-[#1E293B] font-medium leading-[1.9] max-w-[430px] mx-auto lg:mx-0">
-                  Experience the power of integrated research management with
-                  RAMS Platform.
-                </p>
-              </div>
+<section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-6 mb-4">
+  <div className="max-w-[1500px] mx-auto">
+    
+    <div className="bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-8 lg:px-14 py-8">
 
-              {/* Middle Image */}
-              <div className="flex justify-center">
-                <img
-                  src={ctaImg}
-                  alt="Research Management"
-                  className="w-[190px] sm:w-[230px] lg:w-[260px] object-contain hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
 
-              {/* Right Buttons */}
-              <div className="flex flex-col sm:flex-row justify-center lg:justify-end gap-4">
-                <button className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] text-white text-[14px] font-semibold px-4 py-4 rounded-md hover:-translate-y-1 hover:shadow-xl hover:bg-[#4338CA] transition-all duration-300">
-                  <Calendar className="w-4 h-4" />
-                  Request a Demo
-                </button>
+        {/* Left Text */}
+        <div className="text-center lg:text-left">
+          <h2 className="text-[18px] sm:text-[22px] font-bold mb-3 leading-snug">
+            Transform Your Research Management
+          </h2>
 
-                <button className="inline-flex items-center justify-center gap-2 border-2 border-[#4F46E5] text-[#4F46E5] bg-white/40 text-[14px] font-semibold px-4 py-4 rounded-md hover:-translate-y-1 hover:bg-white hover:shadow-lg transition-all duration-300">
-                  Contact Our Team
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
+          <p className="text-[14px] text-[#1E293B] font-medium leading-[1.8] max-w-[450px] mx-auto lg:mx-0">
+            Experience the power of integrated research management with RAMS Platform.
+          </p>
         </div>
-      </section>
+
+        {/* Middle Image */}
+        <div className="flex justify-center">
+          <img
+            src={ctaImg}
+            alt="Research Management"
+            className="w-[160px] sm:w-[200px] lg:w-[260px] object-contain hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+
+        {/* Right Buttons */}
+      <div className="flex flex-col sm:flex-row lg:flex-row flex-nowrap justify-center lg:justify-end gap-3 sm:gap-4">
+          <button className="w-full sm:w-auto inline-flex items-center justify-center gap-1 bg-[#4F46E5] text-white text-[12px] font-semibold px-4 py-3 rounded-md hover:-translate-y-1 hover:shadow-xl hover:bg-[#4338CA] transition-all duration-300">
+            <Calendar className="w-4 h-4" />
+            Request a Demo
+          </button>
+
+          <button className="w-full sm:w-auto inline-flex items-center justify-center gap-1 border-2 border-[#4F46E5] text-[#4F46E5] bg-white/40 text-[12px] font-semibold px-4 py-3 rounded-md hover:-translate-y-1 hover:bg-white hover:shadow-lg transition-all duration-300">
+            Contact Our Team
+            <ArrowRight className="w-4 h-4" />
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
     </div>
   );
 }
