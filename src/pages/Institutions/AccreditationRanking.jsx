@@ -179,29 +179,22 @@ export default function AccreditationRankingPage() {
           <div className="max-w-[520px] pt-6 sm:pt-8 lg:pt-10 pb-8">
             {/* Breadcrumb */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] font-semibold sm:mb-8 mb-5">
-              <div className="flex flex-wrap items-center gap-3 text-[12px] sm:text-[12px] font-semibold sm:mb-6 mb-5">
-                <Link
-                  to="/"
-                  className="text-[#6366F1] hover:text-[#4F46E5] transition"
-                >
-                  Home
-                </Link>
+              <Link
+                to="/"
+                className="text-[#6366F1] hover:text-[#4F46E5] transition"
+              >
+                Home
+              </Link>
 
-                <span className="text-gray-400">›</span>
+              <span className="text-gray-400">›</span>
 
-                <Link
-                  to="/institutions"
-                  className="text-[#6366F1] hover:text-[#4F46E5] transition"
-                >
-                  Institutions
-                </Link>
+              <span className="text-[#6366F1]">Institutions</span>
 
-                <span className="text-gray-400">›</span>
+              <span className="text-gray-400">›</span>
 
-                <span className="text-gray-500">
-                  Accreditation & Global Ranking Support
-                </span>
-              </div>
+              <span className="text-gray-500">
+                Accreditation & Global Ranking Support
+              </span>
             </div>
 
             <h1 className="text-[34px] sm:text-[36px] lg:text-[42px] leading-[1.1] font-bold text-[#07113F]">
@@ -397,13 +390,13 @@ transition-all duration-300`}
       <section className="max-w-[1440px] mx-auto px-6 lg:px-16 py-4">
         <div className="grid grid-cols-1 xl:grid-cols-[1.15fr_1fr] gap-6">
           {/* LEFT */}
-          <div className="bg-white rounded-[16px] px-6 py-6 shadow-[0_10px_35px_rgba(20,40,90,0.08)]">
+          <div className="bg-white rounded-[16px] px-5 sm:px-6 py-6 shadow-[0_10px_35px_rgba(20,40,90,0.08)]">
             <h2 className="text-[18px] sm:text-[22px] font-bold text-[#07113F] mb-5">
               Why Partner with RCII?
             </h2>
 
-            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-3">
-              <ul className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_260px] lg:grid-cols-[1fr_300px] gap-6 items-start">
+              <ul className="space-y-3">
                 {[
                   "Expert team with ranking & accreditation expertise",
                   "Proven track record with leading institutions",
@@ -417,14 +410,14 @@ transition-all duration-300`}
                   >
                     <CheckCircle2
                       size={14}
-                      className=" text-[#4B22FF] mt-[2px] shrink-0"
+                      className="text-[#4B22FF] mt-[2px] shrink-0"
                     />
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <div className="w-full h-[180px] sm:h-[210px] overflow-hidden rounded-[4px] shadow-[0_8px_22px_rgba(20,40,90,0.12)]">
+              <div className="w-full h-[180px] sm:h-[210px] md:h-[230px] overflow-hidden rounded-[8px] shadow-[0_8px_22px_rgba(20,40,90,0.12)]">
                 <img
                   src={meetingImg}
                   alt="Performance meeting"
@@ -545,11 +538,10 @@ transition-all duration-300`}
       {/* CTA */}
       <section className="max-w-[1440px] mx-auto px-6 lg:px-16 py-4 pb-8">
         <div className="relative overflow-hidden rounded-[14px] bg-gradient-to-r from-[#4421F3] via-[#1B47D8] to-[#0087A8] shadow-[0_15px_40px_rgba(25,55,180,0.25)]">
-          <div className="flex flex-col xl:flex-row items-center justify-between gap-6 px-4 sm:px-6 lg:px-10 py-5 lg:py-3">
+          <div className="flex flex-col xl:flex-row items-center justify-between gap-6 px-5 sm:px-8 lg:px-10 py-5 lg:py-3">
             {/* LEFT */}
             <div className="flex items-center gap-5 w-full lg:w-auto">
-              {/* IMAGE → ONLY desktop + tablet (md & lg) */}
-              <div className=" md:flex lg:flex shrink-0">
+              <div className="hidden sm:flex shrink-0">
                 <img
                   src={trophyImg}
                   alt="Achievement Trophy"
@@ -557,25 +549,12 @@ transition-all duration-300`}
                 />
               </div>
 
-              {/* TEXT → ONLY mobile */}
-              <div className="block md:hidden lg:hidden text-center w-full">
-                <h2 className="text-[18px] font-bold text-white mb-2">
+              <div>
+                <h2 className="text-[18px] sm:text-[19px] font-bold text-white mb-2">
                   Let's Achieve Global Excellence Together
                 </h2>
 
-                <p className="text-white/95 text-[13px] font-medium">
-                  Partner with RCII to reach higher in rankings and
-                  accreditations.
-                </p>
-              </div>
-
-              {/* TEXT → tablet + desktop */}
-              <div className="hidden md:block text-white">
-                <h2 className="text-[18px] sm:text-[19px] font-bold mb-2">
-                  Let's Achieve Global Excellence Together
-                </h2>
-
-                <p className="text-white/95 text-[13px] font-medium">
+                <p className="mt-2 text-white/95 text-[13px] font-medium">
                   Partner with RCII to reach higher in rankings and
                   accreditations.
                 </p>
