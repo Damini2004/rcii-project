@@ -161,7 +161,7 @@ export default function Contact() {
       <select
         value={form.regarding}
         onChange={(e) => setForm({ ...form, regarding: e.target.value })}
-        className="h-[50px] w-full appearance-none rounded-[6px] border border-[#d8deec] bg-white px-4 text-[13px] font-bold text-[#737b97] outline-none transition-all duration-300 focus:border-[#563BFF] focus:ring-4 focus:ring-[#563BFF]/10"
+        className="h-[50px] w-full appearance-none rounded-[6px] border border-[#d8deec] bg-white px-4 text-[13px] font-semibold text-[#737b97] outline-none transition-all duration-300 focus:border-[#563BFF] focus:ring-4 focus:ring-[#563BFF]/10"
       >
         <option value="">I am contacting regarding...</option>
         <option>Research Support</option>
@@ -180,10 +180,10 @@ export default function Contact() {
       placeholder="Your Message"
       value={form.message}
       onChange={(e) => setForm({ ...form, message: e.target.value })}
-      className="mt-3 h-[125px] w-full resize-none rounded-[6px] border border-[#d8deec] px-4 py-4 text-[13px] font-bold text-[#1d2545] outline-none transition-all duration-300 placeholder:text-[#7a839e] focus:border-[#563BFF] focus:ring-4 focus:ring-[#563BFF]/10"
+      className="mt-3 h-[125px] w-full resize-none rounded-[6px] border border-[#d8deec] px-4 py-4 text-[13px] font-semibold text-[#1d2545] outline-none transition-all duration-300 placeholder:text-[#7a839e] focus:border-[#563BFF] focus:ring-4 focus:ring-[#563BFF]/10"
     />
 
-    <label className="mt-3 flex items-center gap-2 text-[13px] font-bold text-[#38425f]">
+    <label className="mt-3 flex items-center gap-2 text-[13px] font-semibold text-[#38425f]">
       <input
         type="checkbox"
         checked={form.agree}
@@ -191,7 +191,7 @@ export default function Contact() {
         className="h-[14px] w-[14px] accent-[#563BFF]"
       />
       I agree to the{" "}
-      <span className="font-bold text-[#4d29ff] underline">
+      <span className="font-semibold text-[#4d29ff] underline">
         Privacy Policy
       </span>
     </label>
