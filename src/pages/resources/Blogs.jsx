@@ -115,7 +115,7 @@ function Blogs() {
              <span className="text-gray-500">Blogs</span>
            </div>
        <p className="text-[20px] font-bold text-[#071044]">
-              RCI Blogs
+              RCII Blogs
             </p>
          <h1 className="mt-2 text-[30px] sm:text-[34px] lg:text-[38px] leading-[1.2] font-bold text-[#07113F]">
   <span className="block">

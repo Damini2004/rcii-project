@@ -146,14 +146,17 @@ function PubSupport() {
       </p>
 
       <div className="flex flex-wrap gap-3 mt-5 sm:mt-7">
+       <Link to="/contact">
         <button className="bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
           Talk to an Expert
           <ArrowRight size={18} />
         </button>
-
+</Link>
+ <Link to="/contact">
         <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 sm:px-6 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
           Explore All Services
         </button>
+        </Link>
       </div>
     </div>
   </div>
@@ -268,9 +271,9 @@ function PubSupport() {
                 ))}
               </ul>
 
-              <button className="mt-auto pt-5 text-[11px] font-bold text-[#5B4DFF] inline-flex items-center gap-2 transition-all duration-500 group-hover:gap-3 group-hover:text-[#2D23D3]">
+              {/* <button className="mt-auto pt-5 text-[11px] font-bold text-[#5B4DFF] inline-flex items-center gap-2 transition-all duration-500 group-hover:gap-3 group-hover:text-[#2D23D3]">
                 Learn More <ArrowRight size={13} strokeWidth={3} />
-              </button>
+              </button> */}
             </div>
           );
         })}
@@ -509,11 +512,11 @@ function PubSupport() {
                 </div>
               </div>
 
-              <ArrowRight
+              {/* <ArrowRight
                 size={16}
                 strokeWidth={3}
                 className="text-[#573BFF] transition-all duration-500 group-hover:translate-x-1"
-              />
+              /> */}
             </div>
           ))}
         </div>
@@ -538,12 +541,16 @@ function PubSupport() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+               <Link to="/contact">
               <button className="w-full sm:w-auto justify-center bg-white text-[#573BFF] text-[13px] font-semibold px-6 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1">
                 Talk to an Expert <ArrowRight size={15} />
               </button>
+              </Link>
+               <Link to="/contact">
               <button className="w-full sm:w-auto justify-center border border-blue-300 text-white text-[13px] font-semibold px-6 py-3 rounded-lg transition-all duration-500 hover:-translate-y-1">
                 Request Consultation
               </button>
+              </Link>
             </div>
           </div>
         </div>

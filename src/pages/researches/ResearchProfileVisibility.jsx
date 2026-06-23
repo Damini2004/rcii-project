@@ -114,20 +114,23 @@ function ResearchProfileVisibility() {
             </p>
       
             <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:mt-5 mt-3 max-w-[420px]">
-             RCI helps researchers build a strong digital identity, increase
+             RCII helps researchers build a strong digital identity, increase
               discoverability, and showcase their research to the global
               academic community.
             </p>
       
             <div className="flex flex-wrap gap-3 mt-5 sm:mt-7">
+              <Link to="/contact">
               <button className="bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] transition flex items-center gap-3">
                 Talk to an Expert
                 <ArrowRight size={18} />
               </button>
-      
+      </Link>
+       <Link to="/contact">
               <button className="bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 sm:px-6 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                 Explore All Services
               </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -416,12 +419,12 @@ function ResearchProfileVisibility() {
           </p>
         </div>
       </div>
-
+ <Link to="/contact">
       <button className="inline-flex h-[44px] items-center justify-center gap-3 rounded-[5px] bg-[#5138ff] px-7 text-[12px] font-bold text-white shadow-[0_10px_24px_rgba(81,56,255,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-[0_14px_30px_rgba(81,56,255,0.35)]">
         Request Consultation
         <ArrowRight size={14} />
       </button>
-
+</Link>
     </div>
   </div>
 </section>
