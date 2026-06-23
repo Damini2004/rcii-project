@@ -269,38 +269,6 @@ export default function ResearchInfrastructureSupport() {
           </Link>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="bg-[#06122c] text-white pt-10">
-        <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-8">
-          <div>
-            <img src={logo} alt="Researcher Connect" className="w-[210px] mb-4" />
-            <p className="text-[13px] leading-6 text-white/75">
-              Empowering researchers, institutions and publishers with ethical solutions and advanced technology for a better research future.
-            </p>
-          </div>
-
-          {[
-            ["For Researchers", "Author Services", "Publication Support", "Research Profiling", "Grants & Funding", "Career Resources"],
-            ["For Institutions", "Research Analytics", "RAMS Platform", "Institutional Repository", "Research Consulting", "Research Infrastructure Support"],
-            ["For Publishers", "Journal Hosting", "Editorial Systems", "DOI Solutions", "Indexing Services", "Publishing Consultancy"],
-            ["Get in Touch", "+91 123 456 7890", "info@rcii.in", "India | Global"],
-          ].map((col) => (
-            <div key={col[0]}>
-              <h4 className="font-bold mb-4">{col[0]}</h4>
-              {col.slice(1).map((item) => (
-                <p key={item} className="text-[13px] mb-3 text-white/75 hover:text-white cursor-pointer transition">
-                  {item}
-                </p>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        <div className="border-t border-white/10 py-4 text-center text-[13px] text-white/70">
-          © 2024 Researcher Connect Innovation and Impact Private Limited. All Rights Reserved.
-        </div>
-      </footer>
     </div>
   );
 }
