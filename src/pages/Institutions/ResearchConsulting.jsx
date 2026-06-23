@@ -432,12 +432,12 @@ export default function ResearchConsulting() {
               </p>
 
               <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
-                <Link className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                   <MessageSquare size={18} />
                   Talk to a Consultant
                 </Link>
 
-                <Link className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                   Explore All Services
                   <ArrowRight size={18} />
                 </Link>
@@ -535,12 +535,12 @@ export default function ResearchConsulting() {
                     ))}
                   </ul>
 
-                  <a
+                  {/* <a
                     href="#"
                     className="inline-flex items-center gap-2 text-[11px] font-extrabold text-[#4F46E5] hover:gap-3 transition-all duration-300"
                   >
                     Learn More <ArrowRight size={12} />
-                  </a>
+                  </a> */}
                 </div>
               ))}
             </div>

@@ -482,12 +482,12 @@ export default function InstitutionalRepository() {
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
-              <Link className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+              <Link to="/contact" className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 <Database size={18} />
                 Request a Demo
               </Link>
 
-              <Link className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+              <Link to="/contact" className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Explore All Services
                 <ArrowRight size={18} />
               </Link>
@@ -564,11 +564,11 @@ export default function InstitutionalRepository() {
                 )}
               </div>
 
-              <div className="text-center mt-8">
+              {/* <div className="text-center mt-8">
                 <button className="inline-flex items-center gap-2 text-[#4F46E5] text-[14px] font-semibold hover:gap-3 transition-all duration-300">
                   Explore All Features <ArrowRight className="w-4 h-4" />
                 </button>
-              </div>
+              </div> */}
             </div>
 
             {/* Content You Can Manage */}
@@ -577,7 +577,7 @@ export default function InstitutionalRepository() {
                 Content You Can Manage
               </h2>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3">
                 {CONTENT_TYPES.map(({ icon: Icon, label, color }, index) => (
                   <div
                     key={label}
@@ -585,7 +585,7 @@ export default function InstitutionalRepository() {
               ${index % 4 !== 3 ? "md:border-r border-[#EEF0FF]" : ""}
               ${index < 8 ? "md:border-b border-[#EEF0FF]" : ""}`}
                   >
-                    <div className="w-[58px] h-[58px] rounded-full bg-[#F3EEFF] flex items-center justify-center mb-3 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                    <div className="w-[50px] h-[50px] rounded-full bg-[#F3EEFF] flex items-center justify-center mb-3 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
                       <Icon className={`w-7 h-7 ${color}`} />
                     </div>
 
@@ -596,11 +596,11 @@ export default function InstitutionalRepository() {
                 ))}
               </div>
 
-              <div className="text-center mt-8">
+              {/* <div className="text-center mt-8">
                 <button className="inline-flex items-center gap-2 text-[#4F46E5] text-[14px] font-semibold hover:gap-3 transition-all duration-300">
                   View Content Guidelines <ArrowRight className="w-4 h-4" />
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -708,14 +708,15 @@ export default function InstitutionalRepository() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                  <Link to="/contact">
                 <button className="inline-flex items-center justify-center gap-2 bg-white text-[#4F46E5] font-semibold px-8 py-3 rounded-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-sm">
                   Request a Demo
                   <ArrowRight className="w-4 h-4" />
-                </button>
-
+                </button></Link>
+ <Link to="/contact">
                 <button className="inline-flex items-center justify-center gap-2 border border-white/70 text-white font-semibold px-8 py-3 rounded-md hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 text-sm">
                   Talk to Our Experts
-                </button>
+                </button></Link>
               </div>
             </div>
           </div>

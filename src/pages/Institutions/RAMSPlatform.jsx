@@ -716,15 +716,16 @@ export default function RAMSPlatform() {
             </ul>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
+               <Link to="/contact">
               <button className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 <Monitor className="w-4 h-4" />
                 Request a Demo
               </button>
-
+</Link> <Link to="/contact">
               <button className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Explore All Services
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>
@@ -801,7 +802,7 @@ export default function RAMSPlatform() {
                   <Icon className={`w-7 h-7 ${color}`} />
                 </div>
 
-                <h3 className="text-[12px] font-bold text-[#07113F] text-center leading-snug mb-4 min-h-[36px]">
+                <h3 className="text-[13px] font-bold text-[#07113F] text-center leading-snug mb-4 min-h-[36px]">
                   {title}
                 </h3>
 
@@ -809,7 +810,7 @@ export default function RAMSPlatform() {
                   {items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2 text-[10px] text-[#1E293B] font-medium leading-snug"
+                      className="flex items-start gap-2 text-[11px] text-[#1E293B] font-medium leading-snug"
                     >
                       <CheckCircle className="w-3 h-3 text-[#4F46E5] shrink-0 mt-[2px]" />
                       {item}
@@ -817,9 +818,9 @@ export default function RAMSPlatform() {
                   ))}
                 </ul>
 
-                <button className="mt-4 inline-flex items-center gap-1 text-[#4F46E5] text-[10px] font-bold hover:gap-2 transition-all duration-300">
+                {/* <button className="mt-4 inline-flex items-center gap-1 text-[#4F46E5] text-[10px] font-bold hover:gap-2 transition-all duration-300">
                   Learn More <ArrowRight className="w-3 h-3" />
-                </button>
+                </button> */}
               </div>
             ))}
           </div>
@@ -910,7 +911,7 @@ export default function RAMSPlatform() {
 <section className="bg-[#F7F8FF] px-4 sm:px-8 lg:px-16 py-6 mb-4">
   <div className="max-w-[1500px] mx-auto">
     
-    <div className="bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-8 lg:px-14 py-8">
+    <div className="bg-[#F0EFFF] rounded-[14px] border border-[#EEF0FF] shadow-[0_8px_24px_rgba(15,23,42,0.05)] overflow-hidden px-5 sm:px-8 lg:px-10 py-4">
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
 
@@ -930,21 +931,21 @@ export default function RAMSPlatform() {
           <img
             src={ctaImg}
             alt="Research Management"
-            className="w-[160px] sm:w-[200px] lg:w-[260px] object-contain hover:scale-105 transition-transform duration-300"
+            className="w-[160px] sm:w-[180px] lg:w-[200px] object-contain hover:scale-105 transition-transform duration-300"
           />
         </div>
 
         {/* Right Buttons */}
       <div className="flex flex-col sm:flex-row lg:flex-row flex-nowrap justify-center lg:justify-end gap-3 sm:gap-4">
-          <button className="w-full sm:w-auto inline-flex items-center justify-center gap-1 bg-[#4F46E5] text-white text-[12px] font-semibold px-4 py-3 rounded-md hover:-translate-y-1 hover:shadow-xl hover:bg-[#4338CA] transition-all duration-300">
+          <Link to="/contact"> <button className="w-full sm:w-auto inline-flex items-center justify-center gap-1 bg-[#4F46E5] text-white text-[12px] font-semibold px-4 py-3 rounded-md hover:-translate-y-1 hover:shadow-xl hover:bg-[#4338CA] transition-all duration-300">
             <Calendar className="w-4 h-4" />
             Request a Demo
-          </button>
-
-          <button className="w-full sm:w-auto inline-flex items-center justify-center gap-1 border-2 border-[#4F46E5] text-[#4F46E5] bg-white/40 text-[12px] font-semibold px-4 py-3 rounded-md hover:-translate-y-1 hover:bg-white hover:shadow-lg transition-all duration-300">
+          </button></Link>
+ <Link to="/contact">
+          <button className="w-full sm:w-auto inline-flex items-center justify-center gap-1 border-2 border-[#4F46E5] text-[#4F46E5] bg-white/40 text-[12px] font-semibold px-3 py-2.5 rounded-md hover:-translate-y-1 hover:bg-white hover:shadow-lg transition-all duration-300">
             Contact Our Team
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </button></Link>
 
         </div>
       </div>

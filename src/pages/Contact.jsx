@@ -98,7 +98,7 @@ export default function Contact() {
         bg="#f1edff"
         color="#4d29ff"
         title="Email Us"
-        lines={["info@researcherconnect.co.in"]}
+        lines={["info@researcherconnect.com"]}
       />
 
       <ContactInfo

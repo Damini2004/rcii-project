@@ -146,10 +146,11 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">
+               <Link to="/contact">
               <button className="px-5 py-3 rounded-lg text-sm text-white bg-gradient-to-r from-indigo-600 to-violet-600 font-semibold shadow-lg hover:scale-105 transition-all duration-300">
                 Explore Our Services →
               </button>
-
+</Link>
               <button className="flex items-center gap-2 text-sm text-white font-medium">
                 <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center text-[14px]">
                   ▶
@@ -252,7 +253,7 @@ export default function Home() {
               return (
                 <div
                   key={item.title}
-                  className={`rounded-[14px] border ${styles.card} px-6 py-6 min-h-[370px] flex flex-col shadow-[0_8px_25px_rgba(15,23,42,0.04)]`}
+                  className={`rounded-[14px] border ${styles.card} px-6 py-6 min-h-[340px] flex flex-col shadow-[0_8px_25px_rgba(15,23,42,0.04)]`}
                 >
                   {/* Header */}
                   <div className="flex items-center gap-4">
@@ -292,13 +293,13 @@ export default function Home() {
                   </ul>
 
                   {/* Button - Always Bottom */}
-                  <Link
+                  {/* <Link
                     to="/services"
                     className={`mt-auto pt-6 inline-flex items-center gap-2 text-[12px] font-bold ${styles.link} hover:gap-3 transition-all`}
                   >
                     Explore Services
                     <span>➜</span>
-                  </Link>
+                  </Link> */}
                 </div>
               );
             })}
@@ -379,94 +380,16 @@ export default function Home() {
               })}
             </div>
 
-            <Link
+            {/* <Link
               to="/technology"
               className="mt-8 inline-flex items-center gap-2 bg-[#05C8DA] text-white px-5 py-3 rounded-[4px] font-bold text-[12px] shadow-[0_10px_25px_rgba(5,200,218,0.28)] hover:bg-[#04B9C9] transition"
             >
               Explore Our Technology
               <ArrowRight size={14} />
-            </Link>
+            </Link> */}
           </div>
 
-          {/* Right Dashboard */}
-          {/* <div className="bg-white rounded-[12px] p-6 text-slate-900 shadow-2xl">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-[10px] font-black text-indigo-600">RC</div>
-                <h3 className="font-black text-[13px] mt-2">
-                  Welcome back, Admin
-                </h3>
-              </div>
-
-              <div className="flex gap-2">
-                <span className="w-2 h-2 bg-slate-200 rounded-full" />
-                <span className="w-2 h-2 bg-slate-200 rounded-full" />
-                <span className="w-2 h-2 bg-slate-200 rounded-full" />
-              </div>
-            </div>
-
-            <p className="text-[10px] text-slate-400 mt-3">
-              Dashboard Overview
-            </p>
-
-            <div className="grid grid-cols-4 gap-4 mt-4">
-              {[
-                ["Total Publications", "12,540"],
-                ["Total Citations", "45,669"],
-                ["Scholars", "28"],
-                ["Pending Final", "128"],
-              ].map(([label, value]) => (
-                <div
-                  key={label}
-                  className="bg-[#F8FAFF] rounded-[8px] p-4 min-h-[82px]"
-                >
-                  <p className="text-[9px] text-slate-400 font-semibold">
-                    {label}
-                  </p>
-                  <h4 className="text-[18px] font-black text-[#111827] mt-2">
-                    {value}
-                  </h4>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-2 gap-5 mt-5">
-              <div className="bg-[#F8FAFF] rounded-[10px] p-4 h-[160px]">
-                <h4 className="text-[11px] font-black text-slate-700">
-                  Publications Over Time
-                </h4>
-
-                <svg viewBox="0 0 260 110" className="w-full mt-5">
-                  <polyline
-                    fill="none"
-                    stroke="#818CF8"
-                    strokeWidth="4"
-                    points="5,85 35,65 60,75 88,45 115,70 145,35 175,55 205,28 235,20 255,10"
-                  />
-                  <circle cx="255" cy="10" r="4" fill="#818CF8" />
-                </svg>
-              </div>
-
-              <div className="bg-[#F8FAFF] rounded-[10px] p-4 h-[160px]">
-                <h4 className="text-[11px] font-black text-slate-700">
-                  Documents by Type
-                </h4>
-
-                <div className="flex items-center gap-4 mt-4">
-                  <div className="w-24 h-24 rounded-full border-[18px] border-indigo-600 relative">
-                    <div className="absolute inset-[-18px] rounded-full border-[18px] border-t-cyan-400 border-r-blue-400 border-b-violet-400 border-l-indigo-600" />
-                  </div>
-
-                  <div className="space-y-2 text-[9px] text-slate-500">
-                    <p>● Article</p>
-                    <p>● Conference Paper</p>
-                    <p>● Review</p>
-                    <p>● Book Chapter</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
+      
           {/* Right Dashboard Image */}
           <div className="relative flex justify-end">
             {/* TECHNOLOGY dashboard image */}
@@ -707,7 +630,7 @@ export default function Home() {
           Stay Informed. Stay Ahead.
         </h2>
 
-        <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-16 grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
+        <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
           {[
             {
               tag: "Blog",
@@ -765,15 +688,15 @@ export default function Home() {
                   {item.title}
                 </h3>
 
-                <Link className="inline-flex items-center gap-2 mt-3 text-[#4F46E5] text-[13px] font-semibold group-hover:gap-3 transition-all">
+                {/* <Link className="inline-flex items-center gap-2 mt-3 text-[#4F46E5] text-[13px] font-semibold group-hover:gap-3 transition-all">
                   Read More <span>➜</span>
-                </Link>
+                </Link> */}
               </div>
             </div>
           ))}
 
           {/* Newsletter */}
-          <div className="bg-[#F8FAFF] rounded-[12px] h-[250px] border border-indigo-50 px-6 py-2 shadow-[0_8px_25px_rgba(79,70,229,0.08)] hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(79,70,229,0.16)] transition-all duration-300">
+          {/* <div className="bg-[#F8FAFF] rounded-[12px] h-[250px] border border-indigo-50 px-6 py-2 shadow-[0_8px_25px_rgba(79,70,229,0.08)] hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(79,70,229,0.16)] transition-all duration-300">
             <div className="text-[#08B8D5] text-[34px]">✉</div>
 
             <h3 className="mt-2 text-[14px] leading-[1.25] font-bold text-[#111827]">
@@ -793,7 +716,7 @@ export default function Home() {
             <button className="w-full mt-2 bg-[#4F46E5] text-white rounded-[8px] py-2 text-[12px] font-semibold hover:bg-[#3F3CFF] hover:shadow-lg transition-all">
               Subscribe
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

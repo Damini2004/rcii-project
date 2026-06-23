@@ -227,15 +227,16 @@ export default function AccreditationRankingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mt-5 sm:mt-6">
+               <Link to="/contact">
               <button className="w-full sm:w-auto bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3">
                 <Building2 size={17} />
                 Request a Consultation
-              </button>
-
+              </button></Link>
+ <Link to="/contact">
               <button className="w-full sm:w-auto bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 py-3 rounded-lg inline-flex items-center justify-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                 Explore Our Services
                 <ArrowRight size={17} />
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>
@@ -309,7 +310,7 @@ transition-all duration-300`}
                   {card.bullets.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2 text-[10.7px] leading-[16px] font-medium text-[#1B2559]"
+                      className="flex items-start gap-2 text-[12px] leading-[16px] font-medium text-[#1B2559]"
                     >
                       <CheckCircle2
                         size={14}
@@ -321,7 +322,7 @@ transition-all duration-300`}
                   ))}
                 </ul>
 
-                <div className="mt-auto pt-5">
+                {/* <div className="mt-auto pt-5">
                   <button
                     style={{
                       borderColor: card.accent,
@@ -339,7 +340,7 @@ transition-all duration-300`}
                   >
                     {card.btn} →
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
@@ -583,15 +584,16 @@ transition-all duration-300`}
 
             {/* RIGHT */}
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+               <Link to="/contact">
               <button className="h-[48px] w-full sm:w-[260px] bg-white text-[#4B22FF] rounded-[6px] font-semibold text-[14px] flex items-center justify-center gap-3 hover:-translate-y-1 transition-all duration-300">
                 Request a Consultation
                 <ArrowRight size={18} />
               </button>
-
+</Link> <Link to="/contact">
               <button className="h-[48px] w-full sm:w-[260px] border border-white/70 text-white rounded-[6px] font-semibold text-[14px] flex items-center justify-center gap-3 hover:bg-white hover:text-[#123AD8] transition-all duration-300">
                 <Phone size={18} />
                 Talk to an Expert
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>

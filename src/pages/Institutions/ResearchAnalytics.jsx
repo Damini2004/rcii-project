@@ -680,15 +680,16 @@ export default function InstitutionsResearchAnalytics() {
       </p>
 
       <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-7">
+ <Link to="/contact">
         <button className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
           <BarChart2 size={18} />
           Request a Demo
-        </button>
-
+        </button></Link>
+ <Link to="/contact">
         <button className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
           Explore All Services
           <ArrowRight size={18} />
-        </button>
+        </button></Link>
       </div>
     </div>
   </div>
@@ -773,9 +774,9 @@ export default function InstitutionsResearchAnalytics() {
                     ))}
                   </ul>
 
-                  <button className="mt-5 flex items-center gap-2 text-[#4F46E5] text-[12px] font-semibold group-hover:gap-3 transition-all">
+                  {/* <button className="mt-5 flex items-center gap-2 text-[#4F46E5] text-[12px] font-semibold group-hover:gap-3 transition-all">
                     Learn More <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </button> */}
                 </div>
               );
             })}
@@ -878,13 +879,13 @@ export default function InstitutionsResearchAnalytics() {
               </div>
 
               <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 shrink-0 w-full lg:w-auto">
-                <button className="bg-white text-[#4F46E5] text-[13px] font-bold px-6 py-3 rounded-md hover:bg-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                 <Link to="/contact"><button className="bg-white text-[#4F46E5] text-[13px] font-bold px-6 py-3 rounded-md hover:bg-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                   Talk to an Expert →
-                </button>
+                </button></Link>
 
-                <button className="border border-white text-white text-[13px] font-bold px-6 py-3 rounded-md hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                 <Link to="/contact"><button className="border border-white text-white text-[13px] font-bold px-6 py-2.5 rounded-md hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                   Schedule a Demo
-                </button>
+                </button></Link>
               </div>
             </div>
           </div>
