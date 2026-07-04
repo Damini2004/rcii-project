@@ -29,8 +29,8 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import heroBg from "../../assets/raBg.png";
-import ctaImage from "../../assets/cta.png";
+import heroBg from "../../assets/research-analytics-services-banner.webp";
+import ctaImage from "../../assets/research-support-call-to-action.webp";
 import { Link } from "react-router-dom";
 
 /* keep your same DATA and chart components */

@@ -26,9 +26,9 @@ import {
   UserRound,
 } from "lucide-react";
 
-import heroImg from "../../assets/bgpub.png";
-import checklistImg from "../../assets/researcher6.png";
-import publishImg from "../../assets/researcher7.png";
+import heroImg from "../../assets/publication-support-services-banner.webp";
+import checklistImg from "../../assets/scholar-profile-enhancement.webp";
+import publishImg from "../../assets/research-visibility-services.webp";
 import { Link } from "react-router-dom";
 
 const journey = [

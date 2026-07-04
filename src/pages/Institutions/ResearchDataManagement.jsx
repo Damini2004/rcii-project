@@ -34,10 +34,10 @@ import {
   Code
 } from "lucide-react";
 
-import heroBg from "../../assets/DataBG.png";
-import dataImg from "../../assets/inst1.png";
-import securityImg from "../../assets/inst2.png";
-import ctaImg from "../../assets/risCta.png";
+import heroBg from "../../assets/research-data-management-banner.webp";
+import dataImg from "../../assets/institutional-research-development.webp";
+import securityImg from "../../assets/university-research-support.webp";
+import ctaImg from "../../assets/infrastructure-support-consultation.webp";
 
 const blue = "#4424e9";
 

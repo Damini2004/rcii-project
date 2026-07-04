@@ -19,10 +19,10 @@ import {
   Icon,
 } from "lucide-react";
 
-import templeImg from "../assets/contact1.png";
-import cityImg from "../assets/contact2.png";
-import bannerBg from "../assets/contact.png";
-import bgImg from "../assets/contact3.png";
+import templeImg from "../assets/contact-research-support-team.webp";
+import cityImg from "../assets/research-consultation-contact-form.webp";
+import bannerBg from "../assets/research-consulting-contact-banner.webp";
+import bgImg from "../assets/researcher-connect-office-location.webp";
 import { Link } from "react-router-dom";
 
 export default function Contact() {

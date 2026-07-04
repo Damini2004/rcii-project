@@ -19,14 +19,14 @@ import {
   Headphones,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "../../assets/bgresources.png";
-import bookImg from "../../assets/resource1.png";
-import checklistImg from "../../assets/resource2.png";
-import webinarImg from "../../assets/resource3.png";
-import articleImg from "../../assets/resource4.png";
-import infographicImg from "../../assets/resource5.png";
-import envelopeImg from "../../assets/resource6.png";
-import ctaImg from "../../assets/resource7.png";
+import heroImg from "../../assets/research-resources-library-banner.webp";
+import bookImg from "../../assets/research-template-resources.webp";
+import checklistImg from "../../assets/academic-writing-resources.webp";
+import webinarImg from "../../assets/research-proposal-template.webp";
+import articleImg from "../../assets/publication-guidelines-resource.webp";
+import infographicImg from "../../assets/grant-writing-resources.webp";
+import envelopeImg from "../../assets/research-tools-resources.webp";
+import ctaImg from "../../assets/researcher-learning-resources.webp";
 
 const Resources = () => {
   return (

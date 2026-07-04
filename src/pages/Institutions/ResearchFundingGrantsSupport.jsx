@@ -24,10 +24,10 @@ import {
   ClipboardList,
 } from "lucide-react";
 
-import heroBg from "../../assets/institution2.png";
-import fundingImg from "../../assets/inst3.png";
-import whyImg from "../../assets/inst4.png";
-import ctaImg from "../../assets/intCTA.png";
+import heroBg from "../../assets/university-research-management.webp";
+import fundingImg from "../../assets/higher-education-research-services.webp";
+import whyImg from "../../assets/higher-education-research-services.webp";
+import ctaImg from "../../assets/institutional-capacity-building.webp";
 // import logo from "../assets/logo.png";
 
 const blue = "#4424e9";

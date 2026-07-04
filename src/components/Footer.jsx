@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, X, Youtube, Facebook, Phone, Mail, MapPin, Heart } from "lucide-react";
-import logo from "../assets/rc.png";
+import logo from "../assets/researcher-connect-logo.webp";
 
 const columns = [
   {

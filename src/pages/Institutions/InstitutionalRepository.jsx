@@ -44,9 +44,9 @@ import {
   ShieldCheck,
   BarChart3,
 } from "lucide-react";
-import heroBg from "../../assets/insRepoBG.png";
-import integrationImg from "../../assets/integration.png";
-import ctaImg from "../../assets/ctabottum.png";
+import heroBg from "../../assets/institutional-repository-management-banner.webp";
+import integrationImg from "../../assets/integration.webp";
+import ctaImg from "../../assets/research-consulting-bottom-cta.webp";
 
 const NAV_LINKS = [
   { label: "Home" },
