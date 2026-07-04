@@ -25,6 +25,7 @@ import ResearchDataManagement from '../pages/Institutions/ResearchDataManagement
 import Resources from '../pages/resources/Resources.jsx'
 import Blogs from '../pages/resources/Blogs.jsx'
 import HowToGet from '../pages/resources/HowToGet.jsx'
+import BlogDetails from '../pages/resources/BlogDetails.jsx'
 import InnovationIP from '../pages/Innovation/InnovationIP.jsx'
 import Publisher from '../pages/publisher/Publisher.jsx'
 import IndexingSupport from '../pages/publisher/IndexingSupport.jsx'
@@ -32,6 +33,13 @@ import EditorialSupport from '../pages/publisher/EditorialSupport.jsx'
 import TechnologicalSolutions from '../pages/publisher/TechnologicalSolutions.jsx'
 import MarketingStrategic from '../pages/publisher/MarketingStrategic.jsx'
 import JournalSolution from '../pages/publisher/JournalSolution.jsx'
+
+// Admin
+import AdminLogin from '../admin/pages/AdminLogin.jsx'
+import AdminBlogDashboard from '../admin/pages/AdminBlogDashboard.jsx'
+import AdminBlogForm from '../admin/pages/AdminBlogForm.jsx'
+import AdminBlogPreview from "../admin/pages/AdminBlogPreview.jsx"
+import ProtectedRoute from '../admin/components/ProtectedRoute.jsx'
 
 function AppRoutes() {
   return (
@@ -62,6 +70,7 @@ function AppRoutes() {
        <Route path="/resources" element={<Resources />} />
        <Route path="/blogs" element={<Blogs />} />
        <Route path="/how-to-get-blog" element={<HowToGet />} />
+       <Route path="/blog/:slug" element={<BlogDetails />} />
        <Route path="/publishers" element={<Publisher />} />
        <Route path="/indexing-support" element={<IndexingSupport />} />
       <Route path="/editorial-support" element={<EditorialSupport />} />
@@ -69,6 +78,40 @@ function AppRoutes() {
        <Route path="/marketing-strategic" element={<MarketingStrategic />} />
         <Route path="/journal-solution" element={<JournalSolution />} />
 
+        {/* Admin routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin/blogs"
+          element={
+            <ProtectedRoute>
+              <AdminBlogDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/blogs/new"
+          element={
+            <ProtectedRoute>
+              <AdminBlogForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/blogs/edit/:id"
+          element={
+            <ProtectedRoute>
+              <AdminBlogForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/blogs/view/:id"
+          element={
+            <ProtectedRoute>
+              <AdminBlogPreview />
+            </ProtectedRoute>
+          }
+        />
 
     </Routes>
   )

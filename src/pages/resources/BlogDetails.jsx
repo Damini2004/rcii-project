@@ -11,7 +11,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { blogAPI, resolveImageUrl } from "../../services/api";
-import updateImg from "../../assets/blog7.png";
+import updateImg from "../../assets/academic-career-blog-7.webp";
 
 function BlogDetails() {
   const { slug } = useParams();
@@ -48,12 +48,12 @@ function BlogDetails() {
   if (loading) {
     return (
       <main className="flex min-h-[60vh] items-center justify-center bg-[#fbfcff] pt-[70px] text-[#071044]">
-        <p className="text-[14px] font-bold text-[#7a839e]">Loading article...</p>
+        <p className="text-[14px] font-bold text-[#7a839e]">
+          Loading article...
+        </p>
       </main>
     );
   }
-
-  
 
   if (notFound || !blog) {
     return (
@@ -77,225 +77,257 @@ function BlogDetails() {
       })
     : "";
 
-    const pageUrl = blog.canonicalUrl || `${window.location.origin}/blog/${blog.slug}`;
-const imageUrl = blog.featuredImage ? resolveImageUrl(blog.featuredImage) : "";
-const seoTitle = blog.metaTitle || blog.title;
-const seoDescription = blog.metaDescription || blog.shortDescription;
-const seoKeywords = blog.metaKeywords || blog.tags?.join(", ");
+  const pageUrl =
+    blog.canonicalUrl || `${window.location.origin}/blog/${blog.slug}`;
+  const imageUrl = blog.featuredImage
+    ? resolveImageUrl(blog.featuredImage)
+    : "";
+  const seoTitle = blog.metaTitle || blog.title;
+  const seoDescription = blog.metaDescription || blog.shortDescription;
+  const seoKeywords = blog.metaKeywords || blog.tags?.join(", ");
 
   return (
     <>
-  <Helmet>
-    <title>{seoTitle}</title>
-   <meta
-  name="description"
-  content={seoDescription}
-/>
-    {seoKeywords && <meta name="keywords" content={seoKeywords} />}
-    <link rel="canonical" href={pageUrl} />
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        {seoKeywords && <meta name="keywords" content={seoKeywords} />}
+        <link rel="canonical" href={pageUrl} />
 
-    <meta property="og:title" content={seoTitle} />
-    <meta property="og:description" content={seoDescription} />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content={pageUrl} />
-    {imageUrl && <meta property="og:image" content={imageUrl} />}
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={pageUrl} />
+        {imageUrl && <meta property="og:image" content={imageUrl} />}
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={seoTitle} />
-    <meta name="twitter:description" content={seoDescription} />
-    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
-  </Helmet>
-    
-    <main className="bg-[#fbfcff] text-[#071044] pt-[70px]">
-      <div className="mx-auto max-w-[1440px] px-4 py-6 sm:px-8 lg:px-14">
-        {/* Breadcrumb */}
-        <div className="mt-5 flex flex-wrap items-center gap-3 text-[13px] sm:text-[14px] font-semibold sm:mb-8 mb-5">
-          <Link to="/" className="text-[#6366F1] hover:text-[#4F46E5] transition">
-            Home
-          </Link>
-          <span className="text-gray-400">›</span>
-          <Link to="/resources" className="text-[#6366F1] hover:text-[#4F46E5] transition">
-            Resources
-          </Link>
-          <span className="text-gray-400">›</span>
-          <Link to="/blogs" className="text-[#6366F1] hover:text-[#4F46E5] transition">
-            Blogs
-          </Link>
-          <span className="text-gray-400">›</span>
-          <span className="text-gray-400">{blog.title}</span>
-        </div>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+      </Helmet>
 
-        <div className="grid gap-7 lg:grid-cols-[1fr_330px]">
-          {/* LEFT ARTICLE */}
-          <article className="mt-2">
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-4">
-              <span className="rounded-[4px] bg-white border border-blue-500 px-3 py-1.5 text-[10px] font-bold uppercase text-[#321cff]">
-                {blog.category}
-              </span>
+      <main className="bg-[#fbfcff] text-[#071044] pt-[70px]">
+        <div className="mx-auto max-w-[1440px] px-4 py-6 sm:px-8 lg:px-14">
+          {/* Breadcrumb */}
+          <div className="mt-5 flex flex-wrap items-center gap-3 text-[13px] sm:text-[14px] font-semibold sm:mb-8 mb-5">
+            <Link
+              to="/"
+              className="text-[#6366F1] hover:text-[#4F46E5] transition"
+            >
+              Home
+            </Link>
+            <span className="text-gray-400">›</span>
+            <Link
+              to="/resources"
+              className="text-[#6366F1] hover:text-[#4F46E5] transition"
+            >
+              Resources
+            </Link>
+            <span className="text-gray-400">›</span>
+            <Link
+              to="/blogs"
+              className="text-[#6366F1] hover:text-[#4F46E5] transition"
+            >
+              Blogs
+            </Link>
+            <span className="text-gray-400">›</span>
+            <span className="text-gray-400">{blog.title}</span>
+          </div>
 
-              <div className="flex items-center gap-3 text-[11px] font-bold text-[#071044]">
-                <span>Share:</span>
-                <SocialSmall icon={Linkedin} bg="#0a66c2" />
-                <SocialSmall icon={Twitter} bg="#1da1f2" />
-                <SocialSmall icon={Facebook} bg="#1877f2" />
-                <SocialSmall icon={LinkIcon} bg="#f0edff" color="#321cff" />
-              </div>
-            </div>
+          <div className="grid gap-7 lg:grid-cols-[1fr_330px]">
+            {/* LEFT ARTICLE */}
+            <article className="mt-2">
+              <div className="mb-3 flex flex-wrap items-center justify-between gap-4">
+                <span className="rounded-[4px] bg-white border border-blue-500 px-3 py-1.5 text-[10px] font-bold uppercase text-[#321cff]">
+                  {blog.category}
+                </span>
 
-            <h1 className="max-w-[850px] text-[22px] font-[600] leading-[1.15] tracking-[-0.8px] sm:text-[26px]">
-              {blog.title}
-            </h1>
-
-            <p className="mt-3 max-w-[640px] text-[13px] font-semibold leading-[1.8] text-[#303b5d]">
-              {blog.shortDescription}
-            </p>
-
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#f0edff]">
-                  <UserRound size={22} className="text-[#321cff]" />
-                </div>
-                <div>
-                  <h4 className="text-[12px] font-bold">{blog.author}</h4>
-                  {blog.authorRole && (
-                    <p className="text-[11px] font-bold text-[#64708f]">{blog.authorRole}</p>
-                  )}
+                <div className="flex items-center gap-3 text-[11px] font-bold text-[#071044]">
+                  <span>Share:</span>
+                  <SocialSmall icon={Linkedin} bg="#0a66c2" />
+                  <SocialSmall icon={Twitter} bg="#1da1f2" />
+                  <SocialSmall icon={Facebook} bg="#1877f2" />
+                  <SocialSmall icon={LinkIcon} bg="#f0edff" color="#321cff" />
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-5 text-[11px] font-bold text-[#303b5d]">
-                {formattedDate && (
-                  <span className="flex items-center gap-2">
-                    <CalendarDays size={14} className="text-[#321cff]" />
-                    {formattedDate}
-                  </span>
-                )}
-                {blog.readTime && (
-                  <span className="flex items-center gap-2">
-                    <Clock size={14} className="text-[#321cff]" />
-                    {blog.readTime}
-                  </span>
-                )}
-              </div>
-            </div>
+              <h1 className="max-w-[850px] text-[22px] font-[600] leading-[1.15] tracking-[-0.8px] sm:text-[26px]">
+                {blog.title}
+              </h1>
 
-            {blog.featuredImage && (
-              <img
-                src={resolveImageUrl(blog.featuredImage)}
-                alt={blog.title}
-                className="mt-6 h-[260px] w-full rounded-[8px] object-cover sm:h-[280px]"
-              />
-            )}
+              <p className="mt-3 max-w-[640px] text-[13px] font-semibold leading-[1.8] text-[#303b5d]">
+                {blog.shortDescription}
+              </p>
 
-            <div
-              className="prose prose-sm mt-4 max-w-none space-y-3 text-[13px] font-semibold leading-[1.8] text-[#303b5d] [&_h2]:mb-2 [&_h2]:mt-4 [&_h2]:text-[18px] [&_h2]:font-bold [&_h2]:text-[#071044] [&_ul]:ml-5 [&_ul]:list-disc [&_ul]:space-y-1"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
-            />
-
-            <div className="mt-6 flex gap-4 rounded-[10px] bg-[#fbfcff] p-3">
-              <div className="flex h-[70px] w-[70px] items-center justify-center rounded-full bg-[#f0edff]">
-                <UserRound size={30} className="text-[#321cff]" />
-              </div>
-              <div>
-                <h3 className="text-[14px] font-bold">{blog.author}</h3>
-                {blog.authorRole && (
-                  <p className="text-[12px] font-bold text-[#64708f]">{blog.authorRole}</p>
-                )}
-              </div>
-            </div>
-          </article>
-
-          {/* SIDEBAR */}
-          <aside className="space-y-5">
-            <SideBox title="About the Author">
-              <div className="flex gap-3">
-                <div className="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[#f0edff]">
-                  <UserRound size={26} className="text-[#321cff]" />
-                </div>
-                <div>
-                  <h4 className="text-[13px] font-bold">{blog.author}</h4>
-                  {blog.authorRole && (
-                    <p className="text-[11px] font-bold text-[#64708f]">{blog.authorRole}</p>
-                  )}
-                </div>
-              </div>
-            </SideBox>
-
-            {related.length > 0 && (
-              <SideBox title="Related Articles">
-                {related.map((r) => (
-                  <Link
-                    to={`/blog/${r.slug}`}
-                    key={r.slug}
-                    className="mb-5 flex gap-3 border-b border-[#edf0fa] pb-4 last:mb-0 last:border-b-0"
-                  >
-                    {r.featuredImage ? (
-                      <img
-                        src={resolveImageUrl(r.featuredImage)}
-                        alt=""
-                        className="h-[69px] w-[88px] rounded-[6px] object-cover"
-                      />
-                    ) : (
-                      <div className="flex h-[69px] w-[88px] items-center justify-center rounded-[6px] bg-[#f0edff] text-[#563BFF]">
-                        <UserRound size={20} />
-                      </div>
-                    )}
-                    <div>
-                      <h4 className="text-[12px] font-bold leading-[1.45]">{r.title}</h4>
-                      <p className="mt-1 text-[12px] font-bold text-[#7a839e]">
-                        {r.publishedAt &&
-                          new Date(r.publishedAt).toLocaleDateString("en-US", {
-                            month: "short",
-                            day: "numeric",
-                          })}
-                        {r.readTime ? ` • ${r.readTime}` : ""}
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#f0edff]">
+                    <UserRound size={22} className="text-[#321cff]" />
+                  </div>
+                  <div>
+                    <h4 className="text-[12px] font-bold">{blog.author}</h4>
+                    {blog.authorRole && (
+                      <p className="text-[11px] font-bold text-[#64708f]">
+                        {blog.authorRole}
                       </p>
-                    </div>
-                  </Link>
-                ))}
-              </SideBox>
-            )}
-
-            {blog.tags?.length > 0 && (
-              <SideBox title="Popular Topics">
-                <div className="flex flex-wrap gap-2">
-                  {blog.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-[4px] border border-[#563BFF] px-3 py-2 text-[11px] font-bold text-[#321cff] transition hover:bg-[#3024a2] hover:text-white"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                    )}
+                  </div>
                 </div>
-              </SideBox>
-            )}
 
-            <div className="rounded-[12px] bg-[#07135f] p-7 text-white shadow-[0_14px_35px_rgba(10,20,90,0.22)]">
-              <img src={updateImg} alt="" className="mb-4 w-[92px] h-[70px]" />
-              <h3 className="text-[22px] font-bold">Stay Updated</h3>
-              <p className="mt-3 text-[13px] font-semibold leading-[1.8] text-white/85">
-                Subscribe to get the latest insights, tips, and resources delivered to your
-                inbox.
-              </p>
+                <div className="flex flex-wrap items-center gap-5 text-[11px] font-bold text-[#303b5d]">
+                  {formattedDate && (
+                    <span className="flex items-center gap-2">
+                      <CalendarDays size={14} className="text-[#321cff]" />
+                      {formattedDate}
+                    </span>
+                  )}
+                  {blog.readTime && (
+                    <span className="flex items-center gap-2">
+                      <Clock size={14} className="text-[#321cff]" />
+                      {blog.readTime}
+                    </span>
+                  )}
+                </div>
+              </div>
 
-              <input
-                placeholder="Enter your email address"
-                className="mt-6 h-[46px] w-full rounded-[6px] border border-white/20 bg-white px-4 text-[12px] font-semibold text-[#071044] outline-none"
+              {blog.featuredImage && (
+                <img
+                  src={resolveImageUrl(blog.featuredImage)}
+                  alt={blog.title}
+                  className="mt-6 h-[260px] w-full rounded-[8px] object-cover sm:h-[280px]"
+                />
+              )}
+
+              <div
+                className="prose prose-sm mt-4 max-w-none space-y-3 text-[13px] font-semibold leading-[1.8] text-[#303b5d] [&_h2]:mb-2 [&_h2]:mt-4 [&_h2]:text-[18px] [&_h2]:font-bold [&_h2]:text-[#071044] [&_ul]:ml-5 [&_ul]:list-disc [&_ul]:space-y-1"
+                dangerouslySetInnerHTML={{ __html: blog.content }}
               />
 
-              <button className="mt-4 h-[46px] w-full rounded-[6px] bg-[#321cff] text-[12px] font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#230fbf]">
-                Subscribe
-              </button>
+              <div className="mt-6 flex gap-4 rounded-[10px] bg-[#fbfcff] p-3">
+                <div className="flex h-[70px] w-[70px] items-center justify-center rounded-full bg-[#f0edff]">
+                  <UserRound size={30} className="text-[#321cff]" />
+                </div>
+                <div>
+                  <h3 className="text-[14px] font-bold">{blog.author}</h3>
+                  {blog.authorRole && (
+                    <p className="text-[12px] font-bold text-[#64708f]">
+                      {blog.authorRole}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </article>
 
-              <p className="mt-4 text-[11px] font-medium leading-[1.6] text-white/70">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
-            </div>
-          </aside>
+            {/* SIDEBAR */}
+            <aside className="space-y-5">
+              <SideBox title="About the Author">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#f0edff] border border-[#d9d4ff]">
+                    <UserRound
+                      size={26}
+                      className="text-[#321cff]"
+                      strokeWidth={2}
+                    />
+                  </div>
+
+                  <div className="min-w-0">
+                    <h4 className="text-[13px] font-bold text-[#071044]">
+                      {blog.author}
+                    </h4>
+
+                    {blog.authorRole && (
+                      <p className="mt-1 text-[11px] font-medium leading-5 text-[#64708f]">
+                        {blog.authorRole}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </SideBox>
+
+              {related.length > 0 && (
+                <SideBox title="Related Articles">
+                  {related.map((r) => (
+                    <Link
+                      to={`/blog/${r.slug}`}
+                      key={r.slug}
+                      className="mb-5 flex gap-3 border-b border-[#edf0fa] pb-4 last:mb-0 last:border-b-0"
+                    >
+                      {r.featuredImage ? (
+                        <img
+                          src={resolveImageUrl(r.featuredImage)}
+                          alt=""
+                          className="h-[69px] w-[88px] rounded-[6px] object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-[69px] w-[88px] items-center justify-center rounded-[6px] bg-[#f0edff] text-[#563BFF]">
+                          <UserRound size={20} />
+                        </div>
+                      )}
+                      <div>
+                        <h4 className="text-[12px] font-bold leading-[1.45]">
+                          {r.title}
+                        </h4>
+                        <p className="mt-1 text-[12px] font-bold text-[#7a839e]">
+                          {r.publishedAt &&
+                            new Date(r.publishedAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                month: "short",
+                                day: "numeric",
+                              },
+                            )}
+                          {r.readTime ? ` • ${r.readTime}` : ""}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </SideBox>
+              )}
+
+              {blog.tags?.length > 0 && (
+                <SideBox title="Popular Topics">
+                  <div className="flex flex-wrap gap-2">
+                    {blog.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-[4px] border border-[#563BFF] px-3 py-2 text-[11px] font-bold text-[#321cff] transition hover:bg-[#3024a2] hover:text-white"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </SideBox>
+              )}
+
+              <div className="rounded-[12px] bg-[#07135f] p-7 text-white shadow-[0_14px_35px_rgba(10,20,90,0.22)]">
+                <img
+                  src={updateImg}
+                  alt=""
+                  className="mb-4 w-[92px] h-[70px]"
+                />
+                <h3 className="text-[22px] font-bold">Stay Updated</h3>
+                <p className="mt-3 text-[13px] font-semibold leading-[1.8] text-white/85">
+                  Subscribe to get the latest insights, tips, and resources
+                  delivered to your inbox.
+                </p>
+
+                <input
+                  placeholder="Enter your email address"
+                  className="mt-6 h-[46px] w-full rounded-[6px] border border-white/20 bg-white px-4 text-[12px] font-semibold text-[#071044] outline-none"
+                />
+
+                <button className="mt-4 h-[46px] w-full rounded-[6px] bg-[#321cff] text-[12px] font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#230fbf]">
+                  Subscribe
+                </button>
+
+                <p className="mt-4 text-[11px] font-medium leading-[1.6] text-white/70">
+                  We respect your privacy. Unsubscribe at any time.
+                </p>
+              </div>
+            </aside>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
     </>
   );
 }
