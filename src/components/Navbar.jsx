@@ -54,10 +54,13 @@ const navItems = [
   {
     label: "Resources",
     path: "/resources",
-    dropdown: [
-      { label: "Blog", path: "/blogs" },
-      { label: "Blog Details", path: "/how-to-get-blog" },
-    ],
+   
+  },
+  {
+   
+       label: "Blogs", path: "/blogs" 
+     
+    
   },
 
   {
