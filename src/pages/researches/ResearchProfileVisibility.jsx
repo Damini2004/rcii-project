@@ -19,8 +19,8 @@ import {
   Database,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "../../assets/bgprofile.png";
-import auth1 from "../../assets/auth2.png"
+import heroImg from "../../assets/research-profile-visibility-banner.webp";
+import auth1 from "../../assets/academic-author-services.webp"
 
 function ResearchProfileVisibility() {
   const identitySteps = [

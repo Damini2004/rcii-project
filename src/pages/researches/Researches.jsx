@@ -18,11 +18,11 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import heroImg from "../../assets/researcher.png";
-import guideImg from "../../assets/resercher1.png";
-import templateImg from "../../assets/researcher2.png";
-import webinarImg from "../../assets/resercher3.png";
-import blogImg from "../../assets/resercher4.png";
+import heroImg from "../../assets/researcher-profile-development.webp";
+import guideImg from "../../assets/researcher-brand-building.webp";
+import templateImg from "../../assets/academic-profile-optimization.webp";
+import webinarImg from "../../assets/academic-network-visibility.webp";
+import blogImg from "../../assets/research-impact-enhancement.webp";
 
 const supportCards = [
   {

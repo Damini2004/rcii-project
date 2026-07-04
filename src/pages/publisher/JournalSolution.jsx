@@ -21,15 +21,15 @@ import {
   Headphones,
 } from "lucide-react";
 
-import heroBg from "../../assets/journalBG.png";
-import ctaImg from "../../assets/jCta.png";
-import launchImg from "../../assets/j0.png";
-import workflowImg from "../../assets/j1.png";
-import peerImg from "../../assets/j5.png";
-import productionImg from "../../assets/j4.png";
-import indexingImg from "../../assets/j3.png";
-import analyticsImg from "../../assets/j2.png";
-import profileImg from "../../assets/emly.jpg";
+import heroBg from "../../assets/journal-management-solutions-banner.webp";
+import ctaImg from "../../assets/journal-solutions-consultation.webp";
+import launchImg from "../../assets/journal-publishing-services.webp";
+import workflowImg from "../../assets/academic-journal-management.webp";
+import peerImg from "../../assets/peer-review-management-system.webp";
+import productionImg from "../../assets/journal-publishing-platform.webp";
+import indexingImg from "../../assets/journal-editorial-system.webp";
+import analyticsImg from "../../assets/scholarly-journal-workflow.webp";
+import profileImg from "../../assets/emly.webp";
 
 export default function JournalSolutions() {
   const capabilities = [

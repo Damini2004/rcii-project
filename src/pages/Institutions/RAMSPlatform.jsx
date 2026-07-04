@@ -38,9 +38,9 @@ import {
   Trophy,
   Calendar,
 } from "lucide-react";
-import heroBg from "../../assets/ramsHeroBg.png";
-import benefitsImg from "../../assets/rams-benefits.png";
-import ctaImg from "../../assets/rams-cta.png";
+import heroBg from "../../assets/institutional-rams-platform-banner.webp";
+import benefitsImg from "../../assets/rams-platform-benefits.webp";
+import ctaImg from "../../assets/research-management-platform-cta.webp";
 
 const NAV_LINKS = [
   { label: "Home" },

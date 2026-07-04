@@ -17,14 +17,14 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import blogHero from "../../assets/bgblog.png";
-import b1 from "../../assets/blog1.png";
-import b2 from "../../assets/blog2.png";
-import b3 from "../../assets/blog3.png";
-import b4 from "../../assets/blog4.png";
-import b5 from "../../assets/blog5.png";
-import b6 from "../../assets/blog6.png";
-import blogCta from "../../assets/blog.png";
+import blogHero from "../../assets/research-insights-blog-banner.webp";
+import b1 from "../../assets/research-funding-blog-3.webp";
+import b2 from "../../assets/research-funding-blog-3.webp";
+import b3 from "../../assets/research-funding-blog-3.webp";
+import b4 from "../../assets/research-funding-blog-3.webp";
+import b5 from "../../assets/research-funding-blog-3.webp";
+import b6 from "../../assets/research-funding-blog-3.webp";
+import blogCta from "../../assets/research-blog-featured-image.webp";
 
 function Blogs() {
   const posts = [

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import heroBg from "../assets/heroBG.png";
+import heroBg from "../assets/research-consulting-innovation-platform-hero.webp";
 import {
   ShieldCheck,
   ScanSearch,
@@ -22,7 +22,7 @@ import {
   ChevronRight,
   Quote,
 } from "lucide-react";
-import dashboardPreview from "../assets/dashbordPreview.png";
+import dashboardPreview from "../assets/research-management-dashboard-preview.webp";
 
 export default function Home() {
   const features = [

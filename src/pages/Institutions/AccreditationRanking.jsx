@@ -28,15 +28,15 @@ import {
   Quote,
 } from "lucide-react";
 
-import heroBg from "../../assets/rankBg.png";
-import meetingImg from "../../assets/agrs4.png";
-import qsBg from "../../assets/agrs1.png";
-import nirfBg from "../../assets/agrs2.png";
-import otherBg from "../../assets/agrs3.png";
-import cardBg from "../../assets/agrs4.png";
-import siareLogo from "../../assets/img.png";
-import partnerLogo from "../../assets/logo.png";
-import trophyImg from "../../assets/rankingCTa.png";
+import heroBg from "../../assets/university-ranking-support-services.webp";
+import meetingImg from "../../assets/agricultural-development-and-consultancy-services.webp";
+import qsBg from "../../assets/agricultural-research-consulting-services.webp";
+import nirfBg from "../../assets/agricultural-innovation-and-research-support.webp";
+import otherBg from "../../assets/sustainable-agricultural-research-solutions.webp";
+import cardBg from "../../assets/agricultural-development-and-consultancy-services.webp";
+import siareLogo from "../../assets/researcher-connect-about-us.webp";
+import partnerLogo from "../../assets/siarelogo.webp";
+import trophyImg from "../../assets/accreditation-ranking-consulting.webp";
 
 const navItems = [
   "Home",

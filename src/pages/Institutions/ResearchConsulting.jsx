@@ -50,12 +50,12 @@ import {
   Download,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroBg from "../../assets/bgconst.png";
-import impact1 from "../../assets/resercher1.png";
-import impact2 from "../../assets/researcher2.png";
-import impact3 from "../../assets/resercher3.png";
-import impact4 from "../../assets/resercher4.png";
-import ctaConsulting from "../../assets/ctaConsult.png";
+import heroBg from "../../assets/research-consulting-services-banner.webp";
+import impact1 from "../../assets/researcher-brand-building.webp";
+import impact2 from "../../assets/academic-profile-optimization.webp";
+import impact3 from "../../assets/academic-network-visibility.webp";
+import impact4 from "../../assets/research-impact-enhancement.webp";
+import ctaConsulting from "../../assets/research-consultation-call-to-action.webp";
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 const NAV_LINKS = [

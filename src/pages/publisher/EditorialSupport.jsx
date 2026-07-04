@@ -25,9 +25,9 @@ import {
   Headphones,
 } from "lucide-react";
 
-import heroBg from "../../assets/EditorialSuppurtBG.png";
-import ctaImg from "../../assets/EditorialCta.png";
-import emilyImg from "../../assets/emly.jpg";
+import heroBg from "../../assets/editorial-support-services-banner.webp";
+import ctaImg from "../../assets/editorial-support-consultation.webp";
+import emilyImg from "../../assets/emly.webp";
 
 const blue = "#4424e9";
 

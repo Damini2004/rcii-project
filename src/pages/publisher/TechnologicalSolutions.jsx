@@ -25,9 +25,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-import heroBg from "../../assets/TechnoSolutionBg.png";
-import ctaImg from "../../assets/techCta.png";
-import sarahImg from "../../assets/emly.jpg";
+import heroBg from "../../assets/TechnoSolutionBg.webp";
+import ctaImg from "../../assets/techCta.webp";
+import sarahImg from "../../assets/emly.webp";
 
 export default function TechnologicalSolutions() {
   const solutions = [
