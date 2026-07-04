@@ -35,7 +35,7 @@ import nirfBg from "../../assets/agricultural-innovation-and-research-support.we
 import otherBg from "../../assets/sustainable-agricultural-research-solutions.webp";
 import cardBg from "../../assets/agricultural-development-and-consultancy-services.webp";
 import siareLogo from "../../assets/researcher-connect-about-us.webp";
-import partnerLogo from "../../assets/logo (1).webp";
+import partnerLogo from "../../assets/logo.webp";
 import trophyImg from "../../assets/accreditation-ranking-consulting.webp";
 
 const navItems = [
