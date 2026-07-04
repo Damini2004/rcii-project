@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Search,
   Bell,
@@ -25,58 +25,135 @@ import b4 from "../../assets/blog4.png";
 import b5 from "../../assets/blog5.png";
 import b6 from "../../assets/blog6.png";
 import blogCta from "../../assets/blog.png";
+import { blogAPI, resolveImageUrl } from "../../services/api";
+
+// Local fallback images cycle through while a blog has no featuredImage yet,
+// or while the API request is still in flight.
+const fallbackImages = [b1, b2, b3, b4, b5, b6];
+
+// Demo posts shown as a graceful fallback while the API request is in
+// flight, or if the backend has no published blogs yet.
+const demoPosts = [
+  {
+    img: b1,
+    tag: "Research & Publishing",
+    title: "How to Get Your Research Published in High-Impact Journals",
+    date: "May 10, 2024",
+    author: "Dr. Emily Carter",
+    role: "Editorial Director",
+    slug: null,
+  },
+  {
+    img: b2,
+    tag: "Innovation & IP",
+    title: "From Idea to Impact: Protecting Your Innovation with Patents",
+    date: "May 07, 2024",
+    author: "Mr. Arvind Nair",
+    role: "IP Consultant",
+    slug: null,
+  },
+  {
+    img: b3,
+    tag: "Technology in Research",
+    title: "AI Tools Transforming Research and Publishing",
+    date: "May 03, 2024",
+    author: "Prof. David Lee",
+    role: "Research Strategist",
+    slug: null,
+  },
+  {
+    img: b4,
+    tag: "Open Science",
+    title: "The Future of Open Access: Trends and Opportunities",
+    date: "Apr 29, 2024",
+    author: "Dr. Priya Menon",
+    role: "Open Science Advocate",
+    slug: null,
+  },
+  {
+    img: b5,
+    tag: "Academic Excellence",
+    title: "Building a Strong Research Culture in Academic Institutions",
+    date: "Apr 25, 2024",
+    author: "Prof. Laura Mitchell",
+    role: "Higher Education Expert",
+    slug: null,
+  },
+  {
+    img: b6,
+    tag: "Impact & Society",
+    title: "Measuring Research Impact Beyond Citations",
+    date: "Apr 22, 2024",
+    author: "Dr. Rahul Verma",
+    role: "Research Impact Analyst",
+    slug: null,
+  },
+];
 
 function Blogs() {
-  const posts = [
-    {
-      img: b1,
-      tag: "Research & Publishing",
-      title: "How to Get Your Research Published in High-Impact Journals",
-      date: "May 10, 2024",
-      author: "Dr. Emily Carter",
-      role: "Editorial Director",
+  const [posts, setPosts] = useState(demoPosts);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const mapBlogToCard = (blog, index) => ({
+    img: blog.featuredImage
+      ? resolveImageUrl(blog.featuredImage)
+      : fallbackImages[index % fallbackImages.length],
+    tag: blog.category,
+    title: blog.title,
+    excerpt: blog.shortDescription,
+    date: blog.publishedAt
+      ? new Date(blog.publishedAt).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })
+      : "",
+    author: blog.author,
+    role: blog.authorRole,
+    slug: blog.slug,
+  });
+
+  const fetchPosts = useCallback(
+    async (pageNum, search, append = false) => {
+      setLoading(true);
+      try {
+        const res = await blogAPI.getAll({ page: pageNum, limit: 6, search: search || undefined });
+        const mapped = res.data.data.map(mapBlogToCard);
+        setHasMore(res.data.pagination.page < res.data.pagination.pages);
+        if (mapped.length === 0 && !append) {
+          setPosts(demoPosts);
+        } else {
+          setPosts((prev) => (append ? [...prev, ...mapped] : mapped));
+        }
+      } catch (error) {
+        if (!append) setPosts(demoPosts);
+      } finally {
+        setLoading(false);
+      }
     },
-    {
-      img: b2,
-      tag: "Innovation & IP",
-      title: "From Idea to Impact: Protecting Your Innovation with Patents",
-      date: "May 07, 2024",
-      author: "Mr. Arvind Nair",
-      role: "IP Consultant",
-    },
-    {
-      img: b3,
-      tag: "Technology in Research",
-      title: "AI Tools Transforming Research and Publishing",
-      date: "May 03, 2024",
-      author: "Prof. David Lee",
-      role: "Research Strategist",
-    },
-    {
-      img: b4,
-      tag: "Open Science",
-      title: "The Future of Open Access: Trends and Opportunities",
-      date: "Apr 29, 2024",
-      author: "Dr. Priya Menon",
-      role: "Open Science Advocate",
-    },
-    {
-      img: b5,
-      tag: "Academic Excellence",
-      title: "Building a Strong Research Culture in Academic Institutions",
-      date: "Apr 25, 2024",
-      author: "Prof. Laura Mitchell",
-      role: "Higher Education Expert",
-    },
-    {
-      img: b6,
-      tag: "Impact & Society",
-      title: "Measuring Research Impact Beyond Citations",
-      date: "Apr 22, 2024",
-      author: "Dr. Rahul Verma",
-      role: "Research Impact Analyst",
-    },
-  ];
+    []
+  );
+
+  useEffect(() => {
+    fetchPosts(1, "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSearchKeyDown = (e) => {
+    if (e.key === "Enter") {
+      setPage(1);
+      fetchPosts(1, searchTerm);
+    }
+  };
+
+  const handleLoadMore = () => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    fetchPosts(nextPage, searchTerm, true);
+  };
 
   return (
     <main className="bg-[#fbfcff] text-[#071044] pt-[70px]">
@@ -140,6 +217,9 @@ function Blogs() {
         <div className="mt-6 flex max-w-[450px] flex-col gap-3 sm:flex-row">
               <div className="flex h-[44px] flex-1 items-center rounded-[6px] border border-[#dce1f1] bg-white px-4 shadow-[0_8px_22px_rgba(30,40,90,0.06)]">
                 <input
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={handleSearchKeyDown}
                   placeholder="Search blogs by topic, keyword or author..."
                   className="w-full bg-transparent text-[12px] font-semibold outline-none placeholder:text-[#8a92aa]"
                 />
@@ -190,21 +270,26 @@ function Blogs() {
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-              {posts.map((p) => (
-                <BlogCard key={p.title} {...p} />
+              {posts.map((p, i) => (
+                <BlogCard key={p.slug || p.title || i} {...p} />
               ))}
             </div>
 
-            <div className="mt-6 flex justify-center">
-              <Link to="/how-to-get-blog">
-              <button className="group h-[38px] rounded-[6px] border border-[#563BFF] px-8 text-[12px] font-bold text-[#321cff] transition-all duration-300 hover:-translate-y-1 hover:bg-[#4436c0] hover:text-white">
-                Load More Blogs
-                <ArrowRight
-                  size={14}
-                  className="ml-2 inline transition group-hover:translate-x-1"
-                />
-              </button></Link>
-            </div>
+            {hasMore && (
+              <div className="mt-6 flex justify-center">
+                <button
+                  onClick={handleLoadMore}
+                  disabled={loading}
+                  className="group h-[38px] rounded-[6px] border border-[#563BFF] px-8 text-[12px] font-bold text-[#321cff] transition-all duration-300 hover:-translate-y-1 hover:bg-[#4436c0] hover:text-white disabled:opacity-60"
+                >
+                  {loading ? "Loading..." : "Load More Blogs"}
+                  <ArrowRight
+                    size={14}
+                    className="ml-2 inline transition group-hover:translate-x-1"
+                  />
+                </button>
+              </div>
+            )}
           </section>
 
           {/* SIDEBAR */}
@@ -405,50 +490,53 @@ function Category({
   );
 }
 
-function BlogCard({ img, tag, title, date, author, role }) {
+function BlogCard({ img, tag, title, excerpt, date, author, role, slug }) {
+  const CardWrapper = ({ children }) =>
+    slug ? (
+      <Link to={`/blog/${slug}`} className="block h-full">
+        {children}
+      </Link>
+    ) : (
+      <div className="h-full">{children}</div>
+    );
+
   return (
     <article className="group overflow-hidden rounded-[9px] border border-[#e8ebf7] bg-white shadow-[0_8px_24px_rgba(30,40,90,0.07)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_42px_rgba(30,40,90,0.13)]">
-      <div className="relative h-[165px] overflow-hidden">
-        <img
-          src={img}
-          alt={title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <span className="absolute left-3 top-3 rounded-[4px] bg-white px-2 py-1 text-[9px] font-bold text-[#321cff]">
-          {tag}
-        </span>
-      </div>
-
-      <div className="p-4">
-        <p className="text-[10px] font-bold text-[#7a839e]">{date}</p>
-
-        <h3 className="mt-2 min-h-[48px] text-[13px] font-bold leading-[1.45]">
-          {title}
-        </h3>
-
-        <p className="mt-2 text-[11px] font-bold leading-[1.6] text-[#3d4665]">
-          Practical steps to improve your manuscript and increase acceptance
-          rates.
-        </p>
-
-        <div className="mt-4 flex items-center gap-3">
-          <div className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[#f0edff]">
-            <UserRound size={17} className="text-[#321cff]" />
-          </div>
-          <div>
-            <h4 className="text-[11px] font-bold">{author}</h4>
-            <p className="text-[10px] font-bold text-[#7a839e]">{role}</p>
-          </div>
+      <CardWrapper>
+        <div className="relative h-[165px] overflow-hidden">
+          <img
+            src={img}
+            alt={title}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <span className="absolute left-3 top-3 rounded-[4px] bg-white px-2 py-1 text-[9px] font-bold text-[#321cff]">
+            {tag}
+          </span>
         </div>
 
-        {/* <button className="group/btn mt-4 text-[11px] font-bold text-[#321cff]">
-          Read More
-          <ArrowRight
-            size={13}
-            className="ml-1 inline transition group-hover/btn:translate-x-1"
-          />
-        </button> */}
-      </div>
+        <div className="p-4">
+          <p className="text-[10px] font-bold text-[#7a839e]">{date}</p>
+
+          <h3 className="mt-2 min-h-[48px] text-[13px] font-bold leading-[1.45]">
+            {title}
+          </h3>
+
+          <p className="mt-2 line-clamp-2 text-[11px] font-bold leading-[1.6] text-[#3d4665]">
+            {excerpt ||
+              "Practical steps to improve your manuscript and increase acceptance rates."}
+          </p>
+
+          <div className="mt-4 flex items-center gap-3">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[#f0edff]">
+              <UserRound size={17} className="text-[#321cff]" />
+            </div>
+            <div>
+              <h4 className="text-[11px] font-bold">{author}</h4>
+              <p className="text-[10px] font-bold text-[#7a839e]">{role}</p>
+            </div>
+          </div>
+        </div>
+      </CardWrapper>
     </article>
   );
 }
