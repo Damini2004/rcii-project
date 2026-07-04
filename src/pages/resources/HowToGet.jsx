@@ -12,12 +12,12 @@ import {
   Mail,
 } from "lucide-react";
 
-import articleImg from "../../assets/blog8.png";
+import articleImg from "../../assets/research-consulting-blog-8..webp";
 import { Link } from "react-router-dom";
-import related1 from "../../assets/blog6.png";
-import related2 from "../../assets/blog4.png";
-import related3 from "../../assets/blog2.png";
-import updateImg from "../../assets/blog7.png";
+import related1 from "../../assets/research-insights-blog-banner.webp";
+import related2 from "../../assets/research-insights-blog-banner.webp";
+import related3 from "../../assets/research-insights-blog-banner.webp";
+import updateImg from "../../assets/research-insights-blog-banner.webp";
 
 function HowToGet() {
   return (

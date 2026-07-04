@@ -25,9 +25,9 @@ import {
   Award,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "../../assets/bggrant.png";
-import whyImg from "../../assets/grant2.png";
-import auth from "../../assets/auth2.png"
+import heroImg from "../../assets/grant-funding-support-banner.webp";
+import whyImg from "../../assets/research-grant-application-support.webp";
+import auth from "../../assets/academic-author-services.webp"
 
 const GrantFunding = () => {
   const lifecycle = [

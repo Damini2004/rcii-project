@@ -5,10 +5,10 @@ import {
   MessageCircle,Sparkles,Database,RefreshCcw,ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroBg from "../../assets/bgresearch.png";
-import bg from "../../assets/research2.png"
-import rct from "../../assets/rct.png"
-import auth2 from "../../assets/auth2.png"
+import heroBg from "../../assets/research-development-and-support-banner.webp";
+import bg from "../../assets/research2.webp"
+import rct from "../../assets/researcher-connect-team.webp"
+import auth2 from "../../assets/academic-author-services.webp"
 
 const categories = [
   ["Writing Resources", "Guides, templates, and tools for effective academic writing.", PenLine],

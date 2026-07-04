@@ -24,10 +24,10 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "../../assets/bgsup.png"
-import checklistImg from "../../assets/ipsup.png"
-import computer from "../../assets/ipsup2.png"
-import computer1 from "../../assets/ipsup3.png"
+import heroImg from "../../assets/academic-support-services-banner.webp"
+import checklistImg from "../../assets/publication-guidance-support.webp"
+import computer from "../../assets/manuscript-publication-support.webp"
+import computer1 from "../../assets/journal-submission-assistance.webp"
 
 
 

@@ -23,14 +23,14 @@ import {
   Users,
 } from "lucide-react";
 
-import heroBg from "../../assets/risBg.png";
-import ris1 from "../../assets/ris1.png";
-import ris2 from "../../assets/ris2.png";
-import ris3 from "../../assets/ris3.png";
-import ris4 from "../../assets/ris4.png";
-import ris5 from "../../assets/ris5.png";
-import risCta from "../../assets/risCta.png";
-import logo from "../../assets/logo.png";
+import heroBg from "../../assets/research-infrastructure-support-banner.webp";
+import ris1 from "../../assets/laboratory-research-infrastructure.webp";
+import ris2 from "../../assets/academic-research-facilities.webp";
+import ris3 from "../../assets/institutional-research-equipment.webp";
+import ris4 from "../../assets/scientific-research-support-services.webp";
+import ris5 from "../../assets/university-research-infrastructure.webp";
+import risCta from "../../assets/infrastructure-support-consultation.webp";
+
 
 const purple = "#4424e9";
 

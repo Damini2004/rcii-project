@@ -21,9 +21,9 @@ import {
   Database,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "../../assets/bgauth.png";
-import auth1 from "../../assets/auth1.png"
-import auth2 from "../../assets/auth2.png"
+import heroImg from "../../assets/author-support-services-banner.webp";
+import auth1 from "../../assets/manuscript-development-support.webp"
+import auth2 from "../../assets/academic-author-services.webp"
 
 
 

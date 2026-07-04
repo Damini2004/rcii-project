@@ -22,11 +22,11 @@ import {
   Quote,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroBg from "../../assets/bgInnovation.png";
-import ctaImg from "../../assets/innovation.png";
-import avatar1 from "../../assets/blog2.png";
-import avatar2 from "../../assets/blog4.png";
-import avatar3 from "../../assets/blog6.png";
+import heroBg from "../../assets/research-innovation-and-impact-banner.webp";
+import ctaImg from "../../assets/innovation.webp";
+import avatar1 from "../../assets/scholarly-publishing-blog-2.webp";
+import avatar2 from "../../assets/journal-indexing-blog-4.webp";
+import avatar3 from "../../assets/research-profile-blog-6.webp";
 
 function InnovationIP() {
   return (

@@ -28,10 +28,10 @@ import {
   FileText,
   Presentation,
 } from "lucide-react";
-import heroimg from "../../assets/bgMarketing.png";
-import bar from "../../assets/marketing.png";
+import heroimg from "../../assets/journal-marketing-strategy-banner.webp";
+import bar from "../../assets/academic-journal-marketing-services.webp";
 import { Link } from "react-router-dom";
-import bar2 from "../../assets/blog6.png";
+import bar2 from "../../assets/scholarly-publishing-blog-2.webp";
 
 function MarketingStrategic() {
   const benefits = [

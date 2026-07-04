@@ -21,7 +21,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "../assets/bgabout.png";
+import heroImg from "../assets/about-researcher-connect-banner.webp";
 const stats = [
   {
     icon: Users,

@@ -21,14 +21,13 @@ import {
   Megaphone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import publisherHero from "../../assets/bgpublisher.png";
-// import solutionsImg from "../assets/publisher-solutions.png";
-import mapImg from "../../assets/publisher2.png";
-import exposureImg from "../../assets/publisher1.png";
-import engagementImg from "../../assets/publisherr2.png";
-import insightsImg from "../../assets/publisher3.png";
-import growthImg from "../../assets/publisher4.png";
-import ctaImg from "../../assets/publisher5.png";
+import publisherHero from "../../assets/publisher-support-services-banner.webp";
+import mapImg from "../../assets/academic-publishing-solutions.webp";
+import exposureImg from "../../assets/scholarly-publishing-support.webp";
+import engagementImg from "../../assets/research-publishing-support.webp";
+import insightsImg from "../../assets/publisher-workflow-management.webp";
+import growthImg from "../../assets/journal-publication-services.webp";
+import ctaImg from "../../assets/publisher-growth-solutions.webp";
 
 function Publisher() {
   return (

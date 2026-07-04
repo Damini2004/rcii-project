@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
-import logo from "../assets/rc.png"; // use your RC logo image
+import logo from "../assets/researcher-connect-logo.webp"; // use your RC logo image
 
 const navItems = [
   {

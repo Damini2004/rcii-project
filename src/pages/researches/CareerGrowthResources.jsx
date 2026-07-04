@@ -21,8 +21,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "../../assets/bgcareer.png";
-import whyImg from "../../assets/career.png";
+import heroImg from "../../assets/academic-career-development-banner.webp";
+import whyImg from "../../assets/researcher-career-growth-resources.webp";
 
 function CareerGrowthResources() {
   const journey = [

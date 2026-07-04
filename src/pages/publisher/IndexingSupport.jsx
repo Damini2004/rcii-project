@@ -19,8 +19,8 @@ import {
   Headphones,
 } from "lucide-react";
 
-import heroBg from "../../assets/indexingSupportBG.png";
-import ctaImg from "../../assets/IndexCta.png";
+import heroBg from "../../assets/journal-indexing-support-banner.webp";
+
 
 const blue = "#4424e9";
 
