@@ -30,9 +30,23 @@ const getBlogs = asyncHandler(async (req, res) => {
     query.tags = req.query.tag;
   }
 
-  let sort = { publishedAt: -1 };
-  if (req.query.sort === "oldest") sort = { publishedAt: 1 };
-  if (req.query.sort === "title") sort = { title: 1 };
+let sort = { publishedAt: -1, createdAt: -1 };
+
+if (req.query.sort === "oldest") {
+  sort = { publishedAt: 1, createdAt: 1 };
+}
+
+if (req.query.sort === "title") {
+  sort = { title: 1 };
+}
+
+if (req.query.sort === "-publishedAt") {
+  sort = { publishedAt: -1, createdAt: -1 };
+}
+
+if (req.query.sort === "publishedAt") {
+  sort = { publishedAt: 1, createdAt: 1 };
+}
 
   const [blogs, total] = await Promise.all([
     Blog.find(query).sort(sort).skip(skip).limit(limit),
@@ -226,6 +240,9 @@ const updateBlog = asyncHandler(async (req, res) => {
     blog.readTime = calculateReadTime(req.body.content);
   }
 
+  if (req.body.status === "published" && !blog.publishedAt) {
+  blog.publishedAt = new Date();
+}
   const updated = await blog.save();
 
   res.json({ success: true, data: updated });

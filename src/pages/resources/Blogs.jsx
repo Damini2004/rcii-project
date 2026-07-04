@@ -27,6 +27,8 @@ import b6 from "../../assets/research-funding-blog-3.webp";
 import blogCta from "../../assets/research-blog-featured-image.webp";
 import { blogAPI, resolveImageUrl } from "../../services/api";
 
+
+
 // Local fallback images cycle through while a blog has no featuredImage yet,
 // or while the API request is still in flight.
 const fallbackImages = [b1, b2, b3, b4, b5, b6];
@@ -96,6 +98,7 @@ function Blogs() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [recentBlogs, setRecentBlogs] = useState([]);
 
   const mapBlogToCard = (blog, index) => ({
     img: blog.featuredImage
@@ -137,8 +140,23 @@ function Blogs() {
     []
   );
 
+  const fetchRecentBlogs = async () => {
+  try {
+    const res = await blogAPI.getAll({
+      page: 1,
+      limit: 5,
+      sort: "-publishedAt",
+    });
+
+    setRecentBlogs(res.data.data);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
   useEffect(() => {
     fetchPosts(1, "");
+    fetchRecentBlogs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -260,13 +278,13 @@ function Blogs() {
           <section>
             <div className="mb-5 flex items-center justify-between">
               <h2 className="text-[20px] font-bold">Latest Blog Posts</h2>
-              <Link to="/how-to-get-blog" className="group text-[12px] font-bold text-[#321cff]">
+              {/* <Link to="/how-to-get-blog" className="group text-[12px] font-bold text-[#321cff]">
                 View All Blogs
                 <ArrowRight
                   size={14}
                   className="ml-2 inline transition group-hover:translate-x-1"
                 />
-              </Link>
+              </Link> */}
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -295,29 +313,39 @@ function Blogs() {
           {/* SIDEBAR */}
           <aside className="space-y-1">
             <SideBox title="Popular Posts">
-              {[
-                "Choosing the Right Journal: A Researcher’s Checklist",
-                "ORCID ID: Why Every Researcher Needs One",
-                "Data Management Best Practices for Researchers",
-                "Predatory Journals: How to Identify and Avoid Them",
-                "Grant Writing Tips to Secure Research Funding",
-              ].map((item, i) => (
-                <div key={item} className="flex gap-3 border-b border-[#edf0fa] py-3 last:border-b-0">
-                  <img
-                    src={[b1, b2, b3, b4, b5][i]}
-                    alt=""
-                    className="h-[58px] w-[70px] rounded-[6px] object-cover"
-                  />
-                  <div>
-                    <h4 className="text-[11px] font-bold leading-[1.45]">
-                      {item}
-                    </h4>
-                    <p className="mt-1 text-[10px] font-bold text-[#7a839e]">
-                      Apr {30 - i}, 2024
-                    </p>
-                  </div>
-                </div>
-              ))}
+              {recentBlogs.map((post, index) => (
+  <Link
+    key={post._id}
+    to={`/blog/${post.slug}`}
+    className="flex gap-3 border-b border-[#edf0fa] py-3 last:border-b-0"
+  >
+    <img
+      src={
+        post.featuredImage
+          ? resolveImageUrl(post.featuredImage)
+          : fallbackImages[index % fallbackImages.length]
+      }
+      alt={post.title}
+      className="h-[58px] w-[70px] rounded-[6px] object-cover"
+    />
+
+    <div className="flex-1">
+      <h4 className="line-clamp-2 text-[11px] font-bold leading-[1.45]">
+        {post.title}
+      </h4>
+
+      <p className="mt-1 text-[10px] font-bold text-[#7a839e]">
+        {post.publishedAt
+          ? new Date(post.publishedAt).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })
+          : ""}
+      </p>
+    </div>
+  </Link>
+))}
             </SideBox>
 
             <SideBox title="Topics You’ll Love">
