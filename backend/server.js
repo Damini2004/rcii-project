@@ -10,10 +10,8 @@ const rateLimit = require("express-rate-limit");
 
 const connectDB = require("./config/db");
 const blogRoutes = require("./routes/blogRoutes");
-const adminRoutes = require("./routes/adminRoutes");
+const authRoutes = require("./routes/authRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-
-connectDB();
 
 const app = express();
 
@@ -59,13 +57,20 @@ app.get("/api/health", (req, res) => {
 
 // Routes
 app.use("/api/blogs", blogRoutes);
-app.use("/api/admin", adminRoutes);
+app.use("/api/auth", authRoutes);
 
 // Error handling
 app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV || "development"} mode on port ${PORT}`);
-});
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running in ${process.env.NODE_ENV || "development"} mode on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Unable to start server:", error);
+    process.exit(1);
+  });

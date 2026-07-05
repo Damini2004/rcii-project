@@ -1,64 +1,35 @@
 # RCII Blog Backend
 
-Node.js + Express + MongoDB (Mongoose) REST API powering the RCII blog system, built with an MVC structure.
-
-## Structure
-```
-backend/
-├── server.js               # App entry point
-├── config/db.js            # MongoDB connection
-├── controllers/
-│   ├── blogController.js   # Blog CRUD, search, pagination, uploads
-│   └── adminController.js  # Admin login / profile
-├── middleware/
-│   ├── authMiddleware.js   # JWT verification (protect)
-│   ├── uploadMiddleware.js # Multer image upload config
-│   ├── errorMiddleware.js  # Centralized error handling
-│   └── validateRequest.js  # express-validator result handler
-├── models/
-│   ├── Blog.js              # Blog schema (auto slug generation)
-│   └── Admin.js              # Admin schema (bcrypt password hashing)
-├── routes/
-│   ├── blogRoutes.js
-│   └── adminRoutes.js
-├── seed/createAdmin.js      # Creates/updates the default admin account
-└── uploads/                  # Uploaded blog images (served at /uploads)
-```
+Node.js + Express + Firebase Firestore REST API powering the RCII blog system.
 
 ## Setup
 
 ```bash
-cp .env.example .env
-# edit MONGO_URI, JWT_SECRET, CLIENT_URL, ADMIN_EMAIL, ADMIN_PASSWORD
+cp ../.env.example .env
+# edit CLIENT_URL, Firebase values, and backend service account credentials
 
 npm install
-npm run seed:admin   # one-time: creates your admin login
-npm run dev           # nodemon, http://localhost:5000
-# or
-npm start
+npm run dev
 ```
 
-## Environment variables (`.env`)
+The API runs at `http://localhost:5000` by default.
+
+## Environment Variables
+
 | Variable | Description |
 |---|---|
-| `PORT` | API port (default 5000) |
-| `MONGO_URI` | MongoDB connection string |
-| `JWT_SECRET` | Secret used to sign admin JWTs — use a long random string in production |
-| `JWT_EXPIRES_IN` | Token lifetime, e.g. `7d` |
+| `PORT` | API port, default `5000` |
 | `CLIENT_URL` | Frontend origin(s) allowed by CORS, comma-separated |
-| `ADMIN_NAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` | Used only by `npm run seed:admin` to create/update the first admin |
+| `FIREBASE_API_KEY` | Firebase web API key |
+| `FIREBASE_AUTH_DOMAIN` | Firebase auth domain |
+| `FIREBASE_PROJECT_ID` | Firebase project ID |
+| `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY` | Backend service account credentials for Firebase Admin/Firestore access |
+| `FIREBASE_SERVICE_ACCOUNT` | Optional JSON service account alternative |
 
-## Security features included
-- Helmet for secure HTTP headers
-- CORS restricted to `CLIENT_URL`
-- express-rate-limit on all `/api` routes (300 req / 15 min per IP)
-- JWT-based auth for all admin/write endpoints
-- bcrypt password hashing (10 salt rounds)
-- express-validator on write endpoints
-- Multer file-type (jpeg/jpg/png/webp/gif) and size (5MB) restrictions on uploads
-- Centralized error handler (hides stack traces in production)
+## Collections
 
-## Notes
-- Slugs are generated automatically from the blog title and de-duplicated (`my-title`, `my-title-1`, ...). They are immutable once a blog exists unless the title itself changes.
-- `publishedAt` is set automatically the first time a blog's status changes to `published`.
-- Images are stored on local disk under `uploads/` and served statically at `/uploads/<filename>`. For production, consider swapping this for S3/Cloudinary — only `uploadMiddleware.js` and the `featuredImage` field would need to change.
+The backend uses Firestore for blog storage and user profiles.
+The `admins` collection is no longer required when using Firebase Authentication.
+Only `blogs` are managed directly by this API.
+
+Images are still stored locally under `backend/uploads/` and served at `/uploads/<filename>`.

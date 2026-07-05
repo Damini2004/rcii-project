@@ -8,7 +8,7 @@ const navItems = [
 ];
 
 function AdminLayout({ children }) {
-  const { admin, logout } = useAuth();
+  const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -72,8 +72,8 @@ function AdminLayout({ children }) {
 
           <div className="absolute bottom-0 w-full border-t border-white/10 p-4">
             <div className="mb-3 px-1">
-              <p className="text-[12px] font-bold">{admin?.name || "Admin"}</p>
-              <p className="text-[11px] font-semibold text-white/50">{admin?.email}</p>
+              <p className="text-[12px] font-bold">{user?.name || "User"}</p>
+              <p className="text-[11px] font-semibold text-white/50">{user?.email}</p>
             </div>
             <button
               onClick={handleLogout}
