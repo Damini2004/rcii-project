@@ -1,32 +1,49 @@
-const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
-const Admin = require("../models/Admin");
+const { initFirebaseAdmin } = require("../config/firebaseAdmin");
 
-// Protect routes - verifies JWT and attaches admin to req
+const firebaseAdmin = initFirebaseAdmin();
+
+// Protect routes - verifies Firebase ID token and attaches user profile to req.user
 const protect = asyncHandler(async (req, res, next) => {
-  let token;
-
-  if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
-    try {
-      token = req.headers.authorization.split(" ")[1];
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.admin = await Admin.findById(decoded.id).select("-password");
-
-      if (!req.admin) {
-        res.status(401);
-        throw new Error("Not authorized, admin not found");
-      }
-
-      return next();
-    } catch (error) {
-      res.status(401);
-      throw new Error("Not authorized, token failed or expired");
-    }
-  }
-
-  if (!token) {
+  if (!req.headers.authorization || !req.headers.authorization.startsWith("Bearer")) {
     res.status(401);
     throw new Error("Not authorized, no token provided");
+  }
+
+  const token = req.headers.authorization.split(" ")[1];
+
+  try {
+    const decoded = await firebaseAdmin.auth().verifyIdToken(token);
+    const userRef = firebaseAdmin.firestore().doc(`users/${decoded.uid}`);
+    const userDoc = await userRef.get();
+
+    let profile;
+    if (!userDoc.exists) {
+      const userRecord = await firebaseAdmin.auth().getUser(decoded.uid);
+      profile = {
+        uid: decoded.uid,
+        name: userRecord.displayName || "",
+        email: userRecord.email || decoded.email,
+        role: "user",
+        createdAt: firebaseAdmin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: firebaseAdmin.firestore.FieldValue.serverTimestamp(),
+      };
+      await userRef.set(profile);
+    } else {
+      profile = userDoc.data();
+    }
+
+    req.user = {
+      uid: decoded.uid,
+      email: profile.email || decoded.email,
+      name: profile.name || decoded.name || "",
+      role: profile.role || "user",
+    };
+
+    return next();
+  } catch (error) {
+    res.status(401);
+    throw new Error("Not authorized, token failed or expired");
   }
 });
 

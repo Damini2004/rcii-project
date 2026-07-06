@@ -1,13 +1,19 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-function ProtectedRoute({ children }) {
-  const { isAuthenticated } = useAuth();
-  const hasToken = !!localStorage.getItem("rcii_admin_token");
+function ProtectedRoute({ children, allowedRoles = [] }) {
+  const { user, loading } = useAuth();
+  const location = useLocation();
 
-  if (!isAuthenticated && !hasToken) {
-    return <Navigate to="/admin/login" replace />;
+  if (loading) return null;
+
+  if (!user) {
+    return <Navigate to="/admin/login" state={{ from: location }} replace />;
+  }
+
+  if (allowedRoles.length > 0 && !allowedRoles.includes(user.role)) {
+    return <Navigate to="/" replace />;
   }
 
   return children;

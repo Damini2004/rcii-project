@@ -4,7 +4,7 @@ import { Lock, Mail, Eye, EyeOff } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 function AdminLogin() {
-  const { login, isAuthenticated, loading } = useAuth();
+  const { login, user, loading } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ function AdminLogin() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  if (isAuthenticated) {
+  if (user) {
     return <Navigate to="/admin/blogs" replace />;
   }
 
@@ -22,10 +22,11 @@ function AdminLogin() {
     setSubmitting(true);
     const result = await login(email, password);
     setSubmitting(false);
+
     if (result.success) {
       navigate("/admin/blogs");
     } else {
-      setError(result.message);
+      setError(result.message || "Login failed. Please try again.");
     }
   };
 
@@ -36,9 +37,9 @@ function AdminLogin() {
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-[10px] bg-gradient-to-r from-[#563BFF] to-[#02AFC7] text-[15px] font-bold text-white">
             RC
           </div>
-          <h1 className="text-[20px] font-bold">RCII Admin Login</h1>
+          <h1 className="text-[20px] font-bold">RCII Login</h1>
           <p className="mt-1 text-[12px] font-semibold text-[#7a839e]">
-            Sign in to manage blog content
+            Sign in with your Firebase email and password
           </p>
         </div>
 
@@ -58,7 +59,7 @@ function AdminLogin() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@rcii.com"
+                placeholder="your-email@example.com"
                 className="w-full bg-transparent text-[13px] font-semibold outline-none placeholder:text-[#8a92aa]"
               />
             </div>
@@ -91,7 +92,7 @@ function AdminLogin() {
             disabled={submitting || loading}
             className="mt-2 h-[46px] w-full rounded-[6px] bg-[#321cff] text-[13px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#230fbf] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {submitting ? "Signing in..." : "Sign In"}
+            {submitting || loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
       </div>

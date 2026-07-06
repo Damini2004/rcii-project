@@ -12,6 +12,7 @@ const {
   uploadImage,
 } = require("../controllers/blogController");
 const { protect } = require("../middleware/authMiddleware");
+const { allowRoles } = require("../middleware/roleMiddleware");
 const upload = require("../middleware/uploadMiddleware");
 const validateRequest = require("../middleware/validateRequest");
 
@@ -26,18 +27,18 @@ const blogValidation = [
 ];
 
 // ---------- Admin-only routes (must be declared before /:slug) ----------
-router.get("/admin/all", protect, getAdminBlogs);
-router.get("/admin/:id", protect, getAdminBlogById);
-router.post("/bulk-delete", protect, bulkDeleteBlogs);
-router.post("/upload", protect, upload.single("image"), uploadImage);
+router.get("/admin/all", protect, allowRoles("admin", "user"), getAdminBlogs);
+router.get("/admin/:id", protect, allowRoles("admin", "user"), getAdminBlogById);
+router.post("/bulk-delete", protect, allowRoles("admin", "user"), bulkDeleteBlogs);
+router.post("/upload", protect, allowRoles("admin", "user"), upload.single("image"), uploadImage);
 
 // ---------- Public routes ----------
 router.get("/", getBlogs);
 router.get("/:slug", getBlogBySlug);
 
 // ---------- Protected CRUD ----------
-router.post("/", protect, upload.single("featuredImage"), blogValidation, validateRequest, createBlog);
-router.put("/:id", protect, upload.single("featuredImage"), updateBlog);
-router.delete("/:id", protect, deleteBlog);
+router.post("/", protect, allowRoles("admin", "user"), upload.single("featuredImage"), blogValidation, validateRequest, createBlog);
+router.put("/:id", protect, allowRoles("admin", "user"), upload.single("featuredImage"), updateBlog);
+router.delete("/:id", protect, allowRoles("admin", "user"), deleteBlog);
 
 module.exports = router;

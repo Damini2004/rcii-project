@@ -1,57 +1,80 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { authAPI } from "../../services/api";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase";
+import api from "../../services/api";
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [admin, setAdmin] = useState(() => {
-    const stored = localStorage.getItem("rcii_admin_user");
+  const [user, setUser] = useState(() => {
+    const stored = localStorage.getItem("rcii_user");
     return stored ? JSON.parse(stored) : null;
   });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem("rcii_admin_token");
-    if (token && !admin) {
-      authAPI
-        .me()
-        .then((res) => setAdmin(res.data.data))
-        .catch(() => {
-          localStorage.removeItem("rcii_admin_token");
-          localStorage.removeItem("rcii_admin_user");
-        });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        try {
+          const token = await firebaseUser.getIdToken(true);
+          localStorage.setItem("rcii_auth_token", token);
+          const res = await api.get("/auth/me");
+          const profile = res.data.data;
+          localStorage.setItem("rcii_user", JSON.stringify(profile));
+          setUser(profile);
+        } catch (error) {
+          await signOut(auth);
+          localStorage.removeItem("rcii_auth_token");
+          localStorage.removeItem("rcii_user");
+          setUser(null);
+        }
+      } else {
+        localStorage.removeItem("rcii_auth_token");
+        localStorage.removeItem("rcii_user");
+        setUser(null);
+      }
+      setLoading(false);
+    });
+
+    return unsubscribe;
   }, []);
 
   const login = async (email, password) => {
     setLoading(true);
     try {
-      const res = await authAPI.login(email, password);
-      const data = res.data.data;
-      localStorage.setItem("rcii_admin_token", data.token);
-      const user = { _id: data._id, name: data.name, email: data.email, role: data.role };
-      localStorage.setItem("rcii_admin_user", JSON.stringify(user));
-      setAdmin(user);
-      return { success: true };
+      const credential = await signInWithEmailAndPassword(auth, email, password);
+      const token = await credential.user.getIdToken(true);
+      localStorage.setItem("rcii_auth_token", token);
+      const res = await api.get("/auth/me");
+      const profile = res.data.data;
+      localStorage.setItem("rcii_user", JSON.stringify(profile));
+      setUser(profile);
+      return { success: true, user: profile };
     } catch (error) {
       return {
         success: false,
-        message: error.response?.data?.message || "Login failed. Please try again.",
+        message:
+          error.message || error.response?.data?.message || "Login failed. Please try again.",
       };
     } finally {
       setLoading(false);
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem("rcii_admin_token");
-    localStorage.removeItem("rcii_admin_user");
-    setAdmin(null);
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } finally {
+      localStorage.removeItem("rcii_auth_token");
+      localStorage.removeItem("rcii_user");
+      setUser(null);
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ admin, login, logout, loading, isAuthenticated: !!admin }}>
+    <AuthContext.Provider
+      value={{ user, login, logout, loading, isAuthenticated: !!user }}
+    >
       {children}
     </AuthContext.Provider>
   );

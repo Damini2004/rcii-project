@@ -6,22 +6,22 @@ const api = axios.create({
   baseURL: API_URL,
 });
 
-// Attach admin JWT token (if present) to every request
+// Attach Firebase ID token (if present) to every request
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("rcii_admin_token");
+  const token = localStorage.getItem("rcii_auth_token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
 
-// Auto-logout on 401 from protected admin endpoints
+// Auto-logout on 401 from protected endpoints
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401 && window.location.pathname.startsWith("/admin")) {
-      localStorage.removeItem("rcii_admin_token");
-      localStorage.removeItem("rcii_admin_user");
+    if (error.response?.status === 401) {
+      localStorage.removeItem("rcii_auth_token");
+      localStorage.removeItem("rcii_user");
       if (window.location.pathname !== "/admin/login") {
         window.location.href = "/admin/login";
       }
@@ -44,10 +44,9 @@ export const blogAPI = {
   getBySlug: (slug) => api.get(`/blogs/${slug}`),
 };
 
-// ---------------- Admin auth ----------------
+// ---------------- Auth endpoints ----------------
 export const authAPI = {
-  login: (email, password) => api.post("/admin/login", { email, password }),
-  me: () => api.get("/admin/me"),
+  me: () => api.get("/auth/me"),
 };
 
 // ---------------- Admin blog management ----------------
