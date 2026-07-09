@@ -12,6 +12,8 @@ const connectDB = require("./config/db");
 const blogRoutes = require("./routes/blogRoutes");
 const authRoutes = require("./routes/authRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
+const newsletterRoutes = require("./routes/newsletterRoutes");
+
 
 const app = express();
 
@@ -37,6 +39,7 @@ app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 app.use(express.json({ limit: "5mb" }));
 app.use(express.urlencoded({ extended: true }));
 
+
 // Rate limiting (applies to all /api routes)
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -58,6 +61,8 @@ app.get("/api/health", (req, res) => {
 // Routes
 app.use("/api/blogs", blogRoutes);
 app.use("/api/auth", authRoutes);
+
+app.use("/api/newsletter", newsletterRoutes);
 
 // Error handling
 app.use(notFound);

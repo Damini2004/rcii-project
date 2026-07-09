@@ -26,8 +26,7 @@ import b5 from "../../assets/research-funding-blog-3.webp";
 import b6 from "../../assets/research-funding-blog-3.webp";
 import blogCta from "../../assets/research-blog-featured-image.webp";
 import { blogAPI, resolveImageUrl } from "../../services/api";
-
-
+import toast from "react-hot-toast";
 
 // Local fallback images cycle through while a blog has no featuredImage yet,
 // or while the API request is still in flight.
@@ -99,6 +98,7 @@ function Blogs() {
   const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(true);
   const [recentBlogs, setRecentBlogs] = useState([]);
+  const [email, setEmail] = useState("");
 
   const mapBlogToCard = (blog, index) => ({
     img: blog.featuredImage
@@ -119,40 +119,41 @@ function Blogs() {
     slug: blog.slug,
   });
 
-  const fetchPosts = useCallback(
-    async (pageNum, search, append = false) => {
-      setLoading(true);
-      try {
-        const res = await blogAPI.getAll({ page: pageNum, limit: 6, search: search || undefined });
-        const mapped = res.data.data.map(mapBlogToCard);
-        setHasMore(res.data.pagination.page < res.data.pagination.pages);
-        if (mapped.length === 0 && !append) {
-          setPosts(demoPosts);
-        } else {
-          setPosts((prev) => (append ? [...prev, ...mapped] : mapped));
-        }
-      } catch (error) {
-        if (!append) setPosts(demoPosts);
-      } finally {
-        setLoading(false);
+  const fetchPosts = useCallback(async (pageNum, search, append = false) => {
+    setLoading(true);
+    try {
+      const res = await blogAPI.getAll({
+        page: pageNum,
+        limit: 6,
+        search: search || undefined,
+      });
+      const mapped = res.data.data.map(mapBlogToCard);
+      setHasMore(res.data.pagination.page < res.data.pagination.pages);
+      if (mapped.length === 0 && !append) {
+        setPosts(demoPosts);
+      } else {
+        setPosts((prev) => (append ? [...prev, ...mapped] : mapped));
       }
-    },
-    []
-  );
+    } catch (error) {
+      if (!append) setPosts(demoPosts);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   const fetchRecentBlogs = async () => {
-  try {
-    const res = await blogAPI.getAll({
-      page: 1,
-      limit: 5,
-      sort: "-publishedAt",
-    });
+    try {
+      const res = await blogAPI.getAll({
+        page: 1,
+        limit: 5,
+        sort: "-publishedAt",
+      });
 
-    setRecentBlogs(res.data.data);
-  } catch (err) {
-    console.error(err);
-  }
-};
+      setRecentBlogs(res.data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     fetchPosts(1, "");
@@ -173,66 +174,104 @@ function Blogs() {
     fetchPosts(nextPage, searchTerm, true);
   };
 
+  const handleSubscribe = async () => {
+    if (!email.trim()) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      await fetch(`${import.meta.env.VITE_API_URL}/newsletter/subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      toast.success("Subscribed successfully!");
+      setEmail("");
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="bg-[#fbfcff] text-[#071044] pt-[70px]">
       {/* HERO */}
 
-   <section className="relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[515px] bg-white">
-       {/* Background image only after 768px */}
-       <div
-         className=" absolute inset-0 bg-cover  bg-no-repeat"
-         style={{
-           backgroundImage: `url(${blogHero})`,
-         }}
-       />
-     
-       {/* Mobile soft background */}
-       <div className=" absolute" />
-     
-       {/* Optional left readable overlay */}
-       <div className="" />
-     
-       <div className="relative z-20 max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14 h-full">
-         <div className=" pt-6 sm:pt-8 lg:pt-10 pb-8">
-           <div className="flex flex-wrap items-center gap-3 text-[13px] sm:text-[14px] font-semibold sm:mb-8 mb-5">
-             <Link to="/" className="text-[#6366F1] hover:text-[#4F46E5] transition">
-               Home
-             </Link>
-     
-             <span className="text-gray-400">›</span>
-     
-             <Link to="/resources" className="text-[#6366F1] hover:text-[#4F46E5] transition">
-               Resources
-             </Link>
-     
-             <span className="text-gray-400">›</span>
-     
-             <span className="text-gray-500">Blogs</span>
-           </div>
-       <p className="text-[20px] font-bold text-[#071044]">
-              RCII Blogs
-            </p>
-         <h1 className="mt-2 text-[30px] sm:text-[34px] lg:text-[38px] leading-[1.2] font-bold text-[#07113F]">
-  <span className="block">
-    Insights That{" "}
-    <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
-      Inspire.
-    </span>
-  </span>
+      <section className="relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[515px] bg-white">
+        {/* Background image only after 768px */}
+        <div
+          className=" absolute inset-0 bg-cover  bg-no-repeat"
+          style={{
+            backgroundImage: `url(${blogHero})`,
+          }}
+        />
 
-  <span className="block mt-1">
-    Knowledge That{" "}
-    <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
-      Drives Impact.
-    </span>
-  </span>
-</h1>
-     
-           <p className="text-[13px] sm:text-[14px] font-semibold text-[#2f3745] leading-[1.9] sm:mt-6 mt-3 max-w-[420px]">
-               Stay informed with expert perspectives, industry trends, and
+        {/* Mobile soft background */}
+        <div className=" absolute" />
+
+        {/* Optional left readable overlay */}
+        <div className="" />
+
+        <div className="relative z-20 max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14 h-full">
+          <div className=" pt-6 sm:pt-8 lg:pt-10 pb-8">
+            <div className="flex flex-wrap items-center gap-3 text-[13px] sm:text-[14px] font-semibold sm:mb-8 mb-5">
+              <Link
+                to="/"
+                className="text-[#6366F1] hover:text-[#4F46E5] transition"
+              >
+                Home
+              </Link>
+
+              <span className="text-gray-400">›</span>
+
+              <Link
+                to="/resources"
+                className="text-[#6366F1] hover:text-[#4F46E5] transition"
+              >
+                Resources
+              </Link>
+
+              <span className="text-gray-400">›</span>
+
+              <span className="text-gray-500">Blogs</span>
+            </div>
+            <p className="text-[20px] font-bold text-[#071044]">RCII Blogs</p>
+            <h1 className="mt-2 text-[30px] sm:text-[34px] lg:text-[38px] leading-[1.2] font-bold text-[#07113F]">
+              <span className="block">
+                Insights That{" "}
+                <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
+                  Inspire.
+                </span>
+              </span>
+
+              <span className="block mt-1">
+                Knowledge That{" "}
+                <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
+                  Drives Impact.
+                </span>
+              </span>
+            </h1>
+
+            <p className="text-[13px] sm:text-[14px] font-semibold text-[#2f3745] leading-[1.9] sm:mt-6 mt-3 max-w-[420px]">
+              Stay informed with expert perspectives, industry trends, and
               practical tips on research, publishing, innovation, and impact.
-           </p>
-        <div className="mt-6 flex max-w-[450px] flex-col gap-3 sm:flex-row">
+            </p>
+            <div className="mt-6 flex max-w-[450px] flex-col gap-3 sm:flex-row">
               <div className="flex h-[44px] flex-1 items-center rounded-[6px] border border-[#dce1f1] bg-white px-4 shadow-[0_8px_22px_rgba(30,40,90,0.06)]">
                 <input
                   value={searchTerm}
@@ -243,35 +282,60 @@ function Blogs() {
                 />
                 <Search size={17} className="text-[#444251]" />
               </div>
-
-            
             </div>
 
-              <button className="group h-[44px] mt-5 rounded-[6px] border border-[#563BFF] bg-white px-5 text-[12px] font-bold text-[#321cff] transition-all duration-300 hover:-translate-y-1 hover:bg-[#4637c5] hover:text-white">
-                Subscribe to Blog Updates
-                <Bell size={14} className="ml-2 inline" />
-              </button>
-          
-         </div>
-       </div>
-     </section>
-
-    
+            <button className="group h-[44px] mt-5 rounded-[6px] border border-[#563BFF] bg-white px-5 text-[12px] font-bold text-[#321cff] transition-all duration-300 hover:-translate-y-1 hover:bg-[#4637c5] hover:text-white">
+              Subscribe to Blog Updates
+              <Bell size={14} className="ml-2 inline" />
+            </button>
+          </div>
+        </div>
+      </section>
 
       <div className="mx-auto max-w-[1440px] px-4 py-7 sm:px-8 lg:px-14">
-      <SectionTitle title="Explore Blogs by Category" />
+        <SectionTitle title="Explore Blogs by Category" />
 
-<div className="rounded-[16px] bg-white px-4 py-3 shadow-[0_10px_35px_rgba(30,40,90,0.07)]">
-  <div className="grid grid-cols-7 gap-4 max-lg:flex max-lg:overflow-x-auto max-lg:pb-2">
-    <Category icon={Grid2X2} title="All Blogs" active />
-    <Category icon={FileSearch} title="Research & Publishing" bg="#f1edff" color="#563BFF" />
-    <Category icon={GraduationCap} title="Academic Excellence" bg="#eaf8ef" color="#25a85c" />
-    <Category icon={Lightbulb} title="Innovation & IP" bg="#fff0e7" color="#ff6b19" />
-    <Category icon={MonitorPlay} title="Technology in Research" bg="#eaf4ff" color="#0f83d8" />
-    <Category icon={LockKeyhole} title="Open Science" bg="#f1edff" color="#563BFF" />
-    <Category icon={Users} title="Impact & Society" bg="#eaf8ef" color="#25a85c" />
-  </div>
-</div>
+        <div className="rounded-[16px] bg-white px-4 py-3 shadow-[0_10px_35px_rgba(30,40,90,0.07)]">
+          <div className="grid grid-cols-7 gap-4 max-lg:flex max-lg:overflow-x-auto max-lg:pb-2">
+            <Category icon={Grid2X2} title="All Blogs" active />
+            <Category
+              icon={FileSearch}
+              title="Research & Publishing"
+              bg="#f1edff"
+              color="#563BFF"
+            />
+            <Category
+              icon={GraduationCap}
+              title="Academic Excellence"
+              bg="#eaf8ef"
+              color="#25a85c"
+            />
+            <Category
+              icon={Lightbulb}
+              title="Innovation & IP"
+              bg="#fff0e7"
+              color="#ff6b19"
+            />
+            <Category
+              icon={MonitorPlay}
+              title="Technology in Research"
+              bg="#eaf4ff"
+              color="#0f83d8"
+            />
+            <Category
+              icon={LockKeyhole}
+              title="Open Science"
+              bg="#f1edff"
+              color="#563BFF"
+            />
+            <Category
+              icon={Users}
+              title="Impact & Society"
+              bg="#eaf8ef"
+              color="#25a85c"
+            />
+          </div>
+        </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_310px]">
           {/* LEFT */}
@@ -314,38 +378,41 @@ function Blogs() {
           <aside className="space-y-1">
             <SideBox title="Popular Posts">
               {recentBlogs.map((post, index) => (
-  <Link
-    key={post._id}
-    to={`/blog/${post.slug}`}
-    className="flex gap-3 border-b border-[#edf0fa] py-3 last:border-b-0"
-  >
-    <img
-      src={
-        post.featuredImage
-          ? resolveImageUrl(post.featuredImage)
-          : fallbackImages[index % fallbackImages.length]
-      }
-      alt={post.title}
-      className="h-[58px] w-[70px] rounded-[6px] object-cover"
-    />
+                <Link
+                  key={post._id}
+                  to={`/blog/${post.slug}`}
+                  className="flex gap-3 border-b border-[#edf0fa] py-3 last:border-b-0"
+                >
+                  <img
+                    src={
+                      post.featuredImage
+                        ? resolveImageUrl(post.featuredImage)
+                        : fallbackImages[index % fallbackImages.length]
+                    }
+                    alt={post.title}
+                    className="h-[58px] w-[70px] rounded-[6px] object-cover"
+                  />
 
-    <div className="flex-1">
-      <h4 className="line-clamp-2 text-[11px] font-bold leading-[1.45]">
-        {post.title}
-      </h4>
+                  <div className="flex-1">
+                    <h4 className="line-clamp-2 text-[11px] font-bold leading-[1.45]">
+                      {post.title}
+                    </h4>
 
-      <p className="mt-1 text-[10px] font-bold text-[#7a839e]">
-        {post.publishedAt
-          ? new Date(post.publishedAt).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            })
-          : ""}
-      </p>
-    </div>
-  </Link>
-))}
+                    <p className="mt-1 text-[10px] font-bold text-[#7a839e]">
+                      {post.publishedAt
+                        ? new Date(post.publishedAt).toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            },
+                          )
+                        : ""}
+                    </p>
+                  </div>
+                </Link>
+              ))}
             </SideBox>
 
             <SideBox title="Topics You’ll Love">
@@ -383,11 +450,24 @@ function Blogs() {
 
               <div className="mt-4 flex gap-2">
                 <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSubscribe();
+                    }
+                  }}
                   placeholder="Enter your email address"
-                  className="h-[38px] min-w-0 flex-1 rounded-[5px] border border-[#dce1f1] px-3 text-[11px] font-semibold outline-none"
+                  className="h-[38px] min-w-0 flex-1 rounded-[5px] border border-[#dce1f1] px-3 text-[11px] font-semibold outline-none focus:border-[#4436c0]"
                 />
-                <button className="h-[38px] rounded-[5px] bg-[#4436c0] px-4 text-[11px] font-bold text-white transition hover:bg-[#230fbf]">
-                  Subscribe Now
+
+                <button
+                  onClick={handleSubscribe}
+                  disabled={loading}
+                  className="h-[38px] rounded-[5px] bg-[#4436c0] px-4 text-[11px] font-bold text-white transition hover:bg-[#230fbf] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {loading ? "Subscribing..." : "Subscribe Now"}
                 </button>
               </div>
             </SideBox>
@@ -400,9 +480,7 @@ function Blogs() {
             <div className="flex items-center gap-5">
               <img src={blogCta} alt="" className="w-[120px]" />
               <div>
-                <h3 className="text-[22px] font-bold">
-                  Never Miss an Insight
-                </h3>
+                <h3 className="text-[22px] font-bold">Never Miss an Insight</h3>
                 <p className="mt-2 max-w-[560px] text-[13px] font-semibold text-white/85">
                   Subscribe to our blog and get expert insights, trends, and
                   tips straight to your inbox.
@@ -410,50 +488,62 @@ function Blogs() {
               </div>
             </div>
 
-            <div className="flex w-full max-w-[520px] flex-col gap-3 sm:flex-row">
-              <input
-                placeholder="Enter your email address"
-                className="h-[46px] flex-1 rounded-[6px] border border-white/20 bg-white px-4 text-[12px] font-semibold text-[#071044] outline-none"
-              />
-              <button className="group h-[46px] rounded-[6px] bg-[#321cff] px-7 text-[12px] font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#230fbf]">
-                Subscribe to Blog
-                <Send size={14} className="ml-2 inline transition group-hover:translate-x-1" />
-              </button>
-            </div>
+           <div className="mt-4 flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSubscribe();
+                    }
+                  }}
+                  placeholder="Enter your email address"
+                  className="h-[38px] min-w-0 flex-1 rounded-[5px] border border-[#dce1f1] px-3 text-[11px] font-semibold outline-none focus:border-[#4436c0]"
+                />
+
+                <button
+                  onClick={handleSubscribe}
+                  disabled={loading}
+                  className="h-[38px] rounded-[5px] bg-[#4436c0] px-4 text-[11px] font-bold text-white transition hover:bg-[#230fbf] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {loading ? "Subscribing..." : "Subscribe Now"}
+                </button>
+              </div>
           </div>
         </section>
 
         {/* BOTTOM FEATURES */}
-      <div className="mt-5 grid grid-cols-1 overflow-hidden rounded-[10px] border border-[#edf0fa] bg-white shadow-[0_8px_24px_rgba(30,40,90,0.05)] sm:grid-cols-2 lg:grid-cols-4">
-  <Feature
-    icon={Users}
-    bg="#f0edff"
-    color="#563BFF"
-    title="Expert Insights"
-    text="Written by domain experts and researchers"
-  />
-  <Feature
-    icon={Lightbulb}
-    bg="#eaf8ef"
-    color="#25a85c"
-    title="Actionable Tips"
-    text="Practical advice you can apply in your journey"
-  />
-  <Feature
-    icon={Sparkles}
-    bg="#eaf4ff"
-    color="#2478e8"
-    title="Latest Trends"
-    text="Stay updated with emerging trends and innovations"
-  />
-  <Feature
-    icon={Globe2}
-    bg="#fff0e7"
-    color="#ff6b19"
-    title="Global Perspectives"
-    text="Diverse viewpoints from around the world"
-  />
-</div>
+        <div className="mt-5 grid grid-cols-1 overflow-hidden rounded-[10px] border border-[#edf0fa] bg-white shadow-[0_8px_24px_rgba(30,40,90,0.05)] sm:grid-cols-2 lg:grid-cols-4">
+          <Feature
+            icon={Users}
+            bg="#f0edff"
+            color="#563BFF"
+            title="Expert Insights"
+            text="Written by domain experts and researchers"
+          />
+          <Feature
+            icon={Lightbulb}
+            bg="#eaf8ef"
+            color="#25a85c"
+            title="Actionable Tips"
+            text="Practical advice you can apply in your journey"
+          />
+          <Feature
+            icon={Sparkles}
+            bg="#eaf4ff"
+            color="#2478e8"
+            title="Latest Trends"
+            text="Stay updated with emerging trends and innovations"
+          />
+          <Feature
+            icon={Globe2}
+            bg="#fff0e7"
+            color="#ff6b19"
+            title="Global Perspectives"
+            text="Diverse viewpoints from around the world"
+          />
+        </div>
       </div>
     </main>
   );
@@ -462,7 +552,9 @@ function Blogs() {
 function SectionTitle({ title }) {
   return (
     <div className="mb-5 text-center">
-      <h2 className="text-[20px] sm:text-[24px] font-bold text-[#071044]">{title}</h2>
+      <h2 className="text-[20px] sm:text-[24px] font-bold text-[#071044]">
+        {title}
+      </h2>
       <div className="mx-auto mt-2 h-[3px] w-[42px] rounded-full bg-[#321cff]" />
     </div>
   );
@@ -589,9 +681,7 @@ function Feature({ icon: Icon, bg, color, title, text }) {
       </div>
 
       <div>
-        <h4 className="text-[12px] font-extrabold text-[#071044]">
-          {title}
-        </h4>
+        <h4 className="text-[12px] font-extrabold text-[#071044]">{title}</h4>
         <p className="mt-1 max-w-[190px] text-[11px] font-bold leading-[1.55] text-[#303b5d]">
           {text}
         </p>

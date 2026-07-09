@@ -5,6 +5,7 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.jsx";
 import { AuthProvider } from "./admin/context/AuthContext.jsx";
 import "./index.css";
+import { Toaster } from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <AuthProvider>
           <App />
+           <Toaster position="top-right" />
         </AuthProvider>
       </BrowserRouter>
     </HelmetProvider>
