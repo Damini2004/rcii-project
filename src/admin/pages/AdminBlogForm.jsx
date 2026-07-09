@@ -92,50 +92,72 @@ function AdminBlogForm() {
     setImagePreview(URL.createObjectURL(file));
   };
 
-  const handleSubmit = async (e, statusOverride) => {
-    e.preventDefault();
-
-    if (!form.title || !form.shortDescription || !form.content || !form.author) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
-    setSaving(true);
-    try {
-      const formData = new FormData();
-      formData.append("title", form.title);
-      formData.append("shortDescription", form.shortDescription);
-      formData.append("content", form.content);
-      formData.append("category", form.category);
-      formData.append("tags", form.tags);
-      formData.append("author", form.author);
-      formData.append("authorRole", form.authorRole);
-      formData.append("metaTitle", form.metaTitle);
-      formData.append("metaDescription", form.metaDescription);
-      formData.append("status", statusOverride || form.status);
-      if (imageFile) {
-        formData.append("featuredImage", imageFile);
-      }
-
-      if (isEdit) {
-        await adminBlogAPI.update(id, formData);
-        toast.success("Blog updated successfully");
-      } else {
-        await adminBlogAPI.create(formData);
-        toast.success("Blog created successfully");
-      }
-      navigate("/admin/blogs");
-    } catch (error) {
-      toast.error(error.response?.data?.message || "Failed to save blog");
-    } finally {
-      setSaving(false);
-    }
+  const isContentEmpty = (html) => {
+    const text = html.replace(/<(.|\n)*?>/g, "").trim();
+    return !text;
   };
+
+const handleSubmit = async (e, statusOverride) => {
+  e.preventDefault();
+
+  console.log("Button clicked");
+  console.log("FORM DATA:", form);
+
+if (
+  !form.title.trim() ||
+  !form.shortDescription.trim() ||
+  !form.content.replace(/<[^>]+>/g, "").trim() ||
+  !form.author.trim()
+) {
+  toast.error("Please fill Title, Short Description, Content and Author");
+  return;
+}
+
+  try {
+    setSaving(true);
+
+    const formData = new FormData();
+    formData.append("title", form.title);
+    formData.append("shortDescription", form.shortDescription);
+    formData.append("content", form.content);
+    formData.append("category", form.category);
+    formData.append("tags", form.tags);
+    formData.append("author", form.author);
+    formData.append("authorRole", form.authorRole);
+    formData.append("metaTitle", form.metaTitle);
+    formData.append("metaDescription", form.metaDescription);
+    formData.append("metaKeywords", form.metaKeywords);
+    formData.append("canonicalUrl", form.canonicalUrl);
+    formData.append("status", statusOverride || form.status);
+
+    if (imageFile) {
+      formData.append("featuredImage", imageFile);
+    }
+
+    console.log("Sending request...");
+
+    if (isEdit) {
+      await adminBlogAPI.update(id, formData);
+    } else {
+      await adminBlogAPI.create(formData);
+    }
+
+    toast.success("Blog saved successfully");
+    navigate("/admin/blogs");
+  } catch (error) {
+    console.error("Save error:", error);
+    toast.error(error.response?.data?.message || "Failed to save blog");
+  } finally {
+    setSaving(false);
+  }
+};
 
   if (loading) {
     return (
       <AdminLayout>
-        <p className="text-[13px] font-semibold text-[#7a839e]">Loading blog...</p>
+        <p className="text-[13px] font-semibold text-[#7a839e]">
+          Loading blog...
+        </p>
       </AdminLayout>
     );
   }
@@ -155,9 +177,9 @@ function AdminBlogForm() {
       </div>
 
       <form
-  onSubmit={(e) => handleSubmit(e)}
-  className="grid gap-6 lg:grid-cols-[1fr_320px]"
->
+        onSubmit={(e) => handleSubmit(e)}
+        className="grid gap-6 lg:grid-cols-[1fr_320px]"
+      >
         {/* MAIN COLUMN */}
         <div className="space-y-5">
           <Field label="Title *">
@@ -169,7 +191,10 @@ function AdminBlogForm() {
             />
             {form.title && (
               <p className="mt-1.5 text-[11px] font-semibold text-[#7a839e]">
-                Slug: <span className="text-[#321cff]">{slugPreview(form.title)}</span>
+                Slug:{" "}
+                <span className="text-[#321cff]">
+                  {slugPreview(form.title)}
+                </span>
               </p>
             )}
           </Field>
@@ -189,7 +214,9 @@ function AdminBlogForm() {
               <ReactQuill
                 theme="snow"
                 value={form.content}
-                onChange={(value) => setForm((prev) => ({ ...prev, content: value }))}
+                onChange={(value) =>
+                  setForm((prev) => ({ ...prev, content: value }))
+                }
                 className="[&_.ql-container]:min-h-[260px]"
               />
             </div>
@@ -197,7 +224,11 @@ function AdminBlogForm() {
 
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="Meta Title (SEO)">
-              <input value={form.metaTitle} onChange={handleChange("metaTitle")} className="input" />
+              <input
+                value={form.metaTitle}
+                onChange={handleChange("metaTitle")}
+                className="input"
+              />
             </Field>
             <Field label="Meta Description (SEO)">
               <input
@@ -207,71 +238,84 @@ function AdminBlogForm() {
               />
             </Field>
             <Field label="Meta Keywords (SEO)">
-  <input
-    value={form.metaKeywords}
-    onChange={handleChange("metaKeywords")}
-    placeholder="clone journals, fake journal, verify ISSN"
-    className="input"
-  />
-</Field>
+              <input
+                value={form.metaKeywords}
+                onChange={handleChange("metaKeywords")}
+                placeholder="clone journals, fake journal, verify ISSN"
+                className="input"
+              />
+            </Field>
 
-<Field label="Canonical URL (SEO)">
-  <input
-    value={form.canonicalUrl}
-    onChange={handleChange("canonicalUrl")}
-    placeholder="https://researcherconnect.com/blog/blog-title"
-    className="input"
-  />
-</Field>
+            <Field label="Canonical URL (SEO)">
+              <input
+                value={form.canonicalUrl}
+                onChange={handleChange("canonicalUrl")}
+                placeholder="https://researcherconnect.com/blog/blog-title"
+                className="input"
+              />
+            </Field>
           </div>
         </div>
 
         {/* SIDEBAR COLUMN */}
         <div className="space-y-5">
           <div className="rounded-[12px] border border-[#e8ebf7] bg-white p-5">
-            <h3 className="mb-4 text-[13px] font-bold text-[#071044]">Publish</h3>
+            <h3 className="mb-4 text-[13px] font-bold text-[#071044]">
+              Publish
+            </h3>
 
             <Field label="Status">
-              <select value={form.status} onChange={handleChange("status")} className="input">
+              <select
+                value={form.status}
+                onChange={handleChange("status")}
+                className="input"
+              >
                 <option value="draft">Draft</option>
                 <option value="published">Publish</option>
               </select>
             </Field>
 
             <div className="mt-4 flex gap-2">
-  <button
-    type="submit"
-    disabled={saving}
-    className="h-[40px] flex-1 rounded-[6px] bg-[#321cff] text-[12px] font-bold text-white transition hover:bg-[#230fbf] disabled:opacity-60"
-  >
-    {saving ? "Saving..." : "Save"}
-  </button>
+              <button
+  type="button"
+  disabled={saving}
+  onClick={(e) => handleSubmit(e, form.status)}
+  className="h-[40px] flex-1 rounded-[6px] bg-[#321cff] text-[12px] font-bold text-white transition hover:bg-[#230fbf] disabled:opacity-60"
+>
+  {saving ? "Saving..." : "Save"}
+</button>
 
-  <button
-    type="button"
-    disabled={saving}
-    onClick={(e) => handleSubmit(e, "draft")}
-    className="h-[40px] flex-1 rounded-[6px] border border-[#563BFF] text-[12px] font-bold text-[#321cff] transition hover:bg-[#f0edff] disabled:opacity-60"
-  >
-    Save Draft
-  </button>
+              <button
+                type="button"
+                disabled={saving}
+                onClick={(e) => handleSubmit(e, "draft")}
+                className="h-[40px] flex-1 rounded-[6px] border border-[#563BFF] text-[12px] font-bold text-[#321cff] transition hover:bg-[#f0edff] disabled:opacity-60"
+              >
+                Save Draft
+              </button>
 
-  <button
-    type="button"
-    disabled={saving}
-    onClick={(e) => handleSubmit(e, "published")}
-    className="h-[40px] flex-1 rounded-[6px] bg-[#321cff] text-[12px] font-bold text-white transition hover:bg-[#230fbf] disabled:opacity-60"
-  >
-    Publish
-  </button>
-</div>
+              <button
+                type="button"
+                disabled={saving}
+                onClick={(e) => handleSubmit(e, "published")}
+                className="h-[40px] flex-1 rounded-[6px] bg-[#321cff] text-[12px] font-bold text-white transition hover:bg-[#230fbf] disabled:opacity-60"
+              >
+                Publish
+              </button>
+            </div>
           </div>
 
           <div className="rounded-[12px] border border-[#e8ebf7] bg-white p-5">
-            <h3 className="mb-4 text-[13px] font-bold text-[#071044]">Featured Image</h3>
+            <h3 className="mb-4 text-[13px] font-bold text-[#071044]">
+              Featured Image
+            </h3>
             {imagePreview ? (
               <div className="relative mb-3">
-                <img src={imagePreview} alt="Preview" className="h-[140px] w-full rounded-[8px] object-cover" />
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  className="h-[140px] w-full rounded-[8px] object-cover"
+                />
                 <button
                   type="button"
                   onClick={() => {
@@ -286,23 +330,41 @@ function AdminBlogForm() {
             ) : (
               <label className="mb-3 flex h-[140px] cursor-pointer flex-col items-center justify-center rounded-[8px] border-2 border-dashed border-[#dce1f1] text-[#8a92aa] transition hover:border-[#563BFF]">
                 <UploadCloud size={22} />
-                <span className="mt-2 text-[11px] font-semibold">Click to upload image</span>
-                <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
+                <span className="mt-2 text-[11px] font-semibold">
+                  Click to upload image
+                </span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageChange}
+                />
               </label>
             )}
             {imagePreview && (
               <label className="block cursor-pointer text-center text-[11px] font-bold text-[#321cff]">
                 Change Image
-                <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageChange}
+                />
               </label>
             )}
           </div>
 
           <div className="rounded-[12px] border border-[#e8ebf7] bg-white p-5">
-            <h3 className="mb-4 text-[13px] font-bold text-[#071044]">Details</h3>
+            <h3 className="mb-4 text-[13px] font-bold text-[#071044]">
+              Details
+            </h3>
 
             <Field label="Category">
-              <select value={form.category} onChange={handleChange("category")} className="input">
+              <select
+                value={form.category}
+                onChange={handleChange("category")}
+                className="input"
+              >
                 {CATEGORIES.map((c) => (
                   <option key={c} value={c}>
                     {c}
@@ -321,11 +383,19 @@ function AdminBlogForm() {
             </Field>
 
             <Field label="Author *">
-              <input value={form.author} onChange={handleChange("author")} className="input" />
+              <input
+                value={form.author}
+                onChange={handleChange("author")}
+                className="input"
+              />
             </Field>
 
             <Field label="Author Role">
-              <input value={form.authorRole} onChange={handleChange("authorRole")} className="input" />
+              <input
+                value={form.authorRole}
+                onChange={handleChange("authorRole")}
+                className="input"
+              />
             </Field>
           </div>
         </div>
@@ -352,7 +422,9 @@ function AdminBlogForm() {
 function Field({ label, children }) {
   return (
     <div className="mb-4 last:mb-0">
-      <label className="mb-1.5 block text-[12px] font-bold text-[#303b5d]">{label}</label>
+      <label className="mb-1.5 block text-[12px] font-bold text-[#303b5d]">
+        {label}
+      </label>
       {children}
     </div>
   );

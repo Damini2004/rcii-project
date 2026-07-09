@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LayoutDashboard, FileText, LogOut, Menu, X } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import logo from "../../assets/researcher-connect-logo.webp";
 
 const navItems = [
   { label: "Blogs", icon: FileText, to: "/admin/blogs" },
@@ -35,14 +36,43 @@ function AdminLayout({ children }) {
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="flex h-[64px] items-center gap-2 border-b border-white/10 px-6">
-            <div className="flex h-9 w-9 items-center justify-center rounded-[8px] bg-gradient-to-r from-[#563BFF] to-[#02AFC7] text-[13px] font-bold">
-              RC
-            </div>
-            <span className="text-[15px] font-bold">RCII Admin</span>
-          </div>
+           {/* Logo */}
+                    <Link to="/" className="flex items-center gap-1 px-4 py-4">
+                      <img
+                        src={logo}
+                        alt="Researcher Connect"
+                        className="h-[48px] w-auto object-contain"
+                      />
+          
+                      <div className="hidden sm:block leading-tight">
+                        <h2
+                          className={`font-bold text-[10.8px] tracking-tight uppercase ${
+                            location.pathname === "/" ? "text-[#111827]" : "text-white"
+                          }`}
+                        >
+                          RESEARCHER CONNECT
+                        </h2>
+          
+                        <p
+                          className={`font-bold text-[8px] uppercase tracking-[0.5px] mt-[2px] ${
+                            location.pathname === "/" ? "text-[#111827]" : "text-white"
+                          }`}
+                        >
+                          INNOVATION AND IMPACT
+                        </p>
+          
+                        <p
+                          className={`font-bold text-[7px] uppercase tracking-[3.5px] mt-[4px] ${
+                            location.pathname === "/" ? "text-[#111827]" : "text-white"
+                          }`}
+                        >
+                          PRIVATE LIMITED
+                        </p>
+                      </div>
+                    </Link>
+                    <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
 
-          <nav className="mt-4 space-y-1 px-3">
+          <nav className="mt-6 space-y-1 px-3">
             <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-white/40">
               Menu
             </p>
