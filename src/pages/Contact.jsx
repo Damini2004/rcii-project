@@ -258,11 +258,10 @@ export default function Contact() {
 
     <OfficeCard
       img={templeImg}
-      title="India – Head Office"
+      title="Nagpur Office"
       lines={[
-        "No. 1, 3rd Floor, Eldams Road,",
-        "Alwarpet, Chennai – 600018,",
-        "Tamil Nadu, India",
+         "202, Planet Apartment, Jaywant Nagar,",
+          "Omkar Nagar, Nagpur, Maharashtra 440027",
       ]}
     />
 
@@ -270,8 +269,8 @@ export default function Contact() {
 
     <OfficeCard
       img={cityImg}
-      title="Global Office"
-      lines={["8 The Green, Suite A, Dover,", "Delaware 19901, USA"]}
+      title="Pune Office"
+      lines={["Pune: 702, Westport, Baner"]}
     />
   </Box>
 
@@ -350,12 +349,12 @@ export default function Contact() {
 
         <div>
           <h4 className="text-[13px] font-bold text-[#101944]">
-            Dr. Arvind Nair
+            Vinit Khetani
           </h4>
           <p className="text-[11.5px] font-bold leading-[1.55] text-[#56617d]">
-            Director – Research,
+            Chief Technology Officer
             <br />
-            IIT Hyderabad
+            RCI
           </p>
         </div>
       </div>

@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { blogAPI, resolveImageUrl } from "../../services/api";
 import updateImg from "../../assets/academic-career-blog-7.webp";
+import toast from "react-hot-toast";
 
 function BlogDetails() {
   const { slug } = useParams();
@@ -20,6 +21,10 @@ function BlogDetails() {
   const [related, setRelated] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [email, setEmail] = useState("");
+const [subscribing, setSubscribing] = useState(false);
+  
+
 
   useEffect(() => {
     let isMounted = true;
@@ -85,6 +90,40 @@ function BlogDetails() {
   const seoTitle = blog.metaTitle || blog.title;
   const seoDescription = blog.metaDescription || blog.shortDescription;
   const seoKeywords = blog.metaKeywords || blog.tags?.join(", ");
+
+  const handleSubscribe = async () => {
+      if (!email.trim()) {
+        toast.error("Please enter your email address");
+        return;
+      }
+  
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+      if (!emailRegex.test(email)) {
+        toast.error("Please enter a valid email address");
+        return;
+      }
+  
+      try {
+        setSubscribing(true);
+  
+        await fetch(`${import.meta.env.VITE_API_URL}/newsletter/subscribe`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        });
+  
+        toast.success("Subscribed successfully!");
+        setEmail("");
+      } catch (err) {
+        console.error(err);
+        toast.error("Something went wrong.");
+      } finally {
+        setSubscribing(false);
+      }
+    };
 
   return (
     <>
@@ -311,14 +350,28 @@ function BlogDetails() {
                   delivered to your inbox.
                 </p>
 
+               <div className="mt-4 flex gap-2">
                 <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSubscribe();
+                    }
+                  }}
                   placeholder="Enter your email address"
-                  className="mt-6 h-[46px] w-full rounded-[6px] border border-white/20 bg-white px-4 text-[12px] font-semibold text-[#071044] outline-none"
+                  className="h-[38px] min-w-0 flex-1 rounded-[5px] border border-[#dce1f1] px-3 text-[11px] font-semibold outline-none focus:border-[#4436c0]"
                 />
 
-                <button className="mt-4 h-[46px] w-full rounded-[6px] bg-[#321cff] text-[12px] font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#230fbf]">
-                  Subscribe
+                <button
+                  onClick={handleSubscribe}
+                  disabled={subscribing}
+                  className="h-[38px] rounded-[5px] bg-[#4436c0] px-4 text-[11px] font-bold text-white transition hover:bg-[#230fbf] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {subscribing ? "Subscribing..." : "Subscribe Now"}
                 </button>
+              </div>
 
                 <p className="mt-4 text-[11px] font-medium leading-[1.6] text-white/70">
                   We respect your privacy. Unsubscribe at any time.
