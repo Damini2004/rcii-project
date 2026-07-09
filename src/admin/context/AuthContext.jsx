@@ -6,44 +6,44 @@ import api from "../../services/api";
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    const stored = localStorage.getItem("rcii_user");
-    return stored ? JSON.parse(stored) : null;
-  });
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        try {
-          const token = await firebaseUser.getIdToken(true);
-          localStorage.setItem("rcii_auth_token", token);
-          const res = await api.get("/auth/me");
-          const profile = res.data.data;
-          localStorage.setItem("rcii_user", JSON.stringify(profile));
-          setUser(profile);
-        } catch (error) {
-          await signOut(auth);
-          localStorage.removeItem("rcii_auth_token");
-          localStorage.removeItem("rcii_user");
-          setUser(null);
-        }
-      } else {
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+    if (firebaseUser) {
+      try {
+        const token = await firebaseUser.getIdToken();
+        localStorage.setItem("rcii_auth_token", token);
+
+        const res = await api.get("/auth/me");
+        const profile = res.data.data;
+
+        localStorage.setItem("rcii_user", JSON.stringify(profile));
+        setUser(profile);
+      } catch (error) {
+        await signOut(auth);
         localStorage.removeItem("rcii_auth_token");
         localStorage.removeItem("rcii_user");
         setUser(null);
       }
-      setLoading(false);
-    });
+    } else {
+      localStorage.removeItem("rcii_auth_token");
+      localStorage.removeItem("rcii_user");
+      setUser(null);
+    }
 
-    return unsubscribe;
-  }, []);
+    setLoading(false);
+  });
+
+  return unsubscribe;
+}, []);
 
   const login = async (email, password) => {
     setLoading(true);
     try {
       const credential = await signInWithEmailAndPassword(auth, email, password);
-      const token = await credential.user.getIdToken(true);
+      const token = await credential.user.getIdToken();
       localStorage.setItem("rcii_auth_token", token);
       const res = await api.get("/auth/me");
       const profile = res.data.data;
@@ -51,11 +51,19 @@ export function AuthProvider({ children }) {
       setUser(profile);
       return { success: true, user: profile };
     } catch (error) {
-      return {
-        success: false,
-        message:
-          error.message || error.response?.data?.message || "Login failed. Please try again.",
-      };
+  await signOut(auth);
+  localStorage.removeItem("rcii_auth_token");
+  localStorage.removeItem("rcii_user");
+  setUser(null);
+
+  return {
+    success: false,
+    message:
+      error.response?.data?.message ||
+      error.message ||
+      "Login failed. Please try again.",
+  };
+
     } finally {
       setLoading(false);
     }
