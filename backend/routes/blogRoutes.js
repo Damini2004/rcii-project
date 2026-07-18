@@ -27,18 +27,18 @@ const blogValidation = [
 ];
 
 // ---------- Admin-only routes (must be declared before /:slug) ----------
-router.get("/admin/all", protect, allowRoles("admin", "user"), getAdminBlogs);
-router.get("/admin/:id", protect, allowRoles("admin", "user"), getAdminBlogById);
-router.post("/bulk-delete", protect, allowRoles("admin", "user"), bulkDeleteBlogs);
-router.post("/upload", protect, allowRoles("admin", "user"), upload.single("image"), uploadImage);
+router.get("/admin/all", protect, allowRoles("admin"), getAdminBlogs);
+router.get("/admin/:id", protect, allowRoles("admin"), getAdminBlogById);
+router.post("/bulk-delete", protect, allowRoles("admin"), bulkDeleteBlogs);
+router.post("/upload", protect, allowRoles("admin"), upload.single("image"), uploadImage);
 
 // ---------- Public routes ----------
 router.get("/", getBlogs);
 router.get("/:slug", getBlogBySlug);
 
 // ---------- Protected CRUD ----------
-router.post("/", protect, allowRoles("admin", "user"), upload.single("featuredImage"), blogValidation, validateRequest, createBlog);
-router.put("/:id", protect, allowRoles("admin", "user"), upload.single("featuredImage"), updateBlog);
-router.delete("/:id", protect, allowRoles("admin", "user"), deleteBlog);
+router.post("/", protect, allowRoles("admin"), upload.single("featuredImage"), blogValidation, validateRequest, createBlog);
+router.put("/:id", protect, allowRoles("admin"), updateBlog);
+router.delete("/:id", protect, allowRoles("admin"), deleteBlog);
 
 module.exports = router;

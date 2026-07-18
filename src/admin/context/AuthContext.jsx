@@ -19,8 +19,15 @@ useEffect(() => {
         const res = await api.get("/auth/me");
         const profile = res.data.data;
 
-        localStorage.setItem("rcii_user", JSON.stringify(profile));
-        setUser(profile);
+        if (profile.role !== "admin") {
+          await signOut(auth);
+          localStorage.removeItem("rcii_auth_token");
+          localStorage.removeItem("rcii_user");
+          setUser(null);
+        } else {
+          localStorage.setItem("rcii_user", JSON.stringify(profile));
+          setUser(profile);
+        }
       } catch (error) {
         await signOut(auth);
         localStorage.removeItem("rcii_auth_token");
@@ -47,6 +54,18 @@ useEffect(() => {
       localStorage.setItem("rcii_auth_token", token);
       const res = await api.get("/auth/me");
       const profile = res.data.data;
+
+      if (profile.role !== "admin") {
+        await signOut(auth);
+        localStorage.removeItem("rcii_auth_token");
+        localStorage.removeItem("rcii_user");
+        setUser(null);
+        return {
+          success: false,
+          message: "Only admin users may sign in here.",
+        };
+      }
+
       localStorage.setItem("rcii_user", JSON.stringify(profile));
       setUser(profile);
       return { success: true, user: profile };
