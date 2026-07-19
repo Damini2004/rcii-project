@@ -10,7 +10,7 @@ import {
   Clock,
   UserRound,
 } from "lucide-react";
-import { blogAPI, resolveImageUrl } from "../../services/api";
+import { blogAPI, newsletterAPI, resolveImageUrl } from "../../services/api";
 import updateImg from "../../assets/academic-career-blog-7.webp";
 import toast from "react-hot-toast";
 
@@ -107,13 +107,7 @@ const [subscribing, setSubscribing] = useState(false);
       try {
         setSubscribing(true);
   
-        await fetch(`${import.meta.env.VITE_API_URL}/newsletter/subscribe`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        });
+        await newsletterAPI.subscribe(email);
   
         toast.success("Subscribed successfully!");
         setEmail("");

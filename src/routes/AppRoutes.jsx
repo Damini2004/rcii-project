@@ -81,18 +81,11 @@ function AppRoutes() {
 
         {/* Admin routes */}
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route
-          path="/admin/blogs"
-          element={
-            <ProtectedRoute allowedRoles={["admin"]}>
-              <AdminBlogDashboard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/admin/blogs" element={<ProtectedRoute><AdminBlogDashboard /></ProtectedRoute>} />
         <Route
           path="/admin/blogs/new"
           element={
-            <ProtectedRoute allowedRoles={["admin"]}>
+            <ProtectedRoute>
               <AdminBlogForm />
             </ProtectedRoute>
           }
@@ -100,7 +93,7 @@ function AppRoutes() {
         <Route
           path="/admin/blogs/edit/:id"
           element={
-            <ProtectedRoute allowedRoles={["admin"]}>
+            <ProtectedRoute>
               <AdminBlogForm />
             </ProtectedRoute>
           }
@@ -108,7 +101,7 @@ function AppRoutes() {
         <Route
           path="/admin/blogs/view/:id"
           element={
-            <ProtectedRoute allowedRoles={["admin"]}>
+            <ProtectedRoute>
               <AdminBlogPreview />
             </ProtectedRoute>
           }

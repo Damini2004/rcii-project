@@ -7,15 +7,11 @@ const initFirebaseAdmin = () => {
   if (initialized) return admin;
 
   const serviceAccount = getFirebaseServiceAccount();
-  if (!serviceAccount) {
-    throw new Error(
-      "Firebase service account credentials are required. Set FIREBASE_SERVICE_ACCOUNT or FIREBASE_CLIENT_EMAIL and FIREBASE_PRIVATE_KEY."
-    );
-  }
+  const initOptions = serviceAccount
+    ? { credential: admin.credential.cert(serviceAccount) }
+    : undefined;
 
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-  });
+  admin.initializeApp(initOptions);
 
   initialized = true;
   return admin;

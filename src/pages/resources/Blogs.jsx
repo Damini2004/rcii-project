@@ -25,7 +25,7 @@ import b4 from "../../assets/research-funding-blog-3.webp";
 import b5 from "../../assets/research-funding-blog-3.webp";
 import b6 from "../../assets/research-funding-blog-3.webp";
 import blogCta from "../../assets/research-blog-featured-image.webp";
-import { blogAPI, resolveImageUrl } from "../../services/api";
+import { blogAPI, newsletterAPI, resolveImageUrl } from "../../services/api";
 import toast from "react-hot-toast";
 
 // Local fallback images cycle through while a blog has no featuredImage yet,
@@ -190,13 +190,7 @@ function Blogs() {
     try {
       setLoading(true);
 
-      await fetch(`${import.meta.env.VITE_API_URL}/newsletter/subscribe`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      await newsletterAPI.subscribe(email);
 
       toast.success("Subscribed successfully!");
       setEmail("");

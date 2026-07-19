@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -11,20 +13,23 @@ const firebaseConfig = {
 };
 
 const requiredKeys = [
-  'VITE_FIREBASE_API_KEY',
-  'VITE_FIREBASE_AUTH_DOMAIN',
-  'VITE_FIREBASE_PROJECT_ID',
-  'VITE_FIREBASE_STORAGE_BUCKET',
-  'VITE_FIREBASE_MESSAGING_SENDER_ID',
-  'VITE_FIREBASE_APP_ID',
+  "VITE_FIREBASE_API_KEY",
+  "VITE_FIREBASE_AUTH_DOMAIN",
+  "VITE_FIREBASE_PROJECT_ID",
+  "VITE_FIREBASE_STORAGE_BUCKET",
+  "VITE_FIREBASE_MESSAGING_SENDER_ID",
+  "VITE_FIREBASE_APP_ID",
 ];
 
 const missingKeys = requiredKeys.filter((key) => !import.meta.env[key]);
 if (missingKeys.length) {
   throw new Error(
-    `Missing Firebase env vars: ${missingKeys.join(', ')}. Create a root .env file with VITE_FIREBASE_* values and restart Vite.`
+    `Missing Firebase env vars: ${missingKeys.join(", ")}. Create a root .env file with VITE_FIREBASE_* values and restart Vite.`
   );
 }
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db = getFirestore(app);
+export const storage = getStorage(app);
+export default app;
