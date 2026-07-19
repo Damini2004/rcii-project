@@ -262,6 +262,11 @@ const getBlogBySlug = async (slug) => {
   return { data: { data: blog, related } };
 };
 
+const blogAPI = {
+  getAll: getAllBlogs,
+  getBySlug: getBlogBySlug,
+};
+
 const getAdminBlogs = async (params = {}) => {
   const { page = 1, limit = 10, search, status = "all", category, sortBy, sortDir } = params;
   const q = query(collection(db, COLLECTIONS.blogs));
@@ -392,24 +397,28 @@ const subscribeNewsletter = async (email) => {
   return { data: { success: true, message: "Subscribed successfully" } };
 };
 
+const newsletterAPI = {
+  subscribe: subscribeNewsletter,
+};
+
+const adminBlogAPI = {
+  getAll: getAdminBlogs,
+  getById: getAdminBlogById,
+  create: createBlog,
+  update: updateBlog,
+  delete: deleteBlog,
+  bulkDelete: bulkDeleteBlogs,
+  uploadImage,
+};
+
 const api = {
   auth: authAPI,
   blogAPI: {
     getAll: getAllBlogs,
     getBySlug: getBlogBySlug,
   },
-  adminBlogAPI: {
-    getAll: getAdminBlogs,
-    getById: getAdminBlogById,
-    create: createBlog,
-    update: updateBlog,
-    delete: deleteBlog,
-    bulkDelete: bulkDeleteBlogs,
-    uploadImage,
-  },
-  newsletterAPI: {
-    subscribe: subscribeNewsletter,
-  },
+  adminBlogAPI,
+  newsletterAPI,
   resolveImageUrl,
 };
 
